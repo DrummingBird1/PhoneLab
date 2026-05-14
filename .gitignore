@@ -1,0 +1,48 @@
+# ─── Secrets ────────────────────────────────────────────────
+# Signing keys MUST NEVER be committed
+PhoneLab-Key
+*.keystore
+*.jks
+*.pepk
+key.properties
+
+# Local environment configuration
+local.properties
+
+# ─── Android build artifacts ────────────────────────────────
+**/build/
+**/.gradle/
+.gradle/
+captures/
+output.json
+release/
+
+# Generated files
+**/bin/
+**/gen/
+**/out/
+
+# ─── IntelliJ / Android Studio ──────────────────────────────
+.idea/
+*.iml
+*.iws
+*.ipr
+.navigation/
+
+# ─── OS files ───────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Logs ───────────────────────────────────────────────────
+*.log
+*.hprof
+
+# ─── Claude Code ────────────────────────────────────────────
+# Per-machine permissions (settings.json itself can be shared if desired)
+.claude/settings.local.json
+
+# ─── Misc ───────────────────────────────────────────────────
+*.bak
+*.swp
+*~

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="?attr/colorBackground" android:padding="12dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ═══════════ TEXTUAL LAYOUT ═══════════ -->
+        <LinearLayout android:id="@+id/layout_textual"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Row: Accel + Gyro -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="10dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_accelerometer" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Accelerometer\nm/s²\nX:--  Y:--  Z:--"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_gyroscope" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Gyroscope\nrad/s\nX:--  Y:--  Z:--"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Row: Magnetic + Gravity -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="10dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_magnetic_field" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Magnetic Field\nµT\nX:--  Y:--  Z:--"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_gravity" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Gravity\nm/s²\nX:--  Y:--  Z:--"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Row: Light + Lux -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="10dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_light" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Light\n-- lx"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_lux" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Lux\n-- lx\n--"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Row: Pressure + Linear Accel -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="10dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_pressure" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Pressure\n-- hPa\nAlt≈-- m"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_linear_accel" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Linear Accel\nm/s²\nX:--  Y:--  Z:--"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Row: Rotation + Game Rotation -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="10dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_rotation_vector" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Rotation Vector\nX:--  Y:--  Z:--"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_game_rotation" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Game Rotation\nX:--  Y:--  Z:--"
+                        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+                        android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Row: Step + Tilt -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="10dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_step_detector" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Step Detector\n🚶 0 steps"
+                        android:textColor="?attr/colorOnSurface" android:textSize="13sp"
+                        android:textStyle="bold" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/tv_tilt_detector" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="12dp"
+                        android:text="Tilt Detector\n📱 0 tilts"
+                        android:textColor="?attr/colorOnSurface" android:textSize="13sp"
+                        android:textStyle="bold" android:lineSpacingExtra="3dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Speed -->
+            <androidx.cardview.widget.CardView android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+                app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="4dp">
+                <TextView android:id="@+id/tv_speed" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:padding="18dp"
+                    android:text="🚀 Speed\n0.0 mph  |  0.0 km/h"
+                    android:textColor="?attr/colorOnSurface" android:textSize="16sp"
+                    android:textStyle="bold" android:gravity="center" android:lineSpacingExtra="5dp"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- ═══════════ VISUAL LAYOUT ═══════════ -->
+        <LinearLayout android:id="@+id/layout_visual"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:visibility="gone">
+
+            <!-- Visual Row 1: Accel + Gyro -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="3" android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="10dp" android:gravity="center">
+                        <TextView android:id="@+id/vis_accel" android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="📳\n--" android:textSize="18sp" android:gravity="center"
+                            android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                        <ProgressBar android:id="@+id/pb_accel" style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent" android:layout_height="8dp"
+                            android:layout_marginTop="6dp" android:max="100" android:progress="0"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="10dp" android:gravity="center">
+                        <TextView android:id="@+id/vis_gyro" android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="🌀\n--" android:textSize="18sp" android:gravity="center"
+                            android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                        <ProgressBar android:id="@+id/pb_gyro" style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent" android:layout_height="8dp"
+                            android:layout_marginTop="6dp" android:max="100" android:progress="0"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="10dp" android:gravity="center">
+                        <TextView android:id="@+id/vis_mag" android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="🧭\n--" android:textSize="18sp" android:gravity="center"
+                            android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                        <ProgressBar android:id="@+id/pb_mag" style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent" android:layout_height="8dp"
+                            android:layout_marginTop="6dp" android:max="100" android:progress="0"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Visual Row 2: Light + Pressure + Gravity -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="3" android:layout_marginBottom="10dp">
+
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="10dp" android:gravity="center">
+                        <TextView android:id="@+id/vis_light" android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="💡\n--" android:textSize="18sp" android:gravity="center"
+                            android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                        <ProgressBar android:id="@+id/pb_light" style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent" android:layout_height="8dp"
+                            android:layout_marginTop="6dp" android:max="100" android:progress="0"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:orientation="vertical" android:padding="10dp" android:gravity="center">
+                        <TextView android:id="@+id/vis_pressure" android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="🌡\n--" android:textSize="18sp" android:gravity="center"
+                            android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                        <ProgressBar android:id="@+id/pb_pressure" style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                            android:layout_width="match_parent" android:layout_height="8dp"
+                            android:layout_marginTop="6dp" android:max="100" android:progress="0"/>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/vis_gravity" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="10dp"
+                        android:text="📐\n--" android:textSize="18sp" android:gravity="center"
+                        android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Visual Row 3: Lin Accel + Rot + Game Rot -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="3" android:layout_marginBottom="10dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/vis_lin_accel" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="10dp"
+                        android:text="⚡\n--" android:textSize="18sp" android:gravity="center"
+                        android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/vis_rot" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="10dp"
+                        android:text="🔄\n--" android:textSize="18sp" android:gravity="center"
+                        android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/vis_game_rot" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="10dp"
+                        android:text="🎮\n--" android:textSize="18sp" android:gravity="center"
+                        android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Visual Row 4: Step + Tilt + Speed -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:weightSum="3" android:layout_marginBottom="12dp">
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/vis_step" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="10dp"
+                        android:text="🚶\n0\nsteps" android:textSize="16sp" android:gravity="center"
+                        android:textColor="?attr/colorOnSurface" android:textStyle="bold" android:lineSpacingExtra="2dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginEnd="5dp"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/vis_tilt" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="10dp"
+                        android:text="📱\n0\ntilts" android:textSize="16sp" android:gravity="center"
+                        android:textColor="?attr/colorOnSurface" android:textStyle="bold" android:lineSpacingExtra="2dp"/>
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
+                    <TextView android:id="@+id/vis_speed" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:padding="10dp"
+                        android:text="🚀\n0.0\nmph" android:textSize="16sp" android:gravity="center"
+                        android:textColor="?attr/colorOnSurface" android:textStyle="bold" android:lineSpacingExtra="2dp"/>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- values-night is actually used when night mode is ON -->
+    <!-- Our primary is always blue regardless of theme -->
+    <color name="primary">#1F6FEB</color>
+    <color name="primaryVariant">#58A6FF</color>
+    <color name="onPrimary">#FFFFFF</color>
+    <color name="surface">#161B22</color>
+    <color name="onSurface">#E6EDF3</color>
+    <color name="background">#0D1117</color>
+</resources>

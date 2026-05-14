@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dark theme (default) -->
+    <color name="primary">#58A6FF</color>
+    <color name="primaryVariant">#1F6FEB</color>
+    <color name="onPrimary">#0D1117</color>
+    <color name="surface">#161B22</color>
+    <color name="onSurface">#E6EDF3</color>
+    <color name="background">#0D1117</color>
+    <color name="ic_launcher_background">#0D1117</color>
+</resources>
