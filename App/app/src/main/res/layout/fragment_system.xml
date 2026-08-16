@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="?attr/colorBackground" android:padding="10dp">
+<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+<!-- ══════════════ TEXTUAL ══════════════ -->
+<LinearLayout android:id="@+id/sys_layout_textual"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:text="@string/system_section_temps"
+      android:textColor="?attr/colorPrimary" android:textSize="14sp"
+      android:textStyle="bold" android:paddingBottom="6dp"/>
+
+  <!-- Battery + CPU + GPU -->
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:weightSum="3" android:layout_marginBottom="6dp">
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="3dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_battery_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="🔋 Battery\n-- °C\n--%"
+          android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+          android:fontFamily="monospace" android:gravity="center" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="3dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_cpu_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="🔥 CPU\n-- °C"
+          android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+          android:fontFamily="monospace" android:gravity="center" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_gpu_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="🎮 GPU\n-- °C"
+          android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+          android:fontFamily="monospace" android:gravity="center" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+  </LinearLayout>
+
+  <!-- Skin + Modem + WiFi -->
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:weightSum="3" android:layout_marginBottom="12dp">
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="3dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_skin_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="📱 Skin\n-- °C"
+          android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+          android:fontFamily="monospace" android:gravity="center" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="3dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_modem_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="📡 Modem\n-- °C"
+          android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+          android:fontFamily="monospace" android:gravity="center" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_wifi_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="📶 WiFi/BT\n-- °C"
+          android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+          android:fontFamily="monospace" android:gravity="center" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+  </LinearLayout>
+
+  <!-- Charger + NPU row -->
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:weightSum="3" android:layout_marginBottom="12dp">
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="3dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_charger_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="🔌 Charger\n-- °C"
+          android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+          android:fontFamily="monospace" android:gravity="center" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="3dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_npu_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="🧠 NPU/AI\n-- °C"
+          android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+          android:fontFamily="monospace" android:gravity="center" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+  </LinearLayout>
+
+  <!-- Batch 7: CPU temperature trend — filled by a ring buffer in SystemFragment's
+       thermal poll, not the instantaneous single reading above. -->
+  <androidx.cardview.widget.CardView android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+      app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="10dp">
+      <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+          android:text="@string/system_cpu_trend" android:textColor="?attr/colorOnSurfaceVariant"
+          android:textSize="11sp" android:paddingBottom="4dp"/>
+      <com.sensolab.devicemonitor.SparklineView android:id="@+id/spark_cpu_temp"
+          android:layout_width="match_parent" android:layout_height="48dp"/>
+    </LinearLayout>
+  </androidx.cardview.widget.CardView>
+
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:text="@string/system_section_specs"
+      android:textColor="?attr/colorPrimary" android:textSize="14sp"
+      android:textStyle="bold" android:paddingBottom="6dp"/>
+
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="6dp">
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_device_name" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="📱 Device\n--" android:textColor="?attr/colorOnSurface"
+          android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginStart="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_android" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="🤖 Android\n--" android:textColor="?attr/colorOnSurface"
+          android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+  </LinearLayout>
+
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="6dp">
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_cpu" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="⚡ CPU\n--" android:textColor="?attr/colorOnSurface"
+          android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginStart="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_ram" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="💾 RAM\n--" android:textColor="?attr/colorOnSurface"
+          android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+  </LinearLayout>
+
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="6dp">
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_storage" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="🗂 Storage\n--" android:textColor="?attr/colorOnSurface"
+          android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginStart="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/tv_screen" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="10dp"
+          android:text="📺 Screen\n--" android:textColor="?attr/colorOnSurface"
+          android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="2dp"/>
+    </androidx.cardview.widget.CardView>
+  </LinearLayout>
+
+  <androidx.cardview.widget.CardView android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+      app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+    <TextView android:id="@+id/tv_abi" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="10dp"
+        android:text="🔧 ABI: --" android:textColor="?attr/colorOnSurface"
+        android:textSize="11sp" android:fontFamily="monospace"/>
+  </androidx.cardview.widget.CardView>
+
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:text="@string/system_section_benchmark"
+      android:textColor="?attr/colorPrimary" android:textSize="14sp"
+      android:textStyle="bold" android:paddingBottom="6dp"/>
+
+  <Button android:id="@+id/btn_benchmark"
+      android:layout_width="match_parent" android:layout_height="52dp"
+      android:text="@string/system_btn_run_benchmark"
+      android:textSize="14sp" android:textStyle="bold" android:layout_marginBottom="6dp"/>
+
+  <ProgressBar android:id="@+id/pb_benchmark"
+      android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:visibility="gone" android:layout_marginBottom="6dp"/>
+
+  <androidx.cardview.widget.CardView android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:layout_marginBottom="10dp"
+      app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+    <TextView android:id="@+id/tv_bench_result" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="14dp"
+        android:text="@string/system_benchmark_intro"
+        android:textColor="?attr/colorOnSurface" android:textSize="11sp"
+        android:fontFamily="monospace" android:lineSpacingExtra="4dp"/>
+  </androidx.cardview.widget.CardView>
+
+  <!-- Batch 7: benchmark score trend, from the same history AppPrefs.getBenchHistory()
+       already renders as text above (tv_bench_result) — a visual complement, not a
+       replacement for the text. -->
+  <androidx.cardview.widget.CardView android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:layout_marginBottom="12dp"
+      app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="10dp">
+      <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+          android:text="@string/system_bench_trend" android:textColor="?attr/colorOnSurfaceVariant"
+          android:textSize="11sp" android:paddingBottom="4dp"/>
+      <com.sensolab.devicemonitor.SparklineView android:id="@+id/spark_bench_history"
+          android:layout_width="match_parent" android:layout_height="48dp"/>
+    </LinearLayout>
+  </androidx.cardview.widget.CardView>
+
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:text="@string/system_section_export"
+      android:textColor="?attr/colorPrimary" android:textSize="14sp"
+      android:textStyle="bold" android:paddingBottom="6dp"/>
+
+  <Button android:id="@+id/btn_export"
+      android:layout_width="match_parent" android:layout_height="52dp"
+      android:text="@string/system_btn_export"
+      android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"/>
+
+  <!-- Batch 7: JSON alongside the existing plain-text export -->
+  <Button android:id="@+id/btn_export_json"
+      android:layout_width="match_parent" android:layout_height="52dp"
+      android:text="@string/system_btn_export_json"
+      android:textSize="13sp" android:textStyle="bold" android:layout_marginBottom="6dp"/>
+
+  <!-- Y4: secondary action — copy spec text to clipboard without writing a file -->
+  <Button android:id="@+id/btn_copy_specs"
+      android:layout_width="match_parent" android:layout_height="44dp"
+      android:text="@string/export_btn_copy"
+      android:textSize="12sp" android:layout_marginBottom="6dp"/>
+
+  <TextView android:id="@+id/tv_export_status"
+      android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:padding="10dp" android:text=""
+      android:textColor="?attr/colorOnSurfaceVariant" android:textSize="11sp"
+      android:layout_marginBottom="20dp"/>
+
+</LinearLayout>
+
+<!-- ══════════════ VISUAL ══════════════ -->
+<LinearLayout android:id="@+id/sys_layout_visual"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:visibility="gone">
+
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:text="@string/system_section_temps_short"
+      android:textColor="?attr/colorPrimary" android:textSize="14sp"
+      android:textStyle="bold" android:paddingBottom="6dp"/>
+
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:weightSum="4" android:layout_marginBottom="10dp">
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/vis_batt_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="12dp"
+          android:text="🟢\n--°C\n--%"
+          android:textSize="14sp" android:gravity="center" android:textColor="?attr/colorOnSurface"
+          android:textStyle="bold" android:lineSpacingExtra="3dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/vis_cpu_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="12dp"
+          android:text="🔥\n--°C"
+          android:textSize="16sp" android:gravity="center" android:textColor="?attr/colorOnSurface"
+          android:textStyle="bold" android:lineSpacingExtra="3dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="4dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/vis_gpu_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="12dp"
+          android:text="🎮\n--°C"
+          android:textSize="16sp" android:gravity="center" android:textColor="?attr/colorOnSurface"
+          android:textStyle="bold" android:lineSpacingExtra="3dp"/>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+      <TextView android:id="@+id/vis_skin_temp" android:layout_width="match_parent"
+          android:layout_height="wrap_content" android:padding="12dp"
+          android:text="📱\n--°C"
+          android:textSize="16sp" android:gravity="center" android:textColor="?attr/colorOnSurface"
+          android:textStyle="bold" android:lineSpacingExtra="3dp"/>
+    </androidx.cardview.widget.CardView>
+  </LinearLayout>
+
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:text="@string/system_section_device"
+      android:textColor="?attr/colorPrimary" android:textSize="14sp"
+      android:textStyle="bold" android:paddingBottom="6dp"/>
+
+  <androidx.cardview.widget.CardView android:layout_width="match_parent"
+      android:layout_height="wrap_content" android:layout_marginBottom="8dp"
+      app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+    <TextView android:id="@+id/vis_device" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="14dp"
+        android:text="📱\n--" android:textSize="14sp" android:gravity="center"
+        android:textColor="?attr/colorOnSurface" android:textStyle="bold"
+        android:lineSpacingExtra="3dp"/>
+  </androidx.cardview.widget.CardView>
+
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+      android:orientation="horizontal" android:weightSum="2" android:layout_marginBottom="16dp">
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginEnd="5dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="vertical" android:padding="10dp">
+        <TextView android:id="@+id/vis_ram" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="💾\n--"
+            android:textSize="14sp" android:gravity="center"
+            android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+        <ProgressBar android:id="@+id/pb_vis_ram" style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent" android:layout_height="8dp"
+            android:layout_marginTop="6dp" android:max="100"/>
+      </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1" android:layout_marginStart="5dp"
+        app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="12dp" app:cardElevation="2dp">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+          android:orientation="vertical" android:padding="10dp">
+        <TextView android:id="@+id/vis_storage" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="🗂\n--"
+            android:textSize="14sp" android:gravity="center"
+            android:textColor="?attr/colorOnSurface" android:lineSpacingExtra="2dp"/>
+        <ProgressBar android:id="@+id/pb_vis_storage" style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent" android:layout_height="8dp"
+            android:layout_marginTop="6dp" android:max="100"/>
+      </LinearLayout>
+    </androidx.cardview.widget.CardView>
+  </LinearLayout>
+
+</LinearLayout>
+</LinearLayout>
+</ScrollView>

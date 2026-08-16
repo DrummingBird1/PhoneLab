@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ════ تطبيق ════ -->
+    <string name="app_name">PhoneLab</string>
+    <string name="app_tagline">مراقب مستشعرات الجهاز ومحلل العتاد</string>
+    <string name="app_version_line">v%1$s  •  %2$s</string>
+
+    <!-- ════ علامات التبويب ════ -->
+    <string name="tab_sensors">📡 المستشعرات</string>
+    <string name="tab_system">⚙️ النظام</string>
+    <string name="tab_hardware">🔌 العتاد</string>
+    <string name="tab_about">ℹ️ حول</string>
+    <string name="tab_settings">🔧 الإعدادات</string>
+
+    <!-- ════ شاشة "حول" ════ -->
+    <string name="about_title">حول PhoneLab</string>
+    <string name="about_body">يمنحك PhoneLab رؤية كاملة في الوقت الفعلي لعتاد جهازك.\n\n✅  17 مستشعر عتاد حي\n✅  8 مناطق حرارية (المعالج، الرسوميات، البطارية، المودم، WiFi، الشاحن، NPU، الجسم)\n✅  مواصفات الجهاز الكاملة + تصدير لملف\n✅  اختبار أداء متعدد المراحل\n✅  تتبع سرعة وارتفاع GPS\n✅  بوصلة حية + مقياس مستوى الصوت\n✅  أوضاع عرض نصية ومرئية\n✅  وحدات مترية / إمبراطورية\n✅  سمات داكنة وفاتحة</string>
+    <string name="about_btn_rate">⭐  قَيِّم على Google Play</string>
+    <string name="about_btn_donate">❤️  ادعم التطوير</string>
+    <string name="about_btn_share">📤  شارك مع الأصدقاء</string>
+    <string name="about_btn_email">✉️  ملاحظات ودعم</string>
+    <string name="about_made_with">صُنع بحب ❤️  لعشاق Android</string>
+    <string name="about_copyright">© 2026 PhoneLab</string>
+    <string name="about_share_subject">PhoneLab - مراقب مستشعرات الجهاز</string>
+    <string name="about_share_body">جرب PhoneLab — مراقب مستشعرات الجهاز الأمثل لـ Android!\nhttps://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="about_share_chooser">شارك PhoneLab</string>
+    <string name="about_email_subject">ملاحظات PhoneLab</string>
+    <string name="about_email_chooser">إرسال بريد</string>
+    <string name="about_no_browser">تعذر فتح المتصفح</string>
+    <string name="about_no_email_app">لم يتم العثور على تطبيق بريد</string>
+
+    <!-- ════ شاشة الإعدادات ════ -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_section_appearance">🎨  المظهر</string>
+    <string name="settings_section_display_mode">📊  وضع العرض</string>
+    <string name="settings_section_units">📐  نظام الوحدات</string>
+    <string name="settings_section_thermal">🌡️  التنبيهات الحرارية</string>
+    <string name="settings_btn_to_dark">🌙  التبديل إلى الوضع الداكن</string>
+    <string name="settings_btn_to_light">☀️  التبديل إلى الوضع الفاتح</string>
+    <string name="settings_btn_to_system">🌓  اتبع إعدادات النظام</string>
+    <string name="settings_btn_to_textual">📝  التبديل إلى الوضع النصي</string>
+    <string name="settings_btn_to_visual">🎨  التبديل إلى الوضع المرئي</string>
+    <string name="settings_btn_to_metric">🌍  التبديل إلى مترية (أوروبية)</string>
+    <string name="settings_btn_to_imperial">🇺🇸  التبديل إلى إمبراطورية (أمريكية)</string>
+    <string name="settings_btn_thermal_disable">🔕  إيقاف التنبيهات</string>
+    <string name="settings_btn_thermal_enable">🔔  تفعيل التنبيهات</string>
+    <string name="settings_now_dark">حاليًا: 🌙 الوضع الداكن</string>
+    <string name="settings_now_light">حاليًا: ☀️ الوضع الفاتح</string>
+    <string name="settings_now_system">حاليًا: 🌓 يتبع النظام</string>
+    <string name="settings_now_textual">حاليًا: 📝 الوضع النصي</string>
+    <string name="settings_now_visual">حاليًا: 🎨 الوضع المرئي</string>
+    <string name="settings_now_metric">حاليًا: 🌍 مترية\n°م · كم/س · م · hPa</string>
+    <string name="settings_now_imperial">حاليًا: 🇺🇸 إمبراطورية\n°ف · mph · ft · inHg</string>
+    <string name="settings_now_thermal_on">حاليًا: 🔔 التنبيهات مفعّلة</string>
+    <string name="settings_now_thermal_off">حاليًا: 🔕 التنبيهات متوقفة</string>
+    <string name="settings_units_reference">🌍 مترية (أوروبية)\n  درجة الحرارة: °م\n  السرعة: كم/س\n  المسافة/الارتفاع: متر\n  الضغط: hPa\n\n🇺🇸 إمبراطورية (أمريكية)\n  درجة الحرارة: °ف\n  السرعة: mph\n  المسافة/الارتفاع: ft\n  الضغط: inHg</string>
+    <string name="settings_note">ℹ️  تغييرات وضع العرض والوحدات تُطبق فورًا في جميع التبويبات.\nتغيير السمة سيعيد تحميل الشاشة الحالية.</string>
+
+    <!-- ════ شاشة النظام ════ -->
+    <string name="system_section_temps">🌡️  درجات حرارة المكونات</string>
+    <string name="system_section_temps_short">🌡️  درجات الحرارة</string>
+    <string name="system_section_specs">📋  مواصفات الجهاز</string>
+    <string name="system_section_device">📋  الجهاز</string>
+    <string name="system_section_benchmark">🏁  اختبار الأداء</string>
+    <string name="system_section_export">📤  التصدير</string>
+    <string name="system_btn_run_benchmark">▶  تشغيل الاختبار</string>
+    <string name="system_btn_export">📤  تصدير مواصفات النظام إلى ملف نصي</string>
+    <string name="system_btn_export_json">🧾  تصدير مواصفات النظام إلى JSON</string>
+    <string name="system_cpu_trend">📈 اتجاه حرارة المعالج</string>
+    <string name="system_bench_trend">📈 اتجاه نتائج اختبار الأداء</string>
+    <string name="system_benchmark_intro">اضغط ▶ تشغيل الاختبار للبدء.\n4 مراحل: أعداد صحيحة · فاصلة عائمة · ذاكرة · متعدد النوى</string>
+
+    <!-- ════ شاشة المستشعرات ════ -->
+    <string name="sensors_section_live_compass">🧭  البوصلة المباشرة</string>
+    <string name="cd_compass">قرص البوصلة المباشرة</string>
+    <string name="cd_app_icon">رمز تطبيق PhoneLab</string>
+
+    <!-- ════ الحالة العامة ════ -->
+    <string name="status_not_available">غير متوفر</string>
+    <string name="status_permission_needed">يلزم إذن</string>
+    <string name="status_na">—</string>
+    <string name="status_waiting">في الانتظار…</string>
+    <string name="status_gps_disabled">GPS معطل</string>
+
+    <!-- ════ Contextual permission requests ════ -->
+    <string name="perm_rationale_location">يستخدم PhoneLab موقعك لعرض سرعة GPS والارتفاع.</string>
+    <string name="perm_rationale_audio">يستخدم PhoneLab الميكروفون لقياس مستوى الصوت المحيط.</string>
+    <string name="perm_rationale_body_sensors">يستخدم PhoneLab مستشعرات الجسم لقراءة معدل ضربات قلبك.</string>
+    <string name="perm_rationale_activity_recognition">يستخدم PhoneLab التعرف على النشاط لعد خطواتك.</string>
+    <string name="perm_rationale_continue">متابعة</string>
+    <string name="perm_denied_open_settings">تم رفض الإذن — افتح إعدادات النظام لمنحه</string>
+    <string name="perm_action_settings">الإعدادات</string>
+
+    <!-- ════ أسماء المستشعرات ════ -->
+    <string name="sensor_accelerometer">مقياس التسارع</string>
+    <string name="sensor_magnetometer">مقياس المغناطيسية</string>
+    <string name="sensor_gyroscope">الجيروسكوب</string>
+    <string name="sensor_gyro_uncal">جيروسكوب غير معاير</string>
+    <string name="sensor_light">مستشعر الإضاءة</string>
+    <string name="sensor_barometer">مقياس الضغط الجوي</string>
+    <string name="sensor_gravity">متجه الجاذبية</string>
+    <string name="sensor_linear_accel">تسارع خطي (بدون جاذبية)</string>
+    <string name="sensor_rotation_vector">متجه الدوران</string>
+    <string name="sensor_game_rotation">دوران اللعبة (بدون مغناطيسية)</string>
+    <string name="sensor_step_detector">كاشف الخطوات</string>
+    <string name="sensor_step_counter">عداد الخطوات</string>
+    <string name="sensor_tilt_detector">كاشف الإمالة</string>
+    <string name="sensor_proximity">القرب</string>
+    <string name="sensor_humidity">الرطوبة</string>
+    <string name="sensor_ambient_temp">درجة الحرارة المحيطة</string>
+    <string name="sensor_heart_rate">معدل نبضات القلب</string>
+    <string name="sensor_sound_level">🎤 مستوى الصوت (غير معاير)</string>
+    <string name="sensor_gps_speed">🚀 سرعة GPS</string>
+    <string name="sensor_gps_altitude">⛰️ ارتفاع GPS</string>
+    <string name="sensor_compass_label">البوصلة</string>
+
+    <!-- ════ كلمات حالة الحركة (تُستخدم كـ %s في تنسيقات النص) ════ -->
+    <string name="state_still">ساكن</string>
+    <string name="state_normal">عادي</string>
+    <string name="state_moving">يتحرك</string>
+    <string name="state_fast">سريع!</string>
+    <string name="state_high_g">G عالي!</string>
+    <string name="state_slow">بطيء</string>
+    <string name="state_medium">متوسط</string>
+    <string name="state_fast_plain">سريع</string>
+    <string name="state_slight">طفيف</string>
+    <string name="state_weak">ضعيف</string>
+    <string name="state_strong">قوي</string>
+    <string name="state_interference">⚠️ تشويش؟</string>
+
+    <!-- ════ الاتجاه (الجاذبية) ════ -->
+    <string name="orient_flat">مسطح</string>
+    <string name="orient_tilted">مائل</string>
+    <string name="orient_standing">قائم</string>
+    <string name="orient_sideways">جانبي</string>
+
+    <!-- ════ القرب ════ -->
+    <string name="proximity_near">🤚 قريب/مغطى</string>
+    <string name="proximity_far">↔️ بعيد/مكشوف</string>
+    <string name="proximity_near_short">🤚\nقريب</string>
+    <string name="proximity_far_short">↔️\nبعيد</string>
+
+    <!-- ════ الرطوبة ════ -->
+    <string name="humidity_very_dry">🏜️ جاف جدًا</string>
+    <string name="humidity_dry">🌵 جاف</string>
+    <string name="humidity_comfortable">🌿 مريح</string>
+    <string name="humidity_humid">💦 رطب</string>
+    <string name="humidity_very_humid">🌊 رطب جدًا</string>
+
+    <!-- ════ درجة حرارة محيطة ════ -->
+    <string name="ambient_cold">❄️ بارد</string>
+    <string name="ambient_cool">🧊 منعش</string>
+    <string name="ambient_comfortable">🌿 مريح</string>
+    <string name="ambient_warm">☀️ دافئ</string>
+    <string name="ambient_hot">🔥 حار</string>
+
+    <!-- ════ مناطق معدل النبضات ════ -->
+    <string name="hr_zone_low">💤 منخفض</string>
+    <string name="hr_zone_normal">💚 عادي</string>
+    <string name="hr_zone_elevated">💛 مرتفع</string>
+    <string name="hr_zone_high">🔴 عالي</string>
+    <string name="hr_place_finger">ضع الإصبع على المستشعر…</string>
+
+    <!-- ════ مستويات الصوت ════ -->
+    <string name="sound_silent">🤫 صامت</string>
+    <string name="sound_quiet">🔈 هادئ</string>
+    <string name="sound_normal">🔉 عادي</string>
+    <string name="sound_loud">🔊 صاخب</string>
+    <string name="sound_very_loud">📢 صاخب جدًا!</string>
+
+    <!-- ════ الطقس (مقياس الضغط) ════ -->
+    <string name="weather_clear">☀️ صافٍ</string>
+    <string name="weather_normal">🌤 عادي</string>
+    <string name="weather_cloudy">🌧 غائم</string>
+    <string name="weather_storm">⛈ عاصفة</string>
+
+    <!-- ════ مستويات الإضاءة ════ -->
+    <string name="light_pitch_dark">ظلام دامس</string>
+    <string name="light_very_dark">معتم جدًا</string>
+    <string name="light_dim">خافت</string>
+    <string name="light_indoor">داخلي</string>
+    <string name="light_bright_indoor">داخلي ساطع</string>
+    <string name="light_overcast">غائم</string>
+    <string name="light_daylight">ضوء النهار</string>
+    <string name="light_direct_sun">شمس مباشرة</string>
+
+    <!-- ════ حركة كبيرة ════ -->
+    <string name="sig_motion_label">حركة كبيرة</string>
+    <string name="sig_motion_na_short">🏃\n—</string>
+
+    <!-- ════ مستشعرات متقدمة (v1.2.0) ════ -->
+    <string name="sensors_section_advanced">🔬  مستشعرات متقدمة</string>
+    <string name="sensor_stationary">كاشف السكون</string>
+    <string name="sensor_motion_detect">كاشف الحركة</string>
+    <string name="sensor_accel_uncal">مقياس تسارع غير معاير</string>
+    <string name="sensor_mag_uncal">مغناطيسية غير معايرة</string>
+    <string name="sensor_geomag_rotation">دوران مغناطيسي</string>
+    <string name="sensor_hinge_angle">زاوية المفصلة</string>
+    <string name="state_stationary_detected">🪨 ساكن × %1$d</string>
+    <string name="state_motion_detected">🏃 حركة × %1$d</string>
+    <string name="hinge_angle_format">📐 %1$.1f°  %2$s</string>
+    <string name="hinge_state_closed">مغلق</string>
+    <string name="hinge_state_open">مفتوح</string>
+    <string name="hinge_state_flat">مسطح</string>
+
+    <!-- ════ تسجيل CSV ════ -->
+    <string name="sensors_section_recording">📼  تسجيل المستشعرات</string>
+    <string name="rec_btn_start">🔴  بدء التسجيل</string>
+    <string name="rec_btn_stop">⏹  إيقاف · %1$s · %2$d عينة</string>
+    <string name="rec_status_idle">لا يوجد تسجيل</string>
+    <string name="rec_status_active">🔴 يسجل · %1$s · %2$d عينة</string>
+    <string name="rec_status_saved">✅ تم الحفظ: %1$s\n%2$d عينة — اضغط مشاركة للإرسال</string>
+    <string name="rec_status_failed">❌ فشل التسجيل: %1$s</string>
+    <string name="rec_csv_header">timestamp_ns,sensor,v1,v2,v3,v4,v5,v6</string>
+    <string name="rec_share_subject">تسجيل مستشعرات من PhoneLab</string>
+    <string name="rec_notif_channel_name">تسجيل المستشعرات</string>
+    <string name="rec_notif_channel_desc">يعرض إشعارًا مستمرًا أثناء تسجيل بيانات المستشعرات</string>
+    <string name="rec_notif_title">جارٍ تسجيل بيانات المستشعرات</string>
+    <string name="rec_notif_text">اضغط على إيقاف لإنهاء التسجيل وحفظه</string>
+    <string name="rec_notif_stop">إيقاف</string>
+
+    <!-- ════ Batch 6: Widget / Quick Settings Tile / App Shortcuts ════ -->
+    <string name="qs_tile_label">حرارة المعالج</string>
+    <string name="widget_cpu_label">حرارة المعالج</string>
+    <string name="shortcut_benchmark_short">اختبار الأداء</string>
+    <string name="shortcut_benchmark_long">تشغيل اختبار الأداء</string>
+    <string name="shortcut_record_short">تسجيل</string>
+    <string name="shortcut_record_long">بدء التسجيل</string>
+    <string name="shortcut_hardware_short">العتاد</string>
+    <string name="shortcut_hardware_long">معلومات العتاد</string>
+
+    <!-- ════ تسميات درجة حرارة المكونات ════ -->
+    <string name="temp_battery">🔋 البطارية</string>
+    <string name="temp_cpu">🔥 المعالج</string>
+    <string name="temp_gpu">🎮 GPU</string>
+    <string name="temp_skin">📱 جسم الجهاز</string>
+    <string name="temp_modem">📡 المودم/5G</string>
+    <string name="temp_wifi">📶 WiFi/BT</string>
+    <string name="temp_charger">🔌 الشاحن</string>
+    <string name="temp_npu">🧠 NPU/AI</string>
+
+    <!-- ════ تسميات مواصفات النظام ════ -->
+    <string name="spec_device">📱 الجهاز</string>
+    <string name="spec_android">🤖 Android %1$s (API %2$d)</string>
+    <string name="spec_cpu">⚡ المعالج</string>
+    <string name="spec_ram">💾 الذاكرة</string>
+    <string name="spec_storage">🗂 التخزين</string>
+    <string name="spec_screen">📺 الشاشة</string>
+    <string name="spec_abi">🔧 ABI: %1$s</string>
+    <string name="spec_cores">%1$d أنوية</string>
+
+    <!-- ════ أنواع الشحن ════ -->
+    <string name="charge_usb">USB</string>
+    <string name="charge_ac">AC</string>
+    <string name="charge_wireless">لاسلكي</string>
+
+    <!-- ════ اختبار الأداء ════ -->
+    <string name="bench_running">يعمل… (اضغط للإلغاء)</string>
+    <string name="bench_cancelled">⛔ تم إلغاء الاختبار</string>
+    <string name="bench_phase1">⚙️ المرحلة 1/4  أعداد صحيحة…</string>
+    <string name="bench_phase2">⚙️ المرحلة 2/4  فاصلة عائمة/مثلثات…</string>
+    <string name="bench_phase3">⚙️ المرحلة 3/4  ذاكرة (16 MB)…</string>
+    <string name="bench_phase4">⚙️ المرحلة 4/4  متعدد النوى…</string>
+    <string name="bench_rating_flagship">🏆 رائد</string>
+    <string name="bench_rating_highend">🥇 عالي</string>
+    <string name="bench_rating_midrange">🥈 متوسط</string>
+    <string name="bench_rating_budget">🥉 اقتصادي</string>
+    <string name="bench_rating_entry">⚡ مستوى الدخول</string>
+
+    <!-- ════ تبويب العتاد (v1.2.0) ════ -->
+    <string name="hw_section_cpu">⚡  ترددات المعالج</string>
+    <string name="hw_section_battery">🔋  تفاصيل البطارية</string>
+    <string name="hw_section_display">📺  الشاشة</string>
+    <string name="hw_section_capabilities">🔌  القدرات</string>
+    <string name="hw_cpu_core">النواة %1$d</string>
+    <string name="hw_batt_level">المستوى</string>
+    <string name="hw_batt_charge_counter">السعة</string>
+    <string name="hw_batt_current">التيار</string>
+    <string name="hw_batt_energy">الطاقة</string>
+    <string name="hw_batt_cycles">الدورات</string>
+    <string name="hw_disp_current">الحالي</string>
+    <string name="hw_disp_supported">الأوضاع</string>
+    <string name="hw_disp_hdr">HDR</string>
+    <string name="hw_disp_none">لا شيء</string>
+    <string name="hw_cap_nfc">NFC</string>
+    <string name="hw_cap_usb_host">USB Host</string>
+    <string name="hw_cap_bluetooth">Bluetooth</string>
+    <string name="hw_cap_cameras">الكاميرات</string>
+    <string name="hw_cap_biometric">بيومتري</string>
+    <string name="hw_cap_yes">✅ نعم</string>
+    <string name="hw_cap_no">❌ لا</string>
+    <string name="hw_cap_yes_on">✅ نعم (مفعل)</string>
+    <string name="hw_cap_yes_off">✅ نعم (معطل)</string>
+    <string name="hw_cap_yes_enrolled">✅ مسجل</string>
+    <string name="hw_cap_yes_not_enrolled">⚠️ متوفر، غير مسجل</string>
+
+    <!-- ════ حالة التصدير ════ -->
+    <string name="export_success">✅ تم التصدير: %1$s\nحُفظ في Documents/</string>
+    <string name="export_failed">❌ فشل التصدير: %1$s</string>
+    <string name="export_chooser">تصدير / مشاركة المواصفات</string>
+    <string name="export_share_subject">مواصفات نظام PhoneLab</string>
+    <string name="export_privacy_note">ℹ️ يحتوي على طراز الجهاز و ABI وبيانات حرارية — مشاركة هذا الملف تكشف بصمة هاتفك.</string>
+
+    <!-- ════ قالب نتيجة الاختبار ════ -->
+    <string name="bench_complete_format">✅ اكتمل الاختبار!\n\nالنتيجة: %1$,d نقطة (نسبية — غير قابلة للمقارنة مع Geekbench/AnTuTu)\n%2$s\n\n① أعداد صحيحة: %3$d ms\n② فاصلة عائمة: %4$d ms\n③ ذاكرة:       %5$d ms  (16 MB)\n④ متعدد النوى: %6$d ms  (%7$d أنوية)</string>
+    <string name="bench_history_title">📈 آخر التشغيلات:</string>
+    <string name="export_btn_copy">📋  نسخ كنص</string>
+    <string name="export_copied">📋 تم النسخ إلى الحافظة</string>
+    <string name="thermal_alert_silence">لا تعرض مرة أخرى</string>
+    <string name="thermal_alert_silenced">🔕 تم إسكات التنبيهات الحرارية — أعد التفعيل من تبويب "الإعدادات"</string>
+    <string name="about_btn_privacy">🔒  سياسة الخصوصية</string>
+
+    <!-- ════ الدقة / المعايرة ════ -->
+    <string name="accuracy_low_warning">⚠️ دقة منخفضة — لوّح بالجهاز على شكل 8 لإعادة المعايرة</string>
+
+    <!-- ════ تنبيه حراري (إشعار) ════ -->
+    <string name="thermal_channel_name">تنبيهات حرارية</string>
+    <string name="thermal_channel_desc">ينبهك عندما تتجاوز حرارة المعالج عتبة آمنة</string>
+    <string name="thermal_alert_title">🔥 المعالج يسخن</string>
+    <string name="thermal_alert_body">وصلت حرارة المعالج إلى %1$s. فكر بإغلاق التطبيقات الثقيلة.</string>
+
+    <!-- ════ تنسيقات العدّادات ════ -->
+    <string name="step_det_session_format">🚶 %1$d خطوة في هذه الجلسة</string>
+    <string name="step_det_short_format">🚶\n%1$d\nخطوة</string>
+    <string name="step_counter_format">الجلسة:%1$d  إجمالي الجهاز:%2$,d</string>
+    <string name="tilt_count_format">📱 %1$d حدث إمالة</string>
+    <string name="tilt_count_short_format">📱\n%1$d\nإمالات</string>
+    <string name="sig_motion_detected_format">🏃 رُصد × %1$d</string>
+    <string name="sig_motion_short_format">🏃\n×%1$d</string>
+</resources>

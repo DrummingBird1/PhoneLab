@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ════ אפליקציה ════ -->
+    <!-- שם האפליקציה נשאר באנגלית — שם מותג -->
+    <string name="app_name">PhoneLab</string>
+    <string name="app_tagline">מוניטור חיישנים וניתוח חומרה</string>
+    <string name="app_version_line">v%1$s  •  %2$s</string>
+
+    <!-- ════ טאבים ════ -->
+    <string name="tab_sensors">📡 חיישנים</string>
+    <string name="tab_system">⚙️ מערכת</string>
+    <string name="tab_hardware">🔌 חומרה</string>
+    <string name="tab_about">ℹ️ אודות</string>
+    <string name="tab_settings">🔧 הגדרות</string>
+
+    <!-- ════ מסך אודות ════ -->
+    <string name="about_title">אודות PhoneLab</string>
+    <string name="about_body">PhoneLab נותן לך גישה בזמן אמת לכל חיישני החומרה במכשיר שלך.\n\n✅  17 חיישני חומרה חיים\n✅  8 אזורי טמפרטורה (CPU, GPU, סוללה, מודם, WiFi, מטען, NPU, גוף המכשיר)\n✅  מפרט מכשיר מלא + ייצוא לקובץ\n✅  בנצ׳מרק ביצועים רב־שלבי\n✅  מעקב מהירות וגובה GPS\n✅  מצפן חי + מד עוצמת קול\n✅  תצוגה טקסטואלית או ויזואלית\n✅  יחידות מטריות / אמריקאיות\n✅  ערכת נושא בהירה או כהה</string>
+    <string name="about_btn_rate">⭐  דרג ב־Google Play</string>
+    <string name="about_btn_donate">❤️  תמוך בפיתוח</string>
+    <string name="about_btn_share">📤  שתף עם חברים</string>
+    <string name="about_btn_email">✉️  משוב ותמיכה</string>
+    <string name="about_made_with">נוצר באהבה ❤️  לחובבי אנדרואיד</string>
+    <string name="about_copyright">© 2026 PhoneLab</string>
+    <string name="about_share_subject">PhoneLab - מוניטור חיישני מכשיר</string>
+    <string name="about_share_body">בדקו את PhoneLab — מוניטור חיישני המכשיר האולטימטיבי לאנדרואיד!\nhttps://play.google.com/store/apps/details?id=%1$s</string>
+    <string name="about_share_chooser">שתף את PhoneLab</string>
+    <string name="about_email_subject">משוב על PhoneLab</string>
+    <string name="about_email_chooser">שלח אימייל</string>
+    <string name="about_no_browser">לא ניתן לפתוח את הדפדפן</string>
+    <string name="about_no_email_app">לא נמצאה אפליקציית דואר</string>
+
+    <!-- ════ מסך הגדרות ════ -->
+    <string name="settings_title">הגדרות</string>
+    <string name="settings_section_appearance">🎨  מראה</string>
+    <string name="settings_section_display_mode">📊  מצב תצוגה</string>
+    <string name="settings_section_units">📐  מערכת יחידות</string>
+    <string name="settings_section_thermal">🌡️  התראות חום</string>
+    <string name="settings_btn_to_dark">🌙  עבור למצב כהה</string>
+    <string name="settings_btn_to_light">☀️  עבור למצב בהיר</string>
+    <string name="settings_btn_to_system">🌓  עקוב אחר המערכת</string>
+    <string name="settings_btn_to_textual">📝  עבור למצב טקסטואלי</string>
+    <string name="settings_btn_to_visual">🎨  עבור למצב ויזואלי</string>
+    <string name="settings_btn_to_metric">🌍  עבור ליחידות מטריות (אירופאיות)</string>
+    <string name="settings_btn_to_imperial">🇺🇸  עבור ליחידות אמריקאיות</string>
+    <string name="settings_btn_thermal_disable">🔕  כבה התראות</string>
+    <string name="settings_btn_thermal_enable">🔔  הפעל התראות</string>
+    <string name="settings_now_dark">כרגע: 🌙 מצב כהה</string>
+    <string name="settings_now_light">כרגע: ☀️ מצב בהיר</string>
+    <string name="settings_now_system">כרגע: 🌓 עוקב אחר המערכת</string>
+    <string name="settings_now_textual">כרגע: 📝 מצב טקסטואלי</string>
+    <string name="settings_now_visual">כרגע: 🎨 מצב ויזואלי</string>
+    <string name="settings_now_metric">כרגע: 🌍 מטרי\n°C · קמ״ש · מ׳ · hPa</string>
+    <string name="settings_now_imperial">כרגע: 🇺🇸 אמריקאי\n°F · mph · ft · inHg</string>
+    <string name="settings_now_thermal_on">כרגע: 🔔 התראות פעילות</string>
+    <string name="settings_now_thermal_off">כרגע: 🔕 התראות כבויות</string>
+    <string name="settings_units_reference">🌍 מטרי (אירופאי)\n  טמפרטורה: °C\n  מהירות: קמ״ש\n  מרחק/גובה: מטרים\n  לחץ: hPa\n\n🇺🇸 אמריקאי\n  טמפרטורה: °F\n  מהירות: mph\n  מרחק/גובה: ft\n  לחץ: inHg</string>
+    <string name="settings_note">ℹ️  שינויי מצב תצוגה ויחידות נכנסים לתוקף מיידית בכל הטאבים.\nשינוי ערכת נושא יטען מחדש את המסך הנוכחי.</string>
+
+    <!-- ════ מסך מערכת ════ -->
+    <string name="system_section_temps">🌡️  טמפרטורות רכיבים</string>
+    <string name="system_section_temps_short">🌡️  טמפרטורות</string>
+    <string name="system_section_specs">📋  מפרט המכשיר</string>
+    <string name="system_section_device">📋  מכשיר</string>
+    <string name="system_section_benchmark">🏁  בנצ׳מרק ביצועים</string>
+    <string name="system_section_export">📤  ייצוא</string>
+    <string name="system_btn_run_benchmark">▶  הרץ בנצ׳מרק</string>
+    <string name="system_btn_export">📤  ייצא מפרט מערכת לקובץ טקסט</string>
+    <string name="system_btn_export_json">🧾  ייצא מפרט מערכת ל-JSON</string>
+    <string name="system_cpu_trend">📈 מגמת טמפרטורת המעבד</string>
+    <string name="system_bench_trend">📈 מגמת ציוני הבנצ׳מרק</string>
+    <string name="system_benchmark_intro">לחץ על ▶ הרץ בנצ׳מרק כדי להתחיל.\n4 שלבים: שלמים · נקודה צפה · זיכרון · מולטי־ליבה</string>
+
+    <!-- ════ מסך חיישנים ════ -->
+    <string name="sensors_section_live_compass">🧭  מצפן חי</string>
+    <string name="cd_compass">חוגת מצפן חי</string>
+    <string name="cd_app_icon">אייקון אפליקציית PhoneLab</string>
+
+    <!-- ════ סטטוס כללי ════ -->
+    <string name="status_not_available">לא זמין</string>
+    <string name="status_permission_needed">נדרשת הרשאה</string>
+    <string name="status_na">—</string>
+    <string name="status_waiting">ממתין…</string>
+    <string name="status_gps_disabled">GPS כבוי</string>
+
+    <!-- ════ Contextual permission requests ════ -->
+    <string name="perm_rationale_location">PhoneLab משתמשת במיקום כדי להציג מהירות וגובה GPS.</string>
+    <string name="perm_rationale_audio">PhoneLab משתמשת במיקרופון כדי למדוד רמת רעש סביבתית.</string>
+    <string name="perm_rationale_body_sensors">PhoneLab משתמשת בחיישני גוף כדי לקרוא את קצב הלב שלך.</string>
+    <string name="perm_rationale_activity_recognition">PhoneLab משתמשת בזיהוי פעילות כדי לספור את הצעדים שלך.</string>
+    <string name="perm_rationale_continue">המשך</string>
+    <string name="perm_denied_open_settings">ההרשאה נדחתה — פתח את הגדרות המערכת כדי לאשר אותה</string>
+    <string name="perm_action_settings">הגדרות</string>
+
+    <!-- ════ שמות חיישנים ════ -->
+    <string name="sensor_accelerometer">מד תאוצה</string>
+    <string name="sensor_magnetometer">מגנטומטר</string>
+    <string name="sensor_gyroscope">גירוסקופ</string>
+    <string name="sensor_gyro_uncal">גירוסקופ לא מכויל</string>
+    <string name="sensor_light">חיישן אור</string>
+    <string name="sensor_barometer">ברומטר</string>
+    <string name="sensor_gravity">וקטור כבידה</string>
+    <string name="sensor_linear_accel">תאוצה ליניארית (ללא כבידה)</string>
+    <string name="sensor_rotation_vector">וקטור סיבוב</string>
+    <string name="sensor_game_rotation">סיבוב משחק (ללא מגנט)</string>
+    <string name="sensor_step_detector">גלאי צעדים</string>
+    <string name="sensor_step_counter">מונה צעדים</string>
+    <string name="sensor_tilt_detector">גלאי הטיה</string>
+    <string name="sensor_proximity">קרבה</string>
+    <string name="sensor_humidity">לחות</string>
+    <string name="sensor_ambient_temp">טמפ׳ סביבה</string>
+    <string name="sensor_heart_rate">דופק</string>
+    <string name="sensor_sound_level">🎤 עוצמת קול (לא מכויל)</string>
+    <string name="sensor_gps_speed">🚀 מהירות GPS</string>
+    <string name="sensor_gps_altitude">⛰️ גובה GPS</string>
+    <string name="sensor_compass_label">מצפן</string>
+
+    <!-- ════ מצבי תנועה (משמש כ-%s במחרוזות פורמט) ════ -->
+    <string name="state_still">נייח</string>
+    <string name="state_normal">רגיל</string>
+    <string name="state_moving">בתנועה</string>
+    <string name="state_fast">מהיר!</string>
+    <string name="state_high_g">G גבוה!</string>
+    <string name="state_slow">איטי</string>
+    <string name="state_medium">בינוני</string>
+    <string name="state_fast_plain">מהיר</string>
+    <string name="state_slight">קל</string>
+    <string name="state_weak">חלש</string>
+    <string name="state_strong">חזק</string>
+    <string name="state_interference">⚠️ הפרעה?</string>
+
+    <!-- ════ אוריינטציה (כבידה) ════ -->
+    <string name="orient_flat">שטוח</string>
+    <string name="orient_tilted">מוטה</string>
+    <string name="orient_standing">זקוף</string>
+    <string name="orient_sideways">צד</string>
+
+    <!-- ════ קרבה ════ -->
+    <string name="proximity_near">🤚 קרוב/מכוסה</string>
+    <string name="proximity_far">↔️ רחוק/פנוי</string>
+    <string name="proximity_near_short">🤚\nקרוב</string>
+    <string name="proximity_far_short">↔️\nרחוק</string>
+
+    <!-- ════ לחות ════ -->
+    <string name="humidity_very_dry">🏜️ יבש מאוד</string>
+    <string name="humidity_dry">🌵 יבש</string>
+    <string name="humidity_comfortable">🌿 נוח</string>
+    <string name="humidity_humid">💦 לח</string>
+    <string name="humidity_very_humid">🌊 לח מאוד</string>
+
+    <!-- ════ טמפרטורת סביבה ════ -->
+    <string name="ambient_cold">❄️ קר</string>
+    <string name="ambient_cool">🧊 קריר</string>
+    <string name="ambient_comfortable">🌿 נוח</string>
+    <string name="ambient_warm">☀️ חמים</string>
+    <string name="ambient_hot">🔥 חם</string>
+
+    <!-- ════ אזורי דופק ════ -->
+    <string name="hr_zone_low">💤 נמוך</string>
+    <string name="hr_zone_normal">💚 רגיל</string>
+    <string name="hr_zone_elevated">💛 מוגבר</string>
+    <string name="hr_zone_high">🔴 גבוה</string>
+    <string name="hr_place_finger">הניחו אצבע על החיישן…</string>
+
+    <!-- ════ עוצמות קול ════ -->
+    <string name="sound_silent">🤫 שקט</string>
+    <string name="sound_quiet">🔈 חרישי</string>
+    <string name="sound_normal">🔉 רגיל</string>
+    <string name="sound_loud">🔊 רועש</string>
+    <string name="sound_very_loud">📢 רועש מאוד!</string>
+
+    <!-- ════ מזג אוויר (ברומטר) ════ -->
+    <string name="weather_clear">☀️ בהיר</string>
+    <string name="weather_normal">🌤 רגיל</string>
+    <string name="weather_cloudy">🌧 מעונן</string>
+    <string name="weather_storm">⛈ סערה</string>
+
+    <!-- ════ עוצמות אור ════ -->
+    <string name="light_pitch_dark">חושך מוחלט</string>
+    <string name="light_very_dark">חשוך מאוד</string>
+    <string name="light_dim">עמום</string>
+    <string name="light_indoor">תאורת חדר</string>
+    <string name="light_bright_indoor">תאורת חדר חזקה</string>
+    <string name="light_overcast">מעונן</string>
+    <string name="light_daylight">אור יום</string>
+    <string name="light_direct_sun">שמש ישירה</string>
+
+    <!-- ════ תנועה משמעותית ════ -->
+    <string name="sig_motion_label">תנועה משמעותית</string>
+    <string name="sig_motion_na_short">🏃\n—</string>
+
+    <!-- ════ חיישנים מתקדמים (v1.2.0) ════ -->
+    <string name="sensors_section_advanced">🔬  חיישנים מתקדמים</string>
+    <string name="sensor_stationary">גלאי נייחות</string>
+    <string name="sensor_motion_detect">גלאי תנועה</string>
+    <string name="sensor_accel_uncal">מד תאוצה לא מכויל</string>
+    <string name="sensor_mag_uncal">מגנטומטר לא מכויל</string>
+    <string name="sensor_geomag_rotation">סיבוב גאומגנטי</string>
+    <string name="sensor_hinge_angle">זווית קיפול</string>
+    <string name="state_stationary_detected">🪨 נייח × %1$d</string>
+    <string name="state_motion_detected">🏃 תנועה × %1$d</string>
+    <string name="hinge_angle_format">📐 %1$.1f°  %2$s</string>
+    <string name="hinge_state_closed">סגור</string>
+    <string name="hinge_state_open">פתוח</string>
+    <string name="hinge_state_flat">שטוח</string>
+
+    <!-- ════ הקלטת CSV ════ -->
+    <string name="sensors_section_recording">📼  הקלטת חיישנים</string>
+    <string name="rec_btn_start">🔴  התחל הקלטה</string>
+    <string name="rec_btn_stop">⏹  עצור · %1$s · %2$d דגימות</string>
+    <string name="rec_status_idle">אין הקלטה פעילה</string>
+    <string name="rec_status_active">🔴 מקליט · %1$s · %2$d דגימות</string>
+    <string name="rec_status_saved">✅ נשמר: %1$s\n%2$d דגימות — לחץ Share לשליחה</string>
+    <string name="rec_status_failed">❌ ההקלטה נכשלה: %1$s</string>
+    <string name="rec_csv_header">timestamp_ns,sensor,v1,v2,v3,v4,v5,v6</string>
+    <string name="rec_share_subject">הקלטת חיישנים מ-PhoneLab</string>
+    <string name="rec_notif_channel_name">הקלטת חיישנים</string>
+    <string name="rec_notif_channel_desc">מציגה התראה מתמשכת בזמן הקלטת נתוני חיישנים</string>
+    <string name="rec_notif_title">מקליט נתוני חיישנים</string>
+    <string name="rec_notif_text">הקש עצור כדי לסיים ולשמור את ההקלטה</string>
+    <string name="rec_notif_stop">עצור</string>
+
+    <!-- ════ Batch 6: Widget / Quick Settings Tile / App Shortcuts ════ -->
+    <string name="qs_tile_label">טמפ׳ מעבד</string>
+    <string name="widget_cpu_label">טמפ׳ מעבד</string>
+    <string name="shortcut_benchmark_short">בנצ׳מרק</string>
+    <string name="shortcut_benchmark_long">הפעל בנצ׳מרק</string>
+    <string name="shortcut_record_short">הקלטה</string>
+    <string name="shortcut_record_long">התחל הקלטה</string>
+    <string name="shortcut_hardware_short">חומרה</string>
+    <string name="shortcut_hardware_long">מידע חומרה</string>
+
+    <!-- ════ תוויות טמפרטורה של רכיבים ════ -->
+    <string name="temp_battery">🔋 סוללה</string>
+    <string name="temp_cpu">🔥 מעבד</string>
+    <string name="temp_gpu">🎮 GPU</string>
+    <string name="temp_skin">📱 גוף המכשיר</string>
+    <string name="temp_modem">📡 מודם/5G</string>
+    <string name="temp_wifi">📶 WiFi/BT</string>
+    <string name="temp_charger">🔌 מטען</string>
+    <string name="temp_npu">🧠 NPU/AI</string>
+
+    <!-- ════ תוויות מפרט מערכת ════ -->
+    <string name="spec_device">📱 מכשיר</string>
+    <string name="spec_android">🤖 Android %1$s (API %2$d)</string>
+    <string name="spec_cpu">⚡ מעבד</string>
+    <string name="spec_ram">💾 זיכרון</string>
+    <string name="spec_storage">🗂 אחסון</string>
+    <string name="spec_screen">📺 מסך</string>
+    <string name="spec_abi">🔧 ABI: %1$s</string>
+    <string name="spec_cores">%1$d ליבות</string>
+
+    <!-- ════ סוגי טעינה ════ -->
+    <string name="charge_usb">USB</string>
+    <string name="charge_ac">AC</string>
+    <string name="charge_wireless">אלחוטי</string>
+
+    <!-- ════ בנצ׳מרק ════ -->
+    <string name="bench_running">פועל… (הקש לביטול)</string>
+    <string name="bench_cancelled">⛔ הבנצ׳מרק בוטל</string>
+    <string name="bench_phase1">⚙️ שלב 1/4  שלמים…</string>
+    <string name="bench_phase2">⚙️ שלב 2/4  נקודה צפה / טריגונומטריה…</string>
+    <string name="bench_phase3">⚙️ שלב 3/4  זיכרון (16 MB)…</string>
+    <string name="bench_phase4">⚙️ שלב 4/4  מולטי־ליבה…</string>
+    <string name="bench_rating_flagship">🏆 פלגשיפ</string>
+    <string name="bench_rating_highend">🥇 רמה גבוהה</string>
+    <string name="bench_rating_midrange">🥈 רמה בינונית</string>
+    <string name="bench_rating_budget">🥉 חסכוני</string>
+    <string name="bench_rating_entry">⚡ רמת כניסה</string>
+
+    <!-- ════ טאב חומרה (v1.2.0) ════ -->
+    <string name="hw_section_cpu">⚡  תדרי מעבד</string>
+    <string name="hw_section_battery">🔋  פרטי סוללה</string>
+    <string name="hw_section_display">📺  מסך</string>
+    <string name="hw_section_capabilities">🔌  יכולות</string>
+    <string name="hw_cpu_core">ליבה %1$d</string>
+    <string name="hw_batt_level">רמה</string>
+    <string name="hw_batt_charge_counter">קיבולת</string>
+    <string name="hw_batt_current">זרם</string>
+    <string name="hw_batt_energy">אנרגיה</string>
+    <string name="hw_batt_cycles">מחזורים</string>
+    <string name="hw_disp_current">נוכחי</string>
+    <string name="hw_disp_supported">מצבים</string>
+    <string name="hw_disp_hdr">HDR</string>
+    <string name="hw_disp_none">אין</string>
+    <string name="hw_cap_nfc">NFC</string>
+    <string name="hw_cap_usb_host">USB Host</string>
+    <string name="hw_cap_bluetooth">Bluetooth</string>
+    <string name="hw_cap_cameras">מצלמות</string>
+    <string name="hw_cap_biometric">ביומטרי</string>
+    <string name="hw_cap_yes">✅ כן</string>
+    <string name="hw_cap_no">❌ לא</string>
+    <string name="hw_cap_yes_on">✅ כן (פעיל)</string>
+    <string name="hw_cap_yes_off">✅ כן (כבוי)</string>
+    <string name="hw_cap_yes_enrolled">✅ מוגדר</string>
+    <string name="hw_cap_yes_not_enrolled">⚠️ זמין, לא מוגדר</string>
+
+    <!-- ════ סטטוס ייצוא ════ -->
+    <string name="export_success">✅ יוצא: %1$s\nנשמר ב-Documents/</string>
+    <string name="export_failed">❌ הייצוא נכשל: %1$s</string>
+    <string name="export_chooser">ייצוא / שיתוף מפרט</string>
+    <string name="export_share_subject">מפרט מערכת PhoneLab</string>
+    <!-- S2: אזהרת פרטיות שמופיעה אחרי ייצוא -->
+    <string name="export_privacy_note">ℹ️ הקובץ מכיל מודל מכשיר, ABI ונתוני טמפרטורה — שיתופו חושף טביעת אצבע של הטלפון.</string>
+
+    <!-- ════ תבנית תוצאת בנצ׳מרק ════ -->
+    <string name="bench_complete_format">✅ הבנצ׳מרק הסתיים!\n\nציון: %1$,d נק׳ (יחסי — לא ניתן להשוואה ל-Geekbench/AnTuTu)\n%2$s\n\n① שלמים:     %3$d ms\n② נקודה צפה: %4$d ms\n③ זיכרון:    %5$d ms  (16 MB)\n④ מולטי-ליבה: %6$d ms  (%7$d ליבות)</string>
+    <string name="bench_history_title">📈 ריצות אחרונות:</string>
+    <string name="export_btn_copy">📋  העתק כטקסט</string>
+    <string name="export_copied">📋 הועתק ללוח</string>
+    <string name="thermal_alert_silence">אל תציג שוב</string>
+    <string name="thermal_alert_silenced">🔕 התראות חום הושתקו — אפשר להפעיל שוב בלשונית הגדרות</string>
+    <string name="about_btn_privacy">🔒  מדיניות פרטיות</string>
+
+    <!-- ════ דיוק / כיול ════ -->
+    <string name="accuracy_low_warning">⚠️ דיוק נמוך — נופף בטלפון בתנועת ספרה-8 לכיול מחדש</string>
+
+    <!-- ════ התראת חום (Notification) ════ -->
+    <string name="thermal_channel_name">התראות חום</string>
+    <string name="thermal_channel_desc">מתריע כשטמפרטורת המעבד עוברת רף בטוח</string>
+    <string name="thermal_alert_title">🔥 המעבד חם</string>
+    <string name="thermal_alert_body">טמפרטורת המעבד הגיעה ל-%1$s. שקול לסגור אפליקציות עם עומס.</string>
+
+    <!-- ════ תבניות מוני אירועים ════ -->
+    <string name="step_det_session_format">🚶 %1$d צעדים בסשן זה</string>
+    <string name="step_det_short_format">🚶\n%1$d\nצעדים</string>
+    <string name="step_counter_format">סשן:%1$d  סה״כ במכשיר:%2$,d</string>
+    <string name="tilt_count_format">📱 %1$d אירועי הטיה</string>
+    <string name="tilt_count_short_format">📱\n%1$d\nהטיות</string>
+    <string name="sig_motion_detected_format">🏃 זוהה × %1$d</string>
+    <string name="sig_motion_short_format">🏃\n×%1$d</string>
+</resources>
+

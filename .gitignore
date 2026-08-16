@@ -1,5 +1,6 @@
 # ─── Secrets ────────────────────────────────────────────────
 # Signing keys MUST NEVER be committed
+Keys/
 PhoneLab-Key
 *.keystore
 *.jks
@@ -16,6 +17,9 @@ local.properties
 captures/
 output.json
 release/
+# Release binaries (Archive/ and Distribution/) — keep large bundles out of git
+*.aab
+*.apk
 
 # Generated files
 **/bin/
@@ -41,6 +45,11 @@ desktop.ini
 # ─── Claude Code ────────────────────────────────────────────
 # Per-machine permissions (settings.json itself can be shared if desired)
 .claude/settings.local.json
+
+# ─── Node / Web ─────────────────────────────────────────────
+node_modules/
+Web/dist/
+Web/.vercel/
 
 # ─── Misc ───────────────────────────────────────────────────
 *.bak

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- C6: narrow to exact subpath instead of whole cache. The cache-path was
+         a fallback for getExternalFilesDir(DIRECTORY_DOCUMENTS) failures, but
+         "path=." exposed the entire cache to any FileProvider URI request. -->
+    <external-files-path name="exports" path="Documents/"/>
+    <cache-path           name="exports_fallback" path="PhoneLab_exports/"/>
+</paths>

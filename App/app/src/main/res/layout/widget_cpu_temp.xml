@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- RemoteViews-compatible layout — no CardView, only the limited view subset widgets support. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_root"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:gravity="center"
+    android:background="#CC1A1F2E" android:padding="12dp">
+
+    <TextView android:id="@+id/widget_temp_value"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="--" android:textColor="#FFFFFF" android:textSize="24sp" android:textStyle="bold"/>
+
+    <TextView android:id="@+id/widget_label"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="@string/widget_cpu_label" android:textColor="#B0B8C4" android:textSize="11sp"/>
+
+</LinearLayout>

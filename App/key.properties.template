@@ -1,0 +1,16 @@
+# PhoneLab release signing — TEMPLATE
+#
+# 1. Copy this file to `key.properties` (same folder). `key.properties` is git-ignored.
+# 2. Fill in the four values below with your real upload-key details.
+# 3. `.\gradlew bundleRelease` will then produce a signed AAB automatically.
+#
+# storeFile: absolute path to the keystore. The PhoneLab upload key is the file
+#            `PhoneLab-Key`, kept in the project's Distribution/Keys/ folder.
+#            Use double back-slashes on Windows.
+# keyAlias:  the alias inside the keystore (find it with:
+#            keytool -list -v -keystore <storeFile>  — it prompts for the store password).
+#
+storeFile=D:\\AI\\Claude\\PhoneLab\\Distribution\\Keys\\PhoneLab-Key
+storePassword=CHANGEME
+keyAlias=CHANGEME
+keyPassword=CHANGEME

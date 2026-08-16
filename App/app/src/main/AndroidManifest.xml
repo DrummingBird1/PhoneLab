@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
+    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!-- API 33+ runtime permission for posting notifications (thermal alerts) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <!-- Batch 4: CsvRecordingService foreground service (background sensor recording) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+
+    <uses-feature android:name="android.hardware.sensor.accelerometer"  android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.gyroscope"       android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.compass"         android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.light"           android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.barometer"       android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.stepcounter"     android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.proximity"       android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps"           android:required="false"/>
+    <uses-feature android:name="android.hardware.microphone"             android:required="false"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PhoneLab">
+
+        <activity android:name=".MainActivity"
+            android:exported="true"
+            android:configChanges="uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <!-- Y5: handles "Don't show again" tap on thermal alert notification -->
+        <receiver
+            android:name=".ThermalSilenceReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.sensolab.devicemonitor.SILENCE_THERMAL"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Batch 4: owns CSV sensor recording independent of SensorsFragment's lifecycle,
+             so recording continues correctly across tab switches / backgrounding. -->
+        <service
+            android:name=".CsvRecordingService"
+            android:foregroundServiceType="dataSync"
+            android:exported="false"/>
+
+        <!-- Batch 6: Quick Settings Tile — must be exported so the system can bind to it;
+             BIND_QUICK_SETTINGS_TILE restricts binding to the system itself. -->
+        <service
+            android:name=".CpuTempTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_thermal_alert"
+            android:label="@string/qs_tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
+        <!-- Batch 6: home-screen widget showing live CPU temperature. -->
+        <receiver
+            android:name=".CpuTempWidgetProvider"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="com.sensolab.devicemonitor.WIDGET_REFRESH"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info"/>
+        </receiver>
+    </application>
+</manifest>

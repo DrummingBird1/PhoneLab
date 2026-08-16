@@ -1,0 +1,105 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Release signing is driven by key.properties in the module root (git-ignored).
+// Copy key.properties.template → key.properties and fill in the real values.
+// If the file is absent (CI, a fresh clone, debug-only work) the release build
+// simply stays unsigned instead of failing — sign manually or provide the file.
+def keystorePropsFile = rootProject.file('key.properties')
+def keystoreProps = new Properties()
+if (keystorePropsFile.exists()) {
+    keystoreProps.load(new FileInputStream(keystorePropsFile))
+}
+
+android {
+    namespace 'com.sensolab.devicemonitor'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.sensolab.devicemonitor"
+        minSdk 26
+        targetSdk 35
+        versionCode 3
+        versionName "1.2.0"
+        vectorDrawables.useSupportLibrary = true
+
+        // Y3: PayPal business id — empty disables the Donate button. Configure here
+        //     to enable: "ABC1234XYZ" or "your-email@example.com"
+        buildConfigField "String", "PAYPAL_BUSINESS_ID", '""'
+        // Y6: Privacy policy URL — empty hides the link in About. Required by Play Store
+        //     for apps with sensitive permissions (BODY_SENSORS, location).
+        buildConfigField "String", "PRIVACY_POLICY_URL", '""'
+    }
+
+    // C3: AGP 8+ disables BuildConfig generation by default.
+    // Need it on for BuildConfig.VERSION_NAME (used in exported spec file) and BuildConfig.DEBUG (N8).
+    buildFeatures {
+        buildConfig true
+        viewBinding true
+    }
+
+    signingConfigs {
+        release {
+            if (keystorePropsFile.exists()) {
+                storeFile     file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias      keystoreProps['keyAlias']
+                keyPassword   keystoreProps['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // Only attach the signing config when key.properties is present.
+            signingConfig keystorePropsFile.exists() ? signingConfigs.release : null
+        }
+        debug {
+            debuggable true
+            // A8: separate package id so debug and release builds coexist on a device.
+            // Final ids: com.sensolab.devicemonitor (release), com.sensolab.devicemonitor.debug
+            applicationIdSuffix '.debug'
+            versionNameSuffix  '-debug'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+        // N5: enables java.time.*, java.util.stream.*, etc. on API < 26 via desugaring.
+        // We target minSdk 26 so this is mostly a future-proof, but it costs nothing.
+        coreLibraryDesugaringEnabled true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+
+    // Baseline captures today's existing lint findings so only NEW issues fail the build.
+    // Regenerate with `./gradlew lintRelease -Plint.baselines.continue=true` after a
+    // deliberate cleanup, then delete+re-run once to reset the baseline to zero.
+    lint {
+        baseline = file("lint-baseline.xml")
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.viewpager2:viewpager2:1.1.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+    implementation 'androidx.biometric:biometric:1.1.0' // Hardware tab biometric availability check
+    implementation 'androidx.work:work-runtime:2.9.1' // Batch 4: periodic background thermal check
+
+    // N5: desugaring runtime — enables java.time / java.nio.file APIs on older devices
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+
+    // A6: local JUnit tests (run via `./gradlew test`)
+    testImplementation 'junit:junit:4.13.2'
+}

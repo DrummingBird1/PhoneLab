@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file gives Claude Code the orientation it needs to work in this repository.
+This file gives Codex the orientation it needs to work in this repository.
 
 ## Project
 
@@ -55,7 +55,7 @@ Tests: there **are** JUnit unit tests (`testImplementation 'junit:junit:4.13.2'`
 
 ## Architecture (one screen, five tabs)
 
-`MainActivity` hosts a `ViewPager2` + `TabLayout` with five `Fragment`s ([MainActivity.java](App/app/src/main/java/com/sensolab/devicemonitor/MainActivity.java)):
+`MainActivity` hosts a `ViewPager2` + `TabLayout` with five `Fragment`s (`App/app/src/main/java/com/sensolab/devicemonitor/MainActivity.java`):
 
 | Tab | Class | Role |
 |---|---|---|

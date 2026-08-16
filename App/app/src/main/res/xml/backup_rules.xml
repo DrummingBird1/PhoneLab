@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Auto-backup rules for API ≤ 30 (Android 11 and below).
+  Backs up SharedPreferences (theme/units/mode) but excludes exported spec
+  files — those contain device fingerprint data and shouldn't go to cloud.
+-->
+<full-backup-content>
+    <!-- Include shared preferences (user settings) -->
+    <include domain="sharedpref" path="sensolab_prefs.xml"/>
+
+    <!-- Exclude exported spec text files from external app docs dir -->
+    <exclude domain="external" path="Documents/"/>
+
+    <!-- Exclude cache fallback exports -->
+    <exclude domain="external" path="PhoneLab_exports/"/>
+</full-backup-content>

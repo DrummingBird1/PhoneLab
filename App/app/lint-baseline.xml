@@ -1,0 +1,1820 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.7.3" type="baseline" client="gradle" dependencies="false" name="AGP (8.7.3)" variant="all" version="8.7.3">
+
+    <issue
+        id="OldTargetApi"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the `android.os.Build.VERSION_CODES` javadoc for details."
+        errorLine1="        targetSdk 35"
+        errorLine2="        ~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="22"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="UnusedAttribute"
+        message="Attribute `enableOnBackInvokedCallback` is only used in API level 33 and higher (current min is 26)"
+        errorLine1="        android:enableOnBackInvokedCallback=&quot;true&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="28"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="FullBackupContent"
+        message="`Documents/` is not in an included path"
+        errorLine1="    &lt;exclude domain=&quot;external&quot; path=&quot;Documents/&quot;/>"
+        errorLine2="                                     ~~~~~~~~~~">
+        <location
+            file="src/main/res/xml/backup_rules.xml"
+            line="12"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="FullBackupContent"
+        message="`PhoneLab_exports/` is not in an included path"
+        errorLine1="    &lt;exclude domain=&quot;external&quot; path=&quot;PhoneLab_exports/&quot;/>"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/xml/backup_rules.xml"
+            line="15"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="FullBackupContent"
+        message="`Documents/` is not in an included path"
+        errorLine1="        &lt;exclude domain=&quot;external&quot;   path=&quot;Documents/&quot;/>"
+        errorLine2="                                           ~~~~~~~~~~">
+        <location
+            file="src/main/res/xml/data_extraction_rules.xml"
+            line="9"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="FullBackupContent"
+        message="`PhoneLab_exports/` is not in an included path"
+        errorLine1="        &lt;exclude domain=&quot;external&quot;   path=&quot;PhoneLab_exports/&quot;/>"
+        errorLine2="                                           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/xml/data_extraction_rules.xml"
+            line="10"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="FullBackupContent"
+        message="`Documents/` is not in an included path"
+        errorLine1="        &lt;exclude domain=&quot;external&quot;   path=&quot;Documents/&quot;/>"
+        errorLine2="                                           ~~~~~~~~~~">
+        <location
+            file="src/main/res/xml/data_extraction_rules.xml"
+            line="14"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="FullBackupContent"
+        message="`PhoneLab_exports/` is not in an included path"
+        errorLine1="        &lt;exclude domain=&quot;external&quot;   path=&quot;PhoneLab_exports/&quot;/>"
+        errorLine2="                                           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/xml/data_extraction_rules.xml"
+            line="15"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.appcompat:appcompat than 1.7.0 is available: 1.8.0"
+        errorLine1="    implementation &apos;androidx.appcompat:appcompat:1.7.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="92"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.google.android.material:material than 1.12.0 is available: 1.14.0"
+        errorLine1="    implementation &apos;com.google.android.material:material:1.12.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="95"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.2.0 is available: 2.2.2"
+        errorLine1="    implementation &apos;androidx.constraintlayout:constraintlayout:2.2.0&apos;"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="96"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of androidx.work:work-runtime than 2.9.1 is available: 2.11.2"
+        errorLine1="    implementation &apos;androidx.work:work-runtime:2.9.1&apos; // Batch 4: periodic background thermal check"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="98"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="GradleDependency"
+        message="A newer version of com.android.tools:desugar_jdk_libs than 2.1.4 is available: 2.1.5"
+        errorLine1="    coreLibraryDesugaring &apos;com.android.tools:desugar_jdk_libs:2.1.4&apos;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="build.gradle"
+            line="101"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;samples&quot;): This should probably be a plural rather than a string"
+        errorLine1="    &lt;string name=&quot;rec_btn_stop&quot;>⏹  Stop · %1$s · %2$d samples&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="209"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;samples&quot;): This should probably be a plural rather than a string"
+        errorLine1="    &lt;string name=&quot;rec_status_active&quot;>🔴 Recording · %1$s · %2$d samples&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="211"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;samples&quot;): This should probably be a plural rather than a string"
+        errorLine1="    &lt;string name=&quot;rec_status_saved&quot;>✅ Saved: %1$s\n%2$d samples — tap Share to send&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="212"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;cores&quot;): This should probably be a plural rather than a string"
+        errorLine1="    &lt;string name=&quot;spec_cores&quot;>%1$d cores&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="250"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;cores&quot;): This should probably be a plural rather than a string"
+        errorLine1="    &lt;string name=&quot;bench_complete_format&quot;>✅ Benchmark Complete!\n\nScore: %1$,d pts (relative — not comparable to Geekbench/AnTuTu)\n%2$s\n\n① Integer:    %3$d ms\n② Float/Trig: %4$d ms\n③ Memory:     %5$d ms  (16 MB)\n④ Multi-core: %6$d ms  (%7$d cores)&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="306"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;steps&quot;): This should probably be a plural rather than a string"
+        errorLine1="    &lt;string name=&quot;step_det_session_format&quot;>🚶 %1$d steps this session&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="326"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;Device&quot;): This should probably be a plural rather than a string"
+        errorLine1="    &lt;string name=&quot;step_counter_format&quot;>Session:%1$d  Device total:%2$,d&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="328"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="PluralsCandidate"
+        message="Formatting %d followed by words (&quot;tilt&quot;): This should probably be a plural rather than a string"
+        errorLine1="    &lt;string name=&quot;tilt_count_format&quot;>📱 %1$d tilt events&lt;/string>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="329"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is never &lt; 26"
+        errorLine1="        if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.O) return;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/CsvRecordingService.java"
+            line="207"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="Unnecessary; SDK_INT is never &lt; 26"
+        errorLine1="        if (Build.VERSION.SDK_INT &lt; Build.VERSION_CODES.O) return;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/ThermalAlerts.java"
+            line="32"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        message="This folder configuration (`v26`) is unnecessary; `minSdkVersion` is 26. Merge all the resources in this folder into `mipmap-anydpi`.">
+        <location
+            file="src/main/res/mipmap-anydpi-v26"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `?attr/colorBackground` with a theme that also paints a background (inferred theme is `@style/Theme.PhoneLab`)"
+        errorLine1="    android:background=&quot;?attr/colorBackground&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/activity_main.xml"
+            line="6"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `?attr/colorBackground` with a theme that also paints a background (inferred theme is `@style/Theme.PhoneLab`)"
+        errorLine1="    android:background=&quot;?attr/colorBackground&quot; android:padding=&quot;20dp&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_about.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `?attr/colorBackground` with a theme that also paints a background (inferred theme is `@style/Theme.PhoneLab`)"
+        errorLine1="    android:background=&quot;?attr/colorBackground&quot; android:padding=&quot;12dp&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_hardware.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `?attr/colorBackground` with a theme that also paints a background (inferred theme is `@style/Theme.PhoneLab`)"
+        errorLine1="    android:background=&quot;?attr/colorBackground&quot; android:padding=&quot;10dp&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `?attr/colorBackground` with a theme that also paints a background (inferred theme is `@style/Theme.PhoneLab`)"
+        errorLine1="    android:background=&quot;?attr/colorBackground&quot; android:padding=&quot;16dp&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_settings.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `?attr/colorBackground` with a theme that also paints a background (inferred theme is `@style/Theme.PhoneLab`)"
+        errorLine1="    android:background=&quot;?attr/colorBackground&quot; android:padding=&quot;10dp&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="5"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="Overdraw"
+        message="Possible overdraw: Root element paints background `#CC1A1F2E` with a theme that also paints a background (inferred theme is `@style/Theme.PhoneLab`)"
+        errorLine1="    android:background=&quot;#CC1A1F2E&quot; android:padding=&quot;12dp&quot;>"
+        errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/widget_cpu_temp.xml"
+            line="7"
+            column="5"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_micro` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_micro&quot;>2dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="4"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_tiny` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_tiny&quot;>4dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="5"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_small` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_small&quot;>6dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="6"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_medium` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_medium&quot;>8dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="7"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_card` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_card&quot;>10dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="8"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_card_lg` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_card_lg&quot;>12dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="9"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_screen` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_screen&quot;>14dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="10"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_section` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_section&quot;>16dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="11"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.spacing_section_lg` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;spacing_section_lg&quot;>20dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="12"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_corner_small` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;card_corner_small&quot;>8dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="15"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_corner` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;card_corner&quot;>10dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="16"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_corner_lg` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;card_corner_lg&quot;>12dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="17"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_corner_xl` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;card_corner_xl&quot;>14dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="18"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_elev_low` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;card_elev_low&quot;>0dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="19"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_elev` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;card_elev&quot;>2dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="20"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_elev_med` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;card_elev_med&quot;>3dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="21"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.card_elev_high` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;card_elev_high&quot;>4dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="22"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_caption` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_caption&quot;>11sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="25"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_body_small` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_body_small&quot;>12sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="26"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_body` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_body&quot;>13sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="27"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_button` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_button&quot;>14sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="28"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_section` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_section&quot;>15sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="29"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_screen_title` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_screen_title&quot;>24sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="30"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_brand` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_brand&quot;>30sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="31"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.text_icon_xl` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;text_icon_xl&quot;>72sp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="32"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.button_height` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;button_height&quot;>48dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="35"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.button_height_lg` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;button_height_lg&quot;>52dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="36"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.dimen.compass_size` appears to be unused"
+        errorLine1="    &lt;dimen name=&quot;compass_size&quot;>240dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/dimens.xml"
+            line="37"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        message="The resource `R.string.rec_status_failed` appears to be unused"
+        errorLine1="    &lt;string name=&quot;rec_status_failed&quot;>❌ Recording failed: %1$s&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="213"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="TooManyViews"
+        message="`fragment_sensors.xml` has more than 80 views, bad for performance"
+        errorLine1="    &lt;androidx.cardview.widget.CardView android:layout_width=&quot;0dp&quot; android:layout_height=&quot;wrap_content&quot;"
+        errorLine2="     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="345"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="TooManyViews"
+        message="`fragment_system.xml` has more than 80 views, bad for performance"
+        errorLine1="    &lt;androidx.cardview.widget.CardView android:layout_width=&quot;0dp&quot; android:layout_height=&quot;wrap_content&quot;"
+        errorLine2="     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="347"
+            column="6"/>
+    </issue>
+
+    <issue
+        id="TypographyFractions"
+        message="Use fraction character ¼ (&amp;#188;) instead of 1/4?"
+        errorLine1="    &lt;string name=&quot;bench_phase1&quot;>⚙️ المرحلة 1/4  أعداد صحيحة…&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ar/strings.xml"
+            line="260"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="TypographyFractions"
+        message="Use fraction character ¼ (&amp;#188;) instead of 1/4?"
+        errorLine1="    &lt;string name=&quot;bench_phase1&quot;>⚙️ Fase 1/4  Enteros…&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-es/strings.xml"
+            line="260"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="TypographyFractions"
+        message="Use fraction character ¼ (&amp;#188;) instead of 1/4?"
+        errorLine1="    &lt;string name=&quot;bench_phase1&quot;>⚙️ Phase 1/4  Integer…&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="260"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="TypographyFractions"
+        message="Use fraction character ¼ (&amp;#188;) instead of 1/4?"
+        errorLine1="    &lt;string name=&quot;bench_phase1&quot;>⚙️ שלב 1/4  שלמים…&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-iw/strings.xml"
+            line="261"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="TypographyFractions"
+        message="Use fraction character ¾ (&amp;#190;) instead of 3/4?"
+        errorLine1="    &lt;string name=&quot;bench_phase3&quot;>⚙️ المرحلة 3/4  ذاكرة (16 MB)…&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ar/strings.xml"
+            line="262"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="TypographyFractions"
+        message="Use fraction character ¾ (&amp;#190;) instead of 3/4?"
+        errorLine1="    &lt;string name=&quot;bench_phase3&quot;>⚙️ Fase 3/4  Memoria (16 MB)…&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-es/strings.xml"
+            line="262"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="TypographyFractions"
+        message="Use fraction character ¾ (&amp;#190;) instead of 3/4?"
+        errorLine1="    &lt;string name=&quot;bench_phase3&quot;>⚙️ Phase 3/4  Memory (16 MB)…&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values/strings.xml"
+            line="262"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="TypographyFractions"
+        message="Use fraction character ¾ (&amp;#190;) instead of 3/4?"
+        errorLine1="    &lt;string name=&quot;bench_phase3&quot;>⚙️ שלב 3/4  זיכרון (16 MB)…&lt;/string>"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-iw/strings.xml"
+            line="263"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icons should not fill every pixel of their square region; see the design guide for details">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icons should not fill every pixel of their square region; see the design guide for details">
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icons should not fill every pixel of their square region; see the design guide for details">
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icons should not fill every pixel of their square region; see the design guide for details">
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icons should not fill every pixel of their square region; see the design guide for details">
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher_round.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher_round.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher_round.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher_round.png"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        message="Launcher icon used as round icon did not have a circular shape">
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive icon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="MonochromeLauncherIcon"
+        message="The application adaptive roundIcon is missing a monochrome tag"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-hdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-mdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-xhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-xxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="IconDuplicates"
+        message="The following unrelated icon files have identical contents: ic_launcher.png, ic_launcher_round.png">
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher_round.png"/>
+        <location
+            file="src/main/res/mipmap-xxxhdpi/ic_launcher.png"/>
+    </issue>
+
+    <issue
+        id="ReportShortcutUsage"
+        message="Calling this method indicates use of dynamic shortcuts, but there are no calls to methods that track shortcut usage, such as `pushDynamicShortcut` or `reportShortcutUsed`. Calling these methods is recommended, as they track shortcut usage and allow launchers to adjust which shortcuts appear based on activation history. Please see https://developer.android.com/develop/ui/views/launch/shortcuts/managing-shortcuts#track-usage"
+        errorLine1="        ShortcutManagerCompat.setDynamicShortcuts(this, Arrays.asList(record, benchmark, hardware));"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/MainActivity.java"
+            line="87"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                tvMag.setText(tvMag.getText() + &quot;\n&quot; + getString(R.string.accuracy_low_warning));"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SensorsFragment.java"
+            line="923"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="                binding.tvBatteryTemp.setText(batt + String.format(Locale.US,&quot;\n%.1f%s %s\n%d%%%s&quot;,d,u,l,pct,chgS));"
+        errorLine2="                                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="146"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="            tv.setText(label + &quot;\n&quot; + na);"
+        errorLine2="                       ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="231"
+            column="24"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="            if(vis!=null) vis.setText(&quot;--\n&quot; + na);"
+        errorLine2="                                      ~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="232"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvDeviceName.setText(getString(R.string.spec_device) + &quot;\n&quot; + cachedDevice);"
+        errorLine2="                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="243"
+            column="38"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.visDevice.setText(&quot;📱\n&quot;+brand+&quot;\n&quot;+model);"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="244"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvCpu.setText(getString(R.string.spec_cpu) + &quot;\n&quot; + cachedCpu);"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="251"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvRam.setText(getString(R.string.spec_ram) + &quot;\n&quot; + cachedRam);"
+        errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="259"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="            binding.tvStorage.setText(getString(R.string.spec_storage) + &quot;\n&quot; + cachedStorage);"
+        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="271"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        } catch(Exception e){ binding.tvStorage.setText(getString(R.string.spec_storage) + &quot;\n&quot; + getString(R.string.status_na)); }"
+        errorLine2="                                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="274"
+            column="57"/>
+    </issue>
+
+    <issue
+        id="SetTextI18n"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
+        errorLine1="        binding.tvScreen.setText(getString(R.string.spec_screen) + &quot;\n&quot; + cachedScreen);"
+        errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/java/com/sensolab/devicemonitor/SystemFragment.java"
+            line="286"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📡&quot;, should use `@string` resource"
+        errorLine1="            android:text=&quot;📡&quot; android:textSize=&quot;72sp&quot;"
+        errorLine2="            ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_about.xml"
+            line="11"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;—&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;—&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_hardware.xml"
+            line="19"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;—&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;—&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_hardware.xml"
+            line="33"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;—&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;—&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_hardware.xml"
+            line="47"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;—&quot;, should use `@string` resource"
+        errorLine1="                android:text=&quot;—&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="                ~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_hardware.xml"
+            line="61"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Accelerometer\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Accelerometer\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="22"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Gyroscope\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Gyroscope\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="30"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Magnetometer\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Magnetometer\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="43"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Gravity Vector\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Gravity Vector\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="51"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Linear Accel\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Linear Accel\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="64"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Rotation Vector\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Rotation Vector\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="72"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Game Rotation\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Game Rotation\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="85"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Gyro Uncalibrated\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Gyro Uncalibrated\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="93"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Light Sensor\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Light Sensor\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="106"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Barometer\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Barometer\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="114"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Proximity\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Proximity\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="127"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Humidity\nNot available&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Humidity\nNot available&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="135"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Ambient Temp\nNot available&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Ambient Temp\nNot available&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="148"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Heart Rate\nNot available&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Heart Rate\nNot available&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="156"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Step Detector\n🚶 0 steps&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Step Detector\n🚶 0 steps&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="169"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Step Counter\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Step Counter\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="177"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Tilt Detector\n📱 0 tilts&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Tilt Detector\n📱 0 tilts&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="190"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Significant Motion\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Significant Motion\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="198"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🎤 Sound Level\n-- dB&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🎤 Sound Level\n-- dB&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="211"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;⛰️ GPS Altitude\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;⛰️ GPS Altitude\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="219"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🚀 GPS Speed  —  0.0 km/h&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;🚀 GPS Speed  —  0.0 km/h&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="230"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Stationary\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Stationary\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="249"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Motion Detect\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Motion Detect\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="257"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Accel Uncalibrated\n--&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;Accel Uncalibrated\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="268"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Mag Uncalibrated\n--&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;Mag Uncalibrated\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="278"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Geomag Rotation\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Geomag Rotation\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="290"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;Hinge Angle\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;Hinge Angle\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="298"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📳\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;📳\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="351"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🌀\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;🌀\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="365"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;⚡\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;⚡\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="379"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;💡\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;💡\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="398"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🌡\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;🌡\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="412"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📐\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;📐\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="426"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;↔️\nFar&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;↔️\nFar&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="445"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;💧\n--%&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;💧\n--%&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="459"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🌡\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;🌡\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="473"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🚶\n0 steps&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;🚶\n0 steps&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="492"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🔄\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🔄\n--&quot; android:textSize=&quot;14sp&quot; android:gravity=&quot;center&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="505"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📱\n0 tilts&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;📱\n0 tilts&quot; android:textSize=&quot;14sp&quot; android:gravity=&quot;center&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="513"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🎤\n-- dB&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;🎤\n-- dB&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="527"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;❤️\n--bpm&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;❤️\n--bpm&quot; android:textSize=&quot;14sp&quot; android:gravity=&quot;center&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="540"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🏃\n0 events&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🏃\n0 events&quot; android:textSize=&quot;14sp&quot; android:gravity=&quot;center&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="548"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🚀  0.0 km/h&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;🚀  0.0 km/h&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_sensors.xml"
+            line="559"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🔋 Battery\n-- °C\n--%&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🔋 Battery\n-- °C\n--%&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="27"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🔥 CPU\n-- °C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🔥 CPU\n-- °C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="36"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🎮 GPU\n-- °C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🎮 GPU\n-- °C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="45"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📱 Skin\n-- °C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;📱 Skin\n-- °C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="59"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📡 Modem\n-- °C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;📡 Modem\n-- °C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="68"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📶 WiFi/BT\n-- °C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;📶 WiFi/BT\n-- °C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="77"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🔌 Charger\n-- °C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🔌 Charger\n-- °C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="91"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🧠 NPU/AI\n-- °C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🧠 NPU/AI\n-- °C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="100"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📱 Device\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;📱 Device\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="134"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🤖 Android\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🤖 Android\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="142"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;⚡ CPU\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;⚡ CPU\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="154"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;💾 RAM\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;💾 RAM\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="162"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🗂 Storage\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🗂 Storage\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="174"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📺 Screen\n--&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;📺 Screen\n--&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="182"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🔧 ABI: --&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;🔧 ABI: --&quot; android:textColor=&quot;?attr/colorOnSurface&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="192"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🟢\n--°C\n--%&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🟢\n--°C\n--%&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="283"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🔥\n--°C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🔥\n--°C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="292"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🎮\n--°C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;🎮\n--°C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="301"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📱\n--°C&quot;, should use `@string` resource"
+        errorLine1="          android:text=&quot;📱\n--°C&quot;"
+        errorLine2="          ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="310"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;📱\n--&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;📱\n--&quot; android:textSize=&quot;14sp&quot; android:gravity=&quot;center&quot;"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="326"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;💾\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;💾\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="339"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;🗂\n--&quot;, should use `@string` resource"
+        errorLine1="            android:layout_height=&quot;wrap_content&quot; android:text=&quot;🗂\n--&quot;"
+        errorLine2="                                                 ~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/fragment_system.xml"
+            line="353"
+            column="50"/>
+    </issue>
+
+    <issue
+        id="HardcodedText"
+        message="Hardcoded string &quot;--&quot;, should use `@string` resource"
+        errorLine1="        android:text=&quot;--&quot; android:textColor=&quot;#FFFFFF&quot; android:textSize=&quot;24sp&quot; android:textStyle=&quot;bold&quot;/>"
+        errorLine2="        ~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/layout/widget_cpu_temp.xml"
+            line="11"
+            column="9"/>
+    </issue>
+
+</issues>

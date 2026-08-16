@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- X3: monochrome 24x24 notification icon — thermometer with flame.
+     Status bar requires single-color (alpha-only) icons. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?attr/colorOnSurface">
+    <!-- Thermometer outline -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12,2C10.34,2 9,3.34 9,5V13.27C7.79,14.21 7,15.55 7,17C7,19.76 9.24,22 12,22S17,19.76 17,17C17,15.55 16.21,14.21 15,13.27V5C15,3.34 13.66,2 12,2M12,4C12.55,4 13,4.45 13,5V14.5L13.5,14.83C14.42,15.4 15,16.16 15,17C15,18.66 13.66,20 12,20S9,18.66 9,17C9,16.16 9.58,15.4 10.5,14.83L11,14.5V5C11,4.45 11.45,4 12,4Z"/>
+    <!-- Mercury bulb -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M11,7H13V16.5C13.6,16.8 14,17.36 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18C10,17.36 10.4,16.8 11,16.5V7Z"/>
+</vector>
