@@ -5,6 +5,9 @@ import { initMotion } from "./motion";
 import { initOrientation } from "./orientation";
 import { initGeo, initLight, initAudio, initHeartRate } from "./environment";
 import { initDeviceInfo } from "./deviceinfo";
+import { initSpeedTest } from "./speedtest";
+import { initDataLog, exportCsv } from "./datalog";
+import { exportShareCard } from "./sharecard";
 
 function detectDeviceKind(): string {
   const coarse = window.matchMedia("(pointer: coarse)").matches;
@@ -39,6 +42,23 @@ function render() {
     </div>
 
     ${SECTIONS.map(renderSection).join("")}
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Export &amp; Share</h2>
+        <span class="section-desc">A snapshot is logged every second, starting now</span>
+      </div>
+      <div class="export-panel">
+        <div class="export-info">
+          <span class="export-count"><b id="log-count">0</b> snapshots logged</span>
+          <span class="export-hint">CSV opens cleanly in Google Sheets &mdash; one column per sensor reading.</span>
+        </div>
+        <div class="export-actions">
+          <button class="enable-btn" id="export-csv">\u{1F4E5} Export CSV Log</button>
+          <button class="enable-btn" id="export-image">\u{1F5BC}\u{FE0F} Export Summary Image</button>
+        </div>
+      </div>
+    </section>
 
     <div class="foot">
       <span>Mirrors the 23 hardware sensors in the SensoLab Android app — mapped to what the Web Platform actually exposes — plus a GPS-derived trip computer.</span>
@@ -111,6 +131,11 @@ function setupSummary() {
   window.setInterval(tick, 1000);
 }
 
+function setupExport() {
+  document.getElementById("export-csv")?.addEventListener("click", exportCsv);
+  document.getElementById("export-image")?.addEventListener("click", exportShareCard);
+}
+
 const NOT_AVAILABLE_CARDS = ["motion-na", "orient-na", "env-na"];
 
 render();
@@ -118,6 +143,7 @@ for (const id of NOT_AVAILABLE_CARDS) setStatus(id, "unavailable", "By design");
 setupDisplayMode();
 setupTheme();
 setupSummary();
+setupExport();
 initMotion();
 initOrientation();
 initGeo();
@@ -125,3 +151,5 @@ initLight();
 initAudio();
 initHeartRate();
 initDeviceInfo();
+initSpeedTest();
+initDataLog();

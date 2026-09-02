@@ -263,6 +263,18 @@ export const SECTIONS: SectionDef[] = [
         ],
       },
       {
+        id: "speedtest",
+        icon: "\u{1F680}",
+        title: "Internet Speed Test",
+        gauge: true,
+        fields: [
+          { key: "ping", label: "Ping", unit: "ms" },
+          { key: "download", label: "Download", unit: "Mb/s" },
+          { key: "upload", label: "Upload", unit: "Mb/s" },
+        ],
+        note: "Runs a real download/upload test against Cloudflare's public speed-test endpoint — actual network traffic, not an estimate.",
+      },
+      {
         id: "storage",
         icon: "\u{1F4BE}",
         title: "Storage",

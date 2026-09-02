@@ -672,6 +672,42 @@ body[data-display="visual"] .section[data-toggleable] .visual-view {
   color: var(--text-dim);
 }
 
+/* ---------- Export & Share ---------- */
+
+.export-panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.export-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.export-count {
+  font-size: 14px;
+  color: var(--text);
+}
+.export-count b {
+  font-family: var(--mono);
+  color: var(--accent);
+}
+.export-hint {
+  font-size: 12px;
+  color: var(--text-faint);
+}
+.export-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 /* ---------- Footer ---------- */
 
 .foot {

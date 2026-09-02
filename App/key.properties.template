@@ -10,7 +10,7 @@
 # keyAlias:  the alias inside the keystore (find it with:
 #            keytool -list -v -keystore <storeFile>  — it prompts for the store password).
 #
-storeFile=D:\\AI\\Claude\\PhoneLab\\Distribution\\Keys\\PhoneLab-Key
+storeFile=C:\\path\\to\\PhoneLab\\Distribution\\Keys\\PhoneLab-Key
 storePassword=CHANGEME
 keyAlias=CHANGEME
 keyPassword=CHANGEME
