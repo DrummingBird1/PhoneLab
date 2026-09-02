@@ -35,7 +35,7 @@ Sin anuncios. Sin cuenta. Sin servicios en segundo plano cuando no estás usando
 
 ## Funciones
 
-**📡 Pestaña Sensores** — lecturas en vivo de unos 29 sensores (acelerómetro, giroscopio, magnetómetro, gravedad, vectores de rotación, barómetro, luz, proximidad, humedad, temperatura ambiente, ritmo cardíaco, contador de pasos, detectores de inclinación y movimiento, y más), además de velocidad GPS y un medidor de nivel de sonido en vivo. La disponibilidad de sensores varía según el dispositivo — la app indica claramente qué no tiene tu hardware.
+**📡 Pestaña Sensores** — lecturas en vivo de 24 sensores (acelerómetro, giroscopio, magnetómetro, gravedad, vectores de rotación, barómetro, luz, proximidad, humedad, temperatura ambiente, ritmo cardíaco, contador de pasos, detectores de inclinación y movimiento, y más), además de velocidad GPS y un medidor de nivel de sonido en vivo. La disponibilidad de sensores varía según el dispositivo — la app indica claramente qué no tiene tu hardware.
 
 **⚙️ Pestaña Sistema** — modelo del dispositivo, versión de Android, CPU/RAM/almacenamiento, temperaturas de zonas térmicas (CPU/GPU/batería/carcasa y más) con alertas codificadas por color, un benchmark de rendimiento en 4 fases, grabación de sesión en CSV que sigue funcionando en segundo plano mediante un servicio en primer plano, y exportación de especificaciones a un archivo de texto.
 

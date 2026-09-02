@@ -36,7 +36,7 @@ No ads. No account. No background services when you're not using it. The app onl
 
 ## Features
 
-**📡 Sensors tab** — live readings from ~29 sensors (accelerometer, gyroscope, magnetometer, gravity, rotation vectors, barometer, light, proximity, humidity, ambient temperature, heart rate, step counter, tilt/motion detectors, and more), plus GPS speed and a live sound-level meter. Sensor availability varies by device — the app clearly labels what your hardware doesn't have.
+**📡 Sensors tab** — live readings from 24 sensors (accelerometer, gyroscope, magnetometer, gravity, rotation vectors, barometer, light, proximity, humidity, ambient temperature, heart rate, step counter, tilt/motion detectors, and more), plus GPS speed and a live sound-level meter. Sensor availability varies by device — the app clearly labels what your hardware doesn't have.
 
 **⚙️ System tab** — device model, Android version, CPU/RAM/storage, thermal-zone temperatures (CPU/GPU/battery/skin and more) with color-coded alerts, a 4-phase performance benchmark, CSV session recording that keeps running in the background via a foreground service, and spec export to a text file.
 
