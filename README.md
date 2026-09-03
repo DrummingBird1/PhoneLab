@@ -52,7 +52,7 @@ No ads. No account. No background services when you're not using it. The app onl
 
 ## PhoneLab Web
 
-A companion browser-based sensor dashboard lives in this repo under [`Web/`](Web/) and runs live at **[sensolab-web.vercel.app](https://sensolab-web.vercel.app)** — no install needed. It mirrors what the Web Platform exposes on your current browser/device: motion & orientation sensors, GPS, ambient light, an internet speed test, and CSV/PNG export of everything it reads. Everything runs client-side; nothing is sent anywhere.
+A companion browser-based sensor dashboard lives in this repo under [`Web/`](Web/) and runs live at **[sensolab-web-app.vercel.app](https://sensolab-web-app.vercel.app)** — no install needed. It mirrors what the Web Platform exposes on your current browser/device: motion & orientation sensors, GPS, ambient light, an internet speed test, and CSV/PNG export of everything it reads. Everything runs client-side; nothing is sent anywhere.
 
 ## Download
 
