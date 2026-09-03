@@ -8,7 +8,7 @@ interface Column {
 
 const MAX_ROWS = 3600; // ~1 hour at 1 sample/sec, keeps memory bounded
 let columns: Column[] = [];
-let rows: string[][] = [];
+const rows: string[][] = [];
 
 function buildColumns(): Column[] {
   const cols: Column[] = [];
@@ -39,7 +39,7 @@ export function readValue(cardId: string, key: string): string {
   return el.textContent?.trim() ?? "";
 }
 
-function csvEscape(value: string): string {
+export function csvEscape(value: string): string {
   if (/[",\n]/.test(value)) return `"${value.replace(/"/g, '""')}"`;
   return value;
 }

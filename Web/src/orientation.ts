@@ -1,4 +1,13 @@
-import { setStatus, setFields, setNeedle, setBubble, showGate, onGateClick, setTriaxis, setRotateIcon } from "./ui";
+import {
+  setStatus,
+  setFields,
+  setNeedle,
+  setBubble,
+  showGate,
+  onGateClick,
+  setTriaxis,
+  setRotateIcon,
+} from "./ui";
 
 const GATED_CARDS = ["compass", "attitude"];
 
@@ -26,7 +35,10 @@ function initCompassAndAttitude() {
       const abs = forceAbsolute || (e as any).absolute === true;
       const heading = abs ? (360 - e.alpha) % 360 : e.alpha;
       setStatus("compass", "live");
-      setFields("compass", { heading: heading.toFixed(0), ref: abs ? "True north" : "Relative (uncalibrated)" });
+      setFields("compass", {
+        heading: heading.toFixed(0),
+        ref: abs ? "True north" : "Relative (uncalibrated)",
+      });
       setNeedle("compass", heading);
     } else {
       setStatus("compass", "unavailable", "Not reported");
@@ -37,8 +49,8 @@ function initCompassAndAttitude() {
       const gamma = e.gamma ?? 0;
       setStatus("attitude", "live");
       setFields("attitude", { beta: beta.toFixed(1), gamma: gamma.toFixed(1) });
-      const xPct = Math.max(-35, Math.min(35, gamma / 90 * 35));
-      const yPct = Math.max(-35, Math.min(35, beta / 90 * 35));
+      const xPct = Math.max(-35, Math.min(35, (gamma / 90) * 35));
+      const yPct = Math.max(-35, Math.min(35, (beta / 90) * 35));
       const hot = Math.abs(beta) > 45 || Math.abs(gamma) > 45;
       setBubble("attitude", xPct, yPct, hot);
     } else {

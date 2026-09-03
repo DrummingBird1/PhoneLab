@@ -1,4 +1,14 @@
-import { setStatus, setFields, addAction, getCanvas, showGate, onGateClick, setTriaxis, setStateViz, setGauge } from "./ui";
+import {
+  setStatus,
+  setFields,
+  addAction,
+  getCanvas,
+  showGate,
+  onGateClick,
+  setTriaxis,
+  setStateViz,
+  setGauge,
+} from "./ui";
 import { Sparkline } from "./sparkline";
 
 const CARDS = ["accel", "linaccel", "gravity", "gyro", "activity", "steps"];
@@ -42,7 +52,9 @@ export function initMotion() {
     const rot = e.rotationRate;
 
     if (g && (g.x != null || g.y != null || g.z != null)) {
-      const x = g.x ?? 0, y = g.y ?? 0, z = g.z ?? 0;
+      const x = g.x ?? 0,
+        y = g.y ?? 0,
+        z = g.z ?? 0;
       const mag = Math.sqrt(x * x + y * y + z * z);
       setStatus("accel", "live");
       setFields("accel", { x: x.toFixed(2), y: y.toFixed(2), z: z.toFixed(2), mag: mag.toFixed(2) });
@@ -60,7 +72,12 @@ export function initMotion() {
           state: moving ? "Moving" : "Stationary",
           variance: variance.toFixed(3),
         });
-        setStateViz("activity", moving ? "\u{1F3C3}" : "\u{1F9CD}", moving ? "Moving" : "Stationary", moving ? "active" : "idle");
+        setStateViz(
+          "activity",
+          moving ? "\u{1F3C3}" : "\u{1F9CD}",
+          moving ? "Moving" : "Stationary",
+          moving ? "active" : "idle"
+        );
       }
 
       const now = Date.now();
@@ -78,7 +95,9 @@ export function initMotion() {
       setGauge("steps", Math.min(100, (stepTimes.length / 150) * 100), String(stepCount));
 
       if (lin && (lin.x != null || lin.y != null || lin.z != null)) {
-        const gx = x - (lin.x ?? 0), gy = y - (lin.y ?? 0), gz = z - (lin.z ?? 0);
+        const gx = x - (lin.x ?? 0),
+          gy = y - (lin.y ?? 0),
+          gz = z - (lin.z ?? 0);
         setStatus("gravity", "live");
         setFields("gravity", { x: gx.toFixed(2), y: gy.toFixed(2), z: gz.toFixed(2) });
         setTriaxis("gravity", gx, gy, gz, 10);
@@ -87,7 +106,11 @@ export function initMotion() {
         gravityLP.y = gravityLP.y * 0.9 + y * 0.1;
         gravityLP.z = gravityLP.z * 0.9 + z * 0.1;
         setStatus("gravity", "live", "Estimated");
-        setFields("gravity", { x: gravityLP.x.toFixed(2), y: gravityLP.y.toFixed(2), z: gravityLP.z.toFixed(2) });
+        setFields("gravity", {
+          x: gravityLP.x.toFixed(2),
+          y: gravityLP.y.toFixed(2),
+          z: gravityLP.z.toFixed(2),
+        });
         setTriaxis("gravity", gravityLP.x, gravityLP.y, gravityLP.z, 10);
       }
     } else {
@@ -98,7 +121,9 @@ export function initMotion() {
     }
 
     if (lin && (lin.x != null || lin.y != null || lin.z != null)) {
-      const lx = lin.x ?? 0, ly = lin.y ?? 0, lz = lin.z ?? 0;
+      const lx = lin.x ?? 0,
+        ly = lin.y ?? 0,
+        lz = lin.z ?? 0;
       setStatus("linaccel", "live");
       setFields("linaccel", { x: lx.toFixed(2), y: ly.toFixed(2), z: lz.toFixed(2) });
       setTriaxis("linaccel", lx, ly, lz, 15);
@@ -107,7 +132,9 @@ export function initMotion() {
     }
 
     if (rot && (rot.alpha != null || rot.beta != null || rot.gamma != null)) {
-      const a = rot.alpha ?? 0, b = rot.beta ?? 0, c = rot.gamma ?? 0;
+      const a = rot.alpha ?? 0,
+        b = rot.beta ?? 0,
+        c = rot.gamma ?? 0;
       setStatus("gyro", "live");
       setFields("gyro", { x: a.toFixed(1), y: b.toFixed(1), z: c.toFixed(1) });
       setTriaxis("gyro", a, b, c, 180);

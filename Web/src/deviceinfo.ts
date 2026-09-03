@@ -1,4 +1,5 @@
-import { setStatus, setFields, setMeter } from "./ui";
+import { setStatus, setFields, setMeter, getCanvas } from "./ui";
+import { Sparkline } from "./sparkline";
 
 export function initDeviceInfo() {
   const cores = navigator.hardwareConcurrency;
@@ -10,6 +11,8 @@ export function initDeviceInfo() {
 
   const nav: any = navigator;
   if (nav.getBattery) {
+    const battCanvas = getCanvas("battery");
+    const battSpark = battCanvas ? new Sparkline(battCanvas, 120) : null;
     nav
       .getBattery()
       .then((batt: any) => {
@@ -19,10 +22,15 @@ export function initDeviceInfo() {
             level: `${Math.round(batt.level * 100)}%`,
             charging: batt.charging ? "Yes" : "No",
             time: batt.charging
-              ? isFinite(batt.chargingTime) ? `${Math.round(batt.chargingTime / 60)} min` : "—"
-              : isFinite(batt.dischargingTime) ? `${Math.round(batt.dischargingTime / 60)} min` : "—",
+              ? isFinite(batt.chargingTime)
+                ? `${Math.round(batt.chargingTime / 60)} min`
+                : "—"
+              : isFinite(batt.dischargingTime)
+                ? `${Math.round(batt.dischargingTime / 60)} min`
+                : "—",
           });
           setMeter("battery", batt.level * 100);
+          battSpark?.push(batt.level * 100);
         }
         update();
         batt.addEventListener("levelchange", update);

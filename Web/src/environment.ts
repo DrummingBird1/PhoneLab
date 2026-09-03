@@ -1,17 +1,28 @@
-import { setStatus, setFields, addAction, getCanvas, setMeter, setGpsSignal, setGauge, setPulse } from "./ui";
+import {
+  setStatus,
+  setFields,
+  addAction,
+  getCanvas,
+  getTrailCanvas,
+  setMeter,
+  setGpsSignal,
+  setGauge,
+  setPulse,
+  setStateViz,
+} from "./ui";
 import { Sparkline } from "./sparkline";
+import { Trail } from "./trail";
 
-function haversineMeters(lat1: number, lon1: number, lat2: number, lon2: number): number {
+export function haversineMeters(lat1: number, lon1: number, lat2: number, lon2: number): number {
   const R = 6371000;
   const toRad = (d: number) => (d * Math.PI) / 180;
   const dLat = toRad(lat2 - lat1);
   const dLon = toRad(lon2 - lon1);
-  const a =
-    Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
-function formatDuration(totalSeconds: number): string {
+export function formatDuration(totalSeconds: number): string {
   const s = Math.max(0, Math.floor(totalSeconds));
   const h = Math.floor(s / 3600);
   const m = Math.floor((s % 3600) / 60);
@@ -36,6 +47,8 @@ export function initGeo() {
   let lastFix: { lat: number; lon: number } | null = null;
   const tripCanvas = getCanvas("trip");
   const tripSpark = tripCanvas ? new Sparkline(tripCanvas) : null;
+  const trailCanvas = getTrailCanvas("gps");
+  const trail = trailCanvas ? new Trail(trailCanvas) : null;
 
   addAction("gps", "Enable Location", () => {
     setStatus("gps", "waiting");
@@ -53,6 +66,7 @@ export function initGeo() {
           acc: c.accuracy.toFixed(0),
         });
         setGpsSignal("gps", c.accuracy);
+        trail?.push(c.latitude, c.longitude);
 
         const now = Date.now();
         if (tripStartAt == null) tripStartAt = now;
@@ -94,11 +108,18 @@ export function initGeo() {
         tripMaxKmh = 0;
         tripStartAt = Date.now();
         lastFix = null;
-        setFields("trip", { distance: "0.00", speed: "0.0", avgspeed: "0.0", maxspeed: "0.0", duration: "00:00" });
+        setFields("trip", {
+          distance: "0.00",
+          speed: "0.0",
+          avgspeed: "0.0",
+          maxspeed: "0.0",
+          duration: "00:00",
+        });
         setGauge("trip", 0, "0 km/h");
       },
       false
     );
+    addAction("gps", "Clear Trail", () => trail?.reset(), false);
   });
 }
 
@@ -154,7 +175,11 @@ export function initLight() {
     sensor.addEventListener("reading", () => {
       setStatus("light", "live");
       setFields("light", { lux: String(Math.round(sensor.illuminance)) });
-      setGauge("light", Math.min(100, (sensor.illuminance / 1000) * 100), `${Math.round(sensor.illuminance)} lux`);
+      setGauge(
+        "light",
+        Math.min(100, (sensor.illuminance / 1000) * 100),
+        `${Math.round(sensor.illuminance)} lux`
+      );
       spark?.push(sensor.illuminance);
     });
     sensor.addEventListener("error", (e: any) => {
@@ -163,6 +188,38 @@ export function initLight() {
     sensor.start();
   } catch {
     setStatus("light", "unavailable", "Not supported");
+  }
+}
+
+export function initProximity() {
+  const ProximitySensor = (window as any).ProximitySensor;
+  if (!ProximitySensor) {
+    setStatus("proximity", "unavailable", "Not implemented in this browser");
+    return;
+  }
+  try {
+    const sensor = new ProximitySensor();
+    sensor.addEventListener("reading", () => {
+      setStatus("proximity", "live");
+      const near = sensor.near === true;
+      setFields("proximity", { distance: sensor.distance != null ? sensor.distance.toFixed(1) : "—" });
+      setStateViz(
+        "proximity",
+        near ? "\u{1F91A}" : "\u{1F4CF}",
+        near ? "Near" : "Far",
+        near ? "active" : "idle"
+      );
+    });
+    sensor.addEventListener("error", (e: any) => {
+      setStatus(
+        "proximity",
+        e.error?.name === "NotAllowedError" ? "permission" : "unavailable",
+        e.error?.name
+      );
+    });
+    sensor.start();
+  } catch {
+    setStatus("proximity", "unavailable", "Not supported");
   }
 }
 

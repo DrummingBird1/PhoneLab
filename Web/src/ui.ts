@@ -1,153 +1,5 @@
-export type Status = "idle" | "waiting" | "live" | "permission" | "denied" | "unavailable" | "error";
-
-const STATUS_LABEL: Record<Status, string> = {
-  idle: "Idle",
-  waiting: "Waiting",
-  live: "Live",
-  permission: "Tap to enable",
-  denied: "Denied",
-  unavailable: "Unavailable",
-  error: "Error",
-};
-
-export interface FieldDef {
-  key: string;
-  label: string;
-  unit?: string;
-}
-
-export interface CardDef {
-  id: string;
-  icon: string;
-  title: string;
-  fields?: FieldDef[];
-  sparkline?: boolean;
-  compass?: boolean;
-  level?: boolean;
-  meter?: boolean;
-  triaxis?: boolean;
-  gauge?: boolean;
-  stateViz?: boolean;
-  rotateIcon?: boolean;
-  pulse?: boolean;
-  gpsSignal?: boolean;
-  note?: string;
-}
-
-export interface SectionDef {
-  id: string;
-  title: string;
-  desc: string;
-  gateLabel?: string;
-  toggleable?: boolean;
-  cards: CardDef[];
-}
-
-function fieldRow(f: FieldDef): string {
-  return `<div class="metric-row">
-    <dt>${f.label}</dt>
-    <dd data-field="${f.key}">&mdash;${f.unit ? ` <span class="unit">${f.unit}</span>` : ""}</dd>
-  </div>`;
-}
-
-function renderCard(def: CardDef): string {
-  const parts: string[] = [];
-  parts.push(`<article class="card" id="card-${def.id}" data-status="idle">`);
-  parts.push(`<div class="card-head">
-    <span class="card-icon">${def.icon}</span>
-    <h3>${def.title}</h3>
-    <span class="status-pill" data-role="status" data-s="idle">Idle</span>
-  </div>`);
-
-  if (def.compass) {
-    parts.push(`<div class="compass-wrap"><div class="compass-dial">
-      <div class="compass-needle" data-role="needle"></div>
-      <div class="compass-center"></div>
-    </div></div>`);
-  }
-  if (def.level) {
-    parts.push(`<div class="level-wrap"><div class="level-dial">
-      <div class="level-bubble" data-role="bubble"></div>
-    </div></div>`);
-  }
-  if (def.meter) {
-    parts.push(`<div class="meter-wrap">
-      <div class="meter-track"><div class="meter-fill" data-role="meter"></div></div>
-    </div>`);
-  }
-  if (def.fields?.length) {
-    parts.push(`<dl class="metric-list">${def.fields.map(fieldRow).join("")}</dl>`);
-  }
-
-  const vizParts: string[] = [];
-  if (def.triaxis) {
-    vizParts.push(`<div class="triaxis">
-      <div class="triaxis-row"><b>X</b><div class="triaxis-track"><div class="triaxis-fill" data-axis="x"></div></div></div>
-      <div class="triaxis-row"><b>Y</b><div class="triaxis-track"><div class="triaxis-fill" data-axis="y"></div></div></div>
-      <div class="triaxis-row"><b>Z</b><div class="triaxis-track"><div class="triaxis-fill" data-axis="z"></div></div></div>
-    </div>`);
-  }
-  if (def.gauge) {
-    vizParts.push(`<div class="gauge">
-      <div class="gauge-ring" data-role="gauge-ring">
-        <div class="gauge-inner"><span data-role="gauge-label">—</span></div>
-      </div>
-    </div>`);
-  }
-  if (def.stateViz) {
-    vizParts.push(`<div class="state-badge" data-role="state">
-      <span class="state-icon" data-role="state-icon">—</span>
-      <span class="state-label" data-role="state-label">—</span>
-    </div>`);
-  }
-  if (def.rotateIcon) {
-    vizParts.push(`<div class="rotate-wrap"><span class="rotate-icon" data-role="rotate">📱</span></div>`);
-  }
-  if (def.pulse) {
-    vizParts.push(`<div class="pulse-wrap">
-      <span class="pulse-icon" data-role="pulse">💓</span>
-      <span class="pulse-bpm" data-role="pulse-bpm">— BPM</span>
-    </div>`);
-  }
-  if (def.gpsSignal) {
-    vizParts.push(`<div class="signal-wrap">
-      <div class="signal-bars" data-role="signal">
-        <span class="bar" data-i="1"></span><span class="bar" data-i="2"></span><span class="bar" data-i="3"></span><span class="bar" data-i="4"></span>
-      </div>
-      <span class="signal-label" data-role="signal-label">No fix</span>
-    </div>`);
-  }
-  if (vizParts.length) {
-    parts.push(`<div class="visual-view">${vizParts.join("")}</div>`);
-  }
-
-  if (def.sparkline) {
-    parts.push(`<canvas class="sparkline" data-role="sparkline"></canvas>`);
-  }
-  if (def.note) {
-    parts.push(`<p class="card-note">${def.note}</p>`);
-  }
-  parts.push(`<div class="card-actions" data-role="actions"></div>`);
-  parts.push(`</article>`);
-  return parts.join("");
-}
-
-export function renderSection(def: SectionDef): string {
-  const gate = def.gateLabel
-    ? `<div class="section-gate" id="gate-${def.id}" data-role="gate">
-        <span>${def.gateLabel}</span>
-        <button class="enable-btn" data-role="gate-btn">Enable</button>
-      </div>`
-    : "";
-  return `<section class="section" id="section-${def.id}"${def.toggleable ? ' data-toggleable="true"' : ""}>
-    <div class="section-head">
-      <h2>${def.title}</h2>
-      <span class="section-desc">${def.desc}</span>
-    </div>
-    ${gate}
-    <div class="grid">${def.cards.map(renderCard).join("")}</div>
-  </section>`;
-}
+export * from "./render";
+import { STATUS_LABEL, type Status } from "./render";
 
 export function setStatus(cardId: string, status: Status, label?: string) {
   const card = document.getElementById(`card-${cardId}`);
@@ -195,6 +47,11 @@ export function getCanvas(cardId: string): HTMLCanvasElement | null {
   return card?.querySelector<HTMLCanvasElement>('[data-role="sparkline"]') ?? null;
 }
 
+export function getTrailCanvas(cardId: string): HTMLCanvasElement | null {
+  const card = document.getElementById(`card-${cardId}`);
+  return card?.querySelector<HTMLCanvasElement>('[data-role="trail"]') ?? null;
+}
+
 export function setNeedle(cardId: string, degrees: number) {
   const card = document.getElementById(`card-${cardId}`);
   const needle = card?.querySelector<HTMLElement>('[data-role="needle"]');
@@ -225,7 +82,13 @@ export function showGate(sectionId: string, show: boolean) {
 
 export function setTriaxis(cardId: string, x: number, y: number, z: number, range: number) {
   const card = document.getElementById(`card-${cardId}`);
-  ([["x", x], ["y", y], ["z", z]] as const).forEach(([axis, v]) => {
+  (
+    [
+      ["x", x],
+      ["y", y],
+      ["z", z],
+    ] as const
+  ).forEach(([axis, v]) => {
     const el = card?.querySelector<HTMLElement>(`[data-axis="${axis}"]`);
     if (!el) return;
     const pct = Math.max(0, Math.min(50, (Math.abs(v) / range) * 50));
@@ -287,7 +150,37 @@ export function setGpsSignal(cardId: string, accuracy: number) {
 export function onGateClick(sectionId: string, handler: () => void) {
   const gate = document.getElementById(`gate-${sectionId}`);
   const btn = gate?.querySelector<HTMLButtonElement>('[data-role="gate-btn"]');
+  btn?.addEventListener(
+    "click",
+    () => {
+      handler();
+    },
+    { once: true }
+  );
+}
+
+export function onToggle(cardId: string, handler: (on: boolean) => void) {
+  const card = document.getElementById(`card-${cardId}`);
+  const btn = card?.querySelector<HTMLButtonElement>('[data-role="toggle-btn"]');
   btn?.addEventListener("click", () => {
-    handler();
-  }, { once: true });
+    const next = btn.dataset.on !== "true";
+    handler(next);
+  });
+}
+
+export function setToggleState(cardId: string, on: boolean, onLabel: string, offLabel: string) {
+  const card = document.getElementById(`card-${cardId}`);
+  const btn = card?.querySelector<HTMLButtonElement>('[data-role="toggle-btn"]');
+  if (!btn) return;
+  btn.dataset.on = String(on);
+  btn.setAttribute("aria-pressed", String(on));
+  btn.textContent = on ? onLabel : offLabel;
+}
+
+/** Marks a card's metric values as live-announced (used only while the card is open in Focus mode). */
+export function setCardAriaLive(cardId: string, live: boolean) {
+  const card = document.getElementById(`card-${cardId}`);
+  card?.querySelectorAll<HTMLElement>("[data-field]").forEach((el) => {
+    el.setAttribute("aria-live", live ? "polite" : "off");
+  });
 }

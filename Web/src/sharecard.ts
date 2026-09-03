@@ -1,6 +1,6 @@
 import { readValue } from "./datalog";
 
-interface Stat {
+export interface Stat {
   cardId: string;
   key: string;
   icon: string;
@@ -8,7 +8,7 @@ interface Stat {
   unit?: string;
 }
 
-const STATS: Stat[] = [
+export const STATS: Stat[] = [
   { cardId: "accel", key: "mag", icon: "📡", label: "Acceleration", unit: "m/s²" },
   { cardId: "compass", key: "heading", icon: "🧭", label: "Compass Heading", unit: "°" },
   { cardId: "trip", key: "speed", icon: "🚗", label: "Speed", unit: "km/h" },
@@ -132,12 +132,25 @@ export function exportShareCard() {
   ctx.font = "500 20px -apple-system, 'Segoe UI', Arial, sans-serif";
   ctx.fillText("sensolab-web.vercel.app · everything stays on your device", W / 2, Math.min(footerY, H - 40));
 
-  canvas.toBlob((blob) => {
+  canvas.toBlob(async (blob) => {
     if (!blob) return;
+    const filename = `SensoLab-snapshot-${Date.now()}.png`;
+    const file = new File([blob], filename, { type: "image/png" });
+
+    const nav = navigator as any;
+    if (nav.share && nav.canShare?.({ files: [file] })) {
+      try {
+        await nav.share({ files: [file], title: "SensoLab snapshot" });
+        return;
+      } catch {
+        // User cancelled the share sheet, or it failed — fall through to a plain download.
+      }
+    }
+
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `SensoLab-snapshot-${Date.now()}.png`;
+    a.download = filename;
     document.body.appendChild(a);
     a.click();
     a.remove();
