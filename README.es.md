@@ -51,7 +51,7 @@ Sin anuncios. Sin cuenta. Sin servicios en segundo plano cuando no estás usando
 
 ## PhoneLab Web
 
-Un panel de sensores complementario basado en el navegador vive en este repositorio, dentro de [`Web/`](Web/), y funciona en vivo en **[sensolab-web-app.vercel.app](https://sensolab-web-app.vercel.app)** — sin instalación. Refleja lo que la plataforma web expone en tu navegador/dispositivo actual: sensores de movimiento y orientación, GPS, luz ambiente, un test de velocidad de internet, y exportación a CSV/PNG de todo lo que lee. Todo se ejecuta en el cliente; no se envía nada a ningún sitio.
+Un panel de sensores complementario basado en el navegador vive en este repositorio, dentro de [`Web/`](Web/), y funciona en vivo en **[sensolab-web.vercel.app](https://sensolab-web.vercel.app)** — sin instalación. Refleja lo que la plataforma web expone en tu navegador/dispositivo actual: sensores de movimiento y orientación, GPS, luz ambiente, un test de velocidad de internet, y exportación a CSV/PNG de todo lo que lee. Todo se ejecuta en el cliente; no se envía nada a ningún sitio.
 
 ## Descargar
 

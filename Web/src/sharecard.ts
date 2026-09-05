@@ -130,7 +130,7 @@ export function exportShareCard() {
   ctx.textAlign = "center";
   ctx.fillStyle = "#5c6685";
   ctx.font = "500 20px -apple-system, 'Segoe UI', Arial, sans-serif";
-  ctx.fillText("sensolab-web-app.vercel.app · everything stays on your device", W / 2, Math.min(footerY, H - 40));
+  ctx.fillText("sensolab-web.vercel.app · everything stays on your device", W / 2, Math.min(footerY, H - 40));
 
   canvas.toBlob(async (blob) => {
     if (!blob) return;
