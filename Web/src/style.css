@@ -79,6 +79,10 @@ body {
   max-width: 1180px;
   margin: 0 auto;
   padding: 20px 16px 64px;
+  /* Fallback above, safe-area-aware version below — browsers without env()/max() support
+     just keep the fallback (invalid declarations are ignored, not applied as 0). */
+  padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(64px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
 }
 
 /* ---------- Header ---------- */
@@ -887,8 +891,8 @@ body[data-display="visual"] .section[data-toggleable] .visual-view {
   background: var(--panel);
 }
 .a11y-controls .icon-btn {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   border: none;
   background: transparent;
   font-size: 13px;

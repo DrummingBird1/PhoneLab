@@ -43,6 +43,15 @@ export async function copyPermalink(): Promise<boolean> {
   }
 }
 
+function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export function initPermalinkBanner() {
   const hash = location.hash;
   const match = /#s=([^&]+)/.exec(hash);
@@ -59,7 +68,8 @@ export function initPermalinkBanner() {
     .map(([cardId, key, value]) => {
       const stat = labelFor(cardId, key);
       if (!stat) return "";
-      return `<div class="snapshot-row"><span>${stat.icon} ${stat.label}</span><b>${value || "—"}${stat.unit ? ` ${stat.unit}` : ""}</b></div>`;
+      const safeValue = escapeHtml(String(value ?? "")) || "—";
+      return `<div class="snapshot-row"><span>${stat.icon} ${stat.label}</span><b>${safeValue}${stat.unit ? ` ${stat.unit}` : ""}</b></div>`;
     })
     .join("");
 

@@ -40,8 +40,11 @@ export function readValue(cardId: string, key: string): string {
 }
 
 export function csvEscape(value: string): string {
-  if (/[",\n]/.test(value)) return `"${value.replace(/"/g, '""')}"`;
-  return value;
+  // A leading =, +, -, @, tab or CR makes some spreadsheet apps treat the cell as a
+  // formula (a known CSV-injection vector) — prefix with a tab so it's read as literal text.
+  const safe = /^[=+\-@\t\r]/.test(value) ? `\t${value}` : value;
+  if (/[",\n]/.test(safe)) return `"${safe.replace(/"/g, '""')}"`;
+  return safe;
 }
 
 export function initDataLog() {
