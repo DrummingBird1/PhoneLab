@@ -1,0 +1,26 @@
+Categories:
+  - System
+License: GPL-3.0-only
+AuthorName: DrummingBird1
+SourceCode: https://github.com/DrummingBird1/PhoneLab
+IssueTracker: https://github.com/DrummingBird1/PhoneLab/issues
+Changelog: https://github.com/DrummingBird1/PhoneLab/releases
+
+AutoName: PhoneLab
+
+RepoType: git
+Repo: https://github.com/DrummingBird1/PhoneLab.git
+
+Builds:
+  - versionName: 1.3.0
+    versionCode: 4
+    commit: v1.3.0
+    subdir: App/app
+    gradle:
+      - foss
+    prebuild: sed -i -e '/billingclient/d' build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.3.0
+CurrentVersionCode: 4

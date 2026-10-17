@@ -21,16 +21,17 @@
 
 PhoneLab es una app de Android de una sola pantalla para quien quiera saber exactamente qué está haciendo el hardware de su dispositivo en este momento — desarrolladores que prueban el comportamiento de sensores, entusiastas de la tecnología, jugadores vigilando la temperatura, o cualquiera con curiosidad por lo que hay dentro de su teléfono.
 
-Sin anuncios. Sin cuenta. Sin servicios en segundo plano cuando no estás usando la app. La aplicación solo lee sensores y archivos del sistema a los que cualquier app de Android ya tiene acceso — **nunca se conecta a internet**. Todos los detalles en la [Política de privacidad](https://drummingbird1.github.io/phonelab-privacy/).
+Sin anuncios. Sin cuenta. Sin servicios en segundo plano cuando no estás usando la app. La aplicación solo lee sensores y archivos del sistema a los que cualquier app de Android ya tiene acceso — la versión de GitHub / F-Droid **no tiene permiso de internet** (la versión de Google Play solo añade Google Play Billing para la propina opcional). Todos los detalles en la [Política de privacidad](https://drummingbird1.github.io/phonelab-privacy/).
 
 ## Capturas de pantalla
 
 <div align="center">
-<img src="Assets/screenshots/PhoneLab_screenshot_1_sensors.png" width="200" alt="Pestaña Sensores">
-<img src="Assets/screenshots/PhoneLab_screenshot_2_system.png" width="200" alt="Pestaña Sistema">
-<img src="Assets/screenshots/PhoneLab_screenshot_3_hardware.png" width="200" alt="Pestaña Hardware">
-<img src="Assets/screenshots/PhoneLab_screenshot_4_about.png" width="200" alt="Pestaña Acerca de">
-<img src="Assets/screenshots/PhoneLab_screenshot_5_settings.png" width="200" alt="Pestaña Ajustes">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_sensors.png" width="180" alt="Pestaña Sensores (modo visual)">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2_hardware.png" width="180" alt="Pestaña Hardware">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3_device_check.png" width="180" alt="Diagnóstico">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4_tools.png" width="180" alt="Pestaña Herramientas">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5_system.png" width="180" alt="Pestaña Sistema (modo visual)">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6_settings.png" width="180" alt="Pestaña Ajustes">
 </div>
 
 ## Funciones
@@ -41,13 +42,19 @@ Sin anuncios. Sin cuenta. Sin servicios en segundo plano cuando no estás usando
 
 **🔧 Pestaña Hardware** — frecuencia de CPU en vivo por núcleo, estadísticas detalladas de batería, capacidades de pantalla (frecuencia de actualización, HDR), e indicadores de capacidades de hardware (NFC, Bluetooth, número de cámaras, registro biométrico).
 
+**🧰 Pestaña Herramientas** — nivel de burbuja, calibración de la brújula, un detector de metales con el magnetómetro y un sismógrafo de vibraciones con análisis de frecuencia.
+
+**✅ Diagnóstico del dispositivo** — 11 pruebas de hardware guiadas (pantalla táctil, multitáctil, pantalla, altavoz, micrófono, vibración, botones, proximidad, linterna, sensores de movimiento, batería) con un informe de aprobado/fallido para compartir — útil al comprar o vender un teléfono usado.
+
+**🔋 Salud de la batería** — estado, potencia de carga en vatios, capacidad estimada, ciclos de carga e historial de nivel de 24 horas.
+
 **🏠 Widget de pantalla de inicio y mosaico de ajustes rápidos** — consulta la temperatura de la CPU sin abrir la app.
 
-**🔔 Alertas térmicas** — una notificación opcional cuando la temperatura de la CPU supera un umbral, con histéresis para que no te sature de avisos.
+**🔔 Alertas** — reglas personalizadas para cualquier lectura ("avísame cuando X supere Y") y alertas de temperatura de la CPU, todas con histéresis para no saturarte de avisos.
 
 **🎨 Dos modos de visualización** — Textual (números en bruto, ideal para desarrolladores) o Visual (iconos, medidores, barras de progreso) — cambia con un toque.
 
-**🌙 Temas claro y oscuro**, **🌐 4 idiomas** (inglés, hebreo, español, árabe, con soporte completo de RTL), **📐 unidades métricas/imperiales**.
+**✨ Material 3** con colores Material You opcionales, **🌙 temas claro y oscuro**, **🌐 4 idiomas** (inglés, hebreo, español, árabe, con soporte completo de RTL), **📐 unidades métricas/imperiales**.
 
 ## PhoneLab Web
 
@@ -55,19 +62,27 @@ Un panel de sensores complementario basado en el navegador vive en este reposito
 
 ## Descargar
 
-Consigue el último APK firmado en la **[página de Releases](https://github.com/DrummingBird1/PhoneLab/releases)** — cada versión detalla qué cambió en lenguaje sencillo e incluye un APK listo para instalar. Se planea la distribución en Google Play; mientras tanto, el APK es la forma más rápida de obtener la versión actual.
+- **APK:** descarga `PhoneLab-v<version>.apk` desde la **[página de Releases](https://github.com/DrummingBird1/PhoneLab/releases)** — cada versión detalla qué cambió en lenguaje sencillo.
+- **Obtainium:** añade `https://github.com/DrummingBird1/PhoneLab` para recibir actualizaciones directamente desde los releases.
+- **F-Droid / IzzyOnDroid:** solicitudes en curso.
+- **Google Play:** próximamente.
+
+Las versiones de GitHub / F-Droid (el flavor `foss`) no contienen bibliotecas propietarias ni permiso de internet. La versión de Google Play la firma Google, así que cambiar entre Play y un APK requiere desinstalar primero.
 
 ## Compilar desde el código fuente
 
-Requisitos: **JDK 21**, Android SDK 35, y el Gradle wrapper (incluido — no hace falta instalar Gradle aparte).
+Requisitos: **JDK 21**, Android SDK 36, y el Gradle wrapper (incluido — no hace falta instalar Gradle aparte).
+
+La app tiene dos flavors: `foss` (GitHub, F-Droid y otras tiendas — sin bibliotecas propietarias) y `play` (Google Play, añade la propina con Play Billing).
 
 ```bash
 cd App
-./gradlew assembleDebug      # APK debug sin firmar → app/build/outputs/apk/debug/
-./gradlew test                # pruebas unitarias JUnit
+./gradlew assembleFossDebug    # APK debug → app/build/outputs/apk/foss/debug/
+./gradlew assembleFossRelease  # APK release → app/build/outputs/apk/foss/release/
+./gradlew test                 # pruebas unitarias JUnit
 ```
 
-Una compilación release necesita una clave de firma: copia `App/key.properties.template` a `App/key.properties` y completa los datos de tu propio keystore, luego ejecuta `./gradlew bundleRelease` o `./gradlew assembleRelease`. Sin `key.properties`, las compilaciones release igual se generan — solo que sin firmar.
+Una compilación release firmada necesita una clave de firma: copia `App/key.properties.template` a `App/key.properties` y completa los datos de tu propio keystore. Sin `key.properties`, las compilaciones release igual se generan — solo que sin firmar.
 
 Consulta [CLAUDE.md](CLAUDE.md) para un recorrido completo de la arquitectura (fragments, clases auxiliares, modelo de permisos, detalles no evidentes) — es el mismo documento de orientación usado para el desarrollo asistido por IA en este repositorio, y también funciona como documentación técnica viva.
 
@@ -82,10 +97,11 @@ PhoneLab/
 ├── App/            el proyecto Gradle — ábrelo en Android Studio
 ├── Web/            el panel del navegador (Vite + TypeScript)
 ├── Assets/         textos de la ficha de la tienda, iconos, capturas, changelogs
-├── Distribution/   salida de compilación local (ignorado por git)
+├── fastlane/       textos, icono y capturas para las tiendas (F-Droid / IzzyOnDroid)
+├── Distribution/   receta de F-Droid y guía de tiendas (compilaciones y claves ignoradas por git)
 └── Archive/        instantáneas congeladas de versiones anteriores
 ```
 
 ## Licencia
 
-Por ahora no se otorga una licencia de código abierto — el código es público por transparencia, pero todos los derechos están reservados. Abre un issue si quieres hablar sobre su reutilización.
+PhoneLab es software libre bajo la **[Licencia Pública General GNU v3.0](LICENSE)** (GPL-3.0-only). Puedes usarlo, estudiarlo, compartirlo y modificarlo; las versiones modificadas que distribuyas deben mantener la misma licencia con su código fuente disponible.

@@ -1,0 +1,42 @@
+PhoneLab shows what your phone's hardware is doing right now: every sensor, temperature and system stat, live, in one app.
+
+<b>Sensors</b>
+<ul>
+<li>Live readings from up to 24 hardware sensors: accelerometer, gyroscope, magnetometer, gravity, rotation vectors, barometer, light, proximity, humidity, ambient temperature, heart rate, step counter, hinge angle and more</li>
+<li>GPS speed and altitude, plus a sound-level meter</li>
+<li>Textual cards with full precision, or a visual mode with gauges and a live compass</li>
+<li>Record a session to CSV; recording keeps running in the background</li>
+</ul>
+
+<b>System and hardware</b>
+<ul>
+<li>8 thermal zones (CPU, GPU, battery, skin, modem, Wi-Fi, charger, NPU) with a CPU temperature trend</li>
+<li>Battery health: status, charging power in watts, estimated capacity, charge cycles and a 24-hour level history</li>
+<li>Per-core CPU frequencies, display refresh rate and HDR, hardware capabilities</li>
+<li>Device specs including the GPU, with text or JSON export</li>
+<li>A 4-phase CPU benchmark</li>
+</ul>
+
+<b>Tools</b>
+<ul>
+<li>Bubble level</li>
+<li>Compass calibration</li>
+<li>Magnetometer metal detector</li>
+<li>Vibration seismograph with frequency analysis</li>
+</ul>
+
+<b>Device check</b>
+Buying or selling a used phone? Run 11 guided tests (touch screen, multi-touch, display, speaker, microphone, vibration, volume buttons, proximity, flashlight, motion sensors and battery) and share a pass/fail report.
+
+<b>Alerts and extras</b>
+<ul>
+<li>Custom alerts when a reading crosses your threshold, and CPU temperature alerts</li>
+<li>Home-screen widget and Quick Settings tile for CPU temperature</li>
+<li>Material 3 design, dark and light themes, optional Material You colors</li>
+<li>English, Hebrew, Spanish and Arabic; metric or imperial units</li>
+</ul>
+
+<b>Privacy</b>
+No ads, no account, no tracking. This build has no internet permission, so your sensor data never leaves your device. Permissions are requested only when you tap a feature that needs them.
+
+Sensors available vary by device; the app clearly marks what your hardware doesn't have.

@@ -1,0 +1,6 @@
+• New Tools tab: bubble level, compass calibration, metal detector, vibration analyzer
+• New Device check: 11 guided hardware tests with a shareable report
+• Battery health: charging power, estimated capacity, cycles, 24 h history
+• Custom alerts for any reading
+• Material 3 redesign with gauges, Material You colors and an app language setting
+• GPU info and a CPU temperature trend on the System tab

@@ -21,16 +21,17 @@
 
 **PhoneLab** هو تطبيق أندرويد بشاشة واحدة لأي شخص يريد أن يعرف بالضبط ما تفعله عتاد جهازه الآن — المطورون الذين يختبرون سلوك المستشعرات، وعشّاق التقنية، ولاعبو الألعاب الذين يراقبون درجة حرارة المعالج، أو أي شخص فضولي حول ما بداخل هاتفه.
 
-بلا إعلانات. بلا حساب مستخدم. بلا خدمات تعمل في الخلفية عندما لا تستخدم التطبيق. التطبيق لا يقرأ سوى المستشعرات وملفات النظام التي يمكن لأي تطبيق أندرويد الوصول إليها أصلًا — وهو **لا يتصل بالإنترنت أبدًا**. التفاصيل الكاملة في [سياسة الخصوصية](https://drummingbird1.github.io/phonelab-privacy/).
+بلا إعلانات. بلا حساب مستخدم. بلا خدمات تعمل في الخلفية عندما لا تستخدم التطبيق. التطبيق لا يقرأ سوى المستشعرات وملفات النظام التي يمكن لأي تطبيق أندرويد الوصول إليها أصلًا — ونسخة GitHub / F-Droid **لا تملك إذن الإنترنت إطلاقًا** (نسخة Google Play تضيف Google Play Billing فقط لجرة الإكراميات الاختيارية). التفاصيل الكاملة في [سياسة الخصوصية](https://drummingbird1.github.io/phonelab-privacy/).
 
 ## لقطات الشاشة
 
 <div align="center">
-<img src="Assets/screenshots/PhoneLab_screenshot_1_sensors.png" width="200" alt="تبويب المستشعرات">
-<img src="Assets/screenshots/PhoneLab_screenshot_2_system.png" width="200" alt="تبويب النظام">
-<img src="Assets/screenshots/PhoneLab_screenshot_3_hardware.png" width="200" alt="تبويب العتاد">
-<img src="Assets/screenshots/PhoneLab_screenshot_4_about.png" width="200" alt="تبويب حول">
-<img src="Assets/screenshots/PhoneLab_screenshot_5_settings.png" width="200" alt="تبويب الإعدادات">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_sensors.png" width="180" alt="تبويب المستشعرات (الوضع المرئي)">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2_hardware.png" width="180" alt="تبويب العتاد">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3_device_check.png" width="180" alt="فحص الجهاز">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4_tools.png" width="180" alt="تبويب الأدوات">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/5_system.png" width="180" alt="تبويب النظام (الوضع المرئي)">
+<img src="fastlane/metadata/android/en-US/images/phoneScreenshots/6_settings.png" width="180" alt="تبويب الإعدادات">
 </div>
 
 ## الميزات
@@ -41,13 +42,19 @@
 
 **🔧 تبويب العتاد** — تردد المعالج الحي لكل نواة، إحصاءات بطارية مفصّلة، إمكانات الشاشة (معدل التحديث، HDR)، وأعلام إمكانات العتاد (NFC، بلوتوث، عدد الكاميرات، التسجيل البيومتري).
 
+**🧰 تبويب الأدوات** — ميزان مائي، معايرة البوصلة، كاشف معادن بالمستشعر المغناطيسي، ومرسمة اهتزازات مع تحليل الترددات.
+
+**✅ فحص الجهاز** — 11 اختبار عتاد موجّهًا (شاشة اللمس، اللمس المتعدد، العرض، السماعة، الميكروفون، الاهتزاز، الأزرار، القرب، الكشاف، مستشعرات الحركة، البطارية) مع تقرير نجاح/فشل قابل للمشاركة — مفيد عند شراء هاتف مستعمل أو بيعه.
+
+**🔋 صحة البطارية** — الحالة، قدرة الشحن بالواط، السعة التقديرية، دورات الشحن وسجل المستوى لآخر 24 ساعة.
+
 **🏠 ودجة الشاشة الرئيسية وبلاطة الإعدادات السريعة** — تحقق من درجة حرارة المعالج دون فتح التطبيق.
 
-**🔔 تنبيهات حرارية** — إشعار اختياري عند تجاوز درجة حرارة المعالج لعتبة معينة، مع تأخير (hysteresis) حتى لا يزعجك بشكل متكرر.
+**🔔 التنبيهات** — قواعد مخصصة لأي قراءة ("نبّهني عندما يتجاوز X القيمة Y") إضافة إلى تنبيهات حرارة المعالج، وكلها مع تأخير (hysteresis) حتى لا تزعجك بشكل متكرر.
 
 **🎨 وضعا عرض** — نصي (أرقام خام، مناسب للمطورين) أو مرئي (أيقونات، مقاييس، أشرطة تقدّم) — بديل بلمسة واحدة.
 
-**🌙 سمة داكنة وفاتحة**، **🌐 4 لغات** (الإنجليزية، العبرية، الإسبانية، العربية، مع دعم كامل للكتابة من اليمين لليسار)، **📐 وحدات مترية/إمبراطورية**.
+**✨ Material 3** مع ألوان Material You اختيارية، **🌙 سمة داكنة وفاتحة**، **🌐 4 لغات** (الإنجليزية، العبرية، الإسبانية، العربية، مع دعم كامل للكتابة من اليمين لليسار)، **📐 وحدات مترية/إمبراطورية**.
 
 ## PhoneLab Web
 
@@ -55,19 +62,27 @@
 
 ## التنزيل
 
-احصل على أحدث ملف APK موقّع من **[صفحة الإصدارات](https://github.com/DrummingBird1/PhoneLab/releases)** — كل إصدار يوضح ما تغيّر بلغة بسيطة ومرفق به APK جاهز للتثبيت. التوزيع عبر Google Play مخطط له؛ وفي هذه الأثناء، ملف APK هو أسرع طريقة للحصول على الإصدار الحالي.
+- **APK:** نزّل `PhoneLab-v<version>.apk` من **[صفحة الإصدارات](https://github.com/DrummingBird1/PhoneLab/releases)** — كل إصدار يوضح ما تغيّر بلغة بسيطة.
+- **Obtainium:** أضف `https://github.com/DrummingBird1/PhoneLab` لتلقي التحديثات مباشرة من الإصدارات.
+- **F-Droid / IzzyOnDroid:** طلبات الإدراج قيد التنفيذ.
+- **Google Play:** قريبًا.
+
+نسخ GitHub / F-Droid (نكهة `foss`) لا تحتوي على مكتبات مملوكة ولا تملك إذن الإنترنت. نسخة Google Play موقّعة من Google، لذا يتطلب التبديل بين Play وتثبيت APK إلغاء التثبيت أولًا.
 
 ## البناء من المصدر
 
-المتطلبات: **JDK 21**، Android SDK 35، وGradle wrapper (مرفق ضمن المستودع — لا حاجة لتثبيت Gradle بشكل منفصل).
+المتطلبات: **JDK 21**، Android SDK 36، وGradle wrapper (مرفق ضمن المستودع — لا حاجة لتثبيت Gradle بشكل منفصل).
+
+للتطبيق نكهتان: `foss` (GitHub وF-Droid والمتاجر الأخرى — بلا مكتبات مملوكة) و`play` (Google Play، تضيف جرة الإكراميات عبر Play Billing).
 
 ```bash
 cd App
-./gradlew assembleDebug      # APK تجريبي غير موقّع → app/build/outputs/apk/debug/
-./gradlew test                # اختبارات الوحدة JUnit
+./gradlew assembleFossDebug    # APK تجريبي → app/build/outputs/apk/foss/debug/
+./gradlew assembleFossRelease  # APK إصدار → app/build/outputs/apk/foss/release/
+./gradlew test                 # اختبارات الوحدة JUnit
 ```
 
-بناء إصدار release يحتاج مفتاح توقيع: انسخ `App/key.properties.template` إلى `App/key.properties` واملأ بيانات مخزن المفاتيح (keystore) الخاص بك، ثم شغّل `./gradlew bundleRelease` أو `./gradlew assembleRelease`. بدون `key.properties`، لا تزال بنية release تُصنّع — لكن دون توقيع.
+بناء إصدار موقّع يحتاج مفتاح توقيع: انسخ `App/key.properties.template` إلى `App/key.properties` واملأ بيانات مخزن المفاتيح (keystore) الخاص بك. بدون `key.properties`، لا تزال بنية release تُصنّع — لكن دون توقيع.
 
 راجع [CLAUDE.md](CLAUDE.md) لجولة كاملة في البنية المعمارية (Fragments، الفئات المساعدة، نموذج الأذونات، التفاصيل غير الواضحة) — وهو نفس مستند التوجيه المستخدم للتطوير بمساعدة الذكاء الاصطناعي في هذا المستودع، ويعمل أيضًا كتوثيق تقني حي.
 
@@ -82,12 +97,13 @@ PhoneLab/
 ├── App/            مشروع Gradle — افتحه في Android Studio
 ├── Web/            لوحة تحكم المتصفح (Vite + TypeScript)
 ├── Assets/         نصوص صفحة المتجر، الأيقونات، لقطات الشاشة، سجلات التغييرات
-├── Distribution/   مخرجات البناء المحلية (مُستثناة من git)
+├── fastlane/       نصوص وأيقونة ولقطات شاشة للمتاجر (F-Droid / IzzyOnDroid)
+├── Distribution/   وصفة F-Droid ودليل المتاجر (البناء والمفاتيح مُستثناة من git)
 └── Archive/        لقطات مجمّدة من إصدارات أقدم
 ```
 
 ## الترخيص
 
-لا يُمنح حاليًا ترخيص مفتوح المصدر — الكود متاح للعامة من أجل الشفافية، لكن جميع الحقوق محفوظة. افتح Issue إذا رغبت بمناقشة إعادة الاستخدام.
+PhoneLab برنامج حر مرخّص بموجب **[رخصة جنو العمومية الإصدار 3.0](LICENSE)** (GPL-3.0-only). يمكنك استخدامه ودراسته ومشاركته وتعديله؛ ويجب أن تبقى النسخ المعدّلة الموزّعة تحت الرخصة نفسها مع إتاحة مصدرها.
 
 </div>

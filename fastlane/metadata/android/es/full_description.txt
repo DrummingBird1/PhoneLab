@@ -1,0 +1,42 @@
+PhoneLab muestra lo que está haciendo el hardware de tu teléfono ahora mismo: cada sensor, temperatura y dato del sistema, en vivo, en una sola app.
+
+<b>Sensores</b>
+<ul>
+<li>Lecturas en vivo de hasta 24 sensores: acelerómetro, giroscopio, magnetómetro, gravedad, vectores de rotación, barómetro, luz, proximidad, humedad, temperatura ambiente, ritmo cardíaco, contador de pasos, ángulo de bisagra y más</li>
+<li>Velocidad y altitud GPS, y un medidor de nivel de sonido</li>
+<li>Tarjetas de texto con precisión completa, o un modo visual con indicadores y una brújula en vivo</li>
+<li>Graba una sesión en CSV; la grabación sigue en segundo plano</li>
+</ul>
+
+<b>Sistema y hardware</b>
+<ul>
+<li>8 zonas térmicas (CPU, GPU, batería, carcasa, módem, Wi-Fi, cargador, NPU) con la tendencia de temperatura de la CPU</li>
+<li>Salud de la batería: estado, potencia de carga en vatios, capacidad estimada, ciclos de carga e historial de nivel de 24 horas</li>
+<li>Frecuencia por núcleo de la CPU, tasa de refresco y HDR de la pantalla, capacidades del hardware</li>
+<li>Especificaciones del dispositivo, incluida la GPU, con exportación a texto o JSON</li>
+<li>Una prueba de rendimiento de CPU en 4 fases</li>
+</ul>
+
+<b>Herramientas</b>
+<ul>
+<li>Nivel de burbuja</li>
+<li>Calibración de la brújula</li>
+<li>Detector de metales con el magnetómetro</li>
+<li>Sismógrafo de vibraciones con análisis de frecuencia</li>
+</ul>
+
+<b>Diagnóstico del dispositivo</b>
+¿Compras o vendes un teléfono usado? Ejecuta 11 pruebas guiadas (pantalla táctil, multitáctil, pantalla, altavoz, micrófono, vibración, botones de volumen, proximidad, linterna, sensores de movimiento y batería) y comparte un informe de aprobado/fallido.
+
+<b>Alertas y extras</b>
+<ul>
+<li>Alertas personalizadas cuando una lectura cruza tu umbral, y alertas de temperatura de la CPU</li>
+<li>Widget de pantalla de inicio y mosaico de Ajustes rápidos con la temperatura de la CPU</li>
+<li>Diseño Material 3, temas claro y oscuro, colores Material You opcionales</li>
+<li>Inglés, hebreo, español y árabe; unidades métricas o imperiales</li>
+</ul>
+
+<b>Privacidad</b>
+Sin anuncios, sin cuenta, sin rastreo. Esta versión no tiene permiso de internet, así que tus datos de sensores nunca salen de tu dispositivo. Los permisos se piden solo cuando tocas una función que los necesita.
+
+Los sensores disponibles varían según el dispositivo; la app marca claramente lo que tu hardware no tiene.

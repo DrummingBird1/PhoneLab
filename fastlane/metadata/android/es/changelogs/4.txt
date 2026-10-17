@@ -1,0 +1,6 @@
+• Nueva pestaña Herramientas: nivel, calibración de brújula, detector de metales, analizador de vibraciones
+• Nuevo diagnóstico: 11 pruebas de hardware guiadas con informe para compartir
+• Salud de la batería: potencia de carga, capacidad estimada, ciclos, historial de 24 h
+• Alertas personalizadas para cualquier lectura
+• Rediseño Material 3 con indicadores, colores Material You y ajuste de idioma de la app
+• Información de GPU y tendencia de temperatura de la CPU en Sistema
