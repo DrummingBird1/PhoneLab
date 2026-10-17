@@ -11,6 +11,8 @@
     <!-- CsvRecordingService foreground service (background sensor recording) -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <!-- Lets that service keep receiving GPS fixes for the CSV while the app is in the background -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
     <!-- Diagnostics: vibration motor test (install-time permission) -->
     <uses-permission android:name="android.permission.VIBRATE"/>
 
@@ -71,10 +73,11 @@
         </receiver>
 
         <!-- Owns CSV sensor recording independent of SensorsFragment's lifecycle,
-             so recording continues correctly across tab switches / backgrounding. -->
+             so recording continues correctly across tab switches / backgrounding.
+             location is added at runtime only when fine location is granted. -->
         <service
             android:name=".CsvRecordingService"
-            android:foregroundServiceType="dataSync"
+            android:foregroundServiceType="dataSync|location"
             android:exported="false"/>
 
         <!-- Quick Settings Tile — exported so the system can bind to it;
