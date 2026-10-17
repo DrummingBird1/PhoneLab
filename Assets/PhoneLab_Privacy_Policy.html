@@ -110,6 +110,20 @@
   .summary p + p { margin-top: 10px; }
   .summary b { color: var(--ok); }
 
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 0 0 16px;
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .callout p { margin: 0; max-width: none; }
+  .callout p + p { margin-top: 8px; }
+
   section { margin: 0 0 44px; }
   h2 {
     font-family: var(--sans);
@@ -119,6 +133,13 @@
     margin: 0 0 16px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
+  }
+  h3 {
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text);
+    margin: 26px 0 10px;
   }
   p { margin: 0 0 14px; max-width: 62ch; }
   ul { margin: 0 0 14px; padding-left: 22px; }
@@ -131,6 +152,7 @@
     background: var(--surface-2);
     padding: 0.1em 0.4em;
     border-radius: 4px;
+    overflow-wrap: anywhere;
   }
 
   .permtable {
@@ -144,7 +166,7 @@
     overflow: hidden;
     margin: 0 0 8px;
   }
-  .permtable-wrap { overflow-x: auto; border-radius: 12px; }
+  .permtable-wrap { overflow-x: auto; border-radius: 12px; margin: 0 0 14px; }
   .permtable th {
     text-align: left;
     font-size: 11px;
@@ -162,6 +184,18 @@
     color: var(--text);
   }
   .permtable td:first-child { font-family: var(--mono); font-size: 12.5px; color: var(--accent-2); white-space: nowrap; }
+  .permtable.builds td:first-child { font-family: var(--sans); font-size: 14.5px; font-weight: 700; color: var(--text); white-space: normal; }
+  .permtable .group td {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    background: var(--surface-2);
+    padding: 10px 16px;
+    white-space: normal;
+  }
 
   .footer {
     margin-top: 56px;
@@ -188,69 +222,146 @@
 
   <p class="kicker">PhoneLab</p>
   <h1>Privacy Policy</h1>
-  <p class="dateline">Effective &amp; last updated: August 16, 2026</p>
+  <p class="dateline">Effective &amp; last updated: October 17, 2026</p>
 
   <div class="summary">
-    <p class="kicker">In one paragraph</p>
-    <p><b>PhoneLab has no internet access at all</b> — the app does not request the Android <code>INTERNET</code> permission, so it is technically incapable of sending anything to anyone, ever. No servers, no accounts, no ads, no analytics, no tracking.</p>
-    <p>Every sensor reading is calculated and shown on your screen only. The only files PhoneLab ever creates are the ones <b>you</b> ask for — a CSV or JSON export — and they stay on your device until you choose to share them yourself.</p>
+    <p class="kicker">In short</p>
+    <p><b>PhoneLab's own code never connects to the internet.</b> There are no PhoneLab servers, no accounts, no ads, no analytics and no tracking. Every sensor reading is calculated and shown on your device, and nothing is sent to the developer.</p>
+    <p>PhoneLab comes in two builds. <b>The GitHub / F-Droid build has no internet permission at all.</b> <b>The Google Play build</b> adds Google Play Billing for an optional tip jar. That gives the app internet access, so that Google can process a tip if you choose to leave one, and Google's billing library can send Google diagnostic logs about its own operation. PhoneLab never sees your payment details.</p>
+    <p>PhoneLab only creates files when <b>you</b> ask for them (a CSV recording or a spec export). They stay on your device until you share them yourself.</p>
   </div>
 
   <section>
     <h2>Who publishes PhoneLab</h2>
-    <p>PhoneLab (published on Google Play under the package id <code>com.sensolab.devicemonitor</code>) is developed by an independent developer. This policy explains what the app does and doesn't do with data on your device, since PhoneLab is a hardware-monitoring tool that necessarily reads from sensors, location, and audio input to do its job.</p>
+    <p>PhoneLab (package id <code>com.sensolab.devicemonitor</code>) is developed by an independent developer. It is distributed on Google Play and as an APK on GitHub Releases, F-Droid, IzzyOnDroid and other app stores. PhoneLab is a hardware-monitoring tool, so it has to read sensors, location and microphone levels to work. This policy explains what it does with them.</p>
+    <p>PhoneLab is open source under the GPL-3.0 licence. You can check every statement here against the <a href="https://github.com/DrummingBird1/PhoneLab">source code on GitHub</a>.</p>
   </section>
 
   <section>
-    <h2>Data we collect</h2>
-    <p>None. PhoneLab does not collect, transmit, sell, or share any data, because it has no way to send data anywhere — the app is built without the <code>INTERNET</code> permission and contains no analytics, advertising, or crash-reporting software development kit of any kind. Every dependency the app ships with is a standard Android UI library; none of them talk to a network.</p>
-    <p>Everything described below happens locally, inside your device's memory or storage, using Android's own sensor and file APIs.</p>
+    <h2>Two builds, one app</h2>
+    <div class="permtable-wrap">
+      <table class="permtable builds">
+        <tr><th>Build</th><th>Where you get it</th><th>Internet access</th></tr>
+        <tr><td>Standard build</td><td>GitHub Releases, F-Droid, IzzyOnDroid, APKPure, Uptodown and other stores</td><td>None. The app does not request the Android <code>INTERNET</code> permission and contains no proprietary libraries, so it cannot send anything anywhere.</td></tr>
+        <tr><td>Google Play build</td><td>Google Play</td><td>Has the <code>INTERNET</code> permission, added by the Google Play Billing Library that powers the optional tip jar. PhoneLab's own code still never uses the network. See <a href="#tip-jar">The tip jar</a>.</td></tr>
+      </table>
+    </div>
+    <p>The two builds work the same in every other way. To tell which one you have, open the About tab: only the Google Play build shows the "Rate on Google Play" and "Support development (tip)" buttons.</p>
+  </section>
+
+  <section>
+    <h2>Data PhoneLab collects</h2>
+    <p>None. The developer does not collect, receive, store, sell or share any personal data, in either build. PhoneLab contains no analytics, advertising or crash-reporting software of any kind. Apart from Google Play Billing in the Google Play build, every library in the app is a standard AndroidX or Material Components library for the user interface and for scheduling on-device background checks. None of them sends data off your device.</p>
+    <p>Everything described below happens locally, in your device's memory or storage, using Android's own sensor and file APIs.</p>
+  </section>
+
+  <section>
+    <h2>What PhoneLab reads on your device</h2>
+    <ul>
+      <li><b>Hardware sensors</b>: accelerometer, gyroscope, magnetometer, light, pressure, proximity, humidity, temperature, hinge angle and similar. These need no permission. Readings are shown on screen and used by the Tools tab (level, compass, metal detector, vibration analyzer).</li>
+      <li><b>System and hardware information</b>: device model, Android version, CPU, GPU, memory, storage, display, battery state and thermal-zone temperatures, read from Android's APIs and from system files that any app can read. This feeds the System and Hardware tabs, the benchmark, alerts, the widget and the Quick Settings tile.</li>
+      <li><b>Location, microphone, heart rate and steps</b>, only after you grant the matching permission (see the table below).</li>
+      <li><b>Biometric availability</b>: the Hardware tab shows whether your phone has a fingerprint or face sensor and whether one is set up. PhoneLab never asks you to authenticate and never has access to biometric data.</li>
+    </ul>
+    <p>PhoneLab does <b>not</b> read your phone number, IMEI, serial number, advertising ID, Android ID, accounts, contacts, photos, messages or list of installed apps.</p>
   </section>
 
   <section>
     <h2>Permissions PhoneLab requests</h2>
-    <p>PhoneLab asks for each permission only when you open the screen that needs it — never all at once at launch — and only uses it for the specific feature listed here.</p>
+    <p>PhoneLab asks for each permission only when you open the screen or feature that needs it, never all at once at launch. You can revoke any of them at any time in Android's Settings, and the rest of the app keeps working.</p>
     <div class="permtable-wrap">
       <table class="permtable">
         <tr><th>Permission</th><th>Used for</th><th>Where the data goes</th></tr>
-        <tr><td>ACCESS_FINE_LOCATION<br>ACCESS_COARSE_LOCATION</td><td>Shows live GPS speed and altitude on the Sensors tab</td><td>Displayed on screen only; never stored unless you tap Export</td></tr>
-        <tr><td>BODY_SENSORS</td><td>Shows live heart rate, on devices with the hardware</td><td>Displayed on screen only</td></tr>
-        <tr><td>ACTIVITY_RECOGNITION</td><td>Powers the step counter and step detector readings</td><td>Displayed on screen only</td></tr>
-        <tr><td>RECORD_AUDIO</td><td>Live sound-level (dB) meter</td><td>Audio is analyzed in memory for volume level only — never recorded or saved as an audio file</td></tr>
-        <tr><td>POST_NOTIFICATIONS</td><td>Shows a warning notification if a thermal zone (CPU, battery, etc.) runs hot, if you enable this in Settings</td><td>Local notification only</td></tr>
-        <tr><td>FOREGROUND_SERVICE<br>FOREGROUND_SERVICE_DATA_SYNC</td><td>Keeps a sensor-log CSV recording running while you switch to another app, with a visible ongoing notification while it's active</td><td>Writes to a CSV file in the app's own local storage</td></tr>
+        <tr class="group"><td colspan="3">Asked for when you use the feature</td></tr>
+        <tr><td>ACCESS_FINE_LOCATION<br>ACCESS_COARSE_LOCATION</td><td>Live GPS speed and altitude on the Sensors tab. If you start a sensor recording, your position (latitude, longitude, altitude) is also written into that CSV file.</td><td>Shown on screen. Saved only in a CSV recording you start. PhoneLab never asks for background location.</td></tr>
+        <tr><td>BODY_SENSORS</td><td>Live heart rate, on devices with a heart-rate sensor</td><td>Shown on screen only</td></tr>
+        <tr><td>ACTIVITY_RECOGNITION</td><td>Step counter and step detector readings</td><td>Shown on screen only</td></tr>
+        <tr><td>RECORD_AUDIO</td><td>The sound-level (dB) meter on the Sensors tab and the Device check microphone test</td><td>Audio is analyzed in memory for loudness only. It is never recorded, saved or played back.</td></tr>
+        <tr><td>POST_NOTIFICATIONS</td><td>Thermal warnings and your custom sensor alerts (if you turn them on in Settings), and the notification shown while a recording runs</td><td>Local notifications only</td></tr>
+        <tr class="group"><td colspan="3">Granted at install, no prompt</td></tr>
+        <tr><td>FOREGROUND_SERVICE<br>FOREGROUND_SERVICE_DATA_SYNC</td><td>Keeps a CSV sensor recording running while you switch apps, with a visible notification while it's active</td><td>Written to a CSV file in PhoneLab's own storage on your device</td></tr>
+        <tr><td>VIBRATE</td><td>The Device check vibration-motor test</td><td>Nothing is stored</td></tr>
+        <tr><td>WAKE_LOCK<br>RECEIVE_BOOT_COMPLETED<br>ACCESS_NETWORK_STATE</td><td>Added by Android's WorkManager library, which runs the periodic background check for thermal alerts, custom alerts, battery history and the widget, if you've turned any of them on, and restores it after a reboot. <code>ACCESS_NETWORK_STATE</code> only lets the scheduler see whether a network exists. It does not allow any connection.</td><td>On-device only</td></tr>
+        <tr><td>USE_BIOMETRIC<br>USE_FINGERPRINT</td><td>Added by the AndroidX Biometric library. Used only to show on the Hardware tab whether biometrics are available.</td><td>Nothing is read or stored</td></tr>
+        <tr><td>…DYNAMIC_RECEIVER_<br>NOT_EXPORTED_PERMISSION</td><td>An internal AndroidX permission that keeps PhoneLab's in-app messages private to PhoneLab</td><td>Not applicable</td></tr>
+        <tr class="group"><td colspan="3">Google Play build only</td></tr>
+        <tr><td>com.android.vending.BILLING</td><td>Lets the tip jar talk to the Google Play Store app</td><td>See <a href="#tip-jar">The tip jar</a></td></tr>
+        <tr><td>INTERNET</td><td>Added by Google's <code>datatransport</code> component, which the Google Play Billing Library uses to send its diagnostic logs to Google</td><td>See <a href="#tip-jar">The tip jar</a></td></tr>
       </table>
     </div>
   </section>
 
   <section>
-    <h2>Files you create</h2>
-    <p>Two features write files, and both are actions you start yourself:</p>
+    <h2>Data stored on your device</h2>
+    <p>PhoneLab keeps a small amount of data in its private app storage, so it stays the way you set it up:</p>
     <ul>
-      <li><b>Sensor recording</b> — tap Record on the Sensors tab to save a stream of sensor readings to a <code>.csv</code> file.</li>
-      <li><b>Spec export</b> — tap Export on the System tab to save your device's specifications as a <code>.txt</code> or <code>.json</code> file.</li>
+      <li>Your settings: theme, language, units, display mode and alert thresholds.</li>
+      <li>Your custom alert rules and the results of your last Device check.</li>
+      <li>If you turn on <b>battery history</b> in Settings: one battery level and temperature sample about every 15 minutes, for the last 24 hours only. "Clear history" in Settings deletes it.</li>
     </ul>
-    <p>These files are saved to your device's own storage (your Documents folder, or the app's private cache as a fallback). PhoneLab never uploads them anywhere. They leave your device only if you explicitly use the share sheet to send, email, or copy one yourself.</p>
+    <p>Uninstalling PhoneLab, or tapping Clear storage in Android's app settings, deletes all of it. Nothing is ever sent to the developer.</p>
+    <p><b>Android backup.</b> If Android's own backup is turned on, Android can include PhoneLab's settings, alert rules and battery history in your device backup to your Google account. On Android 9 and later this backup is end-to-end encrypted with your screen lock. Android and Google handle it, and the developer cannot access it. Exported files and Device check results are excluded from backups.</p>
+  </section>
+
+  <section>
+    <h2>Files you create</h2>
+    <p>Three features produce something you can keep or send, and you start all of them yourself:</p>
+    <ul>
+      <li><b>Sensor recording</b>: tap Record on the Sensors tab to save sensor readings to a <code>.csv</code> file. If location access is granted, the file also includes GPS position rows.</li>
+      <li><b>Spec export</b>: tap Export on the System tab to save your device's specifications as a <code>.txt</code> or <code>.json</code> file. This file names your device model and hardware, so sharing it can identify the kind of phone you use.</li>
+      <li><b>Device check report</b>: a pass/fail text summary that you can share from the Device check tab. It is not saved as a file.</li>
+    </ul>
+    <p>Files are saved in PhoneLab's own folder on your device (<code>Android/data/com.sensolab.devicemonitor/files/Documents</code>, or the app's cache as a fallback), and Android deletes them when you uninstall the app. PhoneLab never uploads them. A file or report leaves your device only if you send it yourself with the Android share sheet. From then on, the app you share it to handles it under its own policy.</p>
+  </section>
+
+  <section id="tip-jar">
+    <h2>The tip jar (Google Play build only)</h2>
+    <div class="callout">
+      <p>The standard build (GitHub, F-Droid and other stores) has no tip jar and no Google libraries. Nothing in this section applies to it.</p>
+    </div>
+    <p>In the Google Play build, the About tab has an optional "Support development (tip)" button. Tips are one-time purchases that unlock nothing. When you tap the button:</p>
+    <ul>
+      <li>PhoneLab connects to Google Play Billing, through the Google Play Store app on your phone, to show the tip prices and open Google Play's own purchase screen.</li>
+      <li><b>Google processes the payment.</b> PhoneLab never sees your card number, billing address or Google account details. On your device, the app receives only a confirmation for the tip (the product and a purchase token). It uses this to complete the purchase and say thank you, and doesn't store or forward it.</li>
+      <li>Like every seller on Google Play, the developer receives the standard order records that Google provides in Google Play Console, such as order number, product, price, date and the buyer's country. They are used only for accounting and refunds.</li>
+      <li>Since version 6, the Google Play Billing Library logs information about its own operation, such as whether billing calls succeed and any connection problems. It sends these logs to Google through Google's <code>datatransport</code> component, and Google uses them to improve the library and support errors. In PhoneLab this only starts once you open the tip jar; logs already queued may be uploaded in the background shortly afterwards. PhoneLab and its developer do not receive these logs.</li>
+    </ul>
+    <p>Google handles this data under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and the <a href="https://play.google.com/about/play-terms/">Google Play Terms of Service</a>, which also cover downloading PhoneLab from Google Play in the first place. If you never tap the tip button, the Google Play build connects to nothing at all.</p>
   </section>
 
   <section>
     <h2>No accounts, no ads, no analytics</h2>
-    <p>PhoneLab has no sign-in, no user accounts, and stores no profile about you anywhere. It shows no advertising and includes no third-party advertising or analytics libraries. There is nothing to opt out of, because nothing is being measured or shown to you from outside the app.</p>
+    <p>PhoneLab has no sign-in and no user accounts, and keeps no profile about you anywhere. It shows no advertising and includes no advertising or analytics libraries. The only third-party code in either build that can use the network is Google Play Billing in the Google Play build, described above.</p>
+  </section>
+
+  <section>
+    <h2>Links that leave the app</h2>
+    <p>The About tab's privacy policy, source code, PhoneLab Web and Rate links open in your browser or the Play Store app, and the feedback button opens your email app. What happens there is covered by those apps and websites, not by PhoneLab. PhoneLab Web is a separate website. This policy covers the Android app only.</p>
+  </section>
+
+  <section>
+    <h2>Your choices and your data</h2>
+    <ul>
+      <li>You can deny or revoke any permission. Only the feature that needs it stops working.</li>
+      <li>You can delete everything PhoneLab stores by uninstalling it or clearing its storage in Android's settings.</li>
+      <li>The developer holds no personal data about you, so there is nothing to request, correct or delete on the developer's side. For tip purchases and billing logs held by Google, use your <a href="https://myaccount.google.com/">Google Account</a> controls and Google Play's order history.</li>
+      <li>If you want an app that cannot reach the internet at all, install the standard build from <a href="https://github.com/DrummingBird1/PhoneLab/releases/latest">GitHub Releases</a> or F-Droid.</li>
+    </ul>
   </section>
 
   <section>
     <h2>Children's privacy</h2>
-    <p>PhoneLab is rated for Everyone and does not knowingly collect information from anyone, including children, for the simple reason described above: it collects no information from anyone, of any age.</p>
+    <p>PhoneLab is rated for Everyone. It does not knowingly collect information from anyone, including children, because it collects no information from anyone of any age. In the Google Play build, tips go through Google Play's purchase flow, which applies any parental controls or purchase approvals set on the Google account.</p>
   </section>
 
   <section>
     <h2>Changes to this policy</h2>
-    <p>If this policy ever changes — for example, if a future version of PhoneLab adds a feature that does use the network — the "last updated" date at the top of this page will change, and the new policy will describe exactly what changed and why.</p>
+    <p>If this policy changes, for example because a future version of PhoneLab adds a feature that uses the network, the "last updated" date at the top of this page will change. The new policy will describe exactly what changed and why. Earlier versions of this page stay visible in the history of the <a href="https://github.com/DrummingBird1/phonelab-privacy">phonelab-privacy repository</a>.</p>
   </section>
 
   <section>
     <h2>Contact</h2>
-    <p>Questions about this policy or the app can be sent to <a href="mailto:support@sensolab.app">support@sensolab.app</a>, the same address linked from the app's About screen.</p>
+    <p>Send questions about this policy or the app to <a href="mailto:support@sensolab.app">support@sensolab.app</a>. It's the same address as the Feedback &amp; support button on the app's About screen.</p>
   </section>
 
   <div class="footer">
