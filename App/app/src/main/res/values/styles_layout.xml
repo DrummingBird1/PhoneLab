@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Card inside a GridLayout: equal-width columns, rows stretch to the tallest card. -->
     <style name="Widget.PhoneLab.GridCard" parent="">
         <item name="android:layout_width">0dp</item>
@@ -35,7 +35,8 @@
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">4dp</item>
         <item name="android:textAppearance">@style/TextAppearance.PhoneLab.SectionHeader</item>
-        <item name="android:accessibilityHeading">true</item>
+        <!-- API 28+; older versions ignore it and simply don't announce a heading. -->
+        <item name="android:accessibilityHeading" tools:targetApi="28">true</item>
     </style>
 
     <!-- Scrolling screen root: lets content scroll under the gesture bar (edge-to-edge). -->
