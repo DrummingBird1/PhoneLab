@@ -29,7 +29,7 @@ Buying or selling a used phone? Run 11 guided tests (touch screen, multi-touch, 
 • English, Hebrew, Spanish and Arabic; metric or imperial units
 
 <b>Privacy</b>
-No ads, no account, no analytics. PhoneLab's own code never connects to the internet, so your sensor readings stay on your device. The only network access in this version comes from Google Play Billing, which handles the optional tips. Permissions are requested only when you tap a feature that needs them.
+No ads, no account. PhoneLab's own code never connects to the internet, so your sensor readings stay on your device. The only network access in this version comes from Google Play Billing, and only after you open the optional tip jar. Permissions are requested only when you tap a feature that needs them.
 
 <b>Free and open source</b>
 Every feature is free. If PhoneLab is useful to you, you can leave an optional tip from the About tab; tips unlock nothing. PhoneLab is open source under the GPL-3.0 license.
