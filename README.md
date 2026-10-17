@@ -22,7 +22,7 @@
 
 PhoneLab is a single-screen Android app for anyone who wants to know exactly what their device's hardware is doing right now — developers testing sensor behavior, tech enthusiasts, gamers watching thermals, or anyone just curious what's inside their phone.
 
-No ads. No account. No background services when you're not using it. The app only ever reads sensors and system files already exposed to any Android app — the GitHub / F-Droid build has no internet permission at all (the Google Play build adds Google Play Billing for the optional tip jar, and nothing else). See the [Privacy Policy](https://drummingbird1.github.io/phonelab-privacy/) for the full picture.
+No ads. No account. No background services when you're not using it. The app only ever reads sensors and system files already exposed to any Android app — the GitHub / F-Droid build has no internet permission at all (the Google Play build adds Google Play Billing for the optional tip jar: Google processes tips and receives the billing library's diagnostic logs, while PhoneLab's own code still never uses the network). See the [Privacy Policy](https://drummingbird1.github.io/phonelab-privacy/) for the full picture.
 
 ## Screenshots
 
