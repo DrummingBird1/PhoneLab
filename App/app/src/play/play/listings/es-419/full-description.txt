@@ -1,0 +1,37 @@
+PhoneLab muestra lo que está haciendo el hardware de tu teléfono ahora mismo: cada sensor, temperatura y dato del sistema, en vivo, en una sola app.
+
+<b>Sensores</b>
+• Lecturas en vivo de hasta 24 sensores: acelerómetro, giroscopio, magnetómetro, gravedad, vectores de rotación, barómetro, luz, proximidad, humedad, temperatura ambiente, ritmo cardíaco, contador de pasos, ángulo de bisagra y más
+• Velocidad y altitud GPS, y un medidor de nivel de sonido
+• Tarjetas de texto con precisión completa, o un modo visual con indicadores y una brújula en vivo
+• Graba una sesión en CSV; la grabación sigue en segundo plano
+
+<b>Sistema y hardware</b>
+• 8 zonas térmicas (CPU, GPU, batería, carcasa, módem, Wi-Fi, cargador, NPU) con la tendencia de temperatura de la CPU
+• Salud de la batería: estado, potencia de carga en vatios, capacidad estimada, ciclos de carga e historial de nivel de 24 horas
+• Frecuencia por núcleo de la CPU, tasa de refresco y HDR de la pantalla, capacidades del hardware
+• Especificaciones del dispositivo, incluida la GPU, con exportación a texto o JSON
+• Una prueba de rendimiento de CPU en 4 fases
+
+<b>Herramientas</b>
+• Nivel de burbuja
+• Calibración de la brújula
+• Detector de metales con el magnetómetro
+• Sismógrafo de vibraciones con análisis de frecuencia
+
+<b>Diagnóstico del dispositivo</b>
+¿Compras o vendes un teléfono usado? Ejecuta 11 pruebas guiadas (pantalla táctil, multitáctil, pantalla, altavoz, micrófono, vibración, botones de volumen, proximidad, linterna, sensores de movimiento y batería) y comparte un informe de aprobado/fallido.
+
+<b>Alertas y extras</b>
+• Alertas personalizadas cuando una lectura cruza tu umbral, y alertas de temperatura de la CPU
+• Widget de pantalla de inicio y mosaico de Ajustes rápidos con la temperatura de la CPU
+• Diseño Material 3, temas claro y oscuro, colores Material You opcionales
+• Inglés, hebreo, español y árabe; unidades métricas o imperiales
+
+<b>Privacidad</b>
+Sin anuncios, sin cuenta, sin analíticas. El código de PhoneLab nunca se conecta a internet, así que tus datos de sensores se quedan en tu dispositivo. El único acceso a la red en esta versión lo hace Google Play Billing, que gestiona las propinas opcionales. Los permisos se piden solo cuando tocas una función que los necesita.
+
+<b>Gratis y de código abierto</b>
+Todas las funciones son gratis. Si PhoneLab te resulta útil, puedes dejar una propina opcional desde la pestaña Acerca de; las propinas no desbloquean nada. PhoneLab es de código abierto con licencia GPL-3.0.
+
+Los sensores disponibles varían según el dispositivo; la app marca claramente lo que tu hardware no tiene.

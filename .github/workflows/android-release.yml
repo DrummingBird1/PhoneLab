@@ -1,9 +1,11 @@
 name: Android Release (Play internal track)
 
 # Manual trigger only: builds a signed release AAB and uploads it to the Google Play
-# internal testing track as a DRAFT release (promote it from Play Console).
+# internal testing track as a DRAFT release (promote it from Play Console). "What's new"
+# comes from fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt; tick
+# "listing" to also upload the store listing in App/app/src/play/play/.
 #
-# Required repository secrets:
+# Required repository secrets (setup: Distribution/play/README.md):
 #   KEYSTORE_BASE64            base64 of the upload keystore (Distribution/Keys/PhoneLab-Key)
 #   KEYSTORE_PASSWORD          keystore password
 #   KEY_ALIAS                  key alias inside the keystore
@@ -11,6 +13,11 @@ name: Android Release (Play internal track)
 #   PLAY_SERVICE_ACCOUNT_JSON  JSON key of a Play Console service account with release rights
 on:
   workflow_dispatch:
+    inputs:
+      listing:
+        description: Also upload the store listing (text, graphics)
+        type: boolean
+        default: false
 
 jobs:
   publish:
@@ -49,7 +56,7 @@ jobs:
       - name: Build and publish to Play internal track
         env:
           ANDROID_PUBLISHER_CREDENTIALS: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
-        run: ./gradlew publishPlayReleaseBundle --console=plain
+        run: ./gradlew publishPlayReleaseBundle ${{ inputs.listing && 'publishPlayReleaseListing' || '' }} --console=plain
 
       - name: Upload AAB and R8 mapping
         if: always()

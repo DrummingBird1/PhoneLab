@@ -1,5 +1,7 @@
 # Publishing PhoneLab outside Google Play
 
+Google Play (the `play` flavor) has its own guide: [`../play/README.md`](../play/README.md).
+
 Everything outside Google Play ships the **`foss` flavor**: no Play Billing, no tip jar,
 no `INTERNET` permission. Build it with:
 
@@ -30,12 +32,15 @@ it matters.
 
 ## Status
 
+Last updated 2026-10-17. Update this table whenever a submission moves.
+
 | Store | Who | Status |
 |---|---|---|
-| GitHub Releases | automated | ✅ every tagged release |
+| GitHub Releases | you (tag + release) | ✅ v1.3.0 published as a **pre-release** (QA pending); v1.2.0 is still "latest" |
 | Obtainium | nothing to submit | ✅ users add `https://github.com/DrummingBird1/PhoneLab` |
-| IzzyOnDroid | you (GitLab account) | ⬜ request inclusion |
-| F-Droid | you (GitLab account) | ⬜ merge request to fdroiddata |
+| Google Play | you (Play Console) | ⬜ listing, GPP and CI ready; next: create the app + first manual upload ([guide](../play/README.md)) |
+| IzzyOnDroid | you (GitLab account) | ⏸ wait until a v1.3.x GitHub release is no longer a pre-release, then request inclusion |
+| F-Droid | you (GitLab account) | ⬜ recipe ready in [`../fdroid/`](../fdroid/); merge request to fdroiddata not opened |
 | APKPure | you (developer account) | ⬜ |
 | Uptodown | you (developer account) | ⬜ |
 | Aptoide | you (developer account) | ⬜ |
@@ -46,7 +51,8 @@ it matters.
 ## IzzyOnDroid (fastest F-Droid-compatible route)
 
 Usually live within days; F-Droid clients (F-Droid, Droid-ify, Neo Store) can add the repo.
-It picks the APK from GitHub releases, so new versions show up automatically.
+It picks the APK from GitHub releases, so new versions show up automatically. Submit only
+once the first GPL `foss` release (v1.3.x) is a regular GitHub release, not a pre-release.
 
 1. Open an issue at <https://gitlab.com/IzzyOnDroid/repo/-/issues> using the
    *"App inclusion request"* template.

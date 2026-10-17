@@ -1,0 +1,37 @@
+PhoneLab shows what your phone's hardware is doing right now: every sensor, temperature and system stat, live, in one app.
+
+<b>Sensors</b>
+• Live readings from up to 24 hardware sensors: accelerometer, gyroscope, magnetometer, gravity, rotation vectors, barometer, light, proximity, humidity, ambient temperature, heart rate, step counter, hinge angle and more
+• GPS speed and altitude, plus a sound-level meter
+• Textual cards with full precision, or a visual mode with gauges and a live compass
+• Record a session to CSV; recording keeps running in the background
+
+<b>System and hardware</b>
+• 8 thermal zones (CPU, GPU, battery, skin, modem, Wi-Fi, charger, NPU) with a CPU temperature trend
+• Battery health: status, charging power in watts, estimated capacity, charge cycles and a 24-hour level history
+• Per-core CPU frequencies, display refresh rate and HDR, hardware capabilities
+• Device specs including the GPU, with text or JSON export
+• A 4-phase CPU benchmark
+
+<b>Tools</b>
+• Bubble level
+• Compass calibration
+• Magnetometer metal detector
+• Vibration seismograph with frequency analysis
+
+<b>Device check</b>
+Buying or selling a used phone? Run 11 guided tests (touch screen, multi-touch, display, speaker, microphone, vibration, volume buttons, proximity, flashlight, motion sensors and battery) and share a pass/fail report.
+
+<b>Alerts and extras</b>
+• Custom alerts when a reading crosses your threshold, and CPU temperature alerts
+• Home-screen widget and Quick Settings tile for CPU temperature
+• Material 3 design, dark and light themes, optional Material You colors
+• English, Hebrew, Spanish and Arabic; metric or imperial units
+
+<b>Privacy</b>
+No ads, no account, no analytics. PhoneLab's own code never connects to the internet, so your sensor readings stay on your device. The only network access in this version comes from Google Play Billing, which handles the optional tips. Permissions are requested only when you tap a feature that needs them.
+
+<b>Free and open source</b>
+Every feature is free. If PhoneLab is useful to you, you can leave an optional tip from the About tab; tips unlock nothing. PhoneLab is open source under the GPL-3.0 license.
+
+Sensors available vary by device; the app clearly marks what your hardware doesn't have.
