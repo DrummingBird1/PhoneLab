@@ -129,6 +129,36 @@ play {
     releaseStatus.set(com.github.triplet.gradle.androidpublisher.ReleaseStatus.DRAFT)
 }
 
+// Play listing text and graphics live in src/play/play/ (GPP's layout). Play's "What's new"
+// is the per-version changelog F-Droid and IzzyOnDroid already read, synced into GPP's
+// release-notes folder (git-ignored) right before GPP merges its resources, so a release
+// can never go out with the previous version's notes. Map: fastlane locale → Play locales.
+def playNoteLocales = ['en-US': ['en-US'], he: ['iw-IL'], es: ['es-ES', 'es-419'], ar: ['ar']]
+def playNoteSources = playNoteLocales.collectEntries { fastlaneLocale, playLocales ->
+    [(rootProject.file("../fastlane/metadata/android/$fastlaneLocale/changelogs/${android.defaultConfig.versionCode}.txt")): playLocales]
+}
+def syncPlayReleaseNotes = tasks.register('syncPlayReleaseNotes', Sync) {
+    into 'src/play/play/release-notes'
+    playNoteSources.each { notes, playLocales ->
+        playLocales.each { playLocale ->
+            from(notes) {
+                into playLocale
+                rename { 'default.txt' }
+            }
+        }
+    }
+}
+tasks.matching { it.name == 'generatePlayReleasePlayResources' }.configureEach {
+    dependsOn syncPlayReleaseNotes
+    doFirst {
+        def missing = playNoteSources.keySet().findAll { !it.exists() }
+        if (missing) {
+            throw new GradleException("Play release notes need a changelog for versionCode " +
+                    "${android.defaultConfig.versionCode}: ${missing.join(', ')}")
+        }
+    }
+}
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.8.0'
     implementation 'androidx.activity:activity:1.13.0'        // EdgeToEdge

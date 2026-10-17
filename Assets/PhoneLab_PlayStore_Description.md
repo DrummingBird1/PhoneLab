@@ -1,97 +1,94 @@
-# PhoneLab — Google Play Store Descriptions
+# PhoneLab — Google Play listing sheet (v1.3.0)
+
+Everything Play Console asks for, in one place. The listing **text and graphics are not
+kept here**: Gradle Play Publisher uploads them from
+[`App/app/src/play/play/`](../App/app/src/play/play/) (`.\gradlew publishPlayReleaseListing`),
+and the "What's new" text comes from `fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt`.
+Edit those files, not a copy in this document. Publishing steps:
+[`Distribution/play/README.md`](../Distribution/play/README.md).
 
 ---
 
-## 📝 Short Description (max 80 characters)
-```
-Real-time sensor dashboard: hardware monitor, benchmark & device specs
-```
-*(72 characters)*
+## Store listing (uploaded by GPP)
+
+| Field | Limit | Source |
+|---|---|---|
+| App name | 30 | `listings/<locale>/title.txt` — `PhoneLab` |
+| Short description | 80 | `listings/<locale>/short-description.txt` |
+| Full description | 4000 | `listings/<locale>/full-description.txt` |
+| App icon | 512×512 PNG | `listings/en-US/graphics/icon/` |
+| Feature graphic | 1024×500, no alpha | `listings/en-US/graphics/feature-graphic/` |
+| Phone screenshots | 2–8, ≤ 2:1, no alpha | `listings/en-US/graphics/phone-screenshots/` (6) |
+| What's new | 500 | fastlane `changelogs/<versionCode>.txt` (synced at publish time) |
+
+Languages: `en-US` (default), `iw-IL` (Hebrew), `es-ES` and `es-419` (same Spanish text), `ar`.
+Graphics exist only in en-US; Play shows the default-language graphics for the others.
+
+**Short description (en-US):** Live sensors, temperatures, battery health, tools and a full device check
+
+**Why Play has its own full description:** the fastlane text (F-Droid, IzzyOnDroid, GitHub)
+says the app has no internet permission, which is true only for the `foss` build. The Play
+text instead says the app's own code never goes online, that Google Play Billing is the only
+network access and only after the tip jar is opened, and that tips are optional and unlock
+nothing. It deliberately doesn't claim "no analytics", because the Data safety form declares
+the Billing Library's diagnostics (purpose: Analytics). Everything above the Privacy
+section is the same as the fastlane text, with `<ul>`/`<li>` turned into `•` lines
+(Play reliably renders only `<b>`-style formatting).
+
+**Screenshots:** derived from the fastlane ones by
+[`Distribution/derive_screenshots.py`](../Distribution/derive_screenshots.py) — the 20:9
+captures are padded to 9:16 with the app background and their alpha channel removed, because
+Play rejects screenshots longer than 2:1 or with transparency. Replace the fastlane
+screenshots, then run `uv run Distribution/derive_screenshots.py`.
+
+**Feature highlights for v1.3.0** (for the listing text, promo copy, or a release post):
+- Sensors tab — live readings from up to 24 sensors, GPS speed/altitude, sound level; textual cards or gauges; CSV recording in the background
+- System tab — 8 thermal zones with a CPU temperature trend, specs incl. GPU, text/JSON export, 4-phase benchmark
+- Hardware tab — battery health (power in W, estimated capacity, cycles, 24 h history), per-core CPU frequency, display, capabilities
+- Tools tab — bubble level, compass calibration, metal detector, vibration seismograph with FFT
+- Device check — 11 guided hardware tests with a shareable pass/fail report
+- Custom alerts for any reading, CPU temperature alerts, home-screen widget, Quick Settings tile
+- Material 3, Material You colors, dark/light themes, English/Hebrew/Spanish/Arabic, metric/imperial
 
 ---
 
-## 📄 Long Description (max 4000 characters)
+## Play Console fields GPP does not fill
 
-```
-PhoneLab is the ultimate hardware monitoring app for Android enthusiasts, developers, and anyone curious about what's happening inside their device.
+Set these by hand in Play Console.
 
-📡 LIVE SENSOR DASHBOARD
-Monitor all of your device's hardware sensors in real time:
-• Accelerometer — motion & orientation in m/s²
-• Gyroscope — rotational velocity in rad/s
-• Magnetometer — magnetic field strength & compass heading
-• Gravity sensor — gravitational force vector
-• Linear Acceleration — movement without gravity
-• Rotation Vector & Game Rotation Vector
-• Light sensor — ambient light in lux with environment description
-• Pressure sensor — atmospheric pressure in hPa with altitude estimate
-• Step Detector — live step counter
-• Tilt Detector — tilt event counter
-• GPS Speed — real-time speed in mph and km/h
+**App details** (Grow users → Store presence → Store settings)
+- App or game: **App** · Category: **Tools**
+- Tags (up to 5, chosen from Play's list): pick the closest matches to *device info*, *system monitor*, *sensors*, *battery*, *benchmark*.
+- Contact email: **required and shown publicly** — choose which address to publish.
+- Website: `https://drummingbird1.github.io/PhoneLab/`
 
-⚙️ SYSTEM MONITOR
-Get a full picture of your device's hardware:
-• CPU temperature with live color-coded alerts (🟢 🟡 🔴)
-• GPU temperature monitoring
-• Battery temperature & charge percentage
-• Device model & manufacturer
-• Android version & API level
-• Processor info & core count
-• RAM usage (total & available)
-• Storage usage (total & free)
-• Screen resolution & DPI
-• CPU architecture (ARM, x86, etc.)
+**App content** (Policy → App content)
+- Privacy policy: `https://drummingbird1.github.io/phonelab-privacy/`. It describes the
+  `foss` and `play` builds separately (effective October 17, 2026).
+- **Data safety**, plus the foreground-service, location and health declarations: answer from
+  [`PhoneLab_Play_DataSafety.md`](PhoneLab_Play_DataSafety.md) (added in
+  DrummingBird1/PhoneLab#2), which is kept in sync with the privacy policy. In short: only
+  *App info and performance → Diagnostics* from the Play Billing Library, collected only
+  after the user opens the tip jar.
+- Ads: **No, my app does not contain ads.**
+- App access: **All functionality is available without special access.**
+- Target audience: **13+** or older, and "not designed to appeal to children" (picking an
+  under-13 age group brings in the Families policy).
+- Content rating (IARC questionnaire): category *Utility, Productivity, Communication, or
+  Other*; no violence, sexuality, language, controlled substances, gambling or user
+  interaction. It does let users buy digital goods (tips). Expected: Everyone / PEGI 3 /
+  USK 0, with an "In-app purchases" notice.
 
-🏁 PERFORMANCE BENCHMARK
-Test your device's raw computing power across 4 phases:
-• Integer arithmetic performance
-• Floating-point / trigonometric performance
-• Memory bandwidth
-• Multi-core parallel performance
-Get a final score with a rating: Entry Level → Budget → Mid-Range → High-End → Flagship
-
-🎨 TWO DISPLAY MODES
-• Textual Mode — raw numbers, full precision, developer-friendly
-• Visual Mode — large icons, progress bars, gauge-style readings at a glance
-Switch between modes instantly with one tap.
-
-🌙 DARK & LIGHT THEMES
-Choose between a sleek dark theme optimized for OLED screens, or a clean light theme. Your preference is saved between sessions.
-
-💡 WHO IS THIS FOR?
-• Developers testing sensor behavior on different devices
-• Tech enthusiasts who want to know their hardware inside out
-• Gamers checking temperatures and performance
-• Users curious about their device's capabilities
-
-No ads. No unnecessary permissions. No background services.
-PhoneLab runs only when you use it.
-
-Sensors available vary by device. Some sensors (Tilt Detector, barometer, GPU temperature) may not be present on all hardware — the app gracefully indicates when a sensor is not available.
-```
-
-*(~2,100 characters — well within the 4,000 limit)*
+**Monetization**
+- Price: **Free**. In-app products: `tip_small`, `tip_medium`, `tip_large` (consumable
+  tips; setup in `Distribution/play/README.md`).
 
 ---
 
-## 🏷️ Tags / Keywords (for ASO)
-```
-sensor, hardware monitor, accelerometer, gyroscope, benchmark, 
-device info, system info, temperature, CPU monitor, GPU monitor,
-battery temperature, speedometer, compass, magnetometer
-```
+## ASO notes
 
----
-
-## 📋 Category
-**Tools** (or alternatively: *Productivity*)
-
-## 🔞 Content Rating
-Everyone (no mature content)
-
-## 📧 Support Email
-support@sensolab.app
-
----
-
-*All descriptions are copyright-free and ready to paste directly into the Google Play Console.*
+- Keep the title as the brand (`PhoneLab`); Play penalises keyword-stuffed titles.
+- Keywords the descriptions already cover naturally: sensor, hardware monitor, device info,
+  CPU temperature, battery health, benchmark, compass, bubble level, metal detector,
+  phone test, used phone check.
+- Don't mention other stores (F-Droid, GitHub APK) in the Play text.
