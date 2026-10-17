@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- DARK theme (night mode) -->
+    <!-- DARK theme (night mode) — Material 3 color roles around the brand blue -->
     <color name="primary">#58A6FF</color>
-    <color name="primaryVariant">#1F6FEB</color>
     <color name="onPrimary">#0D1117</color>
-    <color name="surface">#161B22</color>
-    <color name="onSurface">#E6EDF3</color>
+    <color name="primaryContainer">#0F3A6E</color>
+    <color name="onPrimaryContainer">#D6E3FF</color>
+    <color name="secondary">#BCC7DB</color>
+    <color name="onSecondary">#263141</color>
+    <color name="secondaryContainer">#3C4758</color>
+    <color name="onSecondaryContainer">#D8E3F8</color>
+    <color name="tertiary">#82D5C8</color>
+    <color name="onTertiary">#003731</color>
+    <color name="tertiaryContainer">#005047</color>
+    <color name="onTertiaryContainer">#9EF2E4</color>
+    <color name="error">#FFB4AB</color>
+    <color name="onError">#690005</color>
+    <color name="errorContainer">#93000A</color>
+    <color name="onErrorContainer">#FFDAD6</color>
+
     <color name="background">#0D1117</color>
+    <color name="surface">#0D1117</color>
+    <color name="onSurface">#E6EDF3</color>
     <color name="surfaceVariant">#1C2128</color>
     <color name="onSurfaceVariant">#8B949E</color>
+    <color name="surfaceContainerLowest">#0A0D12</color>
+    <color name="surfaceContainerLow">#161B22</color>
+    <color name="surfaceContainer">#1A2029</color>
+    <color name="surfaceContainerHigh">#1F262F</color>
+    <color name="surfaceContainerHighest">#262D37</color>
+    <color name="outline">#6E7681</color>
+    <color name="outlineVariant">#30363D</color>
 </resources>

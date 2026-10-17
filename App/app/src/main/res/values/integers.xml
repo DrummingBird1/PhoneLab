@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Card grid columns: 2 on phones, more on wide screens (values-w600dp / w840dp). -->
+    <integer name="grid_columns">2</integer>
+    <integer name="gauge_grid_columns">2</integer>
+</resources>

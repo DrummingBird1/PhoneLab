@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- LIGHT theme (default / day mode) -->
+    <!-- LIGHT theme (default / day mode) — Material 3 color roles around the brand blue -->
     <color name="primary">#1565C0</color>
-    <color name="primaryVariant">#0D47A1</color>
     <color name="onPrimary">#FFFFFF</color>
-    <color name="surface">#FFFFFF</color>
-    <color name="onSurface">#1A1A2E</color>
+    <color name="primaryContainer">#D6E3FF</color>
+    <color name="onPrimaryContainer">#001B3E</color>
+    <color name="secondary">#545F71</color>
+    <color name="onSecondary">#FFFFFF</color>
+    <color name="secondaryContainer">#D8E3F8</color>
+    <color name="onSecondaryContainer">#111C2B</color>
+    <color name="tertiary">#006A60</color>
+    <color name="onTertiary">#FFFFFF</color>
+    <color name="tertiaryContainer">#9EF2E4</color>
+    <color name="onTertiaryContainer">#00201C</color>
+    <color name="error">#BA1A1A</color>
+    <color name="onError">#FFFFFF</color>
+    <color name="errorContainer">#FFDAD6</color>
+    <color name="onErrorContainer">#410002</color>
+
     <color name="background">#F0F4F8</color>
+    <color name="surface">#F0F4F8</color>
+    <color name="onSurface">#1A1A2E</color>
     <color name="surfaceVariant">#E3EAF4</color>
     <color name="onSurfaceVariant">#4A5568</color>
+    <color name="surfaceContainerLowest">#FFFFFF</color>
+    <color name="surfaceContainerLow">#FFFFFF</color>
+    <color name="surfaceContainer">#F4F7FB</color>
+    <color name="surfaceContainerHigh">#EBEFF5</color>
+    <color name="surfaceContainerHighest">#E3EAF4</color>
+    <color name="outline">#74777F</color>
+    <color name="outlineVariant">#C4C6D0</color>
+
+    <!-- Gauge status bands (fixed — must read the same in both themes) -->
+    <color name="gauge_ok">#2E9E5B</color>
+    <color name="gauge_warn">#E0A100</color>
+    <color name="gauge_hot">#D93B3B</color>
+
     <color name="ic_launcher_background">#1565C0</color>
 
     <!-- CompassView — fixed colors (device-like look, theme-independent) -->

@@ -12,26 +12,21 @@ import androidx.work.WorkerParameters;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Periodic background check so thermal alerts fire even when the app isn't open —
- * previously {@link ThermalAlerts#checkAndNotify} only ran from SystemFragment's live
- * poll, so it silently did nothing unless the System tab happened to be on screen.
- *
- * A full Foreground Service (permanent notification) was considered but rejected as
- * overkill for "check the temperature occasionally" — WorkManager's periodic work
- * (15-minute platform minimum) matches this app's existing battery-conscious design
- * without a persistent notification. Scheduling is idempotent: {@link #reschedule}
- * is safe to call redundantly (app launch, toggle changes, widget add/remove) since
- * {@link ExistingPeriodicWorkPolicy#KEEP} no-ops if already scheduled.
- *
- * Batch 6: also drives the CPU-temp widget's refresh (see doWork()) — one periodic
- * tick serves both consumers instead of each scheduling its own timer. Because of that,
- * scheduling is needed whenever EITHER thermal alerts are on OR a widget is placed —
- * a user who only wants the widget (alerts off) still needs the tick to run.
+ * The app's single periodic background tick (WorkManager's 15-minute minimum), shared by
+ * everything that needs to run while the app is closed:
+ * <ul>
+ *   <li>thermal alerts ({@link ThermalAlerts})</li>
+ *   <li>user-defined sensor alert rules ({@link AlertEngine})</li>
+ *   <li>the 24 h battery log ({@link BatteryHistory})</li>
+ *   <li>the CPU-temperature home-screen widget</li>
+ * </ul>
+ * A foreground service was rejected as overkill for "check occasionally" — no permanent
+ * notification. Class name kept as-is: WorkManager persists it for already-scheduled work.
  */
 public class ThermalCheckWorker extends Worker {
 
     private static final String UNIQUE_WORK_NAME = "sensolab_thermal_check";
-    private static final long INTERVAL_MINUTES = 15L; // WorkManager's own enforced minimum
+    private static final long INTERVAL_MINUTES = 15L; // WorkManager's enforced minimum
 
     public ThermalCheckWorker(@NonNull Context context, @NonNull WorkerParameters params) {
         super(context, params);
@@ -40,23 +35,25 @@ public class ThermalCheckWorker extends Worker {
     @NonNull @Override
     public Result doWork() {
         Context ctx = getApplicationContext();
-        float cpu = ThermalZones.cpu();
-        ThermalAlerts.checkAndNotify(ctx, cpu);
-        // Batch 6: piggyback the widget refresh on this same tick.
+        ThermalAlerts.checkAndNotify(ctx, ThermalZones.cpu());
+        AlertEngine.checkAll(ctx);
+        BatteryHistory.record(ctx, BatteryInfo.read(ctx));
         AppWidgetManager mgr = AppWidgetManager.getInstance(ctx);
         int[] ids = mgr.getAppWidgetIds(new ComponentName(ctx, CpuTempWidgetProvider.class));
         for (int id : ids) CpuTempWidgetProvider.updateWidget(ctx, mgr, id);
         return Result.success();
     }
 
-    /** Enqueues or cancels the periodic check to match current demand (thermal alerts
-     *  toggle and/or whether any CPU-temp widget is currently placed). */
+    /** Enqueues or cancels the periodic tick to match current demand. Idempotent. */
     public static void reschedule(Context ctx) {
         WorkManager wm = WorkManager.getInstance(ctx);
-        if (AppPrefs.isThermalAlertsEnabled(ctx) || hasActiveWidgets(ctx)) {
+        boolean needed = AppPrefs.isThermalAlertsEnabled(ctx)
+                || AppPrefs.isBatteryHistoryEnabled(ctx)
+                || AlertRules.anyEnabled(ctx)
+                || hasActiveWidgets(ctx);
+        if (needed) {
             PeriodicWorkRequest request = new PeriodicWorkRequest.Builder(
-                    ThermalCheckWorker.class, INTERVAL_MINUTES, TimeUnit.MINUTES)
-                    .build();
+                    ThermalCheckWorker.class, INTERVAL_MINUTES, TimeUnit.MINUTES).build();
             wm.enqueueUniquePeriodicWork(UNIQUE_WORK_NAME, ExistingPeriodicWorkPolicy.KEEP, request);
         } else {
             wm.cancelUniqueWork(UNIQUE_WORK_NAME);

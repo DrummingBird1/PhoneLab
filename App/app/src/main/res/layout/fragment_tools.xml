@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.PhoneLab.ScreenScroll">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Only the selected tool's sensors are registered, so the tab stays battery-friendly. -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/tool_chips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        app:checkedChip="@id/chip_level"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_level"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tool_level"
+            app:chipIcon="@drawable/ic_ruler"
+            app:chipIconVisible="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_compass"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tool_compass_cal"
+            app:chipIcon="@drawable/ic_compass"
+            app:chipIconVisible="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_metal"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tool_metal"
+            app:chipIcon="@drawable/ic_magnet"
+            app:chipIconVisible="true" />
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip_vibration"
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tool_vibration"
+            app:chipIcon="@drawable/ic_chart"
+            app:chipIconVisible="true" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <!-- ═══ Bubble level ═══ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/panel_level"
+        style="@style/Widget.PhoneLab.WideCard">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <com.sensolab.devicemonitor.BubbleLevelView
+                android:id="@+id/level_view"
+                android:layout_width="260dp"
+                android:layout_height="260dp" />
+            <TextView
+                android:id="@+id/tv_level_angles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:accessibilityLiveRegion="polite"
+                android:text="@string/value_placeholder"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardValue" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:text="@string/level_hint"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_level_zero"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/level_zero" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_level_reset"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/level_reset" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ═══ Compass calibration ═══ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/panel_compass"
+        style="@style/Widget.PhoneLab.WideCard"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <com.sensolab.devicemonitor.FigureEightView
+                android:id="@+id/figure_eight"
+                android:layout_width="220dp"
+                android:layout_height="110dp" />
+            <TextView
+                android:id="@+id/tv_compass_accuracy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:accessibilityLiveRegion="polite"
+                android:text="@string/value_placeholder"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardValue" />
+            <TextView
+                android:id="@+id/tv_compass_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/compass_cal_instructions"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ═══ Metal detector ═══ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/panel_metal"
+        style="@style/Widget.PhoneLab.WideCard"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <com.sensolab.devicemonitor.RadialGaugeView
+                android:id="@+id/gauge_metal"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/tv_metal_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_metal_beep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/metal_beep" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_metal_zero"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/metal_zero" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/metal_hint"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- ═══ Vibration / seismograph ═══ -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/panel_vibration"
+        style="@style/Widget.PhoneLab.WideCard"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <com.sensolab.devicemonitor.SeismographView
+                android:id="@+id/seismograph"
+                android:layout_width="match_parent"
+                android:layout_height="160dp" />
+            <GridLayout
+                style="@style/Widget.PhoneLab.Grid"
+                android:layout_marginTop="8dp"
+                android:columnCount="3">
+                <com.sensolab.devicemonitor.SensorCardView
+                    android:id="@+id/card_vib_peak"
+                    style="@style/Widget.PhoneLab.GridCard"
+                    app:sensorTitle="@string/vibration_peak" />
+                <com.sensolab.devicemonitor.SensorCardView
+                    android:id="@+id/card_vib_rms"
+                    style="@style/Widget.PhoneLab.GridCard"
+                    app:sensorTitle="@string/vibration_rms" />
+                <com.sensolab.devicemonitor.SensorCardView
+                    android:id="@+id/card_vib_freq"
+                    style="@style/Widget.PhoneLab.GridCard"
+                    app:sensorTitle="@string/vibration_freq" />
+            </GridLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_vib_reset"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/level_reset" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vibration_hint"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_tool_missing"
+        style="@style/Widget.PhoneLab.Section"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:visibility="gone" />
+
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>

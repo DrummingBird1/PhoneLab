@@ -17,45 +17,50 @@ import com.sensolab.devicemonitor.databinding.FragmentAboutBinding;
 public class AboutFragment extends Fragment {
 
     private FragmentAboutBinding binding;
+    @Nullable private TipJar tipJar;
 
     @Nullable @Override
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle s) {
         binding = FragmentAboutBinding.inflate(inflater, container, false);
-
         binding.tvVersion.setText(getString(R.string.app_version_line,
                 BuildConfig.VERSION_NAME, requireActivity().getPackageName()));
-
-        binding.btnRate.setOnClickListener(v -> openPlayStore());
         binding.btnShare.setOnClickListener(v -> shareApp());
         binding.btnEmail.setOnClickListener(v -> sendEmail());
+        binding.btnWeb.setOnClickListener(v -> openUrl(getString(R.string.about_web_url)));
+        binding.btnSource.setOnClickListener(v -> openUrl(getString(R.string.about_source_url)));
 
-        // Y3: disable Donate when no PayPal id is configured (instead of leading user to a dead URL)
-        if (BuildConfig.PAYPAL_BUSINESS_ID.isEmpty()) {
-            binding.btnDonate.setEnabled(false);
-            binding.btnDonate.setAlpha(0.45f);
+        // Google Play-only actions; the foss build (GitHub / F-Droid) hides them.
+        if (BuildConfig.PLAY_BUILD) {
+            binding.btnRate.setOnClickListener(v -> openPlayStore());
         } else {
-            binding.btnDonate.setOnClickListener(v -> openDonate());
+            binding.btnRate.setVisibility(View.GONE);
+        }
+        if (TipJar.isAvailable()) {
+            binding.btnDonate.setOnClickListener(v -> {
+                if (tipJar == null) tipJar = new TipJar(this);
+                tipJar.open();
+            });
+        } else {
+            binding.btnDonate.setVisibility(View.GONE);
         }
 
-        // Y6: show Privacy Policy button only when URL is configured
+        // Y6: privacy policy link only when a URL is configured
         if (!BuildConfig.PRIVACY_POLICY_URL.isEmpty()) {
             binding.btnPrivacy.setVisibility(View.VISIBLE);
-            binding.btnPrivacy.setOnClickListener(v -> openPrivacy());
+            binding.btnPrivacy.setOnClickListener(v -> openUrl(BuildConfig.PRIVACY_POLICY_URL));
         }
-
         return binding.getRoot();
     }
 
     @Override public void onDestroyView() {
         super.onDestroyView();
+        if (tipJar != null) { tipJar.release(); tipJar = null; }
         binding = null;
     }
 
-    private void openPrivacy() {
+    private void openUrl(String url) {
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.PRIVACY_POLICY_URL)));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
         } catch (Exception e) {
             toast(R.string.about_no_browser);
         }
@@ -64,46 +69,33 @@ public class AboutFragment extends Fragment {
     private void openPlayStore() {
         String pkg = requireActivity().getPackageName();
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("market://details?id=" + pkg)));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + pkg)));
         } catch (ActivityNotFoundException e) {
-            startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("https://play.google.com/store/apps/details?id=" + pkg)));
-        }
-    }
-
-    private void openDonate() {
-        // Y3: only reached when BuildConfig.PAYPAL_BUSINESS_ID is non-empty
-        String url = "https://www.paypal.com/donate/?business=" + BuildConfig.PAYPAL_BUSINESS_ID;
-        try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-        } catch (Exception e) {
-            toast(R.string.about_no_browser);
+            openUrl("https://play.google.com/store/apps/details?id=" + pkg);
         }
     }
 
     private void shareApp() {
-        String pkg = requireActivity().getPackageName();
-        Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("text/plain");
-        i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.about_share_subject));
-        i.putExtra(Intent.EXTRA_TEXT,    getString(R.string.about_share_body, pkg));
+        String body = BuildConfig.PLAY_BUILD
+                ? getString(R.string.about_share_body, requireActivity().getPackageName())
+                : getString(R.string.about_share_body_foss, getString(R.string.about_source_url) + "/releases");
+        Intent i = new Intent(Intent.ACTION_SEND)
+                .setType("text/plain")
+                .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.about_share_subject))
+                .putExtra(Intent.EXTRA_TEXT, body);
         startActivity(Intent.createChooser(i, getString(R.string.about_share_chooser)));
     }
 
     private void sendEmail() {
-        Intent i = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:support@sensolab.app"));
-        i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.about_email_subject));
+        Intent i = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:support@sensolab.app"))
+                .putExtra(Intent.EXTRA_SUBJECT, getString(R.string.about_email_subject));
         try { startActivity(Intent.createChooser(i, getString(R.string.about_email_chooser))); }
-        catch (ActivityNotFoundException e) {
-            toast(R.string.about_no_email_app);
-        }
+        catch (ActivityNotFoundException e) { toast(R.string.about_no_email_app); }
     }
 
-    /** N9: Snackbar instead of Toast — Material, anchored to the fragment view,
-     *  not throttled by Android 11+ toast restrictions. */
+    /** N9: Snackbar instead of Toast — anchored, and not throttled on Android 11+. */
     private void toast(@StringRes int msgRes) {
         View v = getView();
-        if (v != null) Snackbar.make(v, msgRes, Snackbar.LENGTH_SHORT).show();
+        if (v != null) Snackbar.make(v, msgRes, Snackbar.LENGTH_LONG).show();
     }
 }

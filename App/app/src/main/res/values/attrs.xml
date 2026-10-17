@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Shared by SensorCardView and GaugeCardView -->
+    <attr name="sensorIcon" format="reference" />
+    <attr name="sensorTitle" format="string" />
+
+    <declare-styleable name="SensorCardView">
+        <attr name="sensorIcon" />
+        <attr name="sensorTitle" />
+    </declare-styleable>
+
+    <declare-styleable name="GaugeCardView">
+        <attr name="sensorIcon" />
+        <attr name="sensorTitle" />
+        <attr name="gaugeType" format="enum">
+            <enum name="radial" value="0" />
+            <enum name="bar" value="1" />
+        </attr>
+        <attr name="gaugeMin" format="float" />
+        <attr name="gaugeMax" format="float" />
+        <!-- Optional status bands: at/above gaugeWarn the fill turns amber, at/above
+             gaugeHot it turns red. Omit both for a plain accent-colored fill. -->
+        <attr name="gaugeWarn" format="float" />
+        <attr name="gaugeHot" format="float" />
+    </declare-styleable>
+</resources>

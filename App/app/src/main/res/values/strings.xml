@@ -4,21 +4,29 @@
     <string name="app_name">PhoneLab</string>
     <string name="app_tagline">Device Sensor Monitor &amp; Hardware Analyzer</string>
     <string name="app_version_line">v%1$s  •  %2$s</string>
+    <string name="value_placeholder" translatable="false">—</string>
 
     <!-- ════ Tabs ════ -->
-    <string name="tab_sensors">📡 Sensors</string>
-    <string name="tab_system">⚙️ System</string>
-    <string name="tab_hardware">🔌 Hardware</string>
-    <string name="tab_about">ℹ️ About</string>
-    <string name="tab_settings">🔧 Settings</string>
+    <string name="tab_sensors">Sensors</string>
+    <string name="tab_system">System</string>
+    <string name="tab_hardware">Hardware</string>
+    <string name="tab_tools">Tools</string>
+    <string name="tab_diagnostics">Device check</string>
+    <string name="tab_about">About</string>
+    <string name="tab_settings">Settings</string>
 
     <!-- ════ About screen ════ -->
     <string name="about_title">About PhoneLab</string>
-    <string name="about_body">PhoneLab gives you full real-time visibility into your device\'s hardware.\n\n✅  17 live hardware sensors\n✅  8 thermal zones (CPU, GPU, Battery, Modem, WiFi, Charger, NPU, Skin)\n✅  Full device specifications &amp; export to file\n✅  Multi-phase performance benchmark\n✅  GPS speed &amp; altitude tracking\n✅  Live compass + sound-level meter\n✅  Textual &amp; Visual display modes\n✅  Metric / Imperial units\n✅  Dark &amp; Light themes</string>
-    <string name="about_btn_rate">⭐  Rate on Google Play</string>
-    <string name="about_btn_donate">❤️  Support Development</string>
-    <string name="about_btn_share">📤  Share with Friends</string>
-    <string name="about_btn_email">✉️  Feedback &amp; Support</string>
+    <string name="about_body">PhoneLab gives you full real-time visibility into your device\'s hardware.\n\n✅  Live readings from every hardware sensor, with gauges\n✅  8 thermal zones, battery health and charging power\n✅  Device check: touch, display, speaker, mic and more, with a shareable report\n✅  Tools: bubble level, compass calibration, metal detector, vibration analyzer\n✅  Custom alerts when a reading crosses your threshold\n✅  Benchmark, spec export (text / JSON) and sensor recording (CSV)\n✅  Home-screen widget, Quick Settings tile, Material You colors\n✅  Your sensor data never leaves your device</string>
+    <string name="about_btn_rate">Rate on Google Play</string>
+    <string name="about_btn_donate">Support development (tip)</string>
+    <string name="about_btn_share">Share with friends</string>
+    <string name="about_btn_web">PhoneLab Web (browser version)</string>
+    <string name="about_web_url" translatable="false">https://sensolab-web.vercel.app</string>
+    <string name="about_source_url" translatable="false">https://github.com/DrummingBird1/PhoneLab</string>
+    <string name="about_btn_source">Source code (GitHub)</string>
+    <string name="about_share_body_foss">Check out PhoneLab — a free, open-source sensor monitor for Android!\n%1$s</string>
+    <string name="about_btn_email">Feedback &amp; support</string>
     <string name="about_made_with">Made with ❤️  for Android enthusiasts</string>
     <string name="about_copyright">© 2026 PhoneLab</string>
     <string name="about_share_subject">PhoneLab - Device Sensor Monitor</string>
@@ -28,13 +36,20 @@
     <string name="about_email_chooser">Send Email</string>
     <string name="about_no_browser">Could not open browser</string>
     <string name="about_no_email_app">No email app found</string>
+    <string name="about_btn_privacy">Privacy policy</string>
+
+    <!-- ════ Tip jar (Google Play Billing) ════ -->
+    <string name="tip_dialog_title">Leave a tip</string>
+    <string name="tip_unavailable">Tips aren\'t available right now — they need the Google Play version of the app.</string>
+    <string name="tip_thanks">Thank you for supporting PhoneLab! ❤️</string>
+    <string name="tip_pending">Payment pending — it completes once Google Play confirms it. Thank you!</string>
 
     <!-- ════ Settings screen ════ -->
     <string name="settings_title">Settings</string>
-    <string name="settings_section_appearance">🎨  Appearance</string>
-    <string name="settings_section_display_mode">📊  Display Mode</string>
-    <string name="settings_section_units">📐  Unit System</string>
-    <string name="settings_section_thermal">🌡️  Thermal Alerts</string>
+    <string name="settings_section_appearance">Appearance</string>
+    <string name="settings_section_display_mode">Display Mode</string>
+    <string name="settings_section_units">Unit System</string>
+    <string name="settings_section_thermal">Thermal Alerts</string>
     <string name="settings_btn_to_dark">🌙  Switch to Dark Mode</string>
     <string name="settings_btn_to_light">☀️  Switch to Light Mode</string>
     <string name="settings_btn_to_system">🌓  Switch to System Default</string>
@@ -55,29 +70,79 @@
     <string name="settings_now_thermal_off">Currently: 🔕 Alerts Off</string>
     <string name="settings_units_reference">🌍 Metric (European)\n  Temperature: °C\n  Speed: km/h\n  Distance/Altitude: m\n  Pressure: hPa\n\n🇺🇸 Imperial (American)\n  Temperature: °F\n  Speed: mph\n  Distance/Altitude: ft\n  Pressure: inHg</string>
     <string name="settings_note">ℹ️  Display mode &amp; unit changes apply instantly across all tabs.\nTheme changes restart the current screen.</string>
+    <string name="settings_dynamic_color">Use wallpaper colors (Material You)</string>
+    <string name="settings_app_language">App language</string>
+    <string name="settings_section_alerts">Custom sensor alerts</string>
+    <string name="settings_alerts_desc">Get notified when a reading crosses a threshold. Checked in the background about every 15 minutes.</string>
+    <string name="settings_alerts_empty">No alerts yet.</string>
+    <string name="settings_alerts_add">Add alert</string>
+    <string name="settings_alerts_check_now">Check now</string>
+    <string name="settings_alerts_checked">Checking your alerts…</string>
+    <string name="settings_alerts_delete">Delete alert</string>
+    <string name="settings_section_battery_history">Battery history</string>
+    <string name="settings_battery_history">Record battery level in the background</string>
+    <string name="settings_battery_history_desc">One sample about every 15 minutes, last 24 hours, stored only on this device.</string>
+    <string name="settings_battery_history_clear">Clear history</string>
+    <string name="settings_battery_history_cleared">Battery history cleared</string>
+
+    <!-- ════ Custom alerts ════ -->
+    <string name="alert_metric_cpu_temp">CPU temperature</string>
+    <string name="alert_metric_skin_temp">Device surface temperature</string>
+    <string name="alert_metric_battery_temp">Battery temperature</string>
+    <string name="alert_metric_battery_level">Battery level</string>
+    <string name="alert_metric_ambient_temp">Ambient temperature</string>
+    <string name="alert_metric_humidity">Humidity</string>
+    <string name="alert_metric_pressure">Air pressure</string>
+    <string name="alert_metric_light">Light level</string>
+    <string name="alert_rule_above">%1$s above %2$s</string>
+    <string name="alert_rule_below">%1$s below %2$s</string>
+    <string name="alert_channel_name">Sensor alerts</string>
+    <string name="alert_channel_desc">Your custom threshold alerts (checked about every 15 minutes)</string>
+    <string name="alert_notif_title">%1$s alert</string>
+    <string name="alert_notif_body">Now %1$s — rule: %2$s</string>
+    <string name="alert_dialog_metric">Reading</string>
+    <string name="alert_dialog_above">Above</string>
+    <string name="alert_dialog_below">Below</string>
+    <string name="alert_dialog_threshold">Threshold</string>
+    <string name="alert_dialog_save">Save</string>
+    <string name="alert_dialog_invalid">Enter a number</string>
 
     <!-- ════ System screen ════ -->
-    <string name="system_section_temps">🌡️  Component Temperatures</string>
-    <string name="system_section_temps_short">🌡️  Temperatures</string>
-    <string name="system_section_specs">📋  Device Specs</string>
-    <string name="system_section_device">📋  Device</string>
-    <string name="system_section_benchmark">🏁  Performance Benchmark</string>
-    <string name="system_section_export">📤  Export</string>
-    <string name="system_btn_run_benchmark">▶  Run Benchmark</string>
-    <string name="system_btn_export">📤  Export System Specs to Text File</string>
-    <string name="system_btn_export_json">🧾  Export System Specs to JSON</string>
-    <string name="system_cpu_trend">📈 CPU temperature trend</string>
-    <string name="system_bench_trend">📈 Benchmark score trend</string>
-    <string name="system_benchmark_intro">Press ▶ Run Benchmark to start.\n4 phases: Integer · Float · Memory · Multi-Core</string>
+    <string name="system_section_temps">Component Temperatures</string>
+    <string name="system_section_temps_short">Temperatures</string>
+    <string name="system_section_specs">Device Specs</string>
+    <string name="system_section_device">Device</string>
+    <string name="system_section_benchmark">Performance Benchmark</string>
+    <string name="system_section_export">Export</string>
+    <string name="system_btn_run_benchmark">Run Benchmark</string>
+    <string name="system_btn_export">Export specs (text)</string>
+    <string name="system_btn_export_json">Export specs (JSON)</string>
+    <string name="system_cpu_trend">CPU temperature trend</string>
+    <string name="system_bench_trend">Benchmark score trend</string>
+    <string name="system_benchmark_intro">Press Run Benchmark to start.\n4 phases: Integer · Float · Memory · Multi-Core</string>
+    <string name="temp_state_ok">Normal</string>
+    <string name="temp_state_warm">Warm</string>
+    <string name="temp_state_hot">Hot</string>
+    <string name="battery_charging_via">Charging %1$s</string>
 
     <!-- ════ Sensors screen ════ -->
-    <string name="sensors_section_live_compass">🧭  Live Compass</string>
+    <string name="sensors_section_motion">Motion</string>
+    <string name="sensors_section_orientation">Orientation</string>
+    <string name="sensors_section_environment">Environment</string>
+    <string name="sensors_section_activity">Activity &amp; body</string>
+    <string name="sensors_section_location">Location</string>
+    <string name="sensors_section_live_compass">Live Compass</string>
     <string name="cd_compass">Live compass dial</string>
     <string name="cd_app_icon">PhoneLab app icon</string>
+    <string name="gauge_tilt_title">Tilt</string>
+    <string name="geomag_detail">No gyroscope — lower battery use</string>
+    <string name="steps_this_session">this session</string>
+    <string name="trigger_events_detected">events detected</string>
 
     <!-- ════ Common status ════ -->
     <string name="status_not_available">Not available</string>
     <string name="status_permission_needed">Permission needed</string>
+    <string name="status_tap_to_grant">Permission needed — tap to grant</string>
     <string name="status_na">N/A</string>
     <string name="status_waiting">Waiting…</string>
     <string name="status_gps_disabled">GPS disabled</string>
@@ -109,12 +174,12 @@
     <string name="sensor_humidity">Humidity</string>
     <string name="sensor_ambient_temp">Ambient Temp</string>
     <string name="sensor_heart_rate">Heart Rate</string>
-    <string name="sensor_sound_level">🎤 Sound Level (uncalibrated)</string>
-    <string name="sensor_gps_speed">🚀 GPS Speed</string>
-    <string name="sensor_gps_altitude">⛰️ GPS Altitude</string>
+    <string name="sensor_sound_level">Sound Level (uncalibrated)</string>
+    <string name="sensor_gps_speed">GPS Speed</string>
+    <string name="sensor_gps_altitude">GPS Altitude</string>
     <string name="sensor_compass_label">Compass</string>
 
-    <!-- ════ Motion state words (used as %s in format strings) ════ -->
+    <!-- ════ Motion state words ════ -->
     <string name="state_still">Still</string>
     <string name="state_normal">Normal</string>
     <string name="state_moving">Moving</string>
@@ -135,10 +200,8 @@
     <string name="orient_sideways">Sideways</string>
 
     <!-- ════ Proximity ════ -->
-    <string name="proximity_near">🤚 Near/Covered</string>
-    <string name="proximity_far">↔️ Far/Clear</string>
-    <string name="proximity_near_short">🤚\nNear</string>
-    <string name="proximity_far_short">↔️\nFar</string>
+    <string name="proximity_near_word">Near</string>
+    <string name="proximity_far_word">Far</string>
 
     <!-- ════ Humidity ════ -->
     <string name="humidity_very_dry">🏜️ Very dry</string>
@@ -184,29 +247,22 @@
     <string name="light_daylight">Daylight</string>
     <string name="light_direct_sun">Direct sun</string>
 
-    <!-- ════ Significant motion ════ -->
+    <!-- ════ Trigger sensors / foldables ════ -->
     <string name="sig_motion_label">Significant Motion</string>
-    <string name="sig_motion_na_short">🏃\nN/A</string>
-
-    <!-- ════ Advanced sensors (v1.2.0) ════ -->
-    <string name="sensors_section_advanced">🔬  Advanced Sensors</string>
     <string name="sensor_stationary">Stationary Detect</string>
     <string name="sensor_motion_detect">Motion Detect</string>
     <string name="sensor_accel_uncal">Accel Uncalibrated</string>
     <string name="sensor_mag_uncal">Mag Uncalibrated</string>
     <string name="sensor_geomag_rotation">Geomag Rotation</string>
     <string name="sensor_hinge_angle">Hinge Angle</string>
-    <string name="state_stationary_detected">🪨 Stationary × %1$d</string>
-    <string name="state_motion_detected">🏃 Motion × %1$d</string>
-    <string name="hinge_angle_format">📐 %1$.1f°  %2$s</string>
     <string name="hinge_state_closed">Closed</string>
     <string name="hinge_state_open">Open</string>
     <string name="hinge_state_flat">Flat</string>
 
     <!-- ════ CSV Recording ════ -->
-    <string name="sensors_section_recording">📼  Sensor Recording</string>
-    <string name="rec_btn_start">🔴  Start Recording</string>
-    <string name="rec_btn_stop">⏹  Stop · %1$s · %2$d samples</string>
+    <string name="sensors_section_recording">Sensor Recording</string>
+    <string name="rec_btn_start">Start Recording</string>
+    <string name="rec_btn_stop">Stop · %1$s · %2$d samples</string>
     <string name="rec_status_idle">No recording</string>
     <string name="rec_status_active">🔴 Recording · %1$s · %2$d samples</string>
     <string name="rec_status_saved">✅ Saved: %1$s\n%2$d samples — tap Share to send</string>
@@ -219,35 +275,40 @@
     <string name="rec_notif_text">Tap Stop to end and save the recording</string>
     <string name="rec_notif_stop">Stop</string>
 
-    <!-- ════ Batch 6: Widget / Quick Settings Tile / App Shortcuts ════ -->
+    <!-- ════ Widget / Quick Settings Tile / App Shortcuts ════ -->
     <string name="qs_tile_label">CPU Temp</string>
     <string name="widget_cpu_label">CPU Temp</string>
     <string name="shortcut_benchmark_short">Benchmark</string>
     <string name="shortcut_benchmark_long">Run Benchmark</string>
     <string name="shortcut_record_short">Record</string>
     <string name="shortcut_record_long">Start Recording</string>
-    <string name="shortcut_hardware_short">Hardware</string>
-    <string name="shortcut_hardware_long">Hardware Info</string>
+    <string name="shortcut_diagnostics_short">Device check</string>
+    <string name="shortcut_diagnostics_long">Check this phone</string>
+    <string name="shortcut_tools_short">Tools</string>
+    <string name="shortcut_tools_long">Sensor tools</string>
 
     <!-- ════ System component temperature labels ════ -->
-    <string name="temp_battery">🔋 Battery</string>
-    <string name="temp_cpu">🔥 CPU</string>
-    <string name="temp_gpu">🎮 GPU</string>
-    <string name="temp_skin">📱 Skin</string>
-    <string name="temp_modem">📡 Modem/5G</string>
-    <string name="temp_wifi">📶 WiFi/BT</string>
-    <string name="temp_charger">🔌 Charger</string>
-    <string name="temp_npu">🧠 NPU/AI</string>
+    <string name="temp_battery">Battery</string>
+    <string name="temp_cpu">CPU</string>
+    <string name="temp_gpu">GPU</string>
+    <string name="temp_skin">Skin</string>
+    <string name="temp_modem">Modem/5G</string>
+    <string name="temp_wifi">WiFi/BT</string>
+    <string name="temp_charger">Charger</string>
+    <string name="temp_npu">NPU/AI</string>
 
     <!-- ════ System spec labels ════ -->
-    <string name="spec_device">📱 Device</string>
-    <string name="spec_android">🤖 Android %1$s (API %2$d)</string>
-    <string name="spec_cpu">⚡ CPU</string>
-    <string name="spec_ram">💾 RAM</string>
-    <string name="spec_storage">🗂 Storage</string>
-    <string name="spec_screen">📺 Screen</string>
-    <string name="spec_abi">🔧 ABI: %1$s</string>
+    <string name="spec_device">Device</string>
+    <string name="spec_android">Android %1$s (API %2$d)</string>
+    <string name="spec_android_title" translatable="false">Android</string>
+    <string name="spec_cpu">CPU</string>
+    <string name="spec_gpu">GPU</string>
+    <string name="spec_ram">RAM</string>
+    <string name="spec_storage">Storage</string>
+    <string name="spec_screen">Screen</string>
+    <string name="spec_abi_title" translatable="false">ABI</string>
     <string name="spec_cores">%1$d cores</string>
+    <string name="spec_cores_unit">cores</string>
 
     <!-- ════ Charging plug types ════ -->
     <string name="charge_usb">USB</string>
@@ -267,18 +328,36 @@
     <string name="bench_rating_budget">🥉 Budget</string>
     <string name="bench_rating_entry">⚡ Entry Level</string>
 
-    <!-- ════ Hardware tab (v1.2.0) ════ -->
-    <string name="hw_section_cpu">⚡  CPU Frequencies</string>
-    <string name="hw_section_battery">🔋  Battery Details</string>
-    <string name="hw_section_display">📺  Display</string>
-    <string name="hw_section_capabilities">🔌  Capabilities</string>
+    <!-- ════ Hardware tab ════ -->
+    <string name="hw_section_cpu">CPU Frequencies</string>
+    <string name="hw_section_battery">Battery Health</string>
+    <string name="hw_section_display">Display</string>
+    <string name="hw_section_capabilities">Capabilities</string>
     <string name="hw_cpu_core">Core %1$d</string>
+    <string name="hw_cpu_peak">Fastest core now</string>
     <string name="hw_batt_level">Level</string>
-    <string name="hw_batt_charge_counter">Capacity</string>
-    <string name="hw_batt_current">Current</string>
-    <string name="hw_batt_energy">Energy</string>
-    <string name="hw_batt_cycles">Cycles</string>
-    <string name="hw_disp_current">Current</string>
+    <string name="hw_batt_health">Health</string>
+    <string name="hw_batt_power">Power</string>
+    <string name="hw_batt_capacity">Capacity</string>
+    <string name="hw_batt_cycles_fmt">%1$d charge cycles</string>
+    <string name="hw_batt_remaining_fmt">%1$d mAh remaining</string>
+    <string name="hw_batt_capacity_est">Estimated full capacity</string>
+    <string name="hw_batt_history_title">Battery level — last 24 h</string>
+    <string name="hw_batt_history_off">Battery history is off (see Settings).</string>
+    <string name="hw_batt_history_empty">Collecting samples — check back in an hour.</string>
+    <string name="hw_batt_history_summary">%1$d samples since %2$s · range %3$d–%4$d%%</string>
+    <string name="batt_health_good">Good</string>
+    <string name="batt_health_overheat">Overheating</string>
+    <string name="batt_health_dead">Dead</string>
+    <string name="batt_health_over_voltage">Over-voltage</string>
+    <string name="batt_health_failure">Failure</string>
+    <string name="batt_health_cold">Too cold</string>
+    <string name="batt_health_unknown">Unknown</string>
+    <string name="batt_status_charging">Charging</string>
+    <string name="batt_status_discharging">Discharging</string>
+    <string name="batt_status_full">Full</string>
+    <string name="batt_status_not_charging">Not charging</string>
+    <string name="hw_disp_current">Refresh rate</string>
     <string name="hw_disp_supported">Modes</string>
     <string name="hw_disp_hdr">HDR</string>
     <string name="hw_disp_none">none</string>
@@ -294,6 +373,99 @@
     <string name="hw_cap_yes_enrolled">✅ Enrolled</string>
     <string name="hw_cap_yes_not_enrolled">⚠️ Available, not enrolled</string>
 
+    <!-- ════ Tools tab ════ -->
+    <string name="tool_level">Level</string>
+    <string name="tool_compass_cal">Compass calibration</string>
+    <string name="tool_metal">Metal detector</string>
+    <string name="tool_vibration">Vibration</string>
+    <string name="tool_sensor_missing">This device doesn\'t have the sensor this tool needs.</string>
+    <string name="level_hint">Lay the phone on the surface. The bubble turns green within ±1° of level.</string>
+    <string name="level_zero">Set as zero</string>
+    <string name="level_reset">Reset</string>
+    <string name="compass_cal_instructions">Move the phone slowly in a figure-8 a few times, rotating it as you go. Stay away from magnets, laptops and metal objects.</string>
+    <string name="compass_acc_high">Accuracy: high</string>
+    <string name="compass_acc_medium">Accuracy: medium</string>
+    <string name="compass_acc_low">Accuracy: low</string>
+    <string name="compass_acc_unreliable">Accuracy: unreliable</string>
+    <string name="compass_field_fmt">Field %1$s µT — %2$s</string>
+    <string name="compass_field_normal">normal</string>
+    <string name="compass_field_interference">interference nearby</string>
+    <string name="metal_beep">Beep near metal</string>
+    <string name="metal_zero">Re-zero</string>
+    <string name="metal_hint">Uses the magnetometer, so it finds iron, steel and magnets — not gold, silver or aluminium. Re-zero away from metal.</string>
+    <string name="metal_field_fmt">Field %1$s µT · baseline %2$s µT</string>
+    <string name="vibration_peak">Peak</string>
+    <string name="vibration_rms">RMS</string>
+    <string name="vibration_freq">Frequency</string>
+    <string name="vibration_hint">Place the phone on the vibrating surface. Frequency is the strongest component (FFT).</string>
+
+    <!-- ════ Device check (diagnostics) ════ -->
+    <string name="diag_header_title">Device check</string>
+    <string name="diag_header_body">Buying or selling a used phone? Run these quick tests and share a pass/fail report.</string>
+    <string name="diag_btn_start_all">Start full check</string>
+    <string name="diag_btn_share">Share report</string>
+    <string name="diag_btn_reset">Reset</string>
+    <string name="diag_reset_confirm">Clear all test results?</string>
+    <string name="diag_section_tests">Tests</string>
+    <string name="diag_summary">%1$d passed · %2$d failed · %3$d skipped · %4$d not run</string>
+    <string name="diag_report_title">PhoneLab device check</string>
+    <string name="diag_report_footer">Generated with PhoneLab v%1$s — every test ran on the device itself.</string>
+    <string name="diag_result_not_run">Not run</string>
+    <string name="diag_result_pass">Passed</string>
+    <string name="diag_result_fail">Failed</string>
+    <string name="diag_result_skipped">Skipped</string>
+    <string name="diag_btn_pass">Pass</string>
+    <string name="diag_btn_fail">Fail</string>
+    <string name="diag_btn_skip">Skip</string>
+    <string name="diag_btn_continue">Continue test</string>
+    <string name="diag_back_question">Stop this test? You can mark it as failed or skip it.</string>
+    <string name="diag_action_start">Start</string>
+    <string name="diag_action_play">Play again</string>
+    <string name="diag_action_vibrate">Vibrate again</string>
+    <string name="diag_action_flash">Flash again</string>
+    <string name="diag_note_no_permission">Microphone permission not granted</string>
+    <string name="diag_note_no_sensor">No sensor on this device</string>
+    <string name="diag_note_no_flash">No flash on this device</string>
+    <string name="diag_note_no_vibrator">No vibration motor</string>
+    <string name="diag_touch_title">Touch screen</string>
+    <string name="diag_touch_desc">Finds dead zones on the touch panel</string>
+    <string name="diag_touch_instructions">Swipe over every square until the whole screen is green. Press Back to give up.</string>
+    <string name="diag_multitouch_title">Multi-touch</string>
+    <string name="diag_multitouch_desc">How many fingers the screen tracks at once</string>
+    <string name="diag_multitouch_instructions">Put as many fingers on the screen as you can, then tap Pass if every finger shows a circle.</string>
+    <string name="diag_multitouch_status">Max fingers: %1$d</string>
+    <string name="diag_display_title">Display</string>
+    <string name="diag_display_desc">Dead or stuck pixels, uneven colors</string>
+    <string name="diag_display_instructions">The screen will show solid colors. Look closely for dots of the wrong color, then tap the screen for the next color.</string>
+    <string name="diag_display_question">Did you see any dead or stuck pixels, or uneven patches?</string>
+    <string name="diag_display_no_defects">Looks good</string>
+    <string name="diag_display_has_defects">Found defects</string>
+    <string name="diag_speaker_title">Speaker</string>
+    <string name="diag_speaker_desc">Plays a test tone</string>
+    <string name="diag_speaker_instructions">Turn the media volume up. Did you hear a clear tone?</string>
+    <string name="diag_mic_title">Microphone</string>
+    <string name="diag_mic_desc">Checks that the mic picks up sound</string>
+    <string name="diag_mic_instructions">Speak or clap near the bottom of the phone. The test passes on its own once sound is detected.</string>
+    <string name="diag_vibration_title">Vibration</string>
+    <string name="diag_vibration_desc">Checks the vibration motor</string>
+    <string name="diag_vibration_instructions">Did you feel the phone vibrate three times?</string>
+    <string name="diag_buttons_title">Volume buttons</string>
+    <string name="diag_buttons_desc">Volume up and down keys</string>
+    <string name="diag_buttons_instructions">Press Volume Up and Volume Down.</string>
+    <string name="diag_buttons_vol_up">Volume up</string>
+    <string name="diag_buttons_vol_down">Volume down</string>
+    <string name="diag_proximity_title">Proximity sensor</string>
+    <string name="diag_proximity_desc">Turns the screen off during calls</string>
+    <string name="diag_proximity_instructions">Cover the top of the screen (near the earpiece) with your hand, then uncover it.</string>
+    <string name="diag_flashlight_title">Flashlight</string>
+    <string name="diag_flashlight_desc">Camera flash / torch</string>
+    <string name="diag_flashlight_instructions">Did the flashlight on the back turn on?</string>
+    <string name="diag_sensors_title">Motion sensors</string>
+    <string name="diag_sensors_desc">Accelerometer, gyroscope, compass, light and barometer report data</string>
+    <string name="diag_sensors_instructions">Checking that each sensor reports data — keep the phone still.</string>
+    <string name="diag_battery_title">Battery health</string>
+    <string name="diag_battery_desc">Health status, charge cycles, estimated capacity</string>
+
     <!-- ════ Export status ════ -->
     <string name="export_success">✅ Exported: %1$s\nSaved to Documents/</string>
     <string name="export_failed">❌ Export failed: %1$s</string>
@@ -304,14 +476,11 @@
 
     <!-- ════ Benchmark result template ════ -->
     <string name="bench_complete_format">✅ Benchmark Complete!\n\nScore: %1$,d pts (relative — not comparable to Geekbench/AnTuTu)\n%2$s\n\n① Integer:    %3$d ms\n② Float/Trig: %4$d ms\n③ Memory:     %5$d ms  (16 MB)\n④ Multi-core: %6$d ms  (%7$d cores)</string>
-    <!-- Y2: bench history sub-header -->
     <string name="bench_history_title">📈 Last runs:</string>
-    <!-- Y4 / Y5 / Y6 -->
-    <string name="export_btn_copy">📋  Copy as text</string>
+    <string name="export_btn_copy">Copy as text</string>
     <string name="export_copied">📋 Copied to clipboard</string>
     <string name="thermal_alert_silence">Don\'t show again</string>
     <string name="thermal_alert_silenced">🔕 Thermal alerts silenced — re-enable in Settings</string>
-    <string name="about_btn_privacy">🔒  Privacy Policy</string>
 
     <!-- ════ Accuracy / calibration ════ -->
     <string name="accuracy_low_warning">⚠️ Low accuracy — wave device in a figure-8 to recalibrate</string>
@@ -323,12 +492,5 @@
     <string name="thermal_alert_body">CPU temperature has reached %1$s. Consider closing heavy apps.</string>
 
     <!-- ════ Counter format strings ════ -->
-    <string name="step_det_session_format">🚶 %1$d steps this session</string>
-    <string name="step_det_short_format">🚶\n%1$d\nsteps</string>
     <string name="step_counter_format">Session:%1$d  Device total:%2$,d</string>
-    <string name="tilt_count_format">📱 %1$d tilt events</string>
-    <string name="tilt_count_short_format">📱\n%1$d\ntilts</string>
-    <string name="sig_motion_detected_format">🏃 Detected × %1$d</string>
-    <string name="sig_motion_short_format">🏃\n×%1$d</string>
 </resources>
-

@@ -6,7 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
-import androidx.core.content.ContextCompat;
+import com.google.android.material.color.MaterialColors;
 
 /**
  * Small reusable line-chart view — following the same custom-View pattern as
@@ -28,7 +28,8 @@ public class SparklineView extends View {
     public SparklineView(Context ctx, AttributeSet a, int s) { super(ctx, a, s); init(ctx); }
 
     private void init(Context ctx) {
-        int accent = ContextCompat.getColor(ctx, R.color.primary);
+        // Theme attribute, not R.color.primary, so Material You dynamic colors apply too.
+        int accent = MaterialColors.getColor(this, androidx.appcompat.R.attr.colorPrimary);
         linePaint.setStyle(Paint.Style.STROKE);
         linePaint.setStrokeWidth(4f);
         linePaint.setStrokeCap(Paint.Cap.ROUND);

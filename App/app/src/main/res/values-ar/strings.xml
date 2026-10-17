@@ -6,19 +6,21 @@
     <string name="app_version_line">v%1$s  •  %2$s</string>
 
     <!-- ════ علامات التبويب ════ -->
-    <string name="tab_sensors">📡 المستشعرات</string>
-    <string name="tab_system">⚙️ النظام</string>
-    <string name="tab_hardware">🔌 العتاد</string>
-    <string name="tab_about">ℹ️ حول</string>
-    <string name="tab_settings">🔧 الإعدادات</string>
+    <string name="tab_sensors">المستشعرات</string>
+    <string name="tab_system">النظام</string>
+    <string name="tab_hardware">العتاد</string>
+    <string name="tab_about">حول</string>
+    <string name="tab_settings">الإعدادات</string>
 
     <!-- ════ شاشة "حول" ════ -->
     <string name="about_title">حول PhoneLab</string>
-    <string name="about_body">يمنحك PhoneLab رؤية كاملة في الوقت الفعلي لعتاد جهازك.\n\n✅  17 مستشعر عتاد حي\n✅  8 مناطق حرارية (المعالج، الرسوميات، البطارية، المودم، WiFi، الشاحن، NPU، الجسم)\n✅  مواصفات الجهاز الكاملة + تصدير لملف\n✅  اختبار أداء متعدد المراحل\n✅  تتبع سرعة وارتفاع GPS\n✅  بوصلة حية + مقياس مستوى الصوت\n✅  أوضاع عرض نصية ومرئية\n✅  وحدات مترية / إمبراطورية\n✅  سمات داكنة وفاتحة</string>
-    <string name="about_btn_rate">⭐  قَيِّم على Google Play</string>
-    <string name="about_btn_donate">❤️  ادعم التطوير</string>
-    <string name="about_btn_share">📤  شارك مع الأصدقاء</string>
-    <string name="about_btn_email">✉️  ملاحظات ودعم</string>
+    <string name="about_body">يمنحك PhoneLab رؤية كاملة في الوقت الفعلي لعتاد جهازك.\n\n✅  قراءات حية من كل مستشعرات العتاد، مع مؤشرات مرئية\n✅  8 مناطق حرارية، وصحة البطارية وقدرة الشحن\n✅  فحص الجهاز: اللمس والشاشة والسماعة والميكروفون والمزيد، مع تقرير قابل للمشاركة\n✅  أدوات: ميزان تسوية، معايرة البوصلة، كاشف المعادن، محلل الاهتزاز\n✅  تنبيهات مخصصة عندما تتجاوز قراءةٌ الحدَّ الذي تختاره\n✅  اختبار أداء، وتصدير المواصفات (نص / JSON)، وتسجيل المستشعرات (CSV)\n✅  أداة للشاشة الرئيسية، ومربع في الإعدادات السريعة، وألوان Material You\n✅  بيانات المستشعرات لا تغادر جهازك أبدًا</string>
+    <string name="about_btn_rate">قَيِّم على Google Play</string>
+    <string name="about_btn_donate">ادعم التطوير (إكرامية)</string>
+    <string name="about_btn_share">شارك مع الأصدقاء</string>
+    <string name="about_btn_source">الشيفرة المصدرية (GitHub)</string>
+    <string name="about_share_body_foss">جرّب PhoneLab — مراقب مستشعرات مجاني ومفتوح المصدر لأندرويد!\n%1$s</string>
+    <string name="about_btn_email">ملاحظات ودعم</string>
     <string name="about_made_with">صُنع بحب ❤️  لعشاق Android</string>
     <string name="about_copyright">© 2026 PhoneLab</string>
     <string name="about_share_subject">PhoneLab - مراقب مستشعرات الجهاز</string>
@@ -31,10 +33,10 @@
 
     <!-- ════ شاشة الإعدادات ════ -->
     <string name="settings_title">الإعدادات</string>
-    <string name="settings_section_appearance">🎨  المظهر</string>
-    <string name="settings_section_display_mode">📊  وضع العرض</string>
-    <string name="settings_section_units">📐  نظام الوحدات</string>
-    <string name="settings_section_thermal">🌡️  التنبيهات الحرارية</string>
+    <string name="settings_section_appearance">المظهر</string>
+    <string name="settings_section_display_mode">وضع العرض</string>
+    <string name="settings_section_units">نظام الوحدات</string>
+    <string name="settings_section_thermal">التنبيهات الحرارية</string>
     <string name="settings_btn_to_dark">🌙  التبديل إلى الوضع الداكن</string>
     <string name="settings_btn_to_light">☀️  التبديل إلى الوضع الفاتح</string>
     <string name="settings_btn_to_system">🌓  اتبع إعدادات النظام</string>
@@ -57,21 +59,21 @@
     <string name="settings_note">ℹ️  تغييرات وضع العرض والوحدات تُطبق فورًا في جميع التبويبات.\nتغيير السمة سيعيد تحميل الشاشة الحالية.</string>
 
     <!-- ════ شاشة النظام ════ -->
-    <string name="system_section_temps">🌡️  درجات حرارة المكونات</string>
-    <string name="system_section_temps_short">🌡️  درجات الحرارة</string>
-    <string name="system_section_specs">📋  مواصفات الجهاز</string>
-    <string name="system_section_device">📋  الجهاز</string>
-    <string name="system_section_benchmark">🏁  اختبار الأداء</string>
-    <string name="system_section_export">📤  التصدير</string>
-    <string name="system_btn_run_benchmark">▶  تشغيل الاختبار</string>
-    <string name="system_btn_export">📤  تصدير مواصفات النظام إلى ملف نصي</string>
-    <string name="system_btn_export_json">🧾  تصدير مواصفات النظام إلى JSON</string>
-    <string name="system_cpu_trend">📈 اتجاه حرارة المعالج</string>
-    <string name="system_bench_trend">📈 اتجاه نتائج اختبار الأداء</string>
-    <string name="system_benchmark_intro">اضغط ▶ تشغيل الاختبار للبدء.\n4 مراحل: أعداد صحيحة · فاصلة عائمة · ذاكرة · متعدد النوى</string>
+    <string name="system_section_temps">درجات حرارة المكونات</string>
+    <string name="system_section_temps_short">درجات الحرارة</string>
+    <string name="system_section_specs">مواصفات الجهاز</string>
+    <string name="system_section_device">الجهاز</string>
+    <string name="system_section_benchmark">اختبار الأداء</string>
+    <string name="system_section_export">التصدير</string>
+    <string name="system_btn_run_benchmark">تشغيل الاختبار</string>
+    <string name="system_btn_export">تصدير المواصفات (نص)</string>
+    <string name="system_btn_export_json">تصدير المواصفات (JSON)</string>
+    <string name="system_cpu_trend">اتجاه حرارة المعالج</string>
+    <string name="system_bench_trend">اتجاه نتائج اختبار الأداء</string>
+    <string name="system_benchmark_intro">اضغط «تشغيل الاختبار» للبدء.\n4 مراحل: أعداد صحيحة · فاصلة عائمة · ذاكرة · متعدد النوى</string>
 
     <!-- ════ شاشة المستشعرات ════ -->
-    <string name="sensors_section_live_compass">🧭  البوصلة المباشرة</string>
+    <string name="sensors_section_live_compass">البوصلة المباشرة</string>
     <string name="cd_compass">قرص البوصلة المباشرة</string>
     <string name="cd_app_icon">رمز تطبيق PhoneLab</string>
 
@@ -109,9 +111,9 @@
     <string name="sensor_humidity">الرطوبة</string>
     <string name="sensor_ambient_temp">درجة الحرارة المحيطة</string>
     <string name="sensor_heart_rate">معدل نبضات القلب</string>
-    <string name="sensor_sound_level">🎤 مستوى الصوت (غير معاير)</string>
-    <string name="sensor_gps_speed">🚀 سرعة GPS</string>
-    <string name="sensor_gps_altitude">⛰️ ارتفاع GPS</string>
+    <string name="sensor_sound_level">مستوى الصوت (غير معاير)</string>
+    <string name="sensor_gps_speed">سرعة GPS</string>
+    <string name="sensor_gps_altitude">ارتفاع GPS</string>
     <string name="sensor_compass_label">البوصلة</string>
 
     <!-- ════ كلمات حالة الحركة (تُستخدم كـ %s في تنسيقات النص) ════ -->
@@ -135,10 +137,6 @@
     <string name="orient_sideways">جانبي</string>
 
     <!-- ════ القرب ════ -->
-    <string name="proximity_near">🤚 قريب/مغطى</string>
-    <string name="proximity_far">↔️ بعيد/مكشوف</string>
-    <string name="proximity_near_short">🤚\nقريب</string>
-    <string name="proximity_far_short">↔️\nبعيد</string>
 
     <!-- ════ الرطوبة ════ -->
     <string name="humidity_very_dry">🏜️ جاف جدًا</string>
@@ -186,27 +184,22 @@
 
     <!-- ════ حركة كبيرة ════ -->
     <string name="sig_motion_label">حركة كبيرة</string>
-    <string name="sig_motion_na_short">🏃\n—</string>
 
     <!-- ════ مستشعرات متقدمة (v1.2.0) ════ -->
-    <string name="sensors_section_advanced">🔬  مستشعرات متقدمة</string>
     <string name="sensor_stationary">كاشف السكون</string>
     <string name="sensor_motion_detect">كاشف الحركة</string>
     <string name="sensor_accel_uncal">مقياس تسارع غير معاير</string>
     <string name="sensor_mag_uncal">مغناطيسية غير معايرة</string>
     <string name="sensor_geomag_rotation">دوران مغناطيسي</string>
     <string name="sensor_hinge_angle">زاوية المفصلة</string>
-    <string name="state_stationary_detected">🪨 ساكن × %1$d</string>
-    <string name="state_motion_detected">🏃 حركة × %1$d</string>
-    <string name="hinge_angle_format">📐 %1$.1f°  %2$s</string>
     <string name="hinge_state_closed">مغلق</string>
     <string name="hinge_state_open">مفتوح</string>
     <string name="hinge_state_flat">مسطح</string>
 
     <!-- ════ تسجيل CSV ════ -->
-    <string name="sensors_section_recording">📼  تسجيل المستشعرات</string>
-    <string name="rec_btn_start">🔴  بدء التسجيل</string>
-    <string name="rec_btn_stop">⏹  إيقاف · %1$s · %2$d عينة</string>
+    <string name="sensors_section_recording">تسجيل المستشعرات</string>
+    <string name="rec_btn_start">بدء التسجيل</string>
+    <string name="rec_btn_stop">إيقاف · %1$s · %2$d عينة</string>
     <string name="rec_status_idle">لا يوجد تسجيل</string>
     <string name="rec_status_active">🔴 يسجل · %1$s · %2$d عينة</string>
     <string name="rec_status_saved">✅ تم الحفظ: %1$s\n%2$d عينة — اضغط مشاركة للإرسال</string>
@@ -226,27 +219,24 @@
     <string name="shortcut_benchmark_long">تشغيل اختبار الأداء</string>
     <string name="shortcut_record_short">تسجيل</string>
     <string name="shortcut_record_long">بدء التسجيل</string>
-    <string name="shortcut_hardware_short">العتاد</string>
-    <string name="shortcut_hardware_long">معلومات العتاد</string>
 
     <!-- ════ تسميات درجة حرارة المكونات ════ -->
-    <string name="temp_battery">🔋 البطارية</string>
-    <string name="temp_cpu">🔥 المعالج</string>
-    <string name="temp_gpu">🎮 GPU</string>
-    <string name="temp_skin">📱 جسم الجهاز</string>
-    <string name="temp_modem">📡 المودم/5G</string>
-    <string name="temp_wifi">📶 WiFi/BT</string>
-    <string name="temp_charger">🔌 الشاحن</string>
-    <string name="temp_npu">🧠 NPU/AI</string>
+    <string name="temp_battery">البطارية</string>
+    <string name="temp_cpu">المعالج</string>
+    <string name="temp_gpu">GPU</string>
+    <string name="temp_skin">جسم الجهاز</string>
+    <string name="temp_modem">المودم/5G</string>
+    <string name="temp_wifi">WiFi/BT</string>
+    <string name="temp_charger">الشاحن</string>
+    <string name="temp_npu">NPU/AI</string>
 
     <!-- ════ تسميات مواصفات النظام ════ -->
-    <string name="spec_device">📱 الجهاز</string>
-    <string name="spec_android">🤖 Android %1$s (API %2$d)</string>
-    <string name="spec_cpu">⚡ المعالج</string>
-    <string name="spec_ram">💾 الذاكرة</string>
-    <string name="spec_storage">🗂 التخزين</string>
-    <string name="spec_screen">📺 الشاشة</string>
-    <string name="spec_abi">🔧 ABI: %1$s</string>
+    <string name="spec_device">الجهاز</string>
+    <string name="spec_android">Android %1$s (API %2$d)</string>
+    <string name="spec_cpu">المعالج</string>
+    <string name="spec_ram">الذاكرة</string>
+    <string name="spec_storage">التخزين</string>
+    <string name="spec_screen">الشاشة</string>
     <string name="spec_cores">%1$d أنوية</string>
 
     <!-- ════ أنواع الشحن ════ -->
@@ -268,17 +258,13 @@
     <string name="bench_rating_entry">⚡ مستوى الدخول</string>
 
     <!-- ════ تبويب العتاد (v1.2.0) ════ -->
-    <string name="hw_section_cpu">⚡  ترددات المعالج</string>
-    <string name="hw_section_battery">🔋  تفاصيل البطارية</string>
-    <string name="hw_section_display">📺  الشاشة</string>
-    <string name="hw_section_capabilities">🔌  القدرات</string>
+    <string name="hw_section_cpu">ترددات المعالج</string>
+    <string name="hw_section_battery">صحة البطارية</string>
+    <string name="hw_section_display">الشاشة</string>
+    <string name="hw_section_capabilities">القدرات</string>
     <string name="hw_cpu_core">النواة %1$d</string>
     <string name="hw_batt_level">المستوى</string>
-    <string name="hw_batt_charge_counter">السعة</string>
-    <string name="hw_batt_current">التيار</string>
-    <string name="hw_batt_energy">الطاقة</string>
-    <string name="hw_batt_cycles">الدورات</string>
-    <string name="hw_disp_current">الحالي</string>
+    <string name="hw_disp_current">معدل التحديث</string>
     <string name="hw_disp_supported">الأوضاع</string>
     <string name="hw_disp_hdr">HDR</string>
     <string name="hw_disp_none">لا شيء</string>
@@ -304,11 +290,11 @@
     <!-- ════ قالب نتيجة الاختبار ════ -->
     <string name="bench_complete_format">✅ اكتمل الاختبار!\n\nالنتيجة: %1$,d نقطة (نسبية — غير قابلة للمقارنة مع Geekbench/AnTuTu)\n%2$s\n\n① أعداد صحيحة: %3$d ms\n② فاصلة عائمة: %4$d ms\n③ ذاكرة:       %5$d ms  (16 MB)\n④ متعدد النوى: %6$d ms  (%7$d أنوية)</string>
     <string name="bench_history_title">📈 آخر التشغيلات:</string>
-    <string name="export_btn_copy">📋  نسخ كنص</string>
+    <string name="export_btn_copy">نسخ كنص</string>
     <string name="export_copied">📋 تم النسخ إلى الحافظة</string>
     <string name="thermal_alert_silence">لا تعرض مرة أخرى</string>
     <string name="thermal_alert_silenced">🔕 تم إسكات التنبيهات الحرارية — أعد التفعيل من تبويب "الإعدادات"</string>
-    <string name="about_btn_privacy">🔒  سياسة الخصوصية</string>
+    <string name="about_btn_privacy">سياسة الخصوصية</string>
 
     <!-- ════ الدقة / المعايرة ════ -->
     <string name="accuracy_low_warning">⚠️ دقة منخفضة — لوّح بالجهاز على شكل 8 لإعادة المعايرة</string>
@@ -320,11 +306,181 @@
     <string name="thermal_alert_body">وصلت حرارة المعالج إلى %1$s. فكر بإغلاق التطبيقات الثقيلة.</string>
 
     <!-- ════ تنسيقات العدّادات ════ -->
-    <string name="step_det_session_format">🚶 %1$d خطوة في هذه الجلسة</string>
-    <string name="step_det_short_format">🚶\n%1$d\nخطوة</string>
     <string name="step_counter_format">الجلسة:%1$d  إجمالي الجهاز:%2$,d</string>
-    <string name="tilt_count_format">📱 %1$d حدث إمالة</string>
-    <string name="tilt_count_short_format">📱\n%1$d\nإمالات</string>
-    <string name="sig_motion_detected_format">🏃 رُصد × %1$d</string>
-    <string name="sig_motion_short_format">🏃\n×%1$d</string>
+
+    <!-- ════ v1.3: tools, device check, alerts, battery health, tip jar ════ -->
+    <string name="tab_tools">الأدوات</string>
+    <string name="tab_diagnostics">فحص الجهاز</string>
+    <string name="about_btn_web">PhoneLab Web (نسخة المتصفح)</string>
+    <string name="tip_dialog_title">قدّم إكرامية</string>
+    <string name="tip_unavailable">الإكراميات غير متاحة الآن — تتطلب نسخة Google Play من التطبيق.</string>
+    <string name="tip_thanks">شكرًا لدعمك PhoneLab! ❤️</string>
+    <string name="tip_pending">الدفع قيد الانتظار — سيكتمل عندما يؤكده Google Play. شكرًا لك!</string>
+    <string name="settings_dynamic_color">استخدام ألوان الخلفية (Material You)</string>
+    <string name="settings_app_language">لغة التطبيق</string>
+    <string name="settings_section_alerts">تنبيهات مستشعرات مخصصة</string>
+    <string name="settings_alerts_desc">احصل على إشعار عندما تتجاوز قراءةٌ حدًّا معيّنًا. يُجرى الفحص في الخلفية كل 15 دقيقة تقريبًا.</string>
+    <string name="settings_alerts_empty">لا توجد تنبيهات بعد.</string>
+    <string name="settings_alerts_add">إضافة تنبيه</string>
+    <string name="settings_alerts_check_now">افحص الآن</string>
+    <string name="settings_alerts_checked">جارٍ فحص تنبيهاتك…</string>
+    <string name="settings_alerts_delete">حذف التنبيه</string>
+    <string name="settings_section_battery_history">سجل البطارية</string>
+    <string name="settings_battery_history">تسجيل مستوى البطارية في الخلفية</string>
+    <string name="settings_battery_history_desc">عينة واحدة كل 15 دقيقة تقريبًا، لآخر 24 ساعة، محفوظة على هذا الجهاز فقط.</string>
+    <string name="settings_battery_history_clear">مسح السجل</string>
+    <string name="settings_battery_history_cleared">تم مسح سجل البطارية</string>
+    <string name="alert_metric_cpu_temp">حرارة المعالج</string>
+    <string name="alert_metric_skin_temp">حرارة سطح الجهاز</string>
+    <string name="alert_metric_battery_temp">حرارة البطارية</string>
+    <string name="alert_metric_battery_level">مستوى البطارية</string>
+    <string name="alert_metric_ambient_temp">حرارة المحيط</string>
+    <string name="alert_metric_humidity">الرطوبة</string>
+    <string name="alert_metric_pressure">الضغط الجوي</string>
+    <string name="alert_metric_light">مستوى الإضاءة</string>
+    <string name="alert_rule_above">%1$s أعلى من %2$s</string>
+    <string name="alert_rule_below">%1$s أقل من %2$s</string>
+    <string name="alert_channel_name">تنبيهات المستشعرات</string>
+    <string name="alert_channel_desc">تنبيهات الحدود المخصصة الخاصة بك (تُفحص كل 15 دقيقة تقريبًا)</string>
+    <string name="alert_notif_title">تنبيه %1$s</string>
+    <string name="alert_notif_body">الآن %1$s — القاعدة: %2$s</string>
+    <string name="alert_dialog_metric">القراءة</string>
+    <string name="alert_dialog_above">أعلى من</string>
+    <string name="alert_dialog_below">أقل من</string>
+    <string name="alert_dialog_threshold">الحد</string>
+    <string name="alert_dialog_save">حفظ</string>
+    <string name="alert_dialog_invalid">أدخل رقمًا</string>
+    <string name="temp_state_ok">طبيعي</string>
+    <string name="temp_state_warm">دافئ</string>
+    <string name="temp_state_hot">ساخن</string>
+    <string name="battery_charging_via">يشحن %1$s</string>
+    <string name="sensors_section_motion">الحركة</string>
+    <string name="sensors_section_orientation">الاتجاه</string>
+    <string name="sensors_section_environment">البيئة</string>
+    <string name="sensors_section_activity">النشاط والجسم</string>
+    <string name="sensors_section_location">الموقع</string>
+    <string name="gauge_tilt_title">الميل</string>
+    <string name="geomag_detail">بدون جيروسكوب — استهلاك أقل للبطارية</string>
+    <string name="steps_this_session">في هذه الجلسة</string>
+    <string name="trigger_events_detected">أحداث مكتشفة</string>
+    <string name="status_tap_to_grant">يلزم إذن — انقر للمنح</string>
+    <string name="proximity_near_word">قريب</string>
+    <string name="proximity_far_word">بعيد</string>
+    <string name="shortcut_diagnostics_short">فحص الجهاز</string>
+    <string name="shortcut_diagnostics_long">افحص هذا الهاتف</string>
+    <string name="shortcut_tools_short">الأدوات</string>
+    <string name="shortcut_tools_long">أدوات المستشعرات</string>
+    <string name="spec_gpu">GPU</string>
+    <string name="spec_cores_unit">نوى</string>
+    <string name="hw_cpu_peak">أسرع نواة الآن</string>
+    <string name="hw_batt_health">الصحة</string>
+    <string name="hw_batt_power">القدرة</string>
+    <string name="hw_batt_capacity">السعة</string>
+    <string name="hw_batt_cycles_fmt">%1$d دورة شحن</string>
+    <string name="hw_batt_remaining_fmt">متبقٍّ %1$d mAh</string>
+    <string name="hw_batt_capacity_est">السعة الكاملة التقديرية</string>
+    <string name="hw_batt_history_title">مستوى البطارية — آخر 24 ساعة</string>
+    <string name="hw_batt_history_off">سجل البطارية متوقف (راجع الإعدادات).</string>
+    <string name="hw_batt_history_empty">جارٍ جمع العينات — عُد بعد ساعة.</string>
+    <string name="hw_batt_history_summary">%1$d عينة منذ %2$s · النطاق %3$d–%4$d%%</string>
+    <string name="batt_health_good">جيدة</string>
+    <string name="batt_health_overheat">ارتفاع الحرارة</string>
+    <string name="batt_health_dead">تالفة</string>
+    <string name="batt_health_over_voltage">جهد زائد</string>
+    <string name="batt_health_failure">عطل</string>
+    <string name="batt_health_cold">باردة جدًا</string>
+    <string name="batt_health_unknown">غير معروف</string>
+    <string name="batt_status_charging">يشحن</string>
+    <string name="batt_status_discharging">يفرغ</string>
+    <string name="batt_status_full">ممتلئة</string>
+    <string name="batt_status_not_charging">لا يشحن</string>
+    <string name="tool_level">ميزان التسوية</string>
+    <string name="tool_compass_cal">معايرة البوصلة</string>
+    <string name="tool_metal">كاشف المعادن</string>
+    <string name="tool_vibration">الاهتزاز</string>
+    <string name="tool_sensor_missing">لا يحتوي هذا الجهاز على المستشعر الذي تحتاجه هذه الأداة.</string>
+    <string name="level_hint">ضع الهاتف على السطح. تتحول الفقاعة إلى الأخضر عندما يكون مستويًا ضمن ±1°.</string>
+    <string name="level_zero">تعيين كصفر</string>
+    <string name="level_reset">إعادة الضبط</string>
+    <string name="compass_cal_instructions">حرّك الهاتف ببطء على شكل الرقم 8 عدة مرات مع تدويره. ابتعد عن المغناطيسات والحواسيب المحمولة والأجسام المعدنية.</string>
+    <string name="compass_acc_high">الدقة: عالية</string>
+    <string name="compass_acc_medium">الدقة: متوسطة</string>
+    <string name="compass_acc_low">الدقة: منخفضة</string>
+    <string name="compass_acc_unreliable">الدقة: غير موثوقة</string>
+    <string name="compass_field_fmt">المجال %1$s µT — %2$s</string>
+    <string name="compass_field_normal">طبيعي</string>
+    <string name="compass_field_interference">يوجد تداخل قريب</string>
+    <string name="metal_beep">صفير قرب المعدن</string>
+    <string name="metal_zero">إعادة التصفير</string>
+    <string name="metal_hint">يستخدم مقياس المغناطيسية، لذا يكشف الحديد والفولاذ والمغناطيسات — وليس الذهب أو الفضة أو الألمنيوم. أعد التصفير بعيدًا عن المعادن.</string>
+    <string name="metal_field_fmt">المجال %1$s µT · المرجع %2$s µT</string>
+    <string name="vibration_peak">الذروة</string>
+    <string name="vibration_rms">RMS</string>
+    <string name="vibration_freq">التردد</string>
+    <string name="vibration_hint">ضع الهاتف على السطح المهتز. التردد هو المكوّن الأقوى (FFT).</string>
+    <string name="diag_header_title">فحص الجهاز</string>
+    <string name="diag_header_body">تشتري أو تبيع هاتفًا مستعملًا؟ شغّل هذه الاختبارات السريعة وشارك تقرير نجاح/فشل.</string>
+    <string name="diag_btn_start_all">بدء الفحص الكامل</string>
+    <string name="diag_btn_share">مشاركة التقرير</string>
+    <string name="diag_btn_reset">إعادة الضبط</string>
+    <string name="diag_reset_confirm">مسح كل نتائج الاختبارات؟</string>
+    <string name="diag_section_tests">الاختبارات</string>
+    <string name="diag_summary">%1$d نجح · %2$d فشل · %3$d تم تخطيه · %4$d لم يُشغَّل</string>
+    <string name="diag_report_title">فحص الجهاز من PhoneLab</string>
+    <string name="diag_report_footer">أُنشئ باستخدام PhoneLab v%1$s — أُجريت كل الاختبارات على الجهاز نفسه.</string>
+    <string name="diag_result_not_run">لم يُشغَّل</string>
+    <string name="diag_result_pass">نجح</string>
+    <string name="diag_result_fail">فشل</string>
+    <string name="diag_result_skipped">تم تخطيه</string>
+    <string name="diag_btn_pass">نجح</string>
+    <string name="diag_btn_fail">فشل</string>
+    <string name="diag_btn_skip">تخطٍّ</string>
+    <string name="diag_btn_continue">متابعة الاختبار</string>
+    <string name="diag_back_question">إيقاف هذا الاختبار؟ يمكنك وضع علامة فشل عليه أو تخطيه.</string>
+    <string name="diag_action_start">ابدأ</string>
+    <string name="diag_action_play">تشغيل مرة أخرى</string>
+    <string name="diag_action_vibrate">اهتزاز مرة أخرى</string>
+    <string name="diag_action_flash">وميض مرة أخرى</string>
+    <string name="diag_note_no_permission">لم يُمنح إذن الميكروفون</string>
+    <string name="diag_note_no_sensor">لا يوجد مستشعر في هذا الجهاز</string>
+    <string name="diag_note_no_flash">لا يوجد فلاش في هذا الجهاز</string>
+    <string name="diag_note_no_vibrator">لا يوجد محرك اهتزاز</string>
+    <string name="diag_touch_title">شاشة اللمس</string>
+    <string name="diag_touch_desc">يكشف المناطق الميتة في لوحة اللمس</string>
+    <string name="diag_touch_instructions">مرّر إصبعك فوق كل مربع حتى تصبح الشاشة كلها خضراء. اضغط «رجوع» للتوقف.</string>
+    <string name="diag_multitouch_title">اللمس المتعدد</string>
+    <string name="diag_multitouch_desc">عدد الأصابع التي تتعقبها الشاشة في وقت واحد</string>
+    <string name="diag_multitouch_instructions">ضع على الشاشة أكبر عدد ممكن من الأصابع، ثم اضغط «نجح» إذا ظهرت دائرة تحت كل إصبع.</string>
+    <string name="diag_multitouch_status">أقصى عدد أصابع: %1$d</string>
+    <string name="diag_display_title">الشاشة</string>
+    <string name="diag_display_desc">بكسلات ميتة أو عالقة، وألوان غير متساوية</string>
+    <string name="diag_display_instructions">ستعرض الشاشة ألوانًا ثابتة. ابحث عن نقاط بلون خاطئ، ثم انقر على الشاشة للانتقال إلى اللون التالي.</string>
+    <string name="diag_display_question">هل رأيت بكسلات ميتة أو عالقة، أو بقعًا غير متساوية؟</string>
+    <string name="diag_display_no_defects">تبدو سليمة</string>
+    <string name="diag_display_has_defects">يوجد عيوب</string>
+    <string name="diag_speaker_title">السماعة</string>
+    <string name="diag_speaker_desc">تشغيل نغمة اختبار</string>
+    <string name="diag_speaker_instructions">ارفع مستوى صوت الوسائط. هل سمعت نغمة واضحة؟</string>
+    <string name="diag_mic_title">الميكروفون</string>
+    <string name="diag_mic_desc">يتحقق من أن الميكروفون يلتقط الصوت</string>
+    <string name="diag_mic_instructions">تحدّث أو صفّق قرب أسفل الهاتف. ينجح الاختبار تلقائيًا عند اكتشاف صوت.</string>
+    <string name="diag_vibration_title">الاهتزاز</string>
+    <string name="diag_vibration_desc">يفحص محرك الاهتزاز</string>
+    <string name="diag_vibration_instructions">هل شعرت بالهاتف يهتز ثلاث مرات؟</string>
+    <string name="diag_buttons_title">أزرار الصوت</string>
+    <string name="diag_buttons_desc">مفتاحا رفع الصوت وخفضه</string>
+    <string name="diag_buttons_instructions">اضغط على رفع الصوت وخفض الصوت.</string>
+    <string name="diag_buttons_vol_up">رفع الصوت</string>
+    <string name="diag_buttons_vol_down">خفض الصوت</string>
+    <string name="diag_proximity_title">مستشعر القرب</string>
+    <string name="diag_proximity_desc">يطفئ الشاشة أثناء المكالمات</string>
+    <string name="diag_proximity_instructions">غطِّ أعلى الشاشة (قرب سماعة الأذن) بيدك، ثم أزلها.</string>
+    <string name="diag_flashlight_title">الكشاف</string>
+    <string name="diag_flashlight_desc">فلاش الكاميرا / الكشاف</string>
+    <string name="diag_flashlight_instructions">هل أضاء الكشاف في ظهر الهاتف؟</string>
+    <string name="diag_sensors_title">مستشعرات الحركة</string>
+    <string name="diag_sensors_desc">مقياس التسارع والجيروسكوب والبوصلة والضوء والبارومتر ترسل بيانات</string>
+    <string name="diag_sensors_instructions">جارٍ التحقق من أن كل مستشعر يرسل بيانات — أبقِ الهاتف ثابتًا.</string>
+    <string name="diag_battery_title">صحة البطارية</string>
+    <string name="diag_battery_desc">حالة الصحة، دورات الشحن، السعة التقديرية</string>
 </resources>

@@ -30,3 +30,15 @@ jobs:
 
       - name: Assemble debug APK
         run: ./gradlew assembleDebug --console=plain
+
+      # Only findings not already recorded in app/lint-baseline.xml fail the build.
+      - name: Lint (release variants of both flavors)
+        run: ./gradlew lintPlayRelease lintFossRelease --console=plain
+
+      - name: Upload lint reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-reports
+          path: App/app/build/reports/lint-results-*.html
+          if-no-files-found: ignore

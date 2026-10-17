@@ -54,6 +54,15 @@ public final class ThermalZones {
         return zone("cpu", "cpu0", "soc_thermal", "mtktscpu", "cpu_thermal", "tsens_tz_sensor0", "cpu_0");
     }
 
+    public static float gpu() {
+        return zone("gpu", "gpu0", "mtktsgpu", "gpu_thermal", "tsens_tz_sensor10", "kgsl_therm");
+    }
+
+    /** Device surface ("skin") temperature — what the user actually feels in the hand. */
+    public static float skin() {
+        return zone("skin", "skin_therm", "quiet_therm", "back_therm", "bd_therm", "xo_therm");
+    }
+
     // ── Pure logic (no file I/O) — kept separate so it's unit-testable without a real
     //    /sys/class/thermal, same rationale as AppPrefs's Context-free converters. ──
 

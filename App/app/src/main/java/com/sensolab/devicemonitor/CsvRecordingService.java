@@ -86,6 +86,12 @@ public class CsvRecordingService extends Service implements SensorEventListener,
         if (recorder != null) doStop();
     }
 
+    /** Android 15+: dataSync foreground services get ~6 h per day. When the system says
+     *  time is up we must stop within seconds or the app is killed — save what we have. */
+    @Override public void onTimeout(int startId, int fgsType) {
+        doStop();
+    }
+
     // ── Recording lifecycle ──────────────────────────────────────────────
 
     private void beginRecording() {

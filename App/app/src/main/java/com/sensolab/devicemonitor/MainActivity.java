@@ -2,17 +2,20 @@ package com.sensolab.devicemonitor;
 
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.Insets;
 import androidx.core.graphics.drawable.IconCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.sensolab.devicemonitor.databinding.ActivityMainBinding;
-
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,71 +23,93 @@ public class MainActivity extends AppCompatActivity {
     /** Batch 6: which tab a launcher shortcut should open to. */
     public static final String EXTRA_START_TAB = "start_tab";
 
+    public static final int TAB_SENSORS = 0, TAB_SYSTEM = 1, TAB_HARDWARE = 2, TAB_TOOLS = 3,
+                            TAB_DIAGNOSTICS = 4, TAB_ABOUT = 5, TAB_SETTINGS = 6;
+
+    private static final int[] TAB_TITLES = {
+            R.string.tab_sensors, R.string.tab_system, R.string.tab_hardware, R.string.tab_tools,
+            R.string.tab_diagnostics, R.string.tab_about, R.string.tab_settings};
+    private static final int[] TAB_ICONS = {
+            R.drawable.ic_tab_sensors, R.drawable.ic_tab_system, R.drawable.ic_chip, R.drawable.ic_tab_tools,
+            R.drawable.ic_tab_diagnostics, R.drawable.ic_tab_about, R.drawable.ic_tab_settings};
+
     private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         applyTheme();
         super.onCreate(savedInstanceState);
+        // targetSdk 35+ draws edge-to-edge on Android 15+ regardless; opting in explicitly
+        // gives the same look on older versions and transparent, contrast-aware bars.
+        // Must run after super.onCreate(): only then has AppCompat applied the app's own
+        // night mode, which EdgeToEdge reads to pick light or dark status-bar icons.
+        EdgeToEdge.enable(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ThermalAlerts.ensureChannel(this); // pre-create notification channel
-        // Permissions are requested contextually per-feature (Sensors tab cards,
-        // Settings thermal-alerts toggle) instead of blasted here at launch.
+        applyWindowInsets();
+        ThermalAlerts.ensureChannel(this);
+        AlertNotifier.ensureChannel(this);
+        // Permissions are requested contextually per feature, never blasted at launch.
         setupTabs();
         setupShortcuts();
-        // Batch 4: idempotent — re-syncs the periodic background check to the current
-        // toggle state on every launch, self-healing if it was ever lost (e.g. app data
-        // partially cleared) without needing a boot receiver.
+        // Idempotent — re-syncs the periodic background check (thermal / alert rules /
+        // battery history / widget) with current settings on every launch.
         ThermalCheckWorker.reschedule(this);
+    }
+
+    /** Edge-to-edge: tabs sit below the status bar / cutout, and the pager stops above the
+     *  navigation bar so no content ends up hidden behind system UI. */
+    private void applyWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.getRoot(), (v, insets) -> {
+            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars()
+                    | WindowInsetsCompat.Type.displayCutout());
+            v.setPadding(bars.left, bars.top, bars.right, 0);
+            binding.viewPager.setPadding(0, 0, 0, bars.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
     }
 
     private void setupTabs() {
         ViewPager2 vp = binding.viewPager;
         vp.setAdapter(new FragmentStateAdapter(this) {
-            @Override public int getItemCount() { return 5; }
+            @Override public int getItemCount() { return TAB_TITLES.length; }
             @Override public Fragment createFragment(int pos) {
                 switch (pos) {
-                    case 0: return new SensorsFragment();
-                    case 1: return new SystemFragment();
-                    case 2: return new HardwareFragment();   // v1.2.0
-                    case 3: return new AboutFragment();
-                    default: return new SettingsFragment();
+                    case TAB_SENSORS:     return new SensorsFragment();
+                    case TAB_SYSTEM:      return new SystemFragment();
+                    case TAB_HARDWARE:    return new HardwareFragment();
+                    case TAB_TOOLS:       return new ToolsFragment();
+                    case TAB_DIAGNOSTICS: return new DiagnosticsFragment();
+                    case TAB_ABOUT:       return new AboutFragment();
+                    default:              return new SettingsFragment();
                 }
             }
         });
-        // P2: was 4 (all fragments resident → sensors+mic+GPS always running, battery hog).
-        // Default (off-screen kept = 1) means neighbours stay alive but distant tabs unload.
+        // P2: only neighbouring tabs stay resident, so far-off tabs' sensors/mic/GPS stop.
         vp.setOffscreenPageLimit(ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT);
-        int[] tabTitles = {
-                R.string.tab_sensors, R.string.tab_system, R.string.tab_hardware,
-                R.string.tab_about,   R.string.tab_settings};
-        new TabLayoutMediator(binding.tabLayout, vp,
-                (tab, pos) -> tab.setText(tabTitles[pos])
-        ).attach();
+        new TabLayoutMediator(binding.tabLayout, vp, (tab, pos) -> {
+            tab.setText(TAB_TITLES[pos]);
+            tab.setIcon(TAB_ICONS[pos]);
+        }).attach();
 
-        // Batch 6: a launcher shortcut requests a starting tab. Only honoured on
-        // cold/warm start (onCreate) — re-tapping a shortcut while the app is already
-        // running just resumes the existing task per standard launcher-intent behaviour,
-        // a reasonable v1 scope limit rather than adding singleTask/onNewIntent handling.
+        // Batch 6: launcher shortcuts request a starting tab (honoured on cold/warm start).
         int startTab = getIntent().getIntExtra(EXTRA_START_TAB, -1);
-        if (startTab >= 0 && startTab < tabTitles.length) {
-            vp.setCurrentItem(startTab, false);
-        }
+        if (startTab >= 0 && startTab < TAB_TITLES.length) vp.setCurrentItem(startTab, false);
     }
 
-    /** Batch 6: dynamic (not static XML) shortcuts — this app ships debug builds under a
-     *  different package id (applicationIdSuffix ".debug"), and static shortcut XML needs
-     *  a hardcoded target package/class. Building the Intent from MainActivity.class here
-     *  resolves correctly under either package id with no placeholder gymnastics. */
+    /** Batch 6: dynamic shortcuts — built from MainActivity.class so they resolve under both
+     *  the release and the ".debug" package id without hardcoded targets. */
     private void setupShortcuts() {
         ShortcutInfoCompat record = buildShortcut("record",
-                R.string.shortcut_record_short, R.string.shortcut_record_long, R.drawable.ic_recording, 0);
+                R.string.shortcut_record_short, R.string.shortcut_record_long, R.drawable.ic_recording, TAB_SENSORS);
         ShortcutInfoCompat benchmark = buildShortcut("benchmark",
-                R.string.shortcut_benchmark_short, R.string.shortcut_benchmark_long, R.drawable.ic_thermal_alert, 1);
-        ShortcutInfoCompat hardware = buildShortcut("hardware",
-                R.string.shortcut_hardware_short, R.string.shortcut_hardware_long, R.drawable.ic_thermal_alert, 2);
-        ShortcutManagerCompat.setDynamicShortcuts(this, Arrays.asList(record, benchmark, hardware));
+                R.string.shortcut_benchmark_short, R.string.shortcut_benchmark_long, R.drawable.ic_play, TAB_SYSTEM);
+        ShortcutInfoCompat diagnostics = buildShortcut("diagnostics",
+                R.string.shortcut_diagnostics_short, R.string.shortcut_diagnostics_long,
+                R.drawable.ic_tab_diagnostics, TAB_DIAGNOSTICS);
+        ShortcutInfoCompat tools = buildShortcut("tools",
+                R.string.shortcut_tools_short, R.string.shortcut_tools_long, R.drawable.ic_tab_tools, TAB_TOOLS);
+        ShortcutManagerCompat.setDynamicShortcuts(this, Arrays.asList(record, benchmark, diagnostics, tools));
     }
 
     private ShortcutInfoCompat buildShortcut(String id, int shortLabelRes, int longLabelRes, int iconRes, int tabIndex) {
@@ -99,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void applyTheme() {
-        // N1: supports 3-way theme (dark / light / follow system)
+        // N1: 3-way theme (dark / light / follow system)
         AppCompatDelegate.setDefaultNightMode(AppPrefs.getNightMode(this));
     }
 

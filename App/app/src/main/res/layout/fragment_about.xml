@@ -1,68 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="?attr/colorBackground" android:padding="20dp">
+    style="@style/Widget.PhoneLab.ScreenScroll">
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical" android:gravity="center_horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="8dp">
 
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="📡" android:textSize="72sp"
+        <ImageView
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/cd_app_icon"
-            android:paddingTop="16dp" android:paddingBottom="8dp"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/app_name" android:textColor="?attr/colorPrimary"
-            android:textSize="30sp" android:textStyle="bold"/>
-        <TextView android:id="@+id/tv_version" android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/app_version_line"
-            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="12sp"
-            android:paddingBottom="6dp"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textColor="?attr/colorPrimary" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
             android:text="@string/app_tagline"
-            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp"
-            android:paddingBottom="20dp"/>
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
-        <androidx.cardview.widget.CardView android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_marginBottom="14dp"
-            app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="14dp" app:cardElevation="3dp">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="vertical" android:padding="18dp">
-                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                    android:text="@string/about_title" android:textColor="?attr/colorPrimary"
-                    android:textSize="15sp" android:textStyle="bold" android:paddingBottom="10dp"/>
-                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        <com.google.android.material.card.MaterialCardView style="@style/Widget.PhoneLab.WideCard">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="@string/about_title"
+                    android:textAppearance="@style/TextAppearance.PhoneLab.SectionHeader" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
                     android:text="@string/about_body"
-                    android:textColor="?attr/colorOnSurface" android:textSize="13sp" android:lineSpacingExtra="4dp"/>
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-        <Button android:id="@+id/btn_rate" android:layout_width="match_parent"
-            android:layout_height="54dp" android:text="@string/about_btn_rate"
-            android:textSize="14sp" android:textStyle="bold" android:layout_marginBottom="10dp"/>
-        <Button android:id="@+id/btn_donate" android:layout_width="match_parent"
-            android:layout_height="54dp" android:text="@string/about_btn_donate"
-            android:textSize="14sp" android:textStyle="bold" android:layout_marginBottom="10dp"/>
-        <Button android:id="@+id/btn_share" android:layout_width="match_parent"
-            android:layout_height="54dp" android:text="@string/about_btn_share"
-            android:textSize="14sp" android:textStyle="bold" android:layout_marginBottom="10dp"/>
-        <Button android:id="@+id/btn_email" android:layout_width="match_parent"
-            android:layout_height="54dp" android:text="@string/about_btn_email"
-            android:textSize="14sp" android:textStyle="bold" android:layout_marginBottom="10dp"/>
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/about_btn_rate" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_donate"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_btn_donate"
+            app:icon="@drawable/ic_heart" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_share"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_btn_share"
+            app:icon="@drawable/ic_share" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_web"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_btn_web" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_source"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_btn_source" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_email"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_btn_email" />
         <!-- Y6: hidden via Java if BuildConfig.PRIVACY_POLICY_URL is empty -->
-        <Button android:id="@+id/btn_privacy" android:layout_width="match_parent"
-            android:layout_height="54dp" android:text="@string/about_btn_privacy"
-            android:textSize="14sp" android:textStyle="bold"
-            android:visibility="gone" android:layout_marginBottom="10dp"/>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_privacy"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_btn_privacy"
+            android:visibility="gone" />
 
-        <View android:layout_width="wrap_content" android:layout_height="10dp"/>
-
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/about_made_with"
-            android:textColor="?attr/colorOnSurfaceVariant" android:textSize="12sp" android:paddingBottom="4dp"/>
-        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:text="@string/about_copyright" android:textColor="?attr/colorOnSurfaceVariant"
-            android:textSize="11sp" android:paddingBottom="20dp"/>
+            android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:text="@string/about_copyright"
+            android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
     </LinearLayout>
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

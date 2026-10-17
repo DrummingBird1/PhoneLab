@@ -7,19 +7,21 @@
     <string name="app_version_line">v%1$s  •  %2$s</string>
 
     <!-- ════ טאבים ════ -->
-    <string name="tab_sensors">📡 חיישנים</string>
-    <string name="tab_system">⚙️ מערכת</string>
-    <string name="tab_hardware">🔌 חומרה</string>
-    <string name="tab_about">ℹ️ אודות</string>
-    <string name="tab_settings">🔧 הגדרות</string>
+    <string name="tab_sensors">חיישנים</string>
+    <string name="tab_system">מערכת</string>
+    <string name="tab_hardware">חומרה</string>
+    <string name="tab_about">אודות</string>
+    <string name="tab_settings">הגדרות</string>
 
     <!-- ════ מסך אודות ════ -->
     <string name="about_title">אודות PhoneLab</string>
-    <string name="about_body">PhoneLab נותן לך גישה בזמן אמת לכל חיישני החומרה במכשיר שלך.\n\n✅  17 חיישני חומרה חיים\n✅  8 אזורי טמפרטורה (CPU, GPU, סוללה, מודם, WiFi, מטען, NPU, גוף המכשיר)\n✅  מפרט מכשיר מלא + ייצוא לקובץ\n✅  בנצ׳מרק ביצועים רב־שלבי\n✅  מעקב מהירות וגובה GPS\n✅  מצפן חי + מד עוצמת קול\n✅  תצוגה טקסטואלית או ויזואלית\n✅  יחידות מטריות / אמריקאיות\n✅  ערכת נושא בהירה או כהה</string>
-    <string name="about_btn_rate">⭐  דרג ב־Google Play</string>
-    <string name="about_btn_donate">❤️  תמוך בפיתוח</string>
-    <string name="about_btn_share">📤  שתף עם חברים</string>
-    <string name="about_btn_email">✉️  משוב ותמיכה</string>
+    <string name="about_body">PhoneLab נותן לך גישה בזמן אמת לכל החומרה במכשיר שלך.\n\n✅  קריאות חיות מכל חיישני החומרה, כולל מדים גרפיים\n✅  8 אזורי טמפרטורה, בריאות הסוללה והספק הטעינה\n✅  בדיקת מכשיר: מגע, מסך, רמקול, מיקרופון ועוד — עם דוח לשיתוף\n✅  כלים: פלס, כיול מצפן, גלאי מתכות, מנתח רעידות\n✅  התראות מותאמות כשקריאה חוצה סף שבחרת\n✅  בנצ׳מרק, ייצוא מפרט (טקסט / JSON) והקלטת חיישנים (CSV)\n✅  ווידג׳ט, אריח בהגדרות המהירות וצבעי Material You\n✅  נתוני החיישנים שלך לא יוצאים מהמכשיר</string>
+    <string name="about_btn_rate">דרגו ב־Google Play</string>
+    <string name="about_btn_donate">תמכו בפיתוח (טיפ)</string>
+    <string name="about_btn_share">שתפו עם חברים</string>
+    <string name="about_btn_source">קוד המקור (GitHub)</string>
+    <string name="about_share_body_foss">כדאי לנסות את PhoneLab — מוניטור חיישנים חינמי בקוד פתוח לאנדרואיד!\n%1$s</string>
+    <string name="about_btn_email">משוב ותמיכה</string>
     <string name="about_made_with">נוצר באהבה ❤️  לחובבי אנדרואיד</string>
     <string name="about_copyright">© 2026 PhoneLab</string>
     <string name="about_share_subject">PhoneLab - מוניטור חיישני מכשיר</string>
@@ -32,10 +34,10 @@
 
     <!-- ════ מסך הגדרות ════ -->
     <string name="settings_title">הגדרות</string>
-    <string name="settings_section_appearance">🎨  מראה</string>
-    <string name="settings_section_display_mode">📊  מצב תצוגה</string>
-    <string name="settings_section_units">📐  מערכת יחידות</string>
-    <string name="settings_section_thermal">🌡️  התראות חום</string>
+    <string name="settings_section_appearance">מראה</string>
+    <string name="settings_section_display_mode">מצב תצוגה</string>
+    <string name="settings_section_units">מערכת יחידות</string>
+    <string name="settings_section_thermal">התראות חום</string>
     <string name="settings_btn_to_dark">🌙  עבור למצב כהה</string>
     <string name="settings_btn_to_light">☀️  עבור למצב בהיר</string>
     <string name="settings_btn_to_system">🌓  עקוב אחר המערכת</string>
@@ -58,21 +60,21 @@
     <string name="settings_note">ℹ️  שינויי מצב תצוגה ויחידות נכנסים לתוקף מיידית בכל הטאבים.\nשינוי ערכת נושא יטען מחדש את המסך הנוכחי.</string>
 
     <!-- ════ מסך מערכת ════ -->
-    <string name="system_section_temps">🌡️  טמפרטורות רכיבים</string>
-    <string name="system_section_temps_short">🌡️  טמפרטורות</string>
-    <string name="system_section_specs">📋  מפרט המכשיר</string>
-    <string name="system_section_device">📋  מכשיר</string>
-    <string name="system_section_benchmark">🏁  בנצ׳מרק ביצועים</string>
-    <string name="system_section_export">📤  ייצוא</string>
-    <string name="system_btn_run_benchmark">▶  הרץ בנצ׳מרק</string>
-    <string name="system_btn_export">📤  ייצא מפרט מערכת לקובץ טקסט</string>
-    <string name="system_btn_export_json">🧾  ייצא מפרט מערכת ל-JSON</string>
-    <string name="system_cpu_trend">📈 מגמת טמפרטורת המעבד</string>
-    <string name="system_bench_trend">📈 מגמת ציוני הבנצ׳מרק</string>
-    <string name="system_benchmark_intro">לחץ על ▶ הרץ בנצ׳מרק כדי להתחיל.\n4 שלבים: שלמים · נקודה צפה · זיכרון · מולטי־ליבה</string>
+    <string name="system_section_temps">טמפרטורות רכיבים</string>
+    <string name="system_section_temps_short">טמפרטורות</string>
+    <string name="system_section_specs">מפרט המכשיר</string>
+    <string name="system_section_device">מכשיר</string>
+    <string name="system_section_benchmark">בנצ׳מרק ביצועים</string>
+    <string name="system_section_export">ייצוא</string>
+    <string name="system_btn_run_benchmark">הרץ בנצ׳מרק</string>
+    <string name="system_btn_export">ייצוא מפרט (טקסט)</string>
+    <string name="system_btn_export_json">ייצוא מפרט (JSON)</string>
+    <string name="system_cpu_trend">מגמת טמפרטורת המעבד</string>
+    <string name="system_bench_trend">מגמת ציוני הבנצ׳מרק</string>
+    <string name="system_benchmark_intro">לחצו על ״הרץ בנצ׳מרק״ כדי להתחיל.\n4 שלבים: שלמים · נקודה צפה · זיכרון · מולטי־ליבה</string>
 
     <!-- ════ מסך חיישנים ════ -->
-    <string name="sensors_section_live_compass">🧭  מצפן חי</string>
+    <string name="sensors_section_live_compass">מצפן חי</string>
     <string name="cd_compass">חוגת מצפן חי</string>
     <string name="cd_app_icon">אייקון אפליקציית PhoneLab</string>
 
@@ -110,9 +112,9 @@
     <string name="sensor_humidity">לחות</string>
     <string name="sensor_ambient_temp">טמפ׳ סביבה</string>
     <string name="sensor_heart_rate">דופק</string>
-    <string name="sensor_sound_level">🎤 עוצמת קול (לא מכויל)</string>
-    <string name="sensor_gps_speed">🚀 מהירות GPS</string>
-    <string name="sensor_gps_altitude">⛰️ גובה GPS</string>
+    <string name="sensor_sound_level">עוצמת קול (לא מכויל)</string>
+    <string name="sensor_gps_speed">מהירות GPS</string>
+    <string name="sensor_gps_altitude">גובה GPS</string>
     <string name="sensor_compass_label">מצפן</string>
 
     <!-- ════ מצבי תנועה (משמש כ-%s במחרוזות פורמט) ════ -->
@@ -136,10 +138,6 @@
     <string name="orient_sideways">צד</string>
 
     <!-- ════ קרבה ════ -->
-    <string name="proximity_near">🤚 קרוב/מכוסה</string>
-    <string name="proximity_far">↔️ רחוק/פנוי</string>
-    <string name="proximity_near_short">🤚\nקרוב</string>
-    <string name="proximity_far_short">↔️\nרחוק</string>
 
     <!-- ════ לחות ════ -->
     <string name="humidity_very_dry">🏜️ יבש מאוד</string>
@@ -187,27 +185,22 @@
 
     <!-- ════ תנועה משמעותית ════ -->
     <string name="sig_motion_label">תנועה משמעותית</string>
-    <string name="sig_motion_na_short">🏃\n—</string>
 
     <!-- ════ חיישנים מתקדמים (v1.2.0) ════ -->
-    <string name="sensors_section_advanced">🔬  חיישנים מתקדמים</string>
     <string name="sensor_stationary">גלאי נייחות</string>
     <string name="sensor_motion_detect">גלאי תנועה</string>
     <string name="sensor_accel_uncal">מד תאוצה לא מכויל</string>
     <string name="sensor_mag_uncal">מגנטומטר לא מכויל</string>
     <string name="sensor_geomag_rotation">סיבוב גאומגנטי</string>
     <string name="sensor_hinge_angle">זווית קיפול</string>
-    <string name="state_stationary_detected">🪨 נייח × %1$d</string>
-    <string name="state_motion_detected">🏃 תנועה × %1$d</string>
-    <string name="hinge_angle_format">📐 %1$.1f°  %2$s</string>
     <string name="hinge_state_closed">סגור</string>
     <string name="hinge_state_open">פתוח</string>
     <string name="hinge_state_flat">שטוח</string>
 
     <!-- ════ הקלטת CSV ════ -->
-    <string name="sensors_section_recording">📼  הקלטת חיישנים</string>
-    <string name="rec_btn_start">🔴  התחל הקלטה</string>
-    <string name="rec_btn_stop">⏹  עצור · %1$s · %2$d דגימות</string>
+    <string name="sensors_section_recording">הקלטת חיישנים</string>
+    <string name="rec_btn_start">התחל הקלטה</string>
+    <string name="rec_btn_stop">עצור · %1$s · %2$d דגימות</string>
     <string name="rec_status_idle">אין הקלטה פעילה</string>
     <string name="rec_status_active">🔴 מקליט · %1$s · %2$d דגימות</string>
     <string name="rec_status_saved">✅ נשמר: %1$s\n%2$d דגימות — לחץ Share לשליחה</string>
@@ -227,27 +220,24 @@
     <string name="shortcut_benchmark_long">הפעל בנצ׳מרק</string>
     <string name="shortcut_record_short">הקלטה</string>
     <string name="shortcut_record_long">התחל הקלטה</string>
-    <string name="shortcut_hardware_short">חומרה</string>
-    <string name="shortcut_hardware_long">מידע חומרה</string>
 
     <!-- ════ תוויות טמפרטורה של רכיבים ════ -->
-    <string name="temp_battery">🔋 סוללה</string>
-    <string name="temp_cpu">🔥 מעבד</string>
-    <string name="temp_gpu">🎮 GPU</string>
-    <string name="temp_skin">📱 גוף המכשיר</string>
-    <string name="temp_modem">📡 מודם/5G</string>
-    <string name="temp_wifi">📶 WiFi/BT</string>
-    <string name="temp_charger">🔌 מטען</string>
-    <string name="temp_npu">🧠 NPU/AI</string>
+    <string name="temp_battery">סוללה</string>
+    <string name="temp_cpu">מעבד</string>
+    <string name="temp_gpu">GPU</string>
+    <string name="temp_skin">גוף המכשיר</string>
+    <string name="temp_modem">מודם/5G</string>
+    <string name="temp_wifi">WiFi/BT</string>
+    <string name="temp_charger">מטען</string>
+    <string name="temp_npu">NPU/AI</string>
 
     <!-- ════ תוויות מפרט מערכת ════ -->
-    <string name="spec_device">📱 מכשיר</string>
-    <string name="spec_android">🤖 Android %1$s (API %2$d)</string>
-    <string name="spec_cpu">⚡ מעבד</string>
-    <string name="spec_ram">💾 זיכרון</string>
-    <string name="spec_storage">🗂 אחסון</string>
-    <string name="spec_screen">📺 מסך</string>
-    <string name="spec_abi">🔧 ABI: %1$s</string>
+    <string name="spec_device">מכשיר</string>
+    <string name="spec_android">Android %1$s (API %2$d)</string>
+    <string name="spec_cpu">מעבד</string>
+    <string name="spec_ram">זיכרון</string>
+    <string name="spec_storage">אחסון</string>
+    <string name="spec_screen">מסך</string>
     <string name="spec_cores">%1$d ליבות</string>
 
     <!-- ════ סוגי טעינה ════ -->
@@ -269,17 +259,13 @@
     <string name="bench_rating_entry">⚡ רמת כניסה</string>
 
     <!-- ════ טאב חומרה (v1.2.0) ════ -->
-    <string name="hw_section_cpu">⚡  תדרי מעבד</string>
-    <string name="hw_section_battery">🔋  פרטי סוללה</string>
-    <string name="hw_section_display">📺  מסך</string>
-    <string name="hw_section_capabilities">🔌  יכולות</string>
+    <string name="hw_section_cpu">תדרי מעבד</string>
+    <string name="hw_section_battery">בריאות הסוללה</string>
+    <string name="hw_section_display">מסך</string>
+    <string name="hw_section_capabilities">יכולות</string>
     <string name="hw_cpu_core">ליבה %1$d</string>
     <string name="hw_batt_level">רמה</string>
-    <string name="hw_batt_charge_counter">קיבולת</string>
-    <string name="hw_batt_current">זרם</string>
-    <string name="hw_batt_energy">אנרגיה</string>
-    <string name="hw_batt_cycles">מחזורים</string>
-    <string name="hw_disp_current">נוכחי</string>
+    <string name="hw_disp_current">קצב רענון</string>
     <string name="hw_disp_supported">מצבים</string>
     <string name="hw_disp_hdr">HDR</string>
     <string name="hw_disp_none">אין</string>
@@ -306,11 +292,11 @@
     <!-- ════ תבנית תוצאת בנצ׳מרק ════ -->
     <string name="bench_complete_format">✅ הבנצ׳מרק הסתיים!\n\nציון: %1$,d נק׳ (יחסי — לא ניתן להשוואה ל-Geekbench/AnTuTu)\n%2$s\n\n① שלמים:     %3$d ms\n② נקודה צפה: %4$d ms\n③ זיכרון:    %5$d ms  (16 MB)\n④ מולטי-ליבה: %6$d ms  (%7$d ליבות)</string>
     <string name="bench_history_title">📈 ריצות אחרונות:</string>
-    <string name="export_btn_copy">📋  העתק כטקסט</string>
+    <string name="export_btn_copy">העתק כטקסט</string>
     <string name="export_copied">📋 הועתק ללוח</string>
     <string name="thermal_alert_silence">אל תציג שוב</string>
     <string name="thermal_alert_silenced">🔕 התראות חום הושתקו — אפשר להפעיל שוב בלשונית הגדרות</string>
-    <string name="about_btn_privacy">🔒  מדיניות פרטיות</string>
+    <string name="about_btn_privacy">מדיניות פרטיות</string>
 
     <!-- ════ דיוק / כיול ════ -->
     <string name="accuracy_low_warning">⚠️ דיוק נמוך — נופף בטלפון בתנועת ספרה-8 לכיול מחדש</string>
@@ -322,12 +308,182 @@
     <string name="thermal_alert_body">טמפרטורת המעבד הגיעה ל-%1$s. שקול לסגור אפליקציות עם עומס.</string>
 
     <!-- ════ תבניות מוני אירועים ════ -->
-    <string name="step_det_session_format">🚶 %1$d צעדים בסשן זה</string>
-    <string name="step_det_short_format">🚶\n%1$d\nצעדים</string>
     <string name="step_counter_format">סשן:%1$d  סה״כ במכשיר:%2$,d</string>
-    <string name="tilt_count_format">📱 %1$d אירועי הטיה</string>
-    <string name="tilt_count_short_format">📱\n%1$d\nהטיות</string>
-    <string name="sig_motion_detected_format">🏃 זוהה × %1$d</string>
-    <string name="sig_motion_short_format">🏃\n×%1$d</string>
+
+    <!-- ════ v1.3: tools, device check, alerts, battery health, tip jar ════ -->
+    <string name="tab_tools">כלים</string>
+    <string name="tab_diagnostics">בדיקת מכשיר</string>
+    <string name="about_btn_web">PhoneLab Web (גרסת דפדפן)</string>
+    <string name="tip_dialog_title">השאירו טיפ</string>
+    <string name="tip_unavailable">טיפים אינם זמינים כרגע — הם דורשים את גרסת Google Play של האפליקציה.</string>
+    <string name="tip_thanks">תודה שאתם תומכים ב־PhoneLab! ❤️</string>
+    <string name="tip_pending">התשלום ממתין — הוא יושלם כש־Google Play יאשר אותו. תודה!</string>
+    <string name="settings_dynamic_color">שימוש בצבעי הטפט (Material You)</string>
+    <string name="settings_app_language">שפת האפליקציה</string>
+    <string name="settings_section_alerts">התראות חיישנים מותאמות</string>
+    <string name="settings_alerts_desc">קבלו התראה כשקריאה חוצה סף. הבדיקה רצה ברקע בערך כל 15 דקות.</string>
+    <string name="settings_alerts_empty">אין עדיין התראות.</string>
+    <string name="settings_alerts_add">הוספת התראה</string>
+    <string name="settings_alerts_check_now">בדוק עכשיו</string>
+    <string name="settings_alerts_checked">בודק את ההתראות שלך…</string>
+    <string name="settings_alerts_delete">מחיקת התראה</string>
+    <string name="settings_section_battery_history">היסטוריית סוללה</string>
+    <string name="settings_battery_history">תיעוד רמת הסוללה ברקע</string>
+    <string name="settings_battery_history_desc">דגימה אחת בערך כל 15 דקות, ל־24 השעות האחרונות, נשמרת רק במכשיר הזה.</string>
+    <string name="settings_battery_history_clear">ניקוי ההיסטוריה</string>
+    <string name="settings_battery_history_cleared">היסטוריית הסוללה נמחקה</string>
+    <string name="alert_metric_cpu_temp">טמפרטורת המעבד</string>
+    <string name="alert_metric_skin_temp">טמפרטורת גוף המכשיר</string>
+    <string name="alert_metric_battery_temp">טמפרטורת הסוללה</string>
+    <string name="alert_metric_battery_level">רמת הסוללה</string>
+    <string name="alert_metric_ambient_temp">טמפרטורת הסביבה</string>
+    <string name="alert_metric_humidity">לחות</string>
+    <string name="alert_metric_pressure">לחץ אוויר</string>
+    <string name="alert_metric_light">עוצמת אור</string>
+    <string name="alert_rule_above">%1$s מעל %2$s</string>
+    <string name="alert_rule_below">%1$s מתחת ל־%2$s</string>
+    <string name="alert_channel_name">התראות חיישנים</string>
+    <string name="alert_channel_desc">התראות הסף המותאמות שלך (נבדקות בערך כל 15 דקות)</string>
+    <string name="alert_notif_title">התראת %1$s</string>
+    <string name="alert_notif_body">עכשיו %1$s — כלל: %2$s</string>
+    <string name="alert_dialog_metric">קריאה</string>
+    <string name="alert_dialog_above">מעל</string>
+    <string name="alert_dialog_below">מתחת</string>
+    <string name="alert_dialog_threshold">סף</string>
+    <string name="alert_dialog_save">שמירה</string>
+    <string name="alert_dialog_invalid">נא להזין מספר</string>
+    <string name="temp_state_ok">תקין</string>
+    <string name="temp_state_warm">חם</string>
+    <string name="temp_state_hot">לוהט</string>
+    <string name="battery_charging_via">בטעינה %1$s</string>
+    <string name="sensors_section_motion">תנועה</string>
+    <string name="sensors_section_orientation">כיוון</string>
+    <string name="sensors_section_environment">סביבה</string>
+    <string name="sensors_section_activity">פעילות וגוף</string>
+    <string name="sensors_section_location">מיקום</string>
+    <string name="gauge_tilt_title">הטיה</string>
+    <string name="geomag_detail">ללא ג׳ירוסקופ — חוסך סוללה</string>
+    <string name="steps_this_session">בסשן הנוכחי</string>
+    <string name="trigger_events_detected">אירועים זוהו</string>
+    <string name="status_tap_to_grant">נדרשת הרשאה — הקישו כדי לאשר</string>
+    <string name="proximity_near_word">קרוב</string>
+    <string name="proximity_far_word">רחוק</string>
+    <string name="shortcut_diagnostics_short">בדיקת מכשיר</string>
+    <string name="shortcut_diagnostics_long">בדוק את הטלפון הזה</string>
+    <string name="shortcut_tools_short">כלים</string>
+    <string name="shortcut_tools_long">כלי חיישנים</string>
+    <string name="spec_gpu">מעבד גרפי</string>
+    <string name="spec_cores_unit">ליבות</string>
+    <string name="hw_cpu_peak">הליבה המהירה כרגע</string>
+    <string name="hw_batt_health">בריאות</string>
+    <string name="hw_batt_power">הספק</string>
+    <string name="hw_batt_capacity">קיבולת</string>
+    <string name="hw_batt_cycles_fmt">%1$d מחזורי טעינה</string>
+    <string name="hw_batt_remaining_fmt">נותרו %1$d mAh</string>
+    <string name="hw_batt_capacity_est">קיבולת מלאה משוערת</string>
+    <string name="hw_batt_history_title">רמת הסוללה — 24 השעות האחרונות</string>
+    <string name="hw_batt_history_off">היסטוריית הסוללה כבויה (ראו הגדרות).</string>
+    <string name="hw_batt_history_empty">אוסף דגימות — חזרו בעוד שעה.</string>
+    <string name="hw_batt_history_summary">%1$d דגימות מאז %2$s · טווח %3$d–%4$d%%</string>
+    <string name="batt_health_good">טובה</string>
+    <string name="batt_health_overheat">התחממות יתר</string>
+    <string name="batt_health_dead">לא תקינה</string>
+    <string name="batt_health_over_voltage">מתח יתר</string>
+    <string name="batt_health_failure">תקלה</string>
+    <string name="batt_health_cold">קרה מדי</string>
+    <string name="batt_health_unknown">לא ידוע</string>
+    <string name="batt_status_charging">בטעינה</string>
+    <string name="batt_status_discharging">בפריקה</string>
+    <string name="batt_status_full">מלאה</string>
+    <string name="batt_status_not_charging">לא נטענת</string>
+    <string name="tool_level">פלס</string>
+    <string name="tool_compass_cal">כיול מצפן</string>
+    <string name="tool_metal">גלאי מתכות</string>
+    <string name="tool_vibration">רעידות</string>
+    <string name="tool_sensor_missing">אין במכשיר הזה את החיישן שהכלי הזה צריך.</string>
+    <string name="level_hint">הניחו את הטלפון על המשטח. הבועה הופכת לירוקה כשהמשטח מפולס בטווח ±1°.</string>
+    <string name="level_zero">קבע כאפס</string>
+    <string name="level_reset">איפוס</string>
+    <string name="compass_cal_instructions">הזיזו את הטלפון לאט בצורת 8 כמה פעמים, תוך כדי סיבוב. התרחקו ממגנטים, ממחשבים ניידים ומחפצי מתכת.</string>
+    <string name="compass_acc_high">דיוק: גבוה</string>
+    <string name="compass_acc_medium">דיוק: בינוני</string>
+    <string name="compass_acc_low">דיוק: נמוך</string>
+    <string name="compass_acc_unreliable">דיוק: לא אמין</string>
+    <string name="compass_field_fmt">שדה %1$s µT — %2$s</string>
+    <string name="compass_field_normal">תקין</string>
+    <string name="compass_field_interference">יש הפרעה בקרבת מקום</string>
+    <string name="metal_beep">צפצוף ליד מתכת</string>
+    <string name="metal_zero">איפוס מחדש</string>
+    <string name="metal_hint">משתמש במגנטומטר, ולכן מזהה ברזל, פלדה ומגנטים — לא זהב, כסף או אלומיניום. אפסו הרחק ממתכת.</string>
+    <string name="metal_field_fmt">שדה %1$s µT · בסיס %2$s µT</string>
+    <string name="vibration_peak">שיא</string>
+    <string name="vibration_rms">RMS</string>
+    <string name="vibration_freq">תדר</string>
+    <string name="vibration_hint">הניחו את הטלפון על המשטח הרוטט. התדר הוא הרכיב החזק ביותר (FFT).</string>
+    <string name="diag_header_title">בדיקת מכשיר</string>
+    <string name="diag_header_body">קונים או מוכרים טלפון יד שנייה? הריצו את הבדיקות המהירות האלה ושתפו דוח עבר/נכשל.</string>
+    <string name="diag_btn_start_all">התחל בדיקה מלאה</string>
+    <string name="diag_btn_share">שיתוף הדוח</string>
+    <string name="diag_btn_reset">איפוס</string>
+    <string name="diag_reset_confirm">למחוק את כל תוצאות הבדיקות?</string>
+    <string name="diag_section_tests">בדיקות</string>
+    <string name="diag_summary">%1$d עברו · %2$d נכשלו · %3$d דולגו · %4$d לא הורצו</string>
+    <string name="diag_report_title">בדיקת מכשיר של PhoneLab</string>
+    <string name="diag_report_footer">נוצר עם PhoneLab v%1$s — כל הבדיקות רצו על המכשיר עצמו.</string>
+    <string name="diag_result_not_run">לא הורצה</string>
+    <string name="diag_result_pass">עברה</string>
+    <string name="diag_result_fail">נכשלה</string>
+    <string name="diag_result_skipped">דולגה</string>
+    <string name="diag_btn_pass">עבר</string>
+    <string name="diag_btn_fail">נכשל</string>
+    <string name="diag_btn_skip">דלג</string>
+    <string name="diag_btn_continue">המשך בבדיקה</string>
+    <string name="diag_back_question">לעצור את הבדיקה? אפשר לסמן אותה כנכשלה או לדלג עליה.</string>
+    <string name="diag_action_start">התחל</string>
+    <string name="diag_action_play">נגן שוב</string>
+    <string name="diag_action_vibrate">רטוט שוב</string>
+    <string name="diag_action_flash">הבהב שוב</string>
+    <string name="diag_note_no_permission">לא ניתנה הרשאת מיקרופון</string>
+    <string name="diag_note_no_sensor">אין חיישן במכשיר הזה</string>
+    <string name="diag_note_no_flash">אין פלאש במכשיר הזה</string>
+    <string name="diag_note_no_vibrator">אין מנוע רטט</string>
+    <string name="diag_touch_title">מסך מגע</string>
+    <string name="diag_touch_desc">מאתר אזורים מתים במסך המגע</string>
+    <string name="diag_touch_instructions">העבירו את האצבע על כל ריבוע עד שכל המסך ירוק. לחצו ״חזרה״ כדי לוותר.</string>
+    <string name="diag_multitouch_title">ריבוי נגיעות</string>
+    <string name="diag_multitouch_desc">כמה אצבעות המסך מזהה בו־זמנית</string>
+    <string name="diag_multitouch_instructions">הניחו על המסך כמה שיותר אצבעות, ולחצו ״עבר״ אם מתחת לכל אצבע מופיע עיגול.</string>
+    <string name="diag_multitouch_status">מקסימום אצבעות: %1$d</string>
+    <string name="diag_display_title">תצוגה</string>
+    <string name="diag_display_desc">פיקסלים מתים או תקועים, צבעים לא אחידים</string>
+    <string name="diag_display_instructions">המסך יציג צבעים אחידים. חפשו נקודות בצבע שגוי, ואז הקישו על המסך למעבר לצבע הבא.</string>
+    <string name="diag_display_question">ראיתם פיקסלים מתים או תקועים, או כתמים לא אחידים?</string>
+    <string name="diag_display_no_defects">נראה תקין</string>
+    <string name="diag_display_has_defects">נמצאו פגמים</string>
+    <string name="diag_speaker_title">רמקול</string>
+    <string name="diag_speaker_desc">מנגן צליל בדיקה</string>
+    <string name="diag_speaker_instructions">הגבירו את עוצמת המדיה. שמעתם צליל ברור?</string>
+    <string name="diag_mic_title">מיקרופון</string>
+    <string name="diag_mic_desc">בודק שהמיקרופון קולט קול</string>
+    <string name="diag_mic_instructions">דברו או מחאו כף ליד החלק התחתון של הטלפון. הבדיקה תעבור מעצמה כשיזוהה קול.</string>
+    <string name="diag_vibration_title">רטט</string>
+    <string name="diag_vibration_desc">בודק את מנוע הרטט</string>
+    <string name="diag_vibration_instructions">הרגשתם את הטלפון רוטט שלוש פעמים?</string>
+    <string name="diag_buttons_title">כפתורי עוצמה</string>
+    <string name="diag_buttons_desc">מקשי הגברה והנמכה</string>
+    <string name="diag_buttons_instructions">לחצו על הגברת עוצמה ועל הנמכת עוצמה.</string>
+    <string name="diag_buttons_vol_up">הגברה</string>
+    <string name="diag_buttons_vol_down">הנמכה</string>
+    <string name="diag_proximity_title">חיישן קרבה</string>
+    <string name="diag_proximity_desc">מכבה את המסך בזמן שיחה</string>
+    <string name="diag_proximity_instructions">כסו ביד את החלק העליון של המסך (ליד האפרכסת), ואז הסירו אותה.</string>
+    <string name="diag_flashlight_title">פנס</string>
+    <string name="diag_flashlight_desc">פלאש המצלמה / פנס</string>
+    <string name="diag_flashlight_instructions">הפנס בגב הטלפון נדלק?</string>
+    <string name="diag_sensors_title">חיישני תנועה</string>
+    <string name="diag_sensors_desc">מד תאוצה, ג׳ירוסקופ, מצפן, חיישן אור וברומטר מדווחים נתונים</string>
+    <string name="diag_sensors_instructions">בודק שכל חיישן מדווח נתונים — השאירו את הטלפון יציב.</string>
+    <string name="diag_battery_title">בריאות הסוללה</string>
+    <string name="diag_battery_desc">מצב בריאות, מחזורי טעינה, קיבולת משוערת</string>
 </resources>
 

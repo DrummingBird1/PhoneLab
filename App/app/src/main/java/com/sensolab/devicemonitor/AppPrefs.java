@@ -30,6 +30,12 @@ public class AppPrefs {
     public static final int    BENCH_HISTORY_MAX  = 5;
     // Y5: thermal alerts enabled toggle
     public static final String KEY_THERMAL_ALERTS = "thermal_alerts_enabled";
+    // Background 24 h battery log (BatteryHistory), on by default
+    public static final String KEY_BATTERY_HISTORY = "battery_history_enabled";
+    // Material You wallpaper colors on Android 12+, off by default (keeps the brand palette)
+    public static final String KEY_DYNAMIC_COLOR = "dynamic_color";
+    // User-defined sensor threshold alerts (AlertRules), JSON array
+    public static final String KEY_ALERT_RULES = "alert_rules";
 
     public static final String MODE_TEXTUAL   = "textual";
     public static final String MODE_VISUAL    = "visual";
@@ -100,6 +106,20 @@ public class AppPrefs {
     }
     public static void setThermalAlertsEnabled(Context ctx, boolean enabled) {
         get(ctx).edit().putBoolean(KEY_THERMAL_ALERTS, enabled).apply();
+    }
+
+    public static boolean isBatteryHistoryEnabled(Context ctx) {
+        return get(ctx).getBoolean(KEY_BATTERY_HISTORY, true);
+    }
+    public static void setBatteryHistoryEnabled(Context ctx, boolean enabled) {
+        get(ctx).edit().putBoolean(KEY_BATTERY_HISTORY, enabled).apply();
+    }
+
+    public static boolean isDynamicColor(Context ctx) {
+        return get(ctx).getBoolean(KEY_DYNAMIC_COLOR, false);
+    }
+    public static void setDynamicColor(Context ctx, boolean enabled) {
+        get(ctx).edit().putBoolean(KEY_DYNAMIC_COLOR, enabled).apply();
     }
 
     // Y2: benchmark history (newest first, capped at BENCH_HISTORY_MAX rows)

@@ -1,66 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="?attr/colorBackground" android:padding="12dp">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:orientation="vertical">
+    style="@style/Widget.PhoneLab.ScreenScroll">
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="@string/hw_section_cpu"
-            android:textColor="?attr/colorPrimary" android:textSize="14sp"
-            android:textStyle="bold" android:paddingBottom="6dp"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-        <androidx.cardview.widget.CardView android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
-            <TextView android:id="@+id/tv_hw_cpu" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:padding="14dp"
-                android:text="—" android:textColor="?attr/colorOnSurface"
-                android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
-        </androidx.cardview.widget.CardView>
+    <TextView style="@style/Widget.PhoneLab.Section" android:text="@string/hw_section_battery" />
+    <GridLayout style="@style/Widget.PhoneLab.Grid">
+        <com.sensolab.devicemonitor.SensorCardView android:id="@+id/card_batt_level" style="@style/Widget.PhoneLab.GridCard"
+            app:sensorIcon="@drawable/ic_battery" app:sensorTitle="@string/hw_batt_level" />
+        <com.sensolab.devicemonitor.SensorCardView android:id="@+id/card_batt_health" style="@style/Widget.PhoneLab.GridCard"
+            app:sensorIcon="@drawable/ic_heart" app:sensorTitle="@string/hw_batt_health" />
+        <com.sensolab.devicemonitor.SensorCardView android:id="@+id/card_batt_power" style="@style/Widget.PhoneLab.GridCard"
+            app:sensorIcon="@drawable/ic_charger" app:sensorTitle="@string/hw_batt_power" />
+        <com.sensolab.devicemonitor.SensorCardView android:id="@+id/card_batt_capacity" style="@style/Widget.PhoneLab.GridCard"
+            app:sensorIcon="@drawable/ic_battery" app:sensorTitle="@string/hw_batt_capacity" />
+    </GridLayout>
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="@string/hw_section_battery"
-            android:textColor="?attr/colorPrimary" android:textSize="14sp"
-            android:textStyle="bold" android:paddingBottom="6dp"/>
+    <com.google.android.material.card.MaterialCardView style="@style/Widget.PhoneLab.WideCard">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hw_batt_history_title"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardLabel" />
+            <com.sensolab.devicemonitor.SparklineView
+                android:id="@+id/spark_batt_history"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="4dp" />
+            <TextView
+                android:id="@+id/tv_batt_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/TextAppearance.PhoneLab.CardUnit" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-        <androidx.cardview.widget.CardView android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
-            <TextView android:id="@+id/tv_hw_battery" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:padding="14dp"
-                android:text="—" android:textColor="?attr/colorOnSurface"
-                android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
-        </androidx.cardview.widget.CardView>
+    <TextView style="@style/Widget.PhoneLab.Section" android:text="@string/hw_section_cpu" />
+    <com.sensolab.devicemonitor.SensorCardView
+        android:id="@+id/card_cpu_freq"
+        style="@style/Widget.PhoneLab.WideCard"
+        app:sensorIcon="@drawable/ic_chip"
+        app:sensorTitle="@string/hw_cpu_peak" />
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="@string/hw_section_display"
-            android:textColor="?attr/colorPrimary" android:textSize="14sp"
-            android:textStyle="bold" android:paddingBottom="6dp"/>
+    <TextView style="@style/Widget.PhoneLab.Section" android:text="@string/hw_section_display" />
+    <com.sensolab.devicemonitor.SensorCardView
+        android:id="@+id/card_display"
+        style="@style/Widget.PhoneLab.WideCard"
+        app:sensorIcon="@drawable/ic_screen"
+        app:sensorTitle="@string/hw_disp_current" />
 
-        <androidx.cardview.widget.CardView android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_marginBottom="12dp"
-            app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
-            <TextView android:id="@+id/tv_hw_display" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:padding="14dp"
-                android:text="—" android:textColor="?attr/colorOnSurface"
-                android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
-        </androidx.cardview.widget.CardView>
+    <TextView style="@style/Widget.PhoneLab.Section" android:text="@string/hw_section_capabilities" />
+    <com.sensolab.devicemonitor.SensorCardView
+        android:id="@+id/card_caps"
+        style="@style/Widget.PhoneLab.WideCard"
+        app:sensorIcon="@drawable/ic_device"
+        app:sensorTitle="@string/hw_section_capabilities" />
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="@string/hw_section_capabilities"
-            android:textColor="?attr/colorPrimary" android:textSize="14sp"
-            android:textStyle="bold" android:paddingBottom="6dp"/>
-
-        <androidx.cardview.widget.CardView android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:layout_marginBottom="20dp"
-            app:cardBackgroundColor="?attr/colorSurface" app:cardCornerRadius="10dp" app:cardElevation="2dp">
-            <TextView android:id="@+id/tv_hw_caps" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:padding="14dp"
-                android:text="—" android:textColor="?attr/colorOnSurface"
-                android:textSize="11sp" android:fontFamily="monospace" android:lineSpacingExtra="3dp"/>
-        </androidx.cardview.widget.CardView>
-
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>

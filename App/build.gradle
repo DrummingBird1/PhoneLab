@@ -1,3 +1,6 @@
 plugins {
-    id 'com.android.application' version '8.7.3' apply false
+    id 'com.android.application' version '8.13.2' apply false
+    // Gradle Play Publisher — `./gradlew publishReleaseBundle` uploads to the Play internal track.
+    // 3.x is the last line supporting AGP 8; 4.x requires AGP 9.
+    id 'com.github.triplet.play' version '3.13.0' apply false
 }

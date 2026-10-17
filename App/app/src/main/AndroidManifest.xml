@@ -6,11 +6,13 @@
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
     <uses-permission android:name="android.permission.BODY_SENSORS"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <!-- API 33+ runtime permission for posting notifications (thermal alerts) -->
+    <!-- API 33+ runtime permission for posting notifications (thermal + sensor alerts) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-    <!-- Batch 4: CsvRecordingService foreground service (background sensor recording) -->
+    <!-- CsvRecordingService foreground service (background sensor recording) -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <!-- Diagnostics: vibration motor test (install-time permission) -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <uses-feature android:name="android.hardware.sensor.accelerometer"  android:required="false"/>
     <uses-feature android:name="android.hardware.sensor.gyroscope"       android:required="false"/>
@@ -21,8 +23,10 @@
     <uses-feature android:name="android.hardware.sensor.proximity"       android:required="false"/>
     <uses-feature android:name="android.hardware.location.gps"           android:required="false"/>
     <uses-feature android:name="android.hardware.microphone"             android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash"           android:required="false"/>
 
     <application
+        android:name=".PhoneLabApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:enableOnBackInvokedCallback="true"
@@ -41,6 +45,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- Diagnostics: one guided hardware test per launch (touch grid, colors, speaker…).
+             Full-panel tests hide the system bars in code. -->
+        <activity android:name=".DiagnosticTestActivity"
+            android:exported="false"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -61,14 +70,14 @@
             </intent-filter>
         </receiver>
 
-        <!-- Batch 4: owns CSV sensor recording independent of SensorsFragment's lifecycle,
+        <!-- Owns CSV sensor recording independent of SensorsFragment's lifecycle,
              so recording continues correctly across tab switches / backgrounding. -->
         <service
             android:name=".CsvRecordingService"
             android:foregroundServiceType="dataSync"
             android:exported="false"/>
 
-        <!-- Batch 6: Quick Settings Tile — must be exported so the system can bind to it;
+        <!-- Quick Settings Tile — exported so the system can bind to it;
              BIND_QUICK_SETTINGS_TILE restricts binding to the system itself. -->
         <service
             android:name=".CpuTempTileService"
@@ -81,7 +90,7 @@
             </intent-filter>
         </service>
 
-        <!-- Batch 6: home-screen widget showing live CPU temperature. -->
+        <!-- Home-screen widget showing live CPU temperature. -->
         <receiver
             android:name=".CpuTempWidgetProvider"
             android:exported="false">

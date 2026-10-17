@@ -6,6 +6,8 @@ PhoneLab-Key
 *.jks
 *.pepk
 key.properties
+# Google Play service-account credentials (Gradle Play Publisher)
+play-service-account.json
 
 # Local environment configuration
 local.properties
