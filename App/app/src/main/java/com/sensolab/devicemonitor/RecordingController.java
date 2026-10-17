@@ -27,23 +27,30 @@ public final class RecordingController {
     private final Handler main = new Handler(Looper.getMainLooper());
     private CsvRecordingService service;
     private boolean bound = false;
+    /** Whether the Ui currently shows a live recording, so one that ends elsewhere gets cleared. */
+    private boolean showingRecording = false;
 
     private final ServiceConnection connection = new ServiceConnection() {
         @Override public void onServiceConnected(ComponentName name, IBinder binder) {
             service = ((CsvRecordingService.LocalBinder) binder).getService();
-            if (service.isRecording()) startTicking();
+            if (CsvRecordingService.isRecording()) startTicking();
         }
         @Override public void onServiceDisconnected(ComponentName name) {
             service = null;
             stopTicking();
-            ui.showIdle();
+            showStopped();
         }
     };
 
     private final Runnable ticker = new Runnable() {
         @Override public void run() {
-            if (service == null || !service.isRecording()) return;
+            if (service == null) return;
+            if (!CsvRecordingService.isRecording()) { // stopped from the notification or by onTimeout
+                showStopped();
+                return;
+            }
             long elapsedSec = (System.currentTimeMillis() - service.getStartedAtMs()) / 1000;
+            showingRecording = true;
             ui.showRecording(Formatters.duration(elapsedSec), service.getSampleCount());
             main.postDelayed(this, 1000);
         }
@@ -57,6 +64,9 @@ public final class RecordingController {
     /** Reconnects to an already-running recording. Flags=0: binding alone never starts one. */
     public void attach() {
         if (bound) return;
+        // A recording that ended while we were detached left no service, so no callback
+        // would ever arrive to clear the "recording" state; do it here.
+        if (!CsvRecordingService.isRecording()) showStopped();
         bound = appCtx.bindService(new Intent(appCtx, CsvRecordingService.class), connection, 0);
     }
 
@@ -69,7 +79,7 @@ public final class RecordingController {
         service = null;
     }
 
-    public boolean isRecording() { return service != null && service.isRecording(); }
+    public boolean isRecording() { return service != null && CsvRecordingService.isRecording(); }
 
     public void toggle() {
         if (!isRecording()) {
@@ -79,17 +89,28 @@ public final class RecordingController {
             // "recording" immediately instead of on the next resume.
             bound = appCtx.bindService(new Intent(appCtx, CsvRecordingService.class),
                     connection, Context.BIND_AUTO_CREATE);
+            showingRecording = true;
             ui.showRecording(Formatters.duration(0), 0);
         } else {
             service.stopRecording();
             stopTicking();
-            ui.showSaved(service.getLastFileName(), service.getLastSampleCount());
+            showingRecording = false;
+            ui.showSaved(CsvRecordingService.getLastFileName(), CsvRecordingService.getLastSampleCount());
         }
     }
 
     /** Trigger sensors are owned by the fragment; forward their events into a live recording. */
     public void forwardTrigger(String sensorName, long timestampNs) {
         if (service != null) service.appendTrigger(sensorName, timestampNs);
+    }
+
+    /** The recording ended without our Stop button: show what the service saved, if anything. */
+    private void showStopped() {
+        if (!showingRecording) return;
+        showingRecording = false;
+        String file = CsvRecordingService.getLastFileName();
+        if (file != null) ui.showSaved(file, CsvRecordingService.getLastSampleCount());
+        else ui.showIdle();
     }
 
     private void startTicking() {
