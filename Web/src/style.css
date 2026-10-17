@@ -14,7 +14,9 @@
   --warn: #fbbf24;
   --bad: #64708a;
   --danger: #f87171;
-  --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+  /* "Segoe UI" before the generic: Windows' monospace fallback for Arabic/Hebrew is Courier New,
+     which pulls Arabic letters apart. Digits and Latin still come from the monospace fonts. */
+  --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, "Liberation Mono", "Segoe UI", monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
   --radius: 16px;
   color-scheme: dark;
@@ -135,6 +137,7 @@ body {
 
 .top-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
 }
@@ -202,12 +205,35 @@ body {
   color: var(--text);
 }
 
-/* Instrument visuals (axis bars, dials, level) are physical, so keep them left-to-right in RTL. */
+/* Instrument visuals (axis bars, dials, level, signal-strength bars) are physical, so keep them
+   left-to-right in RTL. Progress-style meters (.meter-fill) do mirror. */
 [dir="rtl"] .triaxis,
 [dir="rtl"] .compass-wrap,
 [dir="rtl"] .level-wrap,
-[dir="rtl"] .gauge {
+[dir="rtl"] .gauge,
+[dir="rtl"] .signal-bars {
   direction: ltr;
+}
+
+/* "A−", "A+" and "100%" are symbols, not words: without this, RTL bidi turns them into "+A" / "−A". */
+.a11y-controls .icon-btn,
+.scale-label {
+  direction: ltr;
+}
+
+/* Readouts mix numbers, units and (sometimes translated) words. plaintext picks the direction from
+   the first letter, so "±5 m" and "-1.2" stay left-to-right while a Hebrew/Arabic word stays RTL. */
+.signal-label,
+.pulse-bpm,
+.snapshot-row b {
+  direction: ltr;
+  unicode-bidi: plaintext;
+}
+
+/* Arabic letters join up; letter-spacing pulls them apart. */
+:lang(ar) .section-head h2,
+:lang(ar) .status-pill {
+  letter-spacing: normal;
 }
 
 .summary-bar {
@@ -231,6 +257,10 @@ body {
 .summary-chip b {
   color: var(--text);
   font-family: var(--mono);
+}
+/* A word, not a count — monospace fonts have no proper Hebrew/Arabic glyphs. */
+.summary-chip #device-kind {
+  font-family: var(--sans);
 }
 .dot {
   width: 7px;
@@ -257,8 +287,9 @@ body {
 
 .section-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 10px;
+  gap: 2px 10px;
   margin: 0 2px 12px;
 }
 .section-head h2 {
@@ -325,8 +356,9 @@ body {
 
 .card-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 9px;
+  gap: 6px 9px;
 }
 .card-icon {
   font-size: 17px;
@@ -342,11 +374,26 @@ body {
   margin: 0;
   font-size: 13.5px;
   font-weight: 600;
-  flex: 1;
+  /* Sized to the whole title: if the status pill doesn't fit beside it (long labels, longer
+     languages), the pill wraps onto its own line instead of squeezing the title away. */
+  flex: 1 1 auto;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+/* Status pill + expand button wrap as one unit. */
+.card-head-end {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  margin-inline-start: auto; /* hugs the end edge once it has wrapped */
+}
+.card-head-end .status-pill {
+  flex-shrink: 1;
+  min-width: 0;
+  white-space: normal; /* only wraps when it already sits alone on its line and still doesn't fit */
 }
 
 .status-pill {
@@ -406,15 +453,12 @@ body {
   font-size: 13px;
   color: var(--text);
   text-align: end;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* Numbers + units stay left-to-right even inside Hebrew/Arabic cards. */
+  /* Long text values ("Fine (mouse/trackpad)", time zones) wrap rather than vanish into "…". */
+  overflow-wrap: anywhere;
+  /* Numbers + units stay left-to-right even inside Hebrew/Arabic cards, while a translated
+     value ("צפון אמיתי", "متصل") still gets its own RTL direction from its first letter. */
   direction: ltr;
-  unicode-bidi: isolate;
-}
-[dir="rtl"] .metric-row dd {
-  text-align: left;
+  unicode-bidi: plaintext;
 }
 .metric-row dd .unit {
   font-family: var(--sans);
@@ -586,6 +630,10 @@ button.enable-btn:active {
   width: 0%;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   transition: width 0.1s linear;
+}
+/* The fill grows from the inline-start edge, so in RTL the gradient has to start on the right too. */
+[dir="rtl"] .meter-fill {
+  background: linear-gradient(270deg, var(--accent), var(--accent-2));
 }
 
 /* ---------- Visual mode ---------- */
@@ -984,6 +1032,7 @@ body[data-display="visual"] .section[data-toggleable] .visual-view {
 }
 .search-wrap {
   flex: 1;
+  min-width: 0; /* let the field shrink so the result count stays on screen */
   max-width: 360px;
 }
 #card-search {
@@ -1012,11 +1061,12 @@ body[data-display="visual"] .section[data-toggleable] .visual-view {
 .card.search-hidden {
   display: none;
 }
-.section.search-empty .grid {
+.section.search-empty .grid,
+.section.search-empty .section-gate {
   display: none;
 }
 .section.search-empty::after {
-  content: "No sensors in this section match your search.";
+  content: attr(data-empty-label); /* translated text, set by search.ts */
   display: block;
   font-size: 12.5px;
   color: var(--text-faint);

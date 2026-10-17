@@ -10,6 +10,11 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg"],
+      workbox: {
+        // Precache every built JS chunk, including the lazily imported he/es/ar dictionaries
+        // (src/i18n.ts), so the app — and switching language — keeps working offline.
+        globPatterns: ["**/*.{js,css,html}"],
+      },
       manifest: {
         name: "SensoLab Web",
         short_name: "SensoLab",

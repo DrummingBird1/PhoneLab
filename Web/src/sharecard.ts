@@ -1,5 +1,5 @@
 import { readValue } from "./datalog";
-import { t } from "./i18n";
+import { t, isRtl, dateLocale } from "./i18n";
 
 export interface Stat {
   cardId: string;
@@ -65,23 +65,29 @@ export function exportShareCard() {
   ctx.fillStyle = glow2;
   ctx.fillRect(0, 0, W, H);
 
-  drawRadarMark(ctx, 90, 96, 38);
+  // Hebrew/Arabic mirror the layout: x positions below are measured from the reading-start edge.
+  const rtl = isRtl();
+  const dir: CanvasDirection = rtl ? "rtl" : "ltr";
+  const fromStart = (x: number) => (rtl ? W - x : x);
+  ctx.direction = dir;
+
+  drawRadarMark(ctx, fromStart(90), 96, 38);
   ctx.textBaseline = "middle";
-  ctx.textAlign = "left";
+  ctx.textAlign = "start";
   ctx.fillStyle = "#eef2ff";
   ctx.font = "800 46px -apple-system, 'Segoe UI', Arial, sans-serif";
-  ctx.fillText("SensoLab", 148, 84);
+  ctx.fillText("SensoLab", fromStart(148), 84);
   ctx.fillStyle = "#6ee7ff";
   ctx.font = "600 22px -apple-system, 'Segoe UI', Arial, sans-serif";
-  ctx.fillText(t("Device Snapshot"), 150, 122);
+  ctx.fillText(t("Device Snapshot"), fromStart(150), 122);
 
-  ctx.textAlign = "right";
+  ctx.textAlign = "end";
   ctx.fillStyle = "#5c6685";
   ctx.font = "500 19px ui-monospace, Consolas, monospace";
   const now = new Date();
-  ctx.fillText(now.toLocaleDateString(), W - 60, 78);
-  ctx.fillText(now.toLocaleTimeString(), W - 60, 104);
-  ctx.textAlign = "left";
+  ctx.fillText(now.toLocaleDateString(dateLocale()), fromStart(W - 60), 78);
+  ctx.fillText(now.toLocaleTimeString(dateLocale()), fromStart(W - 60), 104);
+  ctx.textAlign = "start";
 
   const gridTop = 200;
   const marginX = 60;
@@ -94,8 +100,9 @@ export function exportShareCard() {
   STATS.forEach((stat, i) => {
     const col = i % cols;
     const row = Math.floor(i / cols);
-    const x = marginX + col * (tileW + gap);
+    const x = rtl ? W - marginX - tileW - col * (tileW + gap) : marginX + col * (tileW + gap);
     const y = gridTop + row * (tileH + gap);
+    const textX = rtl ? x + tileW - 26 : x + 26;
 
     ctx.fillStyle = "rgba(255,255,255,0.045)";
     ctx.strokeStyle = "rgba(255,255,255,0.09)";
@@ -107,24 +114,35 @@ export function exportShareCard() {
 
     ctx.font = "40px -apple-system, 'Segoe UI', Arial, sans-serif";
     ctx.fillStyle = "#eef2ff";
-    ctx.textAlign = "left";
-    ctx.fillText(stat.icon, x + 26, y + 52);
+    ctx.textAlign = "start";
+    ctx.fillText(stat.icon, textX, y + 52);
 
     ctx.font = "600 20px -apple-system, 'Segoe UI', Arial, sans-serif";
     ctx.fillStyle = "#9aa4c2";
-    ctx.fillText(t(stat.label).toUpperCase(), x + 26, y + 96);
+    ctx.fillText(t(stat.label).toUpperCase(), textX, y + 96);
 
+    // "12.3 m/s²" reads left-to-right in every language; in RTL the pair just sits against the right edge.
     const value = readValue(stat.cardId, stat.key) || "—";
-    ctx.font = "700 40px ui-monospace, Consolas, monospace";
-    ctx.fillStyle = "#eef2ff";
     const truncated = value.length > 12 ? value.slice(0, 12) + "…" : value;
-    ctx.fillText(truncated, x + 26, y + 142);
+    const valueFont = "700 40px ui-monospace, Consolas, monospace";
+    const unitFont = "500 20px -apple-system, 'Segoe UI', Arial, sans-serif";
+    ctx.direction = "ltr";
+    ctx.textAlign = "left";
+    ctx.font = valueFont;
+    const valueW = ctx.measureText(truncated).width;
+    ctx.font = unitFont;
+    const unitW = stat.unit ? 10 + ctx.measureText(stat.unit).width : 0;
+    const valueX = rtl ? textX - valueW - unitW : textX;
+
+    ctx.font = valueFont;
+    ctx.fillStyle = "#eef2ff";
+    ctx.fillText(truncated, valueX, y + 142);
     if (stat.unit) {
-      const w = ctx.measureText(truncated).width;
-      ctx.font = "500 20px -apple-system, 'Segoe UI', Arial, sans-serif";
+      ctx.font = unitFont;
       ctx.fillStyle = "#6ee7ff";
-      ctx.fillText(stat.unit, x + 26 + w + 10, y + 142);
+      ctx.fillText(stat.unit, valueX + valueW + 10, y + 142);
     }
+    ctx.direction = dir;
   });
 
   const footerY = gridTop + rowsCount * (tileH + gap) + 30;

@@ -1,6 +1,6 @@
 import { readValue } from "./datalog";
 import { STATS } from "./sharecard";
-import { t, tf } from "./i18n";
+import { t, tf, dateLocale } from "./i18n";
 
 export interface SnapshotPayload {
   t: number;
@@ -64,7 +64,7 @@ export function initPermalinkBanner() {
 
   const banner = document.createElement("div");
   banner.className = "snapshot-banner";
-  const when = new Date(payload.t).toLocaleString();
+  const when = new Date(payload.t).toLocaleString(dateLocale());
   const rows = payload.values
     .map(([cardId, key, value]) => {
       const stat = labelFor(cardId, key);

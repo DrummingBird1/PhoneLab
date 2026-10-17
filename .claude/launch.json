@@ -8,6 +8,12 @@
       "port": 5183
     },
     {
+      "name": "sensolab-web-preview",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--dir", "Web", "run", "preview", "--port", "4183", "--strictPort"],
+      "port": 4183
+    },
+    {
       "name": "phonelab-landing",
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "5184", "--directory", "docs"],

@@ -16,15 +16,20 @@ import { initSearch } from "./search";
 import { initA11yControls } from "./a11y";
 import { initInstallPrompt } from "./pwa";
 import { copyPermalink, initPermalinkBanner } from "./permalink";
-import { t, lang, LANGS, setLang, applyDocumentLang, type Lang } from "./i18n";
+import { t, lang, LANGS, setLang, applyDocumentLang, loadDictionary, type Lang } from "./i18n";
 
 const DISPLAY_MODES = ["text", "visual", "compact"] as const;
 type DisplayMode = (typeof DISPLAY_MODES)[number];
-const DISPLAY_LABEL: Record<DisplayMode, string> = {
-  text: `\u{1F522} ${t("Text")}`,
-  visual: `\u{1F3A8} ${t("Visual")}`,
-  compact: `\u{1F4CB} ${t("Compact")}`,
-};
+
+/** Built on demand, not at import time — the dictionary isn't loaded yet when modules evaluate. */
+function displayLabel(mode: DisplayMode): string {
+  const labels: Record<DisplayMode, string> = {
+    text: `\u{1F522} ${t("Text")}`,
+    visual: `\u{1F3A8} ${t("Visual")}`,
+    compact: `\u{1F4CB} ${t("Compact")}`,
+  };
+  return labels[mode];
+}
 
 function detectDeviceKind(): string {
   const coarse = window.matchMedia("(pointer: coarse)").matches;
@@ -48,7 +53,7 @@ function render() {
       </div>
       <div class="top-actions">
         <button class="mode-btn" id="install-btn" hidden>⬇️ ${t("Install App")}</button>
-        <button class="mode-btn" id="display-toggle" title="${t("Cycle Text / Visual / Compact mode")}">${DISPLAY_LABEL.text}</button>
+        <button class="mode-btn" id="display-toggle" title="${t("Cycle Text / Visual / Compact mode")}">${displayLabel("text")}</button>
         <div class="a11y-controls" role="group" aria-label="${t("Text size and contrast")}">
           <button class="icon-btn" id="text-smaller" aria-label="${t("Decrease text size")}">A&minus;</button>
           <span id="text-scale-label" class="scale-label">100%</span>
@@ -126,7 +131,7 @@ function setupDisplayMode() {
 
   function paint() {
     const current = (root.dataset.display as DisplayMode) ?? "text";
-    if (btn) btn.textContent = DISPLAY_LABEL[current];
+    if (btn) btn.textContent = displayLabel(current);
   }
   paint();
   btn?.addEventListener("click", () => {
@@ -198,29 +203,34 @@ function setupExport() {
 
 const NOT_AVAILABLE_CARDS = ["motion-na", "orient-na", "env-na"];
 
-applyDocumentLang();
-render();
-for (const id of NOT_AVAILABLE_CARDS) setStatus(id, "unavailable", "By design");
-initPermalinkBanner();
-setupDisplayMode();
-setupTheme();
-setupLanguage();
-setupSummary();
-setupExport();
-initFocusMode();
-initReorder();
-initSearch();
-initA11yControls();
-initInstallPrompt();
-initMotion();
-initOrientation();
-initGeo();
-initLight();
-initProximity();
-initAudio();
-initHeartRate();
-initDeviceInfo();
-initWakeLock();
-initUsb();
-initSpeedTest();
-initDataLog();
+async function boot() {
+  await loadDictionary();
+  applyDocumentLang();
+  render();
+  for (const id of NOT_AVAILABLE_CARDS) setStatus(id, "unavailable", "By design");
+  initPermalinkBanner();
+  setupDisplayMode();
+  setupTheme();
+  setupLanguage();
+  setupSummary();
+  setupExport();
+  initFocusMode();
+  initReorder();
+  initSearch();
+  initA11yControls();
+  initInstallPrompt();
+  initMotion();
+  initOrientation();
+  initGeo();
+  initLight();
+  initProximity();
+  initAudio();
+  initHeartRate();
+  initDeviceInfo();
+  initWakeLock();
+  initUsb();
+  initSpeedTest();
+  initDataLog();
+}
+
+void boot();

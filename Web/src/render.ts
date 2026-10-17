@@ -60,8 +60,10 @@ export function renderCard(def: CardDef): string {
   parts.push(`<div class="card-head">
     <span class="card-icon" aria-hidden="true">${def.icon}</span>
     <h3>${t(def.title)}</h3>
-    <span class="status-pill" data-role="status" data-s="idle" role="status">${t("Idle")}</span>
-    <button class="focus-btn" data-role="focus-btn" title="${t("Expand this card")}" aria-label="${tf("Expand {title}", { title: t(def.title) })}">&#10021;</button>
+    <div class="card-head-end">
+      <span class="status-pill" data-role="status" data-s="idle" role="status">${t("Idle")}</span>
+      <button class="focus-btn" data-role="focus-btn" title="${t("Expand this card")}" aria-label="${tf("Expand {title}", { title: t(def.title) })}">&#10021;</button>
+    </div>
   </div>`);
 
   if (def.compass) {
@@ -119,7 +121,7 @@ export function renderCard(def: CardDef): string {
       <div class="signal-bars" data-role="signal">
         <span class="bar" data-i="1"></span><span class="bar" data-i="2"></span><span class="bar" data-i="3"></span><span class="bar" data-i="4"></span>
       </div>
-      <span class="signal-label" data-role="signal-label">No fix</span>
+      <span class="signal-label" data-role="signal-label">${t("No fix")}</span>
     </div>`);
   }
   if (vizParts.length) {
