@@ -1,122 +1,129 @@
 # AGENTS.md
 
-This file gives Codex the orientation it needs to work in this repository.
+This file gives Codex the orientation it needs to work in this repository. It mirrors CLAUDE.md — keep the two in sync.
 
 ## Project
 
-**PhoneLab** — a single-Activity Android app that surfaces every hardware sensor, system info, thermal zone, and a CPU benchmark in real time. Published to Google Play under `com.sensolab.devicemonitor`.
+**PhoneLab** — a single-Activity Android app that surfaces every hardware sensor, system info, thermal zone, battery health, a CPU benchmark, sensor tools and a guided device check, all in real time. App id `com.sensolab.devicemonitor`; distributed on GitHub Releases (APK) and headed for Google Play, F-Droid / IzzyOnDroid and other stores. License: **GPL-3.0-only** (`LICENSE`). A companion browser dashboard ("SensoLab Web") lives in `Web/`.
 
-Language: **Java** (not Kotlin). UI: classic Android Views + Material Components (no Jetpack Compose).
+Language: **Java** (not Kotlin). UI: classic Android Views + **Material 3** Material Components (no Jetpack Compose).
 
 ## Repository layout
 
-This **is** a git repo (branch `main`). The root was reorganised into four top-level folders plus the meta files (`.git`, `.gitignore`, `CLAUDE.md`, `AGENTS.md`, `.claude/`):
+This **is** a git repo (branch `main`). Top-level folders plus the meta files (`.git`, `.gitignore`, `CLAUDE.md`, `AGENTS.md`, `.claude/`, `.github/`):
 
 ```
 PhoneLab/
-├── App/                 # ★ active dev source = the Gradle project root (open THIS in Android Studio)
+├── App/                 # ★ Android app = the Gradle project root (open THIS in Android Studio)
 │   ├── gradlew, build.gradle, settings.gradle, key.properties.template
 │   └── app/…            # the single :app module
-├── Assets/              # store-listing materials (used when filling app info on Play & other stores)
-│   ├── PhoneLab_PlayStore_Description.md
-│   ├── PhoneLab_icon_512x512.png, PhoneLab_feature_1024x500.png
-│   ├── screenshots/     # store screenshots
-│   └── dev-docs/        # changelog, Material3 redesign plan (developer docs, not store copy)
+├── Web/                 # SensoLab Web — Vite + TypeScript PWA, deployed to Vercel from main
+├── docs/                # GitHub Pages landing page (drummingbird1.github.io/PhoneLab)
+├── Assets/              # store-listing materials (description, icon, feature graphic, screenshots/)
+│   └── dev-docs/        # changelogs, Material3 redesign plan (developer docs, not store copy)
+├── fastlane/metadata/android/  # store listing per locale (en-US, he, es, ar): text, changelogs/<versionCode>.txt, images (en-US)
 ├── Distribution/        # things tied to shipping
-│   └── Keys/PhoneLab-Key   # signing key (git-ignored) — see "Signing key"
-│   └── (built release APK/AAB you upload go here)
-└── Archive/             # frozen old versions & superseded artifacts
-    ├── SensoLab V1.0.0/    # frozen v1.0.0 source snapshot (immutable, not edited — kept under its original name)
-    ├── app-release-v1.0.0-shipped.aab
-    └── app-release-v1.1.0-code2-stale.aab
+│   ├── Keys/PhoneLab-Key   # signing key (git-ignored) — see "Signing key"
+│   ├── fdroid/          # F-Droid build recipe (copy into an fdroiddata MR)
+│   └── stores/README.md # how to publish to IzzyOnDroid, F-Droid, APKPure, Uptodown, …
+└── Archive/             # frozen old versions & superseded artifacts (immutable, not edited)
 ```
 
-**The Gradle project root is `App/`.** All active work happens there. `Archive/SensoLab V1.0.0/` is kept as an immutable snapshot, not edited — including its old name, since the folder itself is frozen and out of scope for the SensoLab→PhoneLab rename.
+`Archive/SensoLab V1.0.0/` is kept as an immutable snapshot under its original name.
 
-## Build & run
+## Build & run (Android)
 
-From `App/` (the Gradle wrapper is present and CLI-buildable):
+From `App/`. **Use JDK 21** — set `JAVA_HOME` to the Microsoft OpenJDK 21 install (`C:\Program Files\Microsoft\jdk-21.0.12.101-hotspot` at last check; the folder name changes with updates). The system JDK and Android Studio's JBR have drifted to JDK 25, which breaks the build tooling.
 
 ```powershell
-.\gradlew assembleDebug          # APK at app/build/outputs/apk/debug/ (verified working)
-.\gradlew assembleRelease        # APK (signed only if key.properties exists — see below)
-.\gradlew bundleRelease          # AAB for Play Store
-.\gradlew installDebug           # installs over ADB
-.\gradlew test                   # JUnit unit tests (junit:4.13.2)
+.\gradlew assembleFossDebug          # APK at app/build/outputs/apk/foss/debug/
+.\gradlew assembleFossRelease        # GitHub / F-Droid / stores APK (signed only if key.properties exists)
+.\gradlew bundlePlayRelease          # AAB for Google Play
+.\gradlew installFossDebug           # installs over ADB
+.\gradlew test                       # JUnit unit tests (no Espresso / instrumentation tests)
+.\gradlew lintPlayRelease lintFossRelease  # lint; only findings not in app/lint-baseline.xml fail
+.\gradlew publishPlayReleaseBundle   # Gradle Play Publisher → Play internal track (needs credentials)
 ```
 
-The Gradle wrapper pins **Gradle 8.13** (`gradle/wrapper/gradle-wrapper.properties`). It was regenerated from a cached 8.13 distribution after the tree was found missing `gradlew`/`gradle-wrapper.jar`; 8.13 is compatible with AGP 8.7.3. The project also builds through Android Studio's bundled Gradle.
+**Two product flavors** (dimension `distribution`, `BuildConfig.PLAY_BUILD`): `play` adds Play Billing (`playImplementation`) and the real `TipJar` in `src/play/`; `foss` gets a no-op `TipJar` stub in `src/foss/`, no proprietary libraries and therefore **no `INTERNET` permission**. Everything except the tip jar and the About tab's Rate button is shared in `src/main/`. Anything Play-only goes in `src/play/` with a stub in `src/foss/` — never reference Billing from `main`.
 
-Build prerequisites: JDK 21 (sourceCompatibility = VERSION_21), Android SDK 35, AGP 8.7.3, Gradle 8.13 (bundled via wrapper).
+Toolchain: **Gradle 8.14.5** (wrapper), **AGP 8.13.2**, `compileSdk 36` / `targetSdk 36` / `minSdk 26`, JDK 21 (`sourceCompatibility VERSION_21`, core-library desugaring on). AGP 9 / GPP 4 are deliberately not used yet (both are breaking upgrades).
 
-**Release signing** is driven by `key.properties` in the module root (git-ignored; see `key.properties.template`). It supplies `storeFile` / `storePassword` / `keyAlias` / `keyPassword`. If the file is absent, `assembleRelease`/`bundleRelease` still configure but produce an **unsigned** artifact rather than failing — so debug work and CI don't need the key.
+**Release signing** comes from `key.properties` in `App/` (git-ignored; see `key.properties.template`). Without it, release builds are produced **unsigned** instead of failing.
 
-Tests: there **are** JUnit unit tests (`testImplementation 'junit:junit:4.13.2'`), run via `.\gradlew test` — no Espresso / instrumentation tests.
+**R8 is on** for release (`minifyEnabled true`, `shrinkResources true`). `proguard-rules.pro` only keeps file/line info — AAPT and the AndroidX/Billing libraries supply the keep rules for manifest components, XML-referenced custom views, Workers and ViewModels. Add a rule only for something reached via reflection. Upload `app/build/outputs/mapping/playRelease/mapping.txt` with each Play release.
 
-## Architecture (one screen, five tabs)
+**Gradle Play Publisher** (`com.github.triplet.play` 3.13) uploads DRAFT releases of the `play` flavor to the internal track (`playConfigs` disables it for `foss`). Credentials: `App/play-service-account.json` (git-ignored) or the `ANDROID_PUBLISHER_CREDENTIALS` env var; without either the publish tasks are disabled.
 
-`MainActivity` hosts a `ViewPager2` + `TabLayout` with five `Fragment`s (`App/app/src/main/java/com/sensolab/devicemonitor/MainActivity.java`):
+**CI** (`.github/workflows/`): `android-ci.yml` runs test + assembleDebug (both flavors) + `lintPlayRelease lintFossRelease` on push/PR; `android-release.yml` (manual) builds a signed `play` bundle from secrets and publishes it to the internal track; `web-ci.yml` covers `Web/`.
 
-| Tab | Class | Role |
-|---|---|---|
-| 📡 Sensors | `SensorsFragment` | Live readings for ~23 sensors + GPS + mic |
-| ⚙️ System | `SystemFragment` | Device info, thermal zones, exporter, benchmark |
-| 🔧 Hardware | `HardwareFragment` | Hardware capabilities (added v1.2.0-dev; uses `androidx.biometric` for biometric availability) |
-| ℹ️ About | `AboutFragment` | Rate / share / email |
-| ⚙️ Settings | `SettingsFragment` | Theme · Display mode · Unit system |
+## Architecture (one Activity, seven tabs)
+
+`MainActivity` hosts a scrollable `TabLayout` (icon + label) over a `ViewPager2`. Tab indexes are constants (`MainActivity.TAB_*`) used by launcher shortcuts and notifications:
+
+| # | Tab | Class | Role |
+|---|---|---|---|
+| 0 | Sensors | `SensorsFragment` | Live readings for ~25 sensors + GPS + mic; textual cards or gauges; CSV recording |
+| 1 | System | `SystemFragment` | 8 thermal zones, specs (incl. GPU via `GpuInfo`), benchmark, text/JSON export |
+| 2 | Hardware | `HardwareFragment` | Battery health (health, power W, est. capacity, cycles, 24 h history), CPU freqs, display, capabilities |
+| 3 | Tools | `ToolsFragment` | Bubble level, compass calibration, magnetometer metal detector, vibration seismograph + FFT |
+| 4 | Device check | `DiagnosticsFragment` | Guided hardware tests run in `DiagnosticTestActivity`, shareable pass/fail report |
+| 5 | About | `AboutFragment` | Rate / share / tip jar / web version / privacy |
+| 6 | Settings | `SettingsFragment` | Theme, Material You, app language, display mode, units, thermal + custom alerts, battery history |
+
+**Edge-to-edge:** `EdgeToEdge.enable()` in `MainActivity` (and `DiagnosticTestActivity`); the root pads for status bar/cutout and the pager for the navigation bar. Full-panel diagnostic tests hide the system bars instead.
+
+**Material 3:** theme parent is `Theme.Material3.DayNight.NoActionBar` with full color roles in `values/colors.xml` + `values-night/colors.xml`. The custom `?attr/colorBackground` used by layouts points at `android:colorBackground` so **dynamic color** (opt-in, `PhoneLabApp` + `AppPrefs.isDynamicColor`) recolors everything. Gauge band colors (`gauge_ok/warn/hot`) and `compass_*` colors are intentionally fixed.
+
+**Reusable views** (all follow the `CompassView` contract: preallocated paints, internal smoothing, main thread only):
+- `SensorCardView` — M3 card with label / large value + unit / detail line. `setReading()`, `setStatus()`, `setActionStatus()` (tap-to-grant).
+- `GaugeCardView` — card wrapping a `RadialGaugeView` or `BarMeterView` (`app:gaugeType`, `gaugeMin/Max`, optional `gaugeWarn/Hot` bands). Gauge math is in `GaugeMath`.
+- `SparklineView`, `CompassView`, `BubbleLevelView`, `SeismographView`, `FigureEightView`, `TouchGridView`, `MultiTouchView`.
+
+Cards sit in platform `GridLayout`s whose column count is `@integer/grid_columns` (2 → 3 at w600dp → 4 at w840dp). Layout styles live in `values/styles_layout.xml` (`Widget.PhoneLab.GridCard`, `WideCard`, `Section`, `ScreenScroll`); type scale in `themes.xml` (`TextAppearance.PhoneLab.*`). Icons are vector drawables in `res/drawable/ic_*.xml` (tinted, no emoji in tab/card titles).
+
+**Sensors tab after the split:** `SensorsFragment` only routes events. `SensorReadouts` turns raw values into `Readout`s (value/unit/detail/caption/gauge), `SoundMeter` owns the `AudioRecord` thread, `GpsTracker` owns location (GPS + NETWORK provider fallback), `RecordingController` talks to `CsvRecordingService`, and `SensorsViewModel` keeps counters / last vectors across rotation.
+
+**ViewModels:** `SensorsViewModel` and `SystemViewModel` (benchmark runs in the ViewModel, so rotation no longer cancels it; CPU-temp history ring buffer).
+
+**Background work:** a single periodic `ThermalCheckWorker` (WorkManager, 15 min — class name kept because WorkManager persists it) runs thermal alerts, `AlertEngine` (user-defined `AlertRule`s with hysteresis in `AlertEvaluator`, stored by `AlertRules`, notified by `AlertNotifier`), `BatteryHistory.record()`, and the CPU-temp widget refresh. `ThermalCheckWorker.reschedule()` is idempotent and enqueues only if something needs it. CSV recording is a `dataSync` foreground service (`CsvRecordingService`, handles the Android 15 `onTimeout`).
 
 Cross-cutting:
-- **`AppPrefs`** — single static facade over `SharedPreferences`. Holds keys, mode constants, and *every unit-conversion function* (`temp`, `speed`, `altitude`, `pressure`, `distUnit`, …). All sensor readouts must go through these helpers; never format °C/km/h/hPa inline.
-- **`CompassView`** — custom `View` that draws the compass rose and rotating needle. Updated from `SensorsFragment` via `setBearing(degrees)`; uses internal lerp (`0.25f`) for smoothing, so don't call it on a separate thread.
+- **`AppPrefs`** — static facade over `SharedPreferences`: keys, mode constants and *every unit conversion* (`temp`, `speed`, `altitude`, `pressure`, …). Never format °C/km/h/hPa inline.
+- **`ModeAwareFragment`** — subclasses call `bindModeLayouts(textual, visual)`; display-mode and unit changes apply immediately via a prefs listener.
+- **`ThermalZones`** — `/sys/class/thermal` reader with `cpu()`, `gpu()`, `skin()` keyword lists shared by the UI, worker, tile, widget and alerts.
+- **`BatteryInfo`** — one snapshot of battery data (sticky broadcast + `BatteryManager`), shared by the Hardware tab, worker, alerts and diagnostics.
+- **`TipJar`** — per flavor: `src/play/` = Google Play Billing consumable tips (`tip_small/medium/large` must exist in Play Console); `src/foss/` = stub, `isAvailable()` false so About hides the button.
 
-Display-mode pattern: each fragment inflates **both** a textual `LinearLayout` and a visual `LinearLayout`, then toggles `View.VISIBLE` / `View.GONE` in `applyMode()` based on `AppPrefs.isVisual()`. This is now factored into a shared base class **`ModeAwareFragment`** — subclasses call `bindModeLayouts(textual, visual)` from `onCreateView`, and the base registers a `SharedPreferences` listener so a display-mode toggle re-applies **immediately** (previously it only took effect on tab re-entry) and a unit-system change calls the `onUnitsChanged()` hook.
-
-Helper classes worth knowing: **`ThermalAlerts`** (+ **`ThermalSilenceReceiver`**) posts thermal-warning notifications via a pre-created channel; **`CsvRecorder`** handles the sensor-log export; **`Formatters`** centralises value formatting; **`NamedThreads`** provides named daemon threads for the mic/GPS/benchmark workers.
-
-Theme switching: `MainActivity.recreateWithTheme()` writes the pref, calls `AppCompatDelegate.setDefaultNightMode(...)`, and `recreate()`s the activity. Display-mode and unit changes do **not** recreate — they take effect when the user re-enters a tab. This is documented in the settings screen.
+Theme switching: `MainActivity.recreateWithTheme()` writes the pref, sets the night mode and `recreate()`s. Display-mode and unit changes don't recreate.
 
 ## Non-obvious things to know
 
-- **`namespace` lives in `app/build.gradle`** (`com.sensolab.devicemonitor`). `AndroidManifest.xml` no longer carries a `package="..."` attribute — the namespace is the single source of the package id.
-- **`SensorsFragment.TYPE_TILT_DETECTOR = 22`** is a hardcoded magic number. `Sensor.TYPE_TILT_DETECTOR` has no public constant; 22 is the framework value. Don't "fix" it to a named constant — it doesn't exist.
-- **Thermal zones are read directly from `/sys/class/thermal/thermal_zone*`**. The `zone(String... keywords)` helper in `SystemFragment` matches by sub-string against `type`. OEMs name zones differently (`soc_thermal`, `mtktscpu`, `tsens_tz_sensor0`, …) — when a zone reports `N/A` on a specific device, the fix is *almost always* to add another keyword to the right `zone(...)` call, not to change the logic.
-- **`Sound Level` uses `AudioRecord` directly** (not `MediaRecorder`), on a daemon thread that posts dB values back through `mainHandler`. Polling is `Thread.sleep(200)`; the thread is interrupted on `onPause`.
-- **GPS uses only `GPS_PROVIDER`** (no Google Play Services / FusedLocation). Indoors / without GPS lock, speed and altitude stay blank.
-- **`MainActivity` uses `setOffscreenPageLimit(OFFSCREEN_PAGE_LIMIT_DEFAULT)`** (was `4`). Only neighbouring tabs stay resident; distant tabs unload — this was a deliberate battery fix (P2) so the mic/GPS/sensor listeners of far-off tabs stop when you move away, at the cost of a rebuild on return.
-- **`FileProvider` authority** is `${applicationId}.fileprovider`. Exports land in `getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS)` and are shared via `Intent.ACTION_SEND` — no `WRITE_EXTERNAL_STORAGE` permission needed on API 26+.
-- **ProGuard is disabled** in the release build (`minifyEnabled false`). `proguard-rules.pro` is effectively empty.
-- **Localization**: 241 user-visible strings live in `res/values/strings.xml` (English, default) plus three full translations — `res/values-iw/` (Hebrew, ISO-639-1 "iw" which Android maps to modern "he"), `res/values-es/` (Spanish), `res/values-ar/` (Arabic). Keep all four in sync when adding/renaming/removing a string — it's easy to touch only English and Hebrew and forget these other two exist. Java code uses `getString(R.string.X)` or `getString(R.string.X, args)` for format strings; layouts use `@string/X`. RTL is enabled via `android:supportsRtl="true"` (relevant for both Hebrew and Arabic). **The remaining hardcoded English fragments are scientific format codes** ("X:%+.3f Y:%+.3f Z:%+.3f", "m/s²", "rad/s", "Pitch", "Roll", "Azimuth", date formats, etc.) — these are universal/technical and intentionally not translated. The benchmark result template and CSV-style export file are also English-only on purpose (developer-oriented).
-- **CompassView colors** live in `colors.xml` (named `compass_*`) and are theme-independent — the compass is meant to look like a fixed instrument regardless of light/dark mode.
+- **`namespace` lives in `app/build.gradle`** (`com.sensolab.devicemonitor`); the manifest has no `package=`.
+- **`TYPE_TILT_DETECTOR = 22`** is a hardcoded framework value with no public constant — don't "fix" it.
+- **Thermal zones** are matched by keyword against `/sys/class/thermal/thermal_zone*/type`. When a zone shows N/A on a device, add a keyword to the right `ThermalZones` call; don't change the logic.
+- **Permissions are contextual**: nothing is requested at launch. Cards that need a permission show "tap to grant" (`registerForActivityResult` launchers in `SensorsFragment`, `SettingsFragment`, `DiagnosticTestActivity`). Heart rate and steps are only *registered* once granted — `registerListener()` throws `SecurityException` otherwise. Keep inline `checkSelfPermission` calls next to `GpsTracker.start()` / `SoundMeter.start()` so lint's MissingPermission check sees them.
+- **`OFFSCREEN_PAGE_LIMIT_DEFAULT`** is deliberate (battery): distant tabs unload so their sensors/mic/GPS stop.
+- **`FileProvider` authority** is `${applicationId}.fileprovider`; exports go to `getExternalFilesDir(DOCUMENTS)`.
+- **Network / privacy:** the app's own code never uses the network. The `foss` build has no `INTERNET` permission at all. **The `play` build does: Play Billing 8 pulls in `INTERNET` + Google's datatransport telemetry** via the merged manifest. The published privacy policy (`drummingbird1.github.io/phonelab-privacy`, separate repo) still says the app has no INTERNET permission — keep the policy, Play Data safety form and the tip jar consistent with each other, and describe the two builds separately.
+- **Localization**: `res/values/strings.xml` (English) + full translations in `values-iw/` (Hebrew), `values-es/`, `values-ar/` — keep all four in sync (same key set). `generateLocaleConfig` (+ `res/resources.properties`) exposes them in Android 13+ per-app language settings. Hardcoded English left in code is limited to scientific/technical tokens (`X/Y/Z`, `m/s²`, `Pitch`, `Roll`, `drift`, `bias`, export file contents).
+- **CompassView colors** (`compass_*`) are theme-independent on purpose.
+- **Themed icon:** the adaptive icon has a `<monochrome>` layer (reuses the foreground).
 
-## Permissions
+## Web dashboard (`Web/`)
 
-Manifest declares 6 runtime permissions; `MainActivity.requestPermissions()` requests them at startup. `ACTIVITY_RECOGNITION` is only requested on API 29+, and `POST_NOTIFICATIONS` only on API 33+.
+Vite + TypeScript, no runtime dependencies, PWA. `pnpm run build | test | lint`. Git-linked Vercel project `sensolab-web` deploys `main` automatically (https://sensolab-web.vercel.app); `Web/vercel.json` sets the CSP and security headers.
 
-| Permission | Used by |
-|---|---|
-| `ACCESS_FINE_LOCATION` / `ACCESS_COARSE_LOCATION` | GPS speed & altitude |
-| `ACTIVITY_RECOGNITION` | Step Counter / Step Detector on API 29+ |
-| `BODY_SENSORS` | Heart Rate sensor |
-| `RECORD_AUDIO` | Sound-level meter |
-| `POST_NOTIFICATIONS` | Thermal-alert notifications on API 33+ (`ThermalAlerts`) |
-
-All `<uses-feature>` entries are `required="false"` so the app installs on devices missing any sensor — the fragments fall back to "Not available" strings.
+**i18n:** `src/i18n.ts` exposes `t(english)` / `tf(english, vars)` — gettext-style, keyed by the exact English text — plus dictionaries in `src/i18n/{he,es,ar}.ts`. Card definitions stay English in source and are translated centrally in `render.ts` and the `ui.ts` setters (`setStatus`, `setField`, `addAction`, `setStateViz`, `setToggleState`). When you add or change UI text, add the same English key to all three dictionaries. Hebrew/Arabic set `dir="rtl"`; use logical CSS properties (`inset-inline-*`, `margin-inline-*`, `text-align: end`).
 
 ## Versioning
 
-`app/build.gradle` is the single source of truth:
-- `versionCode 3`
-- `versionName "1.2.0"`
-- `minSdk 26`, `targetSdk 35`, `compileSdk 35`
+`app/build.gradle` is the source of truth: `versionCode 4`, `versionName "1.3.0"` (current). Releases so far, all as GitHub Releases with an APK: v1.0.0 → v1.1.0 (code 2) → v1.2.0 (code 3) → v1.3.0 (code 4; first GPL / `foss`-flavor release, published as a pre-release until QA'd). Nothing is on Google Play yet. Developer changelogs live in `Assets/dev-docs/`; each release also needs `fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt` (≤ 500 chars, all four locales) because F-Droid / IzzyOnDroid read them.
 
-Version history: v1.0.0 (shipped) → v1.1.0 (`versionCode 2`) → **v1.2.0 (`versionCode 3`, current)** — the v1.2.0 work added the Hardware tab, 6 more sensors, CSV recording, and thermal alerts. Changelog v1.0.0 → v1.1.0 lives at `Assets/dev-docs/PhoneLab_Changelog_v1.0.0_to_v1.1.0.md`.
+**Cutting a release:** bump `versionCode` + `versionName`, add the changelogs, then `.\gradlew assembleFossRelease bundlePlayRelease`; tag `v<x.y.z>` and create a GitHub release with the foss APK attached as `PhoneLab-v<x.y.z>.apk` (that name is what IzzyOnDroid / Obtainium pick up). See `Distribution/stores/README.md` for the store side.
 
-⚠️ There is **no current release build on disk** — the only built bundles are in `Archive/` and are both stale (`app-release-v1.0.0-shipped.aab`, and `app-release-v1.1.0-code2-stale.aab` at `versionCode 2`). Build the v1.2.0 release fresh with `.\gradlew bundleRelease` from `App/` (after filling `key.properties`), and put the output in `Distribution/` before uploading.
+Release builds are not kept in git; local copies go in `Distribution/` (`*.apk` / `*.aab` are git-ignored).
 
 ## Signing key
 
-The PhoneLab upload keystore is the file **`Distribution/Keys/PhoneLab-Key`**. It contains the private signing key — treat it as a secret and back it up; if lost you cannot publish updates to Google Play under this app id.
-
-⚠️ `Distribution/Keys/` lives **inside the git repo**. `.gitignore` blocks the whole `Keys/` folder (plus `PhoneLab-Key`, `*.keystore`, `*.jks`, `*.pepk`, `key.properties`, `*.aab`, `*.apk`), and nothing under it is tracked — but keeping signing keys inside a repo working tree is inherently riskier than outside it. `key.properties` points `storeFile` at an absolute path on the machine that builds releases, so the key can be relocated outside the repo without code changes.
-
-The filename mentions "PhoneLab", which doesn't match the app id `com.sensolab.devicemonitor`. Before signing the next release, verify the keystore actually corresponds to the upload key registered on Google Play (run `keytool -list -v -keystore Distribution\Keys\PhoneLab-Key` and compare the SHA-1/SHA-256 fingerprint against the one shown in the Play Console → App integrity → Upload key certificate).
+The upload keystore is **`Distribution/Keys/PhoneLab-Key`** — a secret; back it up, losing it blocks updates under this app id. `Distribution/Keys/` is inside the repo working tree but fully git-ignored (`Keys/`, `*.keystore`, `*.jks`, `*.pepk`, `key.properties`, `play-service-account.json`, `*.aab`, `*.apk`). Before signing, verify it matches the Play Console upload key (`keytool -list -v -keystore Distribution\Keys\PhoneLab-Key`, compare SHA-256 with Play Console → App integrity).
