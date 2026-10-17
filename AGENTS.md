@@ -25,7 +25,9 @@ PhoneLab/
 ├── Distribution/        # things tied to shipping
 │   ├── Keys/PhoneLab-Key   # signing key (git-ignored) — see "Signing key"
 │   ├── fdroid/          # F-Droid build recipe (copy into an fdroiddata MR)
-│   └── stores/README.md # how to publish to IzzyOnDroid, F-Droid, APKPure, Uptodown, …
+│   ├── play/README.md   # Google Play: first upload, service account, CI secrets, tip-jar products
+│   ├── stores/README.md # IzzyOnDroid, F-Droid, APKPure, Uptodown, … + store status table
+│   └── derive_screenshots.py  # fastlane screenshots → Play (9:16, no alpha) + docs/ WebP
 └── Archive/             # frozen old versions & superseded artifacts (immutable, not edited)
 ```
 
@@ -53,7 +55,7 @@ Toolchain: **Gradle 8.14.5** (wrapper), **AGP 8.13.2**, `compileSdk 36` / `targe
 
 **R8 is on** for release (`minifyEnabled true`, `shrinkResources true`). `proguard-rules.pro` only keeps file/line info — AAPT and the AndroidX/Billing libraries supply the keep rules for manifest components, XML-referenced custom views, Workers and ViewModels. Add a rule only for something reached via reflection. Upload `app/build/outputs/mapping/playRelease/mapping.txt` with each Play release.
 
-**Gradle Play Publisher** (`com.github.triplet.play` 3.13) uploads DRAFT releases of the `play` flavor to the internal track (`playConfigs` disables it for `foss`). Credentials: `App/play-service-account.json` (git-ignored) or the `ANDROID_PUBLISHER_CREDENTIALS` env var; without either the publish tasks are disabled.
+**Gradle Play Publisher** (`com.github.triplet.play` 3.13) uploads DRAFT releases of the `play` flavor to the internal track (`playConfigs` disables it for `foss`). Credentials: `App/play-service-account.json` (git-ignored) or the `ANDROID_PUBLISHER_CREDENTIALS` env var; without either the publish tasks don't exist. The Play listing lives in `app/src/play/play/` (Triple-T layout: `listings/<locale>/` for en-US, iw-IL, es-ES, es-419, ar; graphics in en-US only) — its full description deliberately differs from fastlane's (the Play build has `INTERNET`). Play's "What's new" is synced from `fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt` into the git-ignored `release-notes/` by `syncPlayReleaseNotes`, which runs before GPP's `generatePlayReleasePlayResources`; a missing changelog fails the publish. Setup steps: `Distribution/play/README.md`.
 
 **CI** (`.github/workflows/`): `android-ci.yml` runs test + assembleDebug (both flavors) + `lintPlayRelease lintFossRelease` on push/PR; `android-release.yml` (manual) builds a signed `play` bundle from secrets and publishes it to the internal track; `web-ci.yml` covers `Web/`.
 
@@ -120,7 +122,7 @@ Vite + TypeScript, no runtime dependencies, PWA. `pnpm run build | test | lint`.
 
 `app/build.gradle` is the source of truth: `versionCode 4`, `versionName "1.3.0"` (current). Releases so far, all as GitHub Releases with an APK: v1.0.0 → v1.1.0 (code 2) → v1.2.0 (code 3) → v1.3.0 (code 4; first GPL / `foss`-flavor release, published as a pre-release until QA'd). Nothing is on Google Play yet. Developer changelogs live in `Assets/dev-docs/`; each release also needs `fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt` (≤ 500 chars, all four locales) because F-Droid / IzzyOnDroid read them.
 
-**Cutting a release:** bump `versionCode` + `versionName`, add the changelogs, then `.\gradlew assembleFossRelease bundlePlayRelease`; tag `v<x.y.z>` and create a GitHub release with the foss APK attached as `PhoneLab-v<x.y.z>.apk` (that name is what IzzyOnDroid / Obtainium pick up). See `Distribution/stores/README.md` for the store side.
+**Cutting a release:** bump `versionCode` + `versionName`, add the changelogs, then `.\gradlew assembleFossRelease bundlePlayRelease`; tag `v<x.y.z>` and create a GitHub release with the foss APK attached as `PhoneLab-v<x.y.z>.apk` (that name is what IzzyOnDroid / Obtainium pick up). Google Play: `.\gradlew publishPlayReleaseBundle` (or the manual *Android Release* workflow). If the screenshots change, run `uv run Distribution/derive_screenshots.py`. See `Distribution/stores/README.md` (status table — keep it current) and `Distribution/play/README.md`.
 
 Release builds are not kept in git; local copies go in `Distribution/` (`*.apk` / `*.aab` are git-ignored).
 

@@ -8,6 +8,8 @@ PhoneLab-Key
 key.properties
 # Google Play service-account credentials (Gradle Play Publisher)
 play-service-account.json
+# Generated from fastlane changelogs by syncPlayReleaseNotes (App/app/build.gradle)
+App/app/src/play/play/release-notes/
 
 # Local environment configuration
 local.properties
