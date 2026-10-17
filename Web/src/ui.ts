@@ -1,5 +1,6 @@
 export * from "./render";
 import { STATUS_LABEL, type Status } from "./render";
+import { t } from "./i18n";
 
 export function setStatus(cardId: string, status: Status, label?: string) {
   const card = document.getElementById(`card-${cardId}`);
@@ -8,7 +9,7 @@ export function setStatus(cardId: string, status: Status, label?: string) {
   const pill = card.querySelector<HTMLElement>('[data-role="status"]');
   if (pill) {
     pill.dataset.s = status;
-    pill.textContent = label ?? STATUS_LABEL[status];
+    pill.textContent = t(label ?? STATUS_LABEL[status]);
   }
 }
 
@@ -17,7 +18,7 @@ export function setField(cardId: string, key: string, value: string) {
   const el = card?.querySelector<HTMLElement>(`[data-field="${key}"]`);
   if (!el) return;
   const unit = el.querySelector(".unit");
-  el.textContent = value;
+  el.textContent = t(value);
   if (unit) el.appendChild(unit);
 }
 
@@ -31,7 +32,7 @@ export function addAction(cardId: string, label: string, onClick: () => void, on
   if (!actions) return;
   const btn = document.createElement("button");
   btn.className = "enable-btn";
-  btn.textContent = label;
+  btn.textContent = t(label);
   btn.addEventListener("click", onClick, { once });
   actions.appendChild(btn);
 }
@@ -118,7 +119,7 @@ export function setStateViz(cardId: string, icon: string, label: string, tone: "
   const labelEl = card?.querySelector<HTMLElement>('[data-role="state-label"]');
   if (wrap) wrap.dataset.tone = tone;
   if (iconEl) iconEl.textContent = icon;
-  if (labelEl) labelEl.textContent = label;
+  if (labelEl) labelEl.textContent = t(label);
 }
 
 export function setRotateIcon(cardId: string, degrees: number) {
@@ -174,7 +175,7 @@ export function setToggleState(cardId: string, on: boolean, onLabel: string, off
   if (!btn) return;
   btn.dataset.on = String(on);
   btn.setAttribute("aria-pressed", String(on));
-  btn.textContent = on ? onLabel : offLabel;
+  btn.textContent = t(on ? onLabel : offLabel);
 }
 
 /** Marks a card's metric values as live-announced (used only while the card is open in Focus mode). */

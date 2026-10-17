@@ -184,6 +184,32 @@ body {
   transform: scale(0.96);
 }
 
+/* Language picker — same chip look as .mode-btn */
+.lang-select {
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 11px;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.lang-select option {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Instrument visuals (axis bars, dials, level) are physical, so keep them left-to-right in RTL. */
+[dir="rtl"] .triaxis,
+[dir="rtl"] .compass-wrap,
+[dir="rtl"] .level-wrap,
+[dir="rtl"] .gauge {
+  direction: ltr;
+}
+
 .summary-bar {
   display: flex;
   flex-wrap: wrap;
@@ -379,16 +405,22 @@ body {
   font-family: var(--mono);
   font-size: 13px;
   color: var(--text);
-  text-align: right;
+  text-align: end;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* Numbers + units stay left-to-right even inside Hebrew/Arabic cards. */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+[dir="rtl"] .metric-row dd {
+  text-align: left;
 }
 .metric-row dd .unit {
   font-family: var(--sans);
   font-size: 10.5px;
   color: var(--text-faint);
-  margin-left: 3px;
+  margin-inline-start: 3px;
 }
 
 .card-note {
@@ -865,7 +897,7 @@ body[data-display="visual"] .section[data-toggleable] .visual-view {
 
 .skip-link {
   position: absolute;
-  left: 8px;
+  inset-inline-start: 8px;
   top: -48px;
   background: var(--accent);
   color: #05070c;
@@ -1051,7 +1083,7 @@ body[data-display="visual"] .section[data-toggleable] .visual-view {
 .focus-close {
   position: absolute;
   top: 24px;
-  right: 24px;
+  inset-inline-end: 24px;
   height: 36px;
   padding: 0 14px;
   border-radius: 10px;

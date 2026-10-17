@@ -1,4 +1,5 @@
 import { setCardAriaLive } from "./ui";
+import { t } from "./i18n";
 
 let overlay: HTMLElement | null = null;
 let placeholder: Comment | null = null;
@@ -33,8 +34,8 @@ function openFocus(card: HTMLElement) {
   const closeBtn = document.createElement("button");
   closeBtn.className = "focus-close";
   closeBtn.id = `focus-btn-return-${id}`;
-  closeBtn.textContent = "✕ Close";
-  closeBtn.setAttribute("aria-label", "Close expanded view");
+  closeBtn.textContent = t("✕ Close");
+  closeBtn.setAttribute("aria-label", t("Close expanded view"));
   closeBtn.addEventListener("click", closeFocus);
 
   overlay.appendChild(closeBtn);

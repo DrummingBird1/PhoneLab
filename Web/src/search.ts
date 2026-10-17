@@ -1,3 +1,5 @@
+import { tf } from "./i18n";
+
 export function initSearch() {
   const maybeInput = document.getElementById("card-search") as HTMLInputElement | null;
   const countEl = document.getElementById("search-count");
@@ -24,7 +26,7 @@ export function initSearch() {
       );
       section.classList.toggle("search-empty", !anyVisible && q !== "");
     });
-    if (countEl) countEl.textContent = q === "" ? "" : `${shown} of ${entries.length} sensors`;
+    if (countEl) countEl.textContent = q === "" ? "" : tf("{shown} of {total} sensors", { shown, total: entries.length });
   }
 
   input.addEventListener("input", apply);

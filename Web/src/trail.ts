@@ -1,3 +1,5 @@
+import { t } from "./i18n";
+
 /** Plots a GPS fix history to scale on a canvas — a local schematic path, not a map. No tiles are ever fetched. */
 export class Trail {
   private canvas: HTMLCanvasElement;
@@ -50,7 +52,7 @@ export class Trail {
       ctx.fillStyle = "rgba(154, 164, 194, 0.6)";
       ctx.font = "12px -apple-system, sans-serif";
       ctx.textAlign = "center";
-      ctx.fillText("Trail will appear as fixes come in", w / 2, h / 2);
+      ctx.fillText(t("Trail will appear as fixes come in"), w / 2, h / 2);
       return;
     }
 

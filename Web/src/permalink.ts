@@ -1,5 +1,6 @@
 import { readValue } from "./datalog";
 import { STATS } from "./sharecard";
+import { t, tf } from "./i18n";
 
 export interface SnapshotPayload {
   t: number;
@@ -35,7 +36,7 @@ export async function copyPermalink(): Promise<boolean> {
     return true;
   } catch {
     try {
-      window.prompt("Copy this link:", url);
+      window.prompt(t("Copy this link:"), url);
     } catch {
       // Some embedded/automated browser contexts disable window.prompt too — nothing more we can do.
     }
@@ -69,17 +70,17 @@ export function initPermalinkBanner() {
       const stat = labelFor(cardId, key);
       if (!stat) return "";
       const safeValue = escapeHtml(String(value ?? "")) || "—";
-      return `<div class="snapshot-row"><span>${stat.icon} ${stat.label}</span><b>${safeValue}${stat.unit ? ` ${stat.unit}` : ""}</b></div>`;
+      return `<div class="snapshot-row"><span>${stat.icon} ${t(stat.label)}</span><b>${safeValue}${stat.unit ? ` ${stat.unit}` : ""}</b></div>`;
     })
     .join("");
 
   banner.innerHTML = `
     <div class="snapshot-head">
-      <span>📎 Viewing a snapshot shared ${when}</span>
-      <button class="icon-btn" data-role="dismiss-snapshot" aria-label="Dismiss">✕</button>
+      <span>📎 ${tf("Viewing a snapshot shared {when}", { when: escapeHtml(when) })}</span>
+      <button class="icon-btn" data-role="dismiss-snapshot" aria-label="${t("Dismiss")}">✕</button>
     </div>
     <div class="snapshot-grid">${rows}</div>
-    <p class="snapshot-hint">The live cards below show <em>this</em> device, not the one that was shared.</p>
+    <p class="snapshot-hint">${t("The live cards below show this device, not the one that was shared.")}</p>
   `;
 
   document.getElementById("app")?.prepend(banner);

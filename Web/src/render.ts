@@ -1,3 +1,5 @@
+import { t, tf } from "./i18n";
+
 export type Status = "idle" | "waiting" | "live" | "permission" | "denied" | "unavailable" | "error";
 
 const STATUS_LABEL: Record<Status, string> = {
@@ -47,7 +49,7 @@ export interface SectionDef {
 
 function fieldRow(f: FieldDef): string {
   return `<div class="metric-row">
-    <dt>${f.label}</dt>
+    <dt>${t(f.label)}</dt>
     <dd data-field="${f.key}" aria-live="off">&mdash;${f.unit ? ` <span class="unit">${f.unit}</span>` : ""}</dd>
   </div>`;
 }
@@ -57,9 +59,9 @@ export function renderCard(def: CardDef): string {
   parts.push(`<article class="card" id="card-${def.id}" data-status="idle" data-card-id="${def.id}">`);
   parts.push(`<div class="card-head">
     <span class="card-icon" aria-hidden="true">${def.icon}</span>
-    <h3>${def.title}</h3>
-    <span class="status-pill" data-role="status" data-s="idle" role="status">Idle</span>
-    <button class="focus-btn" data-role="focus-btn" title="Expand this card" aria-label="Expand ${def.title}">&#10021;</button>
+    <h3>${t(def.title)}</h3>
+    <span class="status-pill" data-role="status" data-s="idle" role="status">${t("Idle")}</span>
+    <button class="focus-btn" data-role="focus-btn" title="${t("Expand this card")}" aria-label="${tf("Expand {title}", { title: t(def.title) })}">&#10021;</button>
   </div>`);
 
   if (def.compass) {
@@ -126,21 +128,21 @@ export function renderCard(def: CardDef): string {
 
   if (def.sparkline) {
     parts.push(
-      `<canvas class="sparkline" data-role="sparkline" role="img" aria-label="${def.title} history graph"></canvas>`
+      `<canvas class="sparkline" data-role="sparkline" role="img" aria-label="${tf("{title} history graph", { title: t(def.title) })}"></canvas>`
     );
   }
   if (def.trail) {
     parts.push(
-      `<canvas class="trail-canvas" data-role="trail" role="img" aria-label="${def.title} path trail"></canvas>`
+      `<canvas class="trail-canvas" data-role="trail" role="img" aria-label="${tf("{title} path trail", { title: t(def.title) })}"></canvas>`
     );
   }
   if (def.toggle) {
     parts.push(
-      `<button class="toggle-btn" data-role="toggle-btn" data-on="false" aria-pressed="false">${def.toggle.offLabel}</button>`
+      `<button class="toggle-btn" data-role="toggle-btn" data-on="false" aria-pressed="false">${t(def.toggle.offLabel)}</button>`
     );
   }
   if (def.note) {
-    parts.push(`<p class="card-note">${def.note}</p>`);
+    parts.push(`<p class="card-note">${t(def.note)}</p>`);
   }
   parts.push(`<div class="card-actions" data-role="actions"></div>`);
   parts.push(`</article>`);
@@ -150,14 +152,14 @@ export function renderCard(def: CardDef): string {
 export function renderSection(def: SectionDef): string {
   const gate = def.gateLabel
     ? `<div class="section-gate" id="gate-${def.id}" data-role="gate">
-        <span>${def.gateLabel}</span>
-        <button class="enable-btn" data-role="gate-btn">Enable</button>
+        <span>${t(def.gateLabel)}</span>
+        <button class="enable-btn" data-role="gate-btn">${t("Enable")}</button>
       </div>`
     : "";
   return `<section class="section" id="section-${def.id}"${def.toggleable ? ' data-toggleable="true"' : ""}>
     <div class="section-head">
-      <h2>${def.title}</h2>
-      <span class="section-desc">${def.desc}</span>
+      <h2>${t(def.title)}</h2>
+      <span class="section-desc">${t(def.desc)}</span>
     </div>
     ${gate}
     <div class="grid">${def.cards.map(renderCard).join("")}</div>

@@ -1,4 +1,5 @@
 import { readValue } from "./datalog";
+import { t } from "./i18n";
 
 export interface Stat {
   cardId: string;
@@ -72,7 +73,7 @@ export function exportShareCard() {
   ctx.fillText("SensoLab", 148, 84);
   ctx.fillStyle = "#6ee7ff";
   ctx.font = "600 22px -apple-system, 'Segoe UI', Arial, sans-serif";
-  ctx.fillText("Device Snapshot", 150, 122);
+  ctx.fillText(t("Device Snapshot"), 150, 122);
 
   ctx.textAlign = "right";
   ctx.fillStyle = "#5c6685";
@@ -111,7 +112,7 @@ export function exportShareCard() {
 
     ctx.font = "600 20px -apple-system, 'Segoe UI', Arial, sans-serif";
     ctx.fillStyle = "#9aa4c2";
-    ctx.fillText(stat.label.toUpperCase(), x + 26, y + 96);
+    ctx.fillText(t(stat.label).toUpperCase(), x + 26, y + 96);
 
     const value = readValue(stat.cardId, stat.key) || "—";
     ctx.font = "700 40px ui-monospace, Consolas, monospace";
@@ -130,7 +131,7 @@ export function exportShareCard() {
   ctx.textAlign = "center";
   ctx.fillStyle = "#5c6685";
   ctx.font = "500 20px -apple-system, 'Segoe UI', Arial, sans-serif";
-  ctx.fillText("sensolab-web.vercel.app · everything stays on your device", W / 2, Math.min(footerY, H - 40));
+  ctx.fillText(`sensolab-web.vercel.app · ${t("everything stays on your device")}`, W / 2, Math.min(footerY, H - 40));
 
   canvas.toBlob(async (blob) => {
     if (!blob) return;
@@ -140,7 +141,7 @@ export function exportShareCard() {
     const nav = navigator as any;
     if (nav.share && nav.canShare?.({ files: [file] })) {
       try {
-        await nav.share({ files: [file], title: "SensoLab snapshot" });
+        await nav.share({ files: [file], title: t("SensoLab snapshot") });
         return;
       } catch {
         // User cancelled the share sheet, or it failed — fall through to a plain download.
