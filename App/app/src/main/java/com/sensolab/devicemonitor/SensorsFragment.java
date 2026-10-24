@@ -510,6 +510,7 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
         @Override public void showIdle() {
             if (binding == null) return;
             binding.btnRecord.setText(R.string.rec_btn_start);
+            binding.tvRecordStatus.setText(R.string.rec_status_idle);
         }
         @Override public void showRecording(String elapsed, int samples) {
             if (binding == null || !isAdded()) return;

@@ -1,6 +1,7 @@
 package com.sensolab.devicemonitor;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -9,6 +10,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ServiceInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -23,6 +25,7 @@ import android.os.IBinder;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.IOException;
@@ -72,10 +75,14 @@ public class CsvRecordingService extends Service implements SensorEventListener,
     @Override public int onStartCommand(Intent intent, int flags, int startId) {
         if (intent != null && ACTION_STOP.equals(intent.getAction())) {
             doStop();
-            return START_NOT_STICKY;
+        } else if (recorder == null) {
+            beginRecording();
         }
-        if (recorder == null) beginRecording();
-        return START_STICKY;
+        // Not sticky: a recording can't survive its process (the open writer and its buffered
+        // rows die with it), so a sticky restart could only start a new CSV nobody asked for,
+        // from the background, where Android 12+ may refuse startForeground() and crash the
+        // app. Rows already flushed stay in the file; the Sensors tab comes back idle.
+        return START_NOT_STICKY;
     }
 
     @Nullable @Override public IBinder onBind(Intent intent) { return binder; }
@@ -101,10 +108,35 @@ public class CsvRecordingService extends Service implements SensorEventListener,
             stopSelf();
             return;
         }
+        active = true;
         startedAtMs = System.currentTimeMillis();
-        startForeground(NOTIFICATION_ID, buildNotification());
+        enterForeground();
         registerSensorsInternal();
         registerGpsInternal();
+    }
+
+    /** Android 10+ only delivers while-in-use location to a backgrounded app through a
+     *  foreground service of type location, so a dataSync-only service stops getting GPS
+     *  fixes as soon as the user leaves the app. Add the location type whenever GPS rows
+     *  will be recorded; without fine location, dataSync alone covers the sensors. */
+    @SuppressLint("InlinedApi") // ServiceCompat drops the type below API 29
+    private void enterForeground() {
+        Notification n = buildNotification();
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            try {
+                ServiceCompat.startForeground(this, NOTIFICATION_ID, n,
+                        ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC
+                                | ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION);
+                return;
+            } catch (SecurityException e) {
+                // Android 14+ refuses a location service while the app is in the background
+                // (e.g. a start redelivered after the process died). Fall back to dataSync and
+                // record without GPS.
+            }
+        }
+        ServiceCompat.startForeground(this, NOTIFICATION_ID, n,
+                ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC);
     }
 
     /** Stops recording, shares the file (matches the previous explicit-Stop behaviour),
@@ -122,6 +154,7 @@ public class CsvRecordingService extends Service implements SensorEventListener,
             lastFileName = recorder.file().getName();
             lastSampleCount = recorder.stopAndShare(this);
             recorder = null;
+            active = false;
         }
         stopForeground(true);
         stopSelf();
@@ -130,14 +163,21 @@ public class CsvRecordingService extends Service implements SensorEventListener,
     /** Called by the bound Fragment's Stop button. */
     public void stopRecording() { doStop(); }
 
-    public boolean isRecording()      { return recorder != null; }
     public int     getSampleCount()   { return recorder != null ? recorder.sampleCount() : 0; }
     public long    getStartedAtMs()   { return startedAtMs; }
-    /** Valid immediately after {@link #stopRecording()} returns (same-process binder call). */
-    public String  getLastFileName()   { return lastFileName; }
-    public int     getLastSampleCount(){ return lastSampleCount; }
-    private String lastFileName;
-    private int    lastSampleCount;
+
+    // Static so RecordingController can read them without a binding: a recording stopped from
+    // the notification or by onTimeout while the Sensors tab was away leaves no service to bind
+    // to. Process death clears them, which matches the service: nothing restarts a recording.
+    // Main thread only.
+    private static boolean active;
+    private static String  lastFileName;
+    private static int     lastSampleCount;
+
+    public static boolean isRecording()       { return active; }
+    /** The most recent recording saved in this process; set before {@link #stopRecording()} returns. */
+    public static String  getLastFileName()   { return lastFileName; }
+    public static int     getLastSampleCount(){ return lastSampleCount; }
 
     /** Forwarded by SensorsFragment for the trigger sensors it owns (see class doc). */
     public void appendTrigger(String sensorName, long timestampNs) {
