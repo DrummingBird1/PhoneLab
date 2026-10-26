@@ -106,3 +106,9 @@ PhoneLab/
 ## License
 
 PhoneLab is free software, licensed under the **[GNU General Public License v3.0](LICENSE)** (GPL-3.0-only). You may use, study, share and modify it; distributed modified versions must stay under the same license with their source available.
+
+## Support
+
+If this project is useful to you, you can support its development:
+
+[Ko-fi](https://ko-fi.com/idanlights) · [Buy Me a Coffee](https://buymeacoffee.com/MrIdan) · [Patreon](https://www.patreon.com/c/IdanLights)
