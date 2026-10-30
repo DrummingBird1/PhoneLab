@@ -1,0 +1,7 @@
+• El ritmo cardíaco funciona en Android 16
+• Las grabaciones CSV siguen registrando el GPS mientras usas otras apps
+• Una grabación ya no se reinicia sola cuando el sistema cierra la app
+• Tamaños de almacenamiento más claros (MB por debajo de 1 GB) y títulos de tarjeta más cortos
+• Los sensores que aún no informan muestran «Esperando…»
+• Menos uso de CPU en la pestaña Sensores
+• Corregidas lecturas poco realistas de capacidad de batería y frecuencia máxima de CPU

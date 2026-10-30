@@ -120,7 +120,7 @@ Vite + TypeScript, no runtime dependencies, PWA. `pnpm run build | test | lint`.
 
 ## Versioning
 
-`app/build.gradle` is the source of truth: `versionCode 4`, `versionName "1.3.0"` (current). Releases so far, all as GitHub Releases with an APK: v1.0.0 → v1.1.0 (code 2) → v1.2.0 (code 3) → v1.3.0 (code 4; first GPL / `foss`-flavor release, published as a pre-release until QA'd). Nothing is on Google Play yet. Developer changelogs live in `Assets/dev-docs/`; each release also needs `fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt` (≤ 500 chars, all four locales) because F-Droid / IzzyOnDroid read them.
+`app/build.gradle` is the source of truth: `versionCode 5`, `versionName "1.3.1"` (current; not released yet, meant as the first Google Play build). Releases so far, all as GitHub Releases with an APK: v1.0.0 → v1.1.0 (code 2) → v1.2.0 (code 3) → v1.3.0 (code 4; first GPL / `foss`-flavor release, published as a pre-release until QA'd). Nothing is on Google Play yet. Developer changelogs live in `Assets/dev-docs/`; each release also needs `fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt` (≤ 500 chars, all four locales) because F-Droid / IzzyOnDroid read them.
 
 **Cutting a release:** bump `versionCode` + `versionName`, add the changelogs, then `.\gradlew assembleFossRelease bundlePlayRelease`; tag `v<x.y.z>` and create a GitHub release with the foss APK attached as `PhoneLab-v<x.y.z>.apk` (that name is what IzzyOnDroid / Obtainium pick up). Google Play: `.\gradlew publishPlayReleaseBundle` (or the manual *Android Release* workflow). If the screenshots change, run `uv run Distribution/derive_screenshots.py`. See `Distribution/stores/README.md` (status table — keep it current) and `Distribution/play/README.md`.
 
