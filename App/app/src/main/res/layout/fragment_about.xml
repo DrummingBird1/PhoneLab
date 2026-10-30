@@ -68,13 +68,6 @@
             android:layout_marginTop="12dp"
             android:text="@string/about_btn_rate" />
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_donate"
-            style="@style/Widget.Material3.Button.TonalButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/about_btn_donate"
-            app:icon="@drawable/ic_heart" />
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_share"
             style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="match_parent"

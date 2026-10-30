@@ -19,7 +19,6 @@
     <string name="about_title">About PhoneLab</string>
     <string name="about_body">PhoneLab gives you full real-time visibility into your device\'s hardware.\n\n✅  Live readings from every hardware sensor, with gauges\n✅  8 thermal zones, battery health and charging power\n✅  Device check: touch, display, speaker, mic and more, with a shareable report\n✅  Tools: bubble level, compass calibration, metal detector, vibration analyzer\n✅  Custom alerts when a reading crosses your threshold\n✅  Benchmark, spec export (text / JSON) and sensor recording (CSV)\n✅  Home-screen widget, Quick Settings tile, Material You colors\n✅  Your sensor data never leaves your device</string>
     <string name="about_btn_rate">Rate on Google Play</string>
-    <string name="about_btn_donate">Support development (tip)</string>
     <string name="about_btn_share">Share with friends</string>
     <string name="about_btn_web">PhoneLab Web (browser version)</string>
     <string name="about_web_url" translatable="false">https://sensolab-web.vercel.app</string>
@@ -38,11 +37,6 @@
     <string name="about_no_email_app">No email app found</string>
     <string name="about_btn_privacy">Privacy policy</string>
 
-    <!-- ════ Tip jar (Google Play Billing) ════ -->
-    <string name="tip_dialog_title">Leave a tip</string>
-    <string name="tip_unavailable">Tips aren\'t available right now — they need the Google Play version of the app.</string>
-    <string name="tip_thanks">Thank you for supporting PhoneLab! ❤️</string>
-    <string name="tip_pending">Payment pending — it completes once Google Play confirms it. Thank you!</string>
 
     <!-- ════ Settings screen ════ -->
     <string name="settings_title">Settings</string>

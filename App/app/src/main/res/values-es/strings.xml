@@ -16,7 +16,6 @@
     <string name="about_title">Acerca de PhoneLab</string>
     <string name="about_body">PhoneLab te ofrece visibilidad completa en tiempo real del hardware de tu dispositivo.\n\n✅  Lecturas en vivo de todos los sensores, con indicadores\n✅  8 zonas térmicas, salud de la batería y potencia de carga\n✅  Revisión del dispositivo: pantalla táctil, pantalla, altavoz, micrófono y más, con un informe para compartir\n✅  Herramientas: nivel de burbuja, calibración de brújula, detector de metales, analizador de vibraciones\n✅  Alertas personalizadas cuando una lectura cruza tu umbral\n✅  Benchmark, exportación de especificaciones (texto / JSON) y grabación de sensores (CSV)\n✅  Widget, mosaico de Ajustes rápidos y colores Material You\n✅  Tus datos de sensores nunca salen de tu dispositivo</string>
     <string name="about_btn_rate">Valorar en Google Play</string>
-    <string name="about_btn_donate">Apoyar el desarrollo (propina)</string>
     <string name="about_btn_share">Compartir con amigos</string>
     <string name="about_btn_source">Código fuente (GitHub)</string>
     <string name="about_share_body_foss">¡Prueba PhoneLab, un monitor de sensores gratuito y de código abierto para Android!\n%1$s</string>
@@ -308,14 +307,10 @@
     <!-- ════ Formatos de contadores ════ -->
     <string name="step_counter_format">Sesión:%1$d  Total dispositivo:%2$,d</string>
 
-    <!-- ════ v1.3: tools, device check, alerts, battery health, tip jar ════ -->
+    <!-- ════ v1.3: tools, device check, alerts, battery health ════ -->
     <string name="tab_tools">Herramientas</string>
     <string name="tab_diagnostics">Revisión</string>
     <string name="about_btn_web">PhoneLab Web (versión para navegador)</string>
-    <string name="tip_dialog_title">Deja una propina</string>
-    <string name="tip_unavailable">Las propinas no están disponibles ahora — requieren la versión de Google Play de la app.</string>
-    <string name="tip_thanks">¡Gracias por apoyar PhoneLab! ❤️</string>
-    <string name="tip_pending">Pago pendiente — se completará cuando Google Play lo confirme. ¡Gracias!</string>
     <string name="settings_dynamic_color">Usar los colores del fondo de pantalla (Material You)</string>
     <string name="settings_app_language">Idioma de la app</string>
     <string name="settings_section_alerts">Alertas de sensores personalizadas</string>
