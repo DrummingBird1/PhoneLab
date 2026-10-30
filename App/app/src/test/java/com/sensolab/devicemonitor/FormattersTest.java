@@ -58,4 +58,18 @@ public class FormattersTest {
     @Test public void history_maxOne() {
         assertEquals("new", Formatters.historyPrepend("old", "new", 1));
     }
+
+    // ── gigabytes() / byteSize() ──────────────────────────────────────────
+    private static final long MB = 1024L * 1024, GB = MB * 1024;
+
+    @Test public void gb_oneDecimalBelowTen()  { assertEquals("0.6", Formatters.gigabytes(600 * MB)); }
+    @Test public void gb_smallTotal()          { assertEquals("5.8", Formatters.gigabytes(5 * GB + 820 * MB)); }
+    @Test public void gb_wholeFromTen()        { assertEquals("119", Formatters.gigabytes(119 * GB + 200 * MB)); }
+    @Test public void size_megabytesBelowOneGb() {
+        // The emulator's nearly full disk used to read "0 GB free"
+        assertEquals("420 MB", Formatters.byteSize(420 * MB));
+    }
+    @Test public void size_zero()              { assertEquals("0 MB", Formatters.byteSize(0)); }
+    @Test public void size_gigabytes()         { assertEquals("4.6 GB", Formatters.byteSize(4 * GB + 615 * MB)); }
+    @Test public void size_largeGigabytes()    { assertEquals("231 GB", Formatters.byteSize(231 * GB)); }
 }

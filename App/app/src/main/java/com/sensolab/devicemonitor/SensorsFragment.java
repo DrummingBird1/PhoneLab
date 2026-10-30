@@ -14,7 +14,9 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.Settings;
+import android.util.SparseLongArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +44,11 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
     /** Sensor.TYPE_TILT_DETECTOR has no public constant; 22 is the framework value. */
     private static final int TYPE_TILT_DETECTOR = 22;
 
+    /** Refresh floor for continuous sensors (= SENSOR_DELAY_UI). The requested rate is only a
+     *  hint: while the fusion service or another app uses a sensor it arrives at 50–100 Hz, and
+     *  re-formatting a dozen cards that often burns CPU on text nobody can read. */
+    private static final long MIN_UI_INTERVAL_MS = 66;
+
     private FragmentSensorsBinding binding;
     private SensorsViewModel vm;
     private SensorManager sm;
@@ -49,6 +56,11 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
     private SoundMeter soundMeter;
     private GpsTracker gpsTracker;
     private RecordingController recording;
+    /** True from onCreateView until the first registerSensors(): available sensors then show
+     *  "Waiting…" until their first event instead of a bare dash (e.g. fusion sensors that a
+     *  driver never starts look broken otherwise). */
+    private boolean awaitingFirstEvents;
+    private final SparseLongArray lastUiUpdateMs = new SparseLongArray();
 
     // Contextual permission requests — registered in onCreate() per the Fragment
     // lifecycle contract. Each re-attempts the gated feature on grant, or offers a
@@ -79,6 +91,8 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
     @Nullable @Override
     public View onCreateView(@NonNull LayoutInflater inf, @Nullable ViewGroup container, @Nullable Bundle state) {
         binding = FragmentSensorsBinding.inflate(inf, container, false);
+        awaitingFirstEvents = true;
+        lastUiUpdateMs.clear();
         bindModeLayouts(binding.layoutTextual, binding.layoutVisual);
         Context ctx = requireContext();
         sm = (SensorManager) ctx.getSystemService(Context.SENSOR_SERVICE);
@@ -184,12 +198,14 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
         armTrigger(sMotion,     motionListener,     binding.cardMotionDetect);
         armTrigger(sSignMotion, sigMotListener,     binding.cardSigMotion);
         showCounters();
+        awaitingFirstEvents = false;
     }
 
     private void reg(int type, int delay, SensorCardView card, @Nullable GaugeCardView gauge) {
         Sensor s = sm.getDefaultSensor(type);
         if (s != null) {
             sm.registerListener(this, s, delay);
+            if (awaitingFirstEvents) showWaiting(card, gauge);
         } else {
             String na = getString(R.string.status_not_available);
             card.setStatus(na);
@@ -207,16 +223,24 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
             return;
         }
         if (hasPermission(permission)) {
+            boolean wasAskingForPermission = card.isClickable();
             card.setOnClickListener(null);
             card.setClickable(false);
             if (gauge != null) { gauge.setOnClickListener(null); gauge.setClickable(false); }
             sm.registerListener(this, s, SensorManager.SENSOR_DELAY_NORMAL);
+            if (awaitingFirstEvents || wasAskingForPermission) showWaiting(card, gauge);
         } else {
             View.OnClickListener ask = v -> requestPermission(launcher, permission, rationaleRes);
             String msg = getString(R.string.status_tap_to_grant);
             card.setActionStatus(msg, ask);
             if (gauge != null) gauge.setActionStatus(msg, ask);
         }
+    }
+
+    private void showWaiting(SensorCardView card, @Nullable GaugeCardView gauge) {
+        String waiting = getString(R.string.status_waiting);
+        card.setStatus(waiting);
+        if (gauge != null) gauge.setUnavailable(waiting);
     }
 
     private void armTrigger(@Nullable Sensor s, TriggerEventListener l, SensorCardView card) {
@@ -276,6 +300,14 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
     public void onSensorChanged(SensorEvent ev) {
         // Z2: some OEM drivers occasionally deliver null/empty arrays
         if (binding == null || ev == null || ev.values == null || ev.values.length == 0) return;
+        // On-change and trigger sensors (proximity, steps, tilt) are never skipped: their last
+        // event is the state, and the counters must see every one.
+        if (ev.sensor.getReportingMode() == Sensor.REPORTING_MODE_CONTINUOUS) {
+            long now = SystemClock.uptimeMillis();
+            int type = ev.sensor.getType();
+            if (now - lastUiUpdateMs.get(type) < MIN_UI_INTERVAL_MS) return;
+            lastUiUpdateMs.put(type, now);
+        }
         Context c = requireContext();
         float[] v = ev.values;
         switch (ev.sensor.getType()) {
@@ -338,7 +370,7 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
                 show(binding.cardRotation, SensorReadouts.rotation(v, null));
                 break;
             case Sensor.TYPE_GAME_ROTATION_VECTOR:
-                show(binding.cardGameRotation, SensorReadouts.rotation(v, null));
+                show(binding.cardGameRotation, SensorReadouts.rotation(v, getString(R.string.game_rotation_detail)));
                 break;
             case Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR:
                 show(binding.cardGeomagRotation, SensorReadouts.rotation(v, getString(R.string.geomag_detail)));

@@ -136,6 +136,9 @@
     <string name="cd_app_icon">PhoneLab app icon</string>
     <string name="gauge_tilt_title">Tilt</string>
     <string name="geomag_detail">No gyroscope — lower battery use</string>
+    <string name="linear_accel_detail">Gravity removed</string>
+    <string name="game_rotation_detail">No magnetometer — relative heading</string>
+    <string name="sound_uncalibrated_note">Uncalibrated estimate</string>
     <string name="steps_this_session">this session</string>
     <string name="trigger_events_detected">events detected</string>
 
@@ -164,9 +167,9 @@
     <string name="sensor_light">Light Sensor</string>
     <string name="sensor_barometer">Barometer</string>
     <string name="sensor_gravity">Gravity Vector</string>
-    <string name="sensor_linear_accel">Linear Accel (no gravity)</string>
+    <string name="sensor_linear_accel">Linear Accel</string>
     <string name="sensor_rotation_vector">Rotation Vector</string>
-    <string name="sensor_game_rotation">Game Rotation (no mag)</string>
+    <string name="sensor_game_rotation">Game Rotation</string>
     <string name="sensor_step_detector">Step Detector</string>
     <string name="sensor_step_counter">Step Counter</string>
     <string name="sensor_tilt_detector">Tilt Detector</string>
@@ -174,7 +177,7 @@
     <string name="sensor_humidity">Humidity</string>
     <string name="sensor_ambient_temp">Ambient Temp</string>
     <string name="sensor_heart_rate">Heart Rate</string>
-    <string name="sensor_sound_level">Sound Level (uncalibrated)</string>
+    <string name="sensor_sound_level">Sound Level</string>
     <string name="sensor_gps_speed">GPS Speed</string>
     <string name="sensor_gps_altitude">GPS Altitude</string>
     <string name="sensor_compass_label">Compass</string>
@@ -309,6 +312,8 @@
     <string name="spec_abi_title" translatable="false">ABI</string>
     <string name="spec_cores">%1$d cores</string>
     <string name="spec_cores_unit">cores</string>
+    <string name="spec_free_pct">%1$s free · %2$s</string>
+    <string name="spec_free_of">%1$s free / %2$s</string>
 
     <!-- ════ Charging plug types ════ -->
     <string name="charge_usb">USB</string>

@@ -101,9 +101,9 @@
     <string name="sensor_light">Sensor de luz</string>
     <string name="sensor_barometer">Barómetro</string>
     <string name="sensor_gravity">Vector de gravedad</string>
-    <string name="sensor_linear_accel">Aceleración lineal (sin gravedad)</string>
+    <string name="sensor_linear_accel">Aceleración lineal</string>
     <string name="sensor_rotation_vector">Vector de rotación</string>
-    <string name="sensor_game_rotation">Rotación de juego (sin mag.)</string>
+    <string name="sensor_game_rotation">Rotación de juego</string>
     <string name="sensor_step_detector">Detector de pasos</string>
     <string name="sensor_step_counter">Contador de pasos</string>
     <string name="sensor_tilt_detector">Detector de inclinación</string>
@@ -111,7 +111,7 @@
     <string name="sensor_humidity">Humedad</string>
     <string name="sensor_ambient_temp">Temp. ambiente</string>
     <string name="sensor_heart_rate">Ritmo cardíaco</string>
-    <string name="sensor_sound_level">Nivel de sonido (sin calibrar)</string>
+    <string name="sensor_sound_level">Nivel de sonido</string>
     <string name="sensor_gps_speed">Velocidad GPS</string>
     <string name="sensor_gps_altitude">Altitud GPS</string>
     <string name="sensor_compass_label">Brújula</string>
@@ -361,6 +361,9 @@
     <string name="sensors_section_location">Ubicación</string>
     <string name="gauge_tilt_title">Inclinación</string>
     <string name="geomag_detail">Sin giroscopio — menor consumo de batería</string>
+    <string name="linear_accel_detail">Sin gravedad</string>
+    <string name="game_rotation_detail">Sin magnetómetro — rumbo relativo</string>
+    <string name="sound_uncalibrated_note">Estimación sin calibrar</string>
     <string name="steps_this_session">en esta sesión</string>
     <string name="trigger_events_detected">eventos detectados</string>
     <string name="status_tap_to_grant">Se necesita permiso — toca para concederlo</string>
@@ -372,6 +375,8 @@
     <string name="shortcut_tools_long">Herramientas de sensores</string>
     <string name="spec_gpu">GPU</string>
     <string name="spec_cores_unit">núcleos</string>
+    <string name="spec_free_pct">%1$s libres · %2$s</string>
+    <string name="spec_free_of">%1$s libres de %2$s</string>
     <string name="hw_cpu_peak">Núcleo más rápido ahora</string>
     <string name="hw_batt_health">Salud</string>
     <string name="hw_batt_power">Potencia</string>

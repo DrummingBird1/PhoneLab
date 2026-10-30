@@ -101,9 +101,9 @@
     <string name="sensor_light">مستشعر الإضاءة</string>
     <string name="sensor_barometer">مقياس الضغط الجوي</string>
     <string name="sensor_gravity">متجه الجاذبية</string>
-    <string name="sensor_linear_accel">تسارع خطي (بدون جاذبية)</string>
+    <string name="sensor_linear_accel">تسارع خطي</string>
     <string name="sensor_rotation_vector">متجه الدوران</string>
-    <string name="sensor_game_rotation">دوران اللعبة (بدون مغناطيسية)</string>
+    <string name="sensor_game_rotation">دوران اللعبة</string>
     <string name="sensor_step_detector">كاشف الخطوات</string>
     <string name="sensor_step_counter">عداد الخطوات</string>
     <string name="sensor_tilt_detector">كاشف الإمالة</string>
@@ -111,7 +111,7 @@
     <string name="sensor_humidity">الرطوبة</string>
     <string name="sensor_ambient_temp">درجة الحرارة المحيطة</string>
     <string name="sensor_heart_rate">معدل نبضات القلب</string>
-    <string name="sensor_sound_level">مستوى الصوت (غير معاير)</string>
+    <string name="sensor_sound_level">مستوى الصوت</string>
     <string name="sensor_gps_speed">سرعة GPS</string>
     <string name="sensor_gps_altitude">ارتفاع GPS</string>
     <string name="sensor_compass_label">البوصلة</string>
@@ -361,6 +361,9 @@
     <string name="sensors_section_location">الموقع</string>
     <string name="gauge_tilt_title">الميل</string>
     <string name="geomag_detail">بدون جيروسكوب — استهلاك أقل للبطارية</string>
+    <string name="linear_accel_detail">بدون جاذبية</string>
+    <string name="game_rotation_detail">بدون مغناطيسية — اتجاه نسبي</string>
+    <string name="sound_uncalibrated_note">تقدير غير معاير</string>
     <string name="steps_this_session">في هذه الجلسة</string>
     <string name="trigger_events_detected">أحداث مكتشفة</string>
     <string name="status_tap_to_grant">يلزم إذن — انقر للمنح</string>
@@ -372,6 +375,8 @@
     <string name="shortcut_tools_long">أدوات المستشعرات</string>
     <string name="spec_gpu">GPU</string>
     <string name="spec_cores_unit">نوى</string>
+    <string name="spec_free_pct">%1$s متاحة · %2$s</string>
+    <string name="spec_free_of">%1$s متاحة من %2$s</string>
     <string name="hw_cpu_peak">أسرع نواة الآن</string>
     <string name="hw_batt_health">الصحة</string>
     <string name="hw_batt_power">القدرة</string>

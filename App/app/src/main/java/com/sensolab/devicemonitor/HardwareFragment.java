@@ -117,12 +117,11 @@ public class HardwareFragment extends Fragment {
         }
         if (Float.isNaN(w)) binding.cardBattPower.setStatus(getString(R.string.status_na));
         else binding.cardBattPower.setReading(String.format(Locale.US, "%.1f", w), "W",
-                (b.isCharging() ? getString(R.string.batt_status_charging) : getString(R.string.batt_status_discharging))
-                        + "\n" + power);
+                getString(b.statusLabel()) + "\n" + power);
 
         int est = b.estimatedFullCapacityMah();
         StringBuilder cap = new StringBuilder();
-        if (b.chargeCounterMah > 0) cap.append(getString(R.string.hw_batt_remaining_fmt, b.chargeCounterMah));
+        if (b.isChargeCounterPlausible()) cap.append(getString(R.string.hw_batt_remaining_fmt, b.chargeCounterMah));
         if (b.energyMwh > 0) {
             if (cap.length() > 0) cap.append("\n");
             cap.append(String.format(Locale.US, "%d mWh", b.energyMwh));
@@ -179,7 +178,8 @@ public class HardwareFragment extends Fragment {
             if (f.cur[i] > 0) {
                 peak = Math.max(peak, f.cur[i]);
                 sb.append(String.format(Locale.US, "%.2f GHz", f.cur[i] / 1_000_000.0));
-                if (f.max[i] > 0) sb.append(String.format(Locale.US, " / %.2f", f.max[i] / 1_000_000.0));
+                // A "max" below the current clock is a bogus driver value (the emulator reports 2 kHz).
+                if (f.max[i] >= f.cur[i]) sb.append(String.format(Locale.US, " / %.2f", f.max[i] / 1_000_000.0));
             } else {
                 sb.append("—");
             }

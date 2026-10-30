@@ -273,21 +273,20 @@ public class SystemFragment extends ModeAwareFragment {
         int ramPct = (int) ((tMB - fMB) * 100 / Math.max(tMB, 1));
         cachedRam = tMB + " MB total | " + fMB + " MB free | " + ramPct + "% used";
         binding.cardRam.setReading(String.format(Locale.US, "%.1f", tMB / 1024f), "GB",
-                String.format(Locale.US, "%d MB free · %d%%", fMB, ramPct));
+                getString(R.string.spec_free_pct, fMB + " MB", ramPct + "%"));
         binding.gaugeRam.setReading(ramPct, ramPct + "%", null,
-                String.format(Locale.US, "%d MB free / %d MB", fMB, tMB));
+                getString(R.string.spec_free_of, fMB + " MB", tMB + " MB"));
 
         try {
             StatFs sf = new StatFs(Environment.getDataDirectory().getPath());
             long tB = sf.getBlockCountLong() * sf.getBlockSizeLong();
             long fB = sf.getAvailableBlocksLong() * sf.getBlockSizeLong();
-            long tG = tB / (1024L * 1024 * 1024), fG = fB / (1024L * 1024 * 1024);
+            String total = Formatters.byteSize(tB), free = Formatters.byteSize(fB);
             int sp = (int) ((tB - fB) * 100 / Math.max(tB, 1));
-            cachedStorage = tG + " GB total | " + fG + " GB free | " + sp + "% used";
-            binding.cardStorage.setReading(String.valueOf(tG), "GB",
-                    String.format(Locale.US, "%d GB free · %d%%", fG, sp));
-            binding.gaugeStorage.setReading(sp, sp + "%", null,
-                    String.format(Locale.US, "%d GB free / %d GB", fG, tG));
+            cachedStorage = total + " total | " + free + " free | " + sp + "% used";
+            binding.cardStorage.setReading(Formatters.gigabytes(tB), "GB",
+                    getString(R.string.spec_free_pct, free, sp + "%"));
+            binding.gaugeStorage.setReading(sp, sp + "%", null, getString(R.string.spec_free_of, free, total));
         } catch (Exception e) {
             binding.cardStorage.setStatus(getString(R.string.status_na));
         }

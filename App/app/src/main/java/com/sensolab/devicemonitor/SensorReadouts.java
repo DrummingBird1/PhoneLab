@@ -28,8 +28,17 @@ public final class SensorReadouts {
 
     static float mag3(float x, float y, float z) { return (float) Math.sqrt(x * x + y * y + z * z); }
 
+    /** No-break space: keeps an axis label with its value and a value with its unit, so a
+     *  narrow card wraps between axes instead of leaving "Z" or "m/" dangling. */
+    private static final String NBSP = "\u00A0";
+
     static String xyz(float[] v, String fmt) {
-        return f("X " + fmt + "  Y " + fmt + "  Z " + fmt, v[0], v[1], v[2]);
+        return f("X" + NBSP + fmt + "  Y" + NBSP + fmt + "  Z" + NBSP + fmt, v[0], v[1], v[2]);
+    }
+
+    /** Unit glued to the value before it; word joiners stop "m/s²" breaking at the slash. */
+    static String unitSuffix(String unit) {
+        return NBSP + unit.replace("/", "\u2060/\u2060");
     }
 
     public static Readout accelerometer(Context c, float[] v) {
@@ -50,7 +59,7 @@ public final class SensorReadouts {
         int sRes = dps < 1   ? R.string.state_still  :
                    dps < 30  ? R.string.state_slow   :
                    dps < 120 ? R.string.state_medium : R.string.state_fast_plain;
-        return new Readout(f("%.0f", dps), "°/s", xyz(v, "%+.3f") + " rad/s", c.getString(sRes), dps);
+        return new Readout(f("%.0f", dps), "°/s", xyz(v, "%+.3f") + unitSuffix("rad/s"), c.getString(sRes), dps);
     }
 
     public static Readout linearAccel(Context c, float[] v) {
@@ -58,7 +67,8 @@ public final class SensorReadouts {
         int sRes = mag < 0.05f ? R.string.state_still  :
                    mag < 1f    ? R.string.state_slight :
                    mag < 5f    ? R.string.state_moving : R.string.state_fast;
-        return new Readout(f("%.2f", mag), "m/s²", xyz(v, "%+.2f"), c.getString(sRes), mag);
+        return new Readout(f("%.2f", mag), "m/s²", xyz(v, "%+.2f") + "\n" + c.getString(R.string.linear_accel_detail),
+                c.getString(sRes), mag);
     }
 
     public static Readout gravity(Context c, float[] v) {
@@ -67,7 +77,7 @@ public final class SensorReadouts {
         int oRes = tilt < 8  ? R.string.orient_flat     :
                    tilt < 45 ? R.string.orient_tilted   :
                    tilt < 80 ? R.string.orient_standing : R.string.orient_sideways;
-        return new Readout(f("%.0f", tilt), "°", xyz(v, "%+.2f") + " m/s²", c.getString(oRes), tilt);
+        return new Readout(f("%.0f", tilt), "°", xyz(v, "%+.2f") + unitSuffix("m/s²"), c.getString(oRes), tilt);
     }
 
     /** values[0-2] = raw rate, values[3-5] = drift estimate. Null when the driver sends fewer than 6. */
@@ -190,7 +200,7 @@ public final class SensorReadouts {
                        db < 70 ? R.string.sound_normal :
                        db < 85 ? R.string.sound_loud   : R.string.sound_very_loud;
         String noise = c.getString(noiseRes);
-        return new Readout(f("%.0f", db), "dB", noise, noise, (float) db);
+        return new Readout(f("%.0f", db), "dB", c.getString(R.string.sound_uncalibrated_note), noise, (float) db);
     }
 
     /** B6: "--" when speed is unknown instead of a misleading 0. Gauge is km/h. */
