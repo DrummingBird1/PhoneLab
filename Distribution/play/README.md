@@ -33,8 +33,8 @@ browser.
    Signing with a Google-generated app signing key (the default), upload the AAB, then
    upload `mapping.txt` from the release's app bundle details page. Add yourself to the
    testers list and roll out.
-   The release uses versionCode 4, so the next upload (CI or local) needs a higher
-   `versionCode`.
+   Play keeps that release's `versionCode` (5 for v1.3.1), so every later upload (CI or
+   local) needs a higher one.
 
 ## 2. Check the upload key
 

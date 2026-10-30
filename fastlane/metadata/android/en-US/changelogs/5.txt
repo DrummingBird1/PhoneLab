@@ -1,0 +1,7 @@
+• Heart rate works on Android 16
+• CSV recordings keep logging GPS while you use other apps
+• A recording no longer restarts by itself after the system closes the app
+• Clearer storage sizes (MB below 1 GB) and shorter card titles
+• Sensors that haven't reported yet show "Waiting…"
+• Lower CPU use on the Sensors tab
+• Fixes for implausible battery-capacity and CPU max-frequency readings
