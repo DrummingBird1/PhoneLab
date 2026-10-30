@@ -2,8 +2,8 @@
 
 Google Play (the `play` flavor) has its own guide: [`../play/README.md`](../play/README.md).
 
-Everything outside Google Play ships the **`foss` flavor**: no Play Billing, no tip jar,
-no `INTERNET` permission. Build it with:
+Everything outside Google Play ships the **`foss` flavor**: no proprietary libraries and
+no `INTERNET` permission (the `play` build is the same app plus a Rate button). Build it with:
 
 ```powershell
 cd App

@@ -1,6 +1,6 @@
 # Publishing PhoneLab on Google Play
 
-Google Play gets the **`play` flavor** (Play Billing tip jar). Uploads go through
+Google Play gets the **`play` flavor** (the same app plus a Rate button; no in-app purchases). Uploads go through
 [Gradle Play Publisher](https://github.com/Triple-T/gradle-play-publisher) (GPP): always to
 the **internal** testing track, always as a **DRAFT** that you roll out or promote in Play
 Console. Store-listing answers that GPP can't upload are in
@@ -120,52 +120,22 @@ repository secret**. Delete the downloaded JSON once it's stored in both places.
 run a closed test with at least 12 opted-in testers for 14 days in a row. Internal testing
 doesn't count toward this.
 
-## 6. Tip-jar products (`tip_small`, `tip_medium`, `tip_large`)
+## 6. No in-app purchases, and what Play shows about you
 
-`TipJar` (`App/app/src/play/`) queries these three IDs as one-time (`INAPP`) products, shows
-each product's **name** with its price, and **consumes** every purchase right after it
-completes. Consumable vs. non-consumable is decided by the app, not by Play Console, so a tip
-can be bought again.
+PhoneLab has no in-app purchases and no ads (the Play Billing tip jar was removed in v1.3.1),
+so:
 
-Before you start: a **payments profile** must be linked to the developer account
-(Settings → Payments profile), and a build with Play Billing must have been uploaded to
-a track (step 1 does that).
+- **No payments profile** needs to be linked to the developer account. Play shows the full
+  address from the payments profile on the listing of any developer who sells something;
+  without one, that doesn't apply.
+- **EU trader status:** Play Console asks every developer to declare it under the EU Digital
+  Services Act. A free app with no ads and no purchases is what a *non-trader* declaration is
+  for. A trader's name, address, phone and email are shown to EU users. The declaration is your
+  own legal statement, so you decide.
+- **Shown publicly anyway:** the developer name and the store-listing contact email (required).
+  Use an address made for the app rather than a personal one. Phone and website are optional.
+  Play Console's *Developer profile* page previews everything that can appear on Google Play.
 
-Repeat for each product:
-
-1. **Monetize with Play → Products → One-time products → Create one-time product.**
-2. **Product ID**: `tip_small` (then `tip_medium`, `tip_large`). It must match exactly, can't be changed
-   later, and can't be reused after deletion.
-3. **Name** and **Description** (the name is what the tip dialog lists):
-
-   | ID | Name | Suggested price (USD) |
-   |---|---|---|
-   | `tip_small` | Small tip | 0.99 |
-   | `tip_medium` | Medium tip | 2.99 |
-   | `tip_large` | Large tip | 4.99 |
-
-   Description for all three: *A thank-you to the developer. Unlocks nothing — every
-   feature stays free.*
-4. **Tax, compliance, and programs**: keep the defaults. **Next.**
-5. **Purchase option**: ID `buy`, purchase type **Buy**. No rent, pre-order, discount or
-   quantity options. The first Buy option is automatically *backwards compatible*, and
-   that's the offer `TipJar` reads (`getOneTimePurchaseOfferDetails()`).
-6. **Availability and pricing**: keep all regions. **Set prices → Bulk edit pricing →**
-   select all regions → **Continue** → enter the USD price → **Apply** (Play converts it per
-   country) → **Continue**.
-7. **Activate.**
-8. Add translations of the name and description in the product's details so the dialog
-   matches the app language (otherwise the English name shows):
-
-   | | Hebrew (iw-IL) | Spanish (es-ES, es-419) | Arabic (ar) |
-   |---|---|---|---|
-   | Small | טיפ קטן | Propina pequeña | إكرامية صغيرة |
-   | Medium | טיפ בינוני | Propina mediana | إكرامية متوسطة |
-   | Large | טיפ גדול | Propina grande | إكرامية كبيرة |
-   | Description | תודה למפתח. לא פותח שום דבר — כל התכונות נשארות חינמיות. | Un agradecimiento al desarrollador. No desbloquea nada: todas las funciones siguen siendo gratis. | شكر للمطوّر. لا يفتح أي ميزة — كل الميزات تبقى مجانية. |
-
-**Testing a tip:** add your Google account under **Settings → License testing**. License
-testers get test payment methods and aren't charged. Install the app from the internal-testing
-opt-in link with that account and tap *Support development (tip)* on the About tab. Debug
-builds (`com.sensolab.devicemonitor.debug`) can't reach the products and say "Tips aren't
-available"; the foss build has no tip button at all.
+If in-app purchases or ads ever come back, all of this changes: a payments profile (address
+shown), most likely trader status (address, phone and email shown in the EU), `INTERNET` in the
+`play` build, and a new privacy policy and Data safety answer.

@@ -21,7 +21,7 @@
 
 PhoneLab es una app de Android de una sola pantalla para quien quiera saber exactamente qué está haciendo el hardware de su dispositivo en este momento — desarrolladores que prueban el comportamiento de sensores, entusiastas de la tecnología, jugadores vigilando la temperatura, o cualquiera con curiosidad por lo que hay dentro de su teléfono.
 
-Sin anuncios. Sin cuenta. Sin servicios en segundo plano cuando no estás usando la app. La aplicación solo lee sensores y archivos del sistema a los que cualquier app de Android ya tiene acceso — la versión de GitHub / F-Droid **no tiene permiso de internet** (la versión de Google Play añade Google Play Billing para la propina opcional: Google procesa las propinas y recibe los registros de diagnóstico de la biblioteca de facturación, mientras que el propio código de PhoneLab nunca usa la red). Todos los detalles en la [Política de privacidad](https://drummingbird1.github.io/phonelab-privacy/).
+Sin anuncios. Sin cuenta. Sin servicios en segundo plano cuando no estás usando la app. La aplicación solo lee sensores y archivos del sistema a los que cualquier app de Android ya tiene acceso y **no tiene permiso de internet**, ni en Google Play ni en GitHub / F-Droid. Todos los detalles en la [Política de privacidad](https://drummingbird1.github.io/phonelab-privacy/).
 
 ## Capturas de pantalla
 
@@ -67,13 +67,13 @@ Un panel de sensores complementario basado en el navegador vive en este reposito
 - **F-Droid / IzzyOnDroid:** solicitudes en curso.
 - **Google Play:** próximamente.
 
-Las versiones de GitHub / F-Droid (el flavor `foss`) no contienen bibliotecas propietarias ni permiso de internet. La versión de Google Play la firma Google, así que cambiar entre Play y un APK requiere desinstalar primero.
+Ninguna versión (GitHub / F-Droid ni Google Play) contiene bibliotecas propietarias ni permiso de internet. La versión de Google Play la firma Google, así que cambiar entre Play y un APK requiere desinstalar primero.
 
 ## Compilar desde el código fuente
 
 Requisitos: **JDK 21**, Android SDK 36, y el Gradle wrapper (incluido — no hace falta instalar Gradle aparte).
 
-La app tiene dos flavors: `foss` (GitHub, F-Droid y otras tiendas — sin bibliotecas propietarias) y `play` (Google Play, añade la propina con Play Billing).
+La app tiene dos flavors: `foss` (GitHub, F-Droid y otras tiendas — sin bibliotecas propietarias) y `play` (Google Play, añade el botón de valorar). Ninguno tiene bibliotecas propietarias ni compras dentro de la app.
 
 ```bash
 cd App
