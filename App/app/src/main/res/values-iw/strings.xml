@@ -17,7 +17,6 @@
     <string name="about_title">אודות PhoneLab</string>
     <string name="about_body">PhoneLab נותן לך גישה בזמן אמת לכל החומרה במכשיר שלך.\n\n✅  קריאות חיות מכל חיישני החומרה, כולל מדים גרפיים\n✅  8 אזורי טמפרטורה, בריאות הסוללה והספק הטעינה\n✅  בדיקת מכשיר: מגע, מסך, רמקול, מיקרופון ועוד — עם דוח לשיתוף\n✅  כלים: פלס, כיול מצפן, גלאי מתכות, מנתח רעידות\n✅  התראות מותאמות כשקריאה חוצה סף שבחרת\n✅  בנצ׳מרק, ייצוא מפרט (טקסט / JSON) והקלטת חיישנים (CSV)\n✅  ווידג׳ט, אריח בהגדרות המהירות וצבעי Material You\n✅  נתוני החיישנים שלך לא יוצאים מהמכשיר</string>
     <string name="about_btn_rate">דרגו ב־Google Play</string>
-    <string name="about_btn_donate">תמכו בפיתוח (טיפ)</string>
     <string name="about_btn_share">שתפו עם חברים</string>
     <string name="about_btn_source">קוד המקור (GitHub)</string>
     <string name="about_share_body_foss">כדאי לנסות את PhoneLab — מוניטור חיישנים חינמי בקוד פתוח לאנדרואיד!\n%1$s</string>
@@ -310,14 +309,10 @@
     <!-- ════ תבניות מוני אירועים ════ -->
     <string name="step_counter_format">סשן:%1$d  סה״כ במכשיר:%2$,d</string>
 
-    <!-- ════ v1.3: tools, device check, alerts, battery health, tip jar ════ -->
+    <!-- ════ v1.3: tools, device check, alerts, battery health ════ -->
     <string name="tab_tools">כלים</string>
     <string name="tab_diagnostics">בדיקת מכשיר</string>
     <string name="about_btn_web">PhoneLab Web (גרסת דפדפן)</string>
-    <string name="tip_dialog_title">השאירו טיפ</string>
-    <string name="tip_unavailable">טיפים אינם זמינים כרגע — הם דורשים את גרסת Google Play של האפליקציה.</string>
-    <string name="tip_thanks">תודה שאתם תומכים ב־PhoneLab! ❤️</string>
-    <string name="tip_pending">התשלום ממתין — הוא יושלם כש־Google Play יאשר אותו. תודה!</string>
     <string name="settings_dynamic_color">שימוש בצבעי הטפט (Material You)</string>
     <string name="settings_app_language">שפת האפליקציה</string>
     <string name="settings_section_alerts">התראות חיישנים מותאמות</string>

@@ -29,9 +29,9 @@ PhoneLab muestra lo que está haciendo el hardware de tu teléfono ahora mismo: 
 • Inglés, hebreo, español y árabe; unidades métricas o imperiales
 
 <b>Privacidad</b>
-Sin anuncios, sin cuenta. El código de PhoneLab nunca se conecta a internet, así que tus datos de sensores se quedan en tu dispositivo. El único acceso a la red en esta versión lo hace Google Play Billing, y solo después de que abras la opción de propinas. Los permisos se piden solo cuando tocas una función que los necesita.
+Sin anuncios, sin cuenta, sin rastreo. PhoneLab no tiene permiso de internet, así que tus datos de sensores nunca salen de tu dispositivo. Los permisos se piden solo cuando tocas una función que los necesita.
 
 <b>Gratis y de código abierto</b>
-Todas las funciones son gratis. Si PhoneLab te resulta útil, puedes dejar una propina opcional desde la pestaña Acerca de; las propinas no desbloquean nada. PhoneLab es de código abierto con licencia GPL-3.0.
+Todas las funciones son gratis, sin compras dentro de la app. PhoneLab es de código abierto con licencia GPL-3.0.
 
 Los sensores disponibles varían según el dispositivo; la app marca claramente lo que tu hardware no tiene.

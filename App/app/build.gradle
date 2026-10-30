@@ -32,9 +32,10 @@ android {
     }
 
     // Two distribution builds of the same app id:
-    //  • play — Google Play; includes the Play Billing tip jar.
-    //  • foss — GitHub Releases, F-Droid, IzzyOnDroid and other stores. No proprietary
-    //    libraries, so no tip jar and no INTERNET permission at all.
+    //  • play — Google Play: the About tab's Rate button and the Gradle Play Publisher
+    //    config. No in-app purchases, so no Play Billing.
+    //  • foss — GitHub Releases, F-Droid, IzzyOnDroid and other stores.
+    //  Neither build has proprietary libraries or the INTERNET permission.
     flavorDimensions "distribution"
     productFlavors {
         play {
@@ -170,7 +171,6 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata:2.11.0'
     implementation 'androidx.biometric:biometric:1.1.0' // Hardware tab biometric availability check
     implementation 'androidx.work:work-runtime:2.12.0'  // periodic background checks (thermal, alerts, battery history)
-    playImplementation 'com.android.billingclient:billing:8.3.0' // tip jar — play flavor only
 
     // N5: desugaring runtime — enables java.time / java.nio.file APIs on older devices
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'

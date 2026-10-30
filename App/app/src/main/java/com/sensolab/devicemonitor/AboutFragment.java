@@ -17,7 +17,6 @@ import com.sensolab.devicemonitor.databinding.FragmentAboutBinding;
 public class AboutFragment extends Fragment {
 
     private FragmentAboutBinding binding;
-    @Nullable private TipJar tipJar;
 
     @Nullable @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle s) {
@@ -29,19 +28,11 @@ public class AboutFragment extends Fragment {
         binding.btnWeb.setOnClickListener(v -> openUrl(getString(R.string.about_web_url)));
         binding.btnSource.setOnClickListener(v -> openUrl(getString(R.string.about_source_url)));
 
-        // Google Play-only actions; the foss build (GitHub / F-Droid) hides them.
+        // Google Play-only action; the foss build (GitHub / F-Droid) hides it.
         if (BuildConfig.PLAY_BUILD) {
             binding.btnRate.setOnClickListener(v -> openPlayStore());
         } else {
             binding.btnRate.setVisibility(View.GONE);
-        }
-        if (TipJar.isAvailable()) {
-            binding.btnDonate.setOnClickListener(v -> {
-                if (tipJar == null) tipJar = new TipJar(this);
-                tipJar.open();
-            });
-        } else {
-            binding.btnDonate.setVisibility(View.GONE);
         }
 
         // Y6: privacy policy link only when a URL is configured
@@ -54,7 +45,6 @@ public class AboutFragment extends Fragment {
 
     @Override public void onDestroyView() {
         super.onDestroyView();
-        if (tipJar != null) { tipJar.release(); tipJar = null; }
         binding = null;
     }
 

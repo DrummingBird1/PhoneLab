@@ -16,7 +16,6 @@
     <string name="about_title">حول PhoneLab</string>
     <string name="about_body">يمنحك PhoneLab رؤية كاملة في الوقت الفعلي لعتاد جهازك.\n\n✅  قراءات حية من كل مستشعرات العتاد، مع مؤشرات مرئية\n✅  8 مناطق حرارية، وصحة البطارية وقدرة الشحن\n✅  فحص الجهاز: اللمس والشاشة والسماعة والميكروفون والمزيد، مع تقرير قابل للمشاركة\n✅  أدوات: ميزان تسوية، معايرة البوصلة، كاشف المعادن، محلل الاهتزاز\n✅  تنبيهات مخصصة عندما تتجاوز قراءةٌ الحدَّ الذي تختاره\n✅  اختبار أداء، وتصدير المواصفات (نص / JSON)، وتسجيل المستشعرات (CSV)\n✅  أداة للشاشة الرئيسية، ومربع في الإعدادات السريعة، وألوان Material You\n✅  بيانات المستشعرات لا تغادر جهازك أبدًا</string>
     <string name="about_btn_rate">قَيِّم على Google Play</string>
-    <string name="about_btn_donate">ادعم التطوير (إكرامية)</string>
     <string name="about_btn_share">شارك مع الأصدقاء</string>
     <string name="about_btn_source">الشيفرة المصدرية (GitHub)</string>
     <string name="about_share_body_foss">جرّب PhoneLab — مراقب مستشعرات مجاني ومفتوح المصدر لأندرويد!\n%1$s</string>
@@ -308,14 +307,10 @@
     <!-- ════ تنسيقات العدّادات ════ -->
     <string name="step_counter_format">الجلسة:%1$d  إجمالي الجهاز:%2$,d</string>
 
-    <!-- ════ v1.3: tools, device check, alerts, battery health, tip jar ════ -->
+    <!-- ════ v1.3: tools, device check, alerts, battery health ════ -->
     <string name="tab_tools">الأدوات</string>
     <string name="tab_diagnostics">فحص الجهاز</string>
     <string name="about_btn_web">PhoneLab Web (نسخة المتصفح)</string>
-    <string name="tip_dialog_title">قدّم إكرامية</string>
-    <string name="tip_unavailable">الإكراميات غير متاحة الآن — تتطلب نسخة Google Play من التطبيق.</string>
-    <string name="tip_thanks">شكرًا لدعمك PhoneLab! ❤️</string>
-    <string name="tip_pending">الدفع قيد الانتظار — سيكتمل عندما يؤكده Google Play. شكرًا لك!</string>
     <string name="settings_dynamic_color">استخدام ألوان الخلفية (Material You)</string>
     <string name="settings_app_language">لغة التطبيق</string>
     <string name="settings_section_alerts">تنبيهات مستشعرات مخصصة</string>
