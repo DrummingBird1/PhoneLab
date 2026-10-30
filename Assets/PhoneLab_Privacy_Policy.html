@@ -274,7 +274,7 @@
         <tr><th>Permission</th><th>Used for</th><th>Where the data goes</th></tr>
         <tr class="group"><td colspan="3">Asked for when you use the feature</td></tr>
         <tr><td>ACCESS_FINE_LOCATION<br>ACCESS_COARSE_LOCATION</td><td>Live GPS speed and altitude on the Sensors tab. If you start a sensor recording, your position (latitude, longitude, altitude) is also written into that CSV file, including while you use other apps, until you stop the recording. The recording notification stays visible the whole time.</td><td>Shown on screen. Saved only in a CSV recording you start. PhoneLab never asks for background location.</td></tr>
-        <tr><td>BODY_SENSORS</td><td>Live heart rate, on devices with a heart-rate sensor</td><td>Shown on screen only</td></tr>
+        <tr><td>BODY_SENSORS<br>health.READ_HEART_RATE</td><td>Live heart rate, on devices with a heart-rate sensor. Android 16 and later ask for the heart-rate permission instead of body sensors.</td><td>Shown on screen only</td></tr>
         <tr><td>ACTIVITY_RECOGNITION</td><td>Step counter and step detector readings</td><td>Shown on screen only</td></tr>
         <tr><td>RECORD_AUDIO</td><td>The sound-level (dB) meter on the Sensors tab and the Device check microphone test</td><td>Audio is analyzed in memory for loudness only. It is never recorded, saved or played back.</td></tr>
         <tr><td>POST_NOTIFICATIONS</td><td>Thermal warnings and your custom sensor alerts (if you turn them on in Settings), and the notification shown while a recording runs</td><td>Local notifications only</td></tr>

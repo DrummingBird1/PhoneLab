@@ -4,7 +4,10 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION"/>
-    <uses-permission android:name="android.permission.BODY_SENSORS"/>
+    <!-- Heart rate: BODY_SENSORS up to Android 15. For apps targeting Android 16 the
+         heart-rate sensor is gated by the granular health permission instead. -->
+    <uses-permission android:name="android.permission.BODY_SENSORS" android:maxSdkVersion="35"/>
+    <uses-permission android:name="android.permission.health.READ_HEART_RATE"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <!-- API 33+ runtime permission for posting notifications (thermal + sensor alerts) -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
@@ -52,6 +55,25 @@
              Full-panel tests hide the system bars in code. -->
         <activity android:name=".DiagnosticTestActivity"
             android:exported="false"/>
+
+        <!-- Why PhoneLab wants READ_HEART_RATE: Android 14+ opens this from the health
+             permission screen and revokes the permission from apps that have none.
+             It opens the privacy policy, the same one the Play listing links to. -->
+        <activity android:name=".PermissionsRationaleActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity-alias
+            android:name=".ViewPermissionUsageActivity"
+            android:exported="true"
+            android:permission="android.permission.START_VIEW_PERMISSION_USAGE"
+            android:targetActivity=".PermissionsRationaleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE"/>
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS"/>
+            </intent-filter>
+        </activity-alias>
 
         <provider
             android:name="androidx.core.content.FileProvider"

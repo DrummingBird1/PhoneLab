@@ -85,7 +85,8 @@ Leave every other data type **unselected**:
   - `FOREGROUND_SERVICE_DATA_SYNC`: writes the sensor readings to a local CSV file while the user is in other apps.
   - `FOREGROUND_SERVICE_LOCATION`: added to the same service only when fine location is granted, so GPS position rows keep being written to that CSV while the user is in other apps. Android 10+ stops delivering while-in-use location to a backgrounded app unless it runs a `location` foreground service. Video: grant location, start a recording on the Sensors tab, switch to another app with the notification visible, come back and stop.
 - **Location**: no `ACCESS_BACKGROUND_LOCATION`, so no background-location declaration is needed. A `location` foreground service started from a visible activity counts as while-in-use (foreground) access.
-- **Health**: if Play Console asks about health features, the answer is that PhoneLab shows heart rate and step readings from on-device sensors and doesn't store or transmit them.
+- **Health permissions** (Play reviews every body-sensor and health-permission request): declare `BODY_SENSORS` (Android 15 and older) and `android.permission.health.READ_HEART_RATE` (Android 16+, which replaced it for apps targeting API 36). Use case: real-time heart-rate readout from the device's own sensor on the Sensors tab, shown on screen only, never stored, recorded or transmitted. No Health Connect data is read or written. The permission-rationale screen Android asks for opens the privacy policy.
+- **Health apps declaration**: PhoneLab isn't a health app; it shows heart rate and step readings from on-device sensors and doesn't store or transmit them.
 
 ## Keeping this in sync
 
@@ -94,4 +95,5 @@ Re-check this file and the policy whenever any of these change:
 - `TipJar` starting earlier than the tip-button tap
 - `data_extraction_rules.xml` / `backup_rules.xml`
 - a foreground service type in `AndroidManifest.xml` (Play needs a declaration per type)
+- a body-sensor or `android.permission.health.*` permission (Play reviews each one)
 - any code that writes files, reads identifiers or uses the network

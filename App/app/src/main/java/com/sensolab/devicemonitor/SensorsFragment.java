@@ -10,6 +10,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.hardware.TriggerEvent;
 import android.hardware.TriggerEventListener;
+import android.health.connect.HealthPermissions;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -48,6 +49,13 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
      *  hint: while the fusion service or another app uses a sensor it arrives at 50–100 Hz, and
      *  re-formatting a dozen cards that often burns CPU on text nobody can read. */
     private static final long MIN_UI_INTERVAL_MS = 66;
+
+    /** The heart-rate sensor needs BODY_SENSORS up to Android 15. For apps targeting
+     *  Android 16 it is gated by the granular health permission instead (BODY_SENSORS is
+     *  capped at API 35 in the manifest). */
+    private static final String HEART_RATE_PERMISSION =
+            Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA
+                    ? HealthPermissions.READ_HEART_RATE : Manifest.permission.BODY_SENSORS;
 
     private FragmentSensorsBinding binding;
     private SensorsViewModel vm;
@@ -187,7 +195,7 @@ public class SensorsFragment extends ModeAwareFragment implements SensorEventLis
             reg(Sensor.TYPE_STEP_COUNTER,  normal, binding.cardStepCounter,  null);
         }
         regGated(Sensor.TYPE_HEART_RATE, binding.cardHeartRate, binding.gaugeHeartRate,
-                Manifest.permission.BODY_SENSORS, bodySensorsPermissionLauncher,
+                HEART_RATE_PERMISSION, bodySensorsPermissionLauncher,
                 R.string.perm_rationale_body_sensors);
 
         // One-shot trigger sensors re-arm themselves after each event.
