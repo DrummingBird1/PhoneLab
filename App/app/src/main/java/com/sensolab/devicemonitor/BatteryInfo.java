@@ -80,8 +80,24 @@ public final class BatteryInfo {
     /** Rough full-charge capacity: remaining charge ÷ level. Useful as a wear indicator
      *  when compared with the battery's rated capacity. -1 if not computable. */
     public int estimatedFullCapacityMah() {
-        if (chargeCounterMah <= 0 || levelPct < 20) return -1; // too noisy when nearly empty
-        return Math.round(chargeCounterMah * 100f / levelPct);
+        return estimateFullMah(chargeCounterMah, levelPct);
+    }
+
+    /** False when the charge counter implies a battery no phone or tablet has — emulators
+     *  (10 000 µAh at 100 %) and drivers that ignore the µAh unit — so it isn't shown at all. */
+    public boolean isChargeCounterPlausible() {
+        return impliedFullMah(chargeCounterMah, levelPct) > 0;
+    }
+
+    static int estimateFullMah(int chargeMah, int levelPct) {
+        if (levelPct < 20) return -1; // too noisy when nearly empty
+        return impliedFullMah(chargeMah, levelPct);
+    }
+
+    private static int impliedFullMah(int chargeMah, int levelPct) {
+        if (chargeMah <= 0 || levelPct <= 0 || levelPct > 100) return -1;
+        int full = Math.round(chargeMah * 100f / levelPct);
+        return full >= 300 && full <= 50_000 ? full : -1;
     }
 
     @StringRes public int healthLabel() {

@@ -21,6 +21,20 @@ public final class Formatters {
                 : String.format(Locale.US, "%02d:%02d", m, s);
     }
 
+    private static final long MB = 1024L * 1024, GB = MB * 1024;
+
+    /** Bytes as a GB number: one decimal below 10 GB (so "0.4" instead of "0"), whole above. */
+    public static String gigabytes(long bytes) {
+        double gb = bytes / (double) GB;
+        return String.format(Locale.US, gb < 10 ? "%.1f" : "%.0f", gb);
+    }
+
+    /** Bytes with a unit: "420 MB" below 1 GB, otherwise {@link #gigabytes} + " GB". */
+    public static String byteSize(long bytes) {
+        if (bytes < GB) return String.format(Locale.US, "%d MB", Math.max(bytes, 0) / MB);
+        return gigabytes(bytes) + " GB";
+    }
+
     /**
      * Escape one CSV field: wrap in double quotes and double any internal quote
      * iff it contains a comma, quote, CR or LF. RFC-4180 style.

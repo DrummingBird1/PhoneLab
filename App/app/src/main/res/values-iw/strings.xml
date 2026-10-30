@@ -102,9 +102,9 @@
     <string name="sensor_light">חיישן אור</string>
     <string name="sensor_barometer">ברומטר</string>
     <string name="sensor_gravity">וקטור כבידה</string>
-    <string name="sensor_linear_accel">תאוצה ליניארית (ללא כבידה)</string>
+    <string name="sensor_linear_accel">תאוצה ליניארית</string>
     <string name="sensor_rotation_vector">וקטור סיבוב</string>
-    <string name="sensor_game_rotation">סיבוב משחק (ללא מגנט)</string>
+    <string name="sensor_game_rotation">סיבוב משחק</string>
     <string name="sensor_step_detector">גלאי צעדים</string>
     <string name="sensor_step_counter">מונה צעדים</string>
     <string name="sensor_tilt_detector">גלאי הטיה</string>
@@ -112,7 +112,7 @@
     <string name="sensor_humidity">לחות</string>
     <string name="sensor_ambient_temp">טמפ׳ סביבה</string>
     <string name="sensor_heart_rate">דופק</string>
-    <string name="sensor_sound_level">עוצמת קול (לא מכויל)</string>
+    <string name="sensor_sound_level">עוצמת קול</string>
     <string name="sensor_gps_speed">מהירות GPS</string>
     <string name="sensor_gps_altitude">גובה GPS</string>
     <string name="sensor_compass_label">מצפן</string>
@@ -363,6 +363,9 @@
     <string name="sensors_section_location">מיקום</string>
     <string name="gauge_tilt_title">הטיה</string>
     <string name="geomag_detail">ללא ג׳ירוסקופ — חוסך סוללה</string>
+    <string name="linear_accel_detail">ללא כבידה</string>
+    <string name="game_rotation_detail">ללא מגנטומטר — כיוון יחסי</string>
+    <string name="sound_uncalibrated_note">הערכה לא מכוילת</string>
     <string name="steps_this_session">בסשן הנוכחי</string>
     <string name="trigger_events_detected">אירועים זוהו</string>
     <string name="status_tap_to_grant">נדרשת הרשאה — הקישו כדי לאשר</string>
@@ -374,6 +377,8 @@
     <string name="shortcut_tools_long">כלי חיישנים</string>
     <string name="spec_gpu">מעבד גרפי</string>
     <string name="spec_cores_unit">ליבות</string>
+    <string name="spec_free_pct">%1$s פנויים · %2$s</string>
+    <string name="spec_free_of">%1$s פנויים מתוך %2$s</string>
     <string name="hw_cpu_peak">הליבה המהירה כרגע</string>
     <string name="hw_batt_health">בריאות</string>
     <string name="hw_batt_power">הספק</string>
