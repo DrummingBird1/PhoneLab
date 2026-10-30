@@ -64,7 +64,7 @@ Set these by hand in Play Console.
 
 **App content** (Policy → App content)
 - Privacy policy: `https://drummingbird1.github.io/phonelab-privacy/`. It describes the
-  `foss` and `play` builds separately (effective October 17, 2026).
+  `foss` and `play` builds separately (effective October 30, 2026).
 - **Data safety**, plus the foreground-service, location and health declarations: answer from
   [`PhoneLab_Play_DataSafety.md`](PhoneLab_Play_DataSafety.md) (added in
   DrummingBird1/PhoneLab#2), which is kept in sync with the privacy policy. In short: only
