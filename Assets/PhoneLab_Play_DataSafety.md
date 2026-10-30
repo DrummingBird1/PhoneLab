@@ -1,6 +1,6 @@
 # PhoneLab: Google Play Data safety answers
 
-Answers for **Play Console → App content → Data safety**, for the **`play` flavor** only (the `foss` build never goes to Google Play). They match the published privacy policy (https://drummingbird1.github.io/phonelab-privacy/, effective October 17, 2026). If one changes, update the other.
+Answers for **Play Console → App content → Data safety**, for the **`play` flavor** only (the `foss` build never goes to Google Play). They match the published privacy policy (https://drummingbird1.github.io/phonelab-privacy/, effective October 30, 2026). If one changes, update the other.
 
 Prepared 2026-10-17 against `versionCode 4` / `versionName 1.3.0`, Play Billing Library **8.3.0**.
 
