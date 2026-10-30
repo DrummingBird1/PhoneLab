@@ -22,7 +22,7 @@
 
 PhoneLab is a single-screen Android app for anyone who wants to know exactly what their device's hardware is doing right now — developers testing sensor behavior, tech enthusiasts, gamers watching thermals, or anyone just curious what's inside their phone.
 
-No ads. No account. No background services when you're not using it. The app only ever reads sensors and system files already exposed to any Android app — the GitHub / F-Droid build has no internet permission at all (the Google Play build adds Google Play Billing for the optional tip jar: Google processes tips and receives the billing library's diagnostic logs, while PhoneLab's own code still never uses the network). See the [Privacy Policy](https://drummingbird1.github.io/phonelab-privacy/) for the full picture.
+No ads. No account. No background services when you're not using it. The app only ever reads sensors and system files already exposed to any Android app and it has **no internet permission at all**, on Google Play and on GitHub / F-Droid alike. See the [Privacy Policy](https://drummingbird1.github.io/phonelab-privacy/) for the full picture.
 
 ## Screenshots
 
@@ -68,13 +68,13 @@ A companion browser-based sensor dashboard lives in this repo under [`Web/`](Web
 - **F-Droid / IzzyOnDroid:** submissions in progress.
 - **Google Play:** coming soon.
 
-The GitHub / F-Droid builds (the `foss` flavor) contain no proprietary libraries and have no internet permission. The Google Play build is signed by Google, so switching between Play and an APK install requires uninstalling first.
+Every build (GitHub / F-Droid and Google Play alike) contains no proprietary libraries and has no internet permission. The Google Play build is signed by Google, so switching between Play and an APK install requires uninstalling first.
 
 ## Building from source
 
 Requirements: **JDK 21**, Android SDK 36, and the Gradle wrapper (bundled — no separate Gradle install needed).
 
-The app has two flavors: `foss` (GitHub, F-Droid and other stores — no proprietary libraries) and `play` (Google Play, adds the Play Billing tip jar).
+The app has two flavors: `foss` (GitHub, F-Droid and other stores — no proprietary libraries) and `play` (Google Play, adds the Rate button). Neither has proprietary libraries or in-app purchases.
 
 ```bash
 cd App

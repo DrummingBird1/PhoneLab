@@ -26,14 +26,10 @@ Graphics exist only in en-US; Play shows the default-language graphics for the o
 
 **Short description (en-US):** Live sensors, temperatures, battery health, tools and a full device check
 
-**Why Play has its own full description:** the fastlane text (F-Droid, IzzyOnDroid, GitHub)
-says the app has no internet permission, which is true only for the `foss` build. The Play
-text instead says the app's own code never goes online, that Google Play Billing is the only
-network access and only after the tip jar is opened, and that tips are optional and unlock
-nothing. It deliberately doesn't claim "no analytics", because the Data safety form declares
-the Billing Library's diagnostics (purpose: Analytics). Everything above the Privacy
-section is the same as the fastlane text, with `<ul>`/`<li>` turned into `•` lines
-(Play reliably renders only `<b>`-style formatting).
+**How the Play description differs from fastlane's:** it's the fastlane text (F-Droid,
+IzzyOnDroid, GitHub) with `<ul>`/`<li>` turned into `•` lines (Play reliably renders only
+`<b>`-style formatting), plus a short "Free and open source" paragraph. Since the tip jar
+was removed, the `play` build has no internet permission either, so both say so.
 
 **Screenshots:** derived from the fastlane ones by
 [`Distribution/derive_screenshots.py`](../Distribution/derive_screenshots.py) — the 20:9
@@ -63,25 +59,23 @@ Set these by hand in Play Console.
 - Website: `https://drummingbird1.github.io/PhoneLab/`
 
 **App content** (Policy → App content)
-- Privacy policy: `https://drummingbird1.github.io/phonelab-privacy/`. It describes the
-  `foss` and `play` builds separately (effective October 30, 2026).
+- Privacy policy: `https://drummingbird1.github.io/phonelab-privacy/` (effective October 30,
+  2026). Neither build has internet access or in-app purchases.
 - **Data safety**, plus the foreground-service, location and health declarations: answer from
   [`PhoneLab_Play_DataSafety.md`](PhoneLab_Play_DataSafety.md) (added in
-  DrummingBird1/PhoneLab#2), which is kept in sync with the privacy policy. In short: only
-  *App info and performance → Diagnostics* from the Play Billing Library, collected only
-  after the user opens the tip jar.
+  DrummingBird1/PhoneLab#2), which is kept in sync with the privacy policy. In short:
+  **no data collected, no data shared**.
 - Ads: **No, my app does not contain ads.**
 - App access: **All functionality is available without special access.**
 - Target audience: **13+** or older, and "not designed to appeal to children" (picking an
   under-13 age group brings in the Families policy).
 - Content rating (IARC questionnaire): category *Utility, Productivity, Communication, or
   Other*; no violence, sexuality, language, controlled substances, gambling or user
-  interaction. It does let users buy digital goods (tips). Expected: Everyone / PEGI 3 /
-  USK 0, with an "In-app purchases" notice.
+  interaction, and no digital purchases. Expected: Everyone / PEGI 3 / USK 0.
 
 **Monetization**
-- Price: **Free**. In-app products: `tip_small`, `tip_medium`, `tip_large` (consumable
-  tips; setup in `Distribution/play/README.md`).
+- Price: **Free**. No in-app products and no ads, so no payments profile is needed and the
+  account can declare EU *non-trader* status (`Distribution/play/README.md`, section 6).
 
 ---
 

@@ -14,6 +14,10 @@ Android 16 / Play policy review turned up. Not yet checked on a real device.
 - **Implausible readings hidden** — remaining charge / estimated capacity when they imply a battery under 300 mAh or over 50 000 mAh, and a CPU "max" clock below the current one.
 - **Power vs. Level wording** — both cards use the same charging-status label.
 
+## Removed
+
+- **Tip jar (Google Play build)** — the Play Billing tip jar, its About button and strings, and the `playImplementation` Billing dependency are gone. Selling anything on Play needs a payments profile, whose address Google shows on the listing, and usually EU trader status. Without Billing, the `play` build has no `INTERNET` permission and no Google telemetry: its merged manifest requests exactly the same permissions as `foss`, and the Data safety answer is "no data collected or shared". It was never published, so no user loses anything.
+
 ## Changed
 
 - Shorter card titles ("Linear Accel", "Game Rotation", "Sound Level"); the qualifier moved to the detail line. Axis values wrap between axes instead of inside a unit.

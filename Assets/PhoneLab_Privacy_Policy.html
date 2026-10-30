@@ -227,7 +227,7 @@
   <div class="summary">
     <p class="kicker">In short</p>
     <p><b>PhoneLab's own code never connects to the internet.</b> There are no PhoneLab servers, no accounts, no ads, no analytics and no tracking. Every sensor reading is calculated and shown on your device, and nothing is sent to the developer.</p>
-    <p>PhoneLab comes in two builds. <b>The GitHub / F-Droid build has no internet permission at all.</b> <b>The Google Play build</b> adds Google Play Billing for an optional tip jar. That gives the app internet access, so that Google can process a tip if you choose to leave one, and Google's billing library can send Google diagnostic logs about its own operation. PhoneLab never sees your payment details.</p>
+    <p><b>PhoneLab has no internet permission at all</b>, whether you get it from Google Play or from GitHub, F-Droid and other stores, so it cannot send anything anywhere. There are no in-app purchases.</p>
     <p>PhoneLab only creates files when <b>you</b> ask for them (a CSV recording or a spec export). They stay on your device until you share them yourself.</p>
   </div>
 
@@ -243,15 +243,15 @@
       <table class="permtable builds">
         <tr><th>Build</th><th>Where you get it</th><th>Internet access</th></tr>
         <tr><td>Standard build</td><td>GitHub Releases, F-Droid, IzzyOnDroid, APKPure, Uptodown and other stores</td><td>None. The app does not request the Android <code>INTERNET</code> permission and contains no proprietary libraries, so it cannot send anything anywhere.</td></tr>
-        <tr><td>Google Play build</td><td>Google Play</td><td>Has the <code>INTERNET</code> permission, added by the Google Play Billing Library that powers the optional tip jar. PhoneLab's own code still never uses the network. See <a href="#tip-jar">The tip jar</a>.</td></tr>
+        <tr><td>Google Play build</td><td>Google Play</td><td>None, the same as the standard build: no <code>INTERNET</code> permission and no proprietary libraries.</td></tr>
       </table>
     </div>
-    <p>The two builds work the same in every other way. To tell which one you have, open the About tab: only the Google Play build shows the "Rate on Google Play" and "Support development (tip)" buttons.</p>
+    <p>Both builds come from the same source code and work the same way. The only difference is on the About tab: the Google Play build has a "Rate on Google Play" button.</p>
   </section>
 
   <section>
     <h2>Data PhoneLab collects</h2>
-    <p>None. The developer does not collect, receive, store, sell or share any personal data, in either build. PhoneLab contains no analytics, advertising or crash-reporting software of any kind. Apart from Google Play Billing in the Google Play build, every library in the app is a standard AndroidX or Material Components library for the user interface and for scheduling on-device background checks. None of them sends data off your device.</p>
+    <p>None. The developer does not collect, receive, store, sell or share any personal data, in either build. PhoneLab contains no analytics, advertising or crash-reporting software of any kind. Every library in the app is a standard AndroidX or Material Components library for the user interface and for scheduling on-device background checks. None of them sends data off your device.</p>
     <p>Everything described below happens locally, in your device's memory or storage, using Android's own sensor and file APIs.</p>
   </section>
 
@@ -284,9 +284,6 @@
         <tr><td>WAKE_LOCK<br>RECEIVE_BOOT_COMPLETED<br>ACCESS_NETWORK_STATE</td><td>Added by Android's WorkManager library, which runs the periodic background check for thermal alerts, custom alerts, battery history and the widget, if you've turned any of them on, and restores it after a reboot. <code>ACCESS_NETWORK_STATE</code> only lets the scheduler see whether a network exists. It does not allow any connection.</td><td>On-device only</td></tr>
         <tr><td>USE_BIOMETRIC<br>USE_FINGERPRINT</td><td>Added by the AndroidX Biometric library. Used only to show on the Hardware tab whether biometrics are available.</td><td>Nothing is read or stored</td></tr>
         <tr><td>…DYNAMIC_RECEIVER_<br>NOT_EXPORTED_PERMISSION</td><td>An internal AndroidX permission that keeps PhoneLab's in-app messages private to PhoneLab</td><td>Not applicable</td></tr>
-        <tr class="group"><td colspan="3">Google Play build only</td></tr>
-        <tr><td>com.android.vending.BILLING</td><td>Lets the tip jar talk to the Google Play Store app</td><td>See <a href="#tip-jar">The tip jar</a></td></tr>
-        <tr><td>INTERNET</td><td>Added by Google's <code>datatransport</code> component, which the Google Play Billing Library uses to send its diagnostic logs to Google</td><td>See <a href="#tip-jar">The tip jar</a></td></tr>
       </table>
     </div>
   </section>
@@ -314,24 +311,9 @@
     <p>Files are saved in PhoneLab's own folder on your device (<code>Android/data/com.sensolab.devicemonitor/files/Documents</code>, or the app's cache as a fallback), and Android deletes them when you uninstall the app. PhoneLab never uploads them. A file or report leaves your device only if you send it yourself with the Android share sheet. From then on, the app you share it to handles it under its own policy.</p>
   </section>
 
-  <section id="tip-jar">
-    <h2>The tip jar (Google Play build only)</h2>
-    <div class="callout">
-      <p>The standard build (GitHub, F-Droid and other stores) has no tip jar and no Google libraries. Nothing in this section applies to it.</p>
-    </div>
-    <p>In the Google Play build, the About tab has an optional "Support development (tip)" button. Tips are one-time purchases that unlock nothing. When you tap the button:</p>
-    <ul>
-      <li>PhoneLab connects to Google Play Billing, through the Google Play Store app on your phone, to show the tip prices and open Google Play's own purchase screen.</li>
-      <li><b>Google processes the payment.</b> PhoneLab never sees your card number, billing address or Google account details. On your device, the app receives only a confirmation for the tip (the product and a purchase token). It uses this to complete the purchase and say thank you, and doesn't store or forward it.</li>
-      <li>Like every seller on Google Play, the developer receives the standard order records that Google provides in Google Play Console, such as order number, product, price, date and the buyer's country. They are used only for accounting and refunds.</li>
-      <li>Since version 6, the Google Play Billing Library logs information about its own operation, such as whether billing calls succeed and any connection problems. It sends these logs to Google through Google's <code>datatransport</code> component, and Google uses them to improve the library and support errors. In PhoneLab this only starts once you open the tip jar; logs already queued may be uploaded in the background shortly afterwards. PhoneLab and its developer do not receive these logs.</li>
-    </ul>
-    <p>Google handles this data under the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and the <a href="https://play.google.com/about/play-terms/">Google Play Terms of Service</a>, which also cover downloading PhoneLab from Google Play in the first place. If you never tap the tip button, the Google Play build connects to nothing at all.</p>
-  </section>
-
   <section>
-    <h2>No accounts, no ads, no analytics</h2>
-    <p>PhoneLab has no sign-in and no user accounts, and keeps no profile about you anywhere. It shows no advertising and includes no advertising or analytics libraries. The only third-party code in either build that can use the network is Google Play Billing in the Google Play build, described above.</p>
+    <h2>No accounts, no ads, no analytics, no purchases</h2>
+    <p>PhoneLab has no sign-in and no user accounts, and keeps no profile about you anywhere. It shows no advertising, includes no advertising or analytics libraries, and has no in-app purchases. Downloading PhoneLab from Google Play is covered by the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and the <a href="https://play.google.com/about/play-terms/">Google Play Terms of Service</a>; the app itself can't reach the network, so nothing in either build sends data anywhere.</p>
   </section>
 
   <section>
@@ -344,14 +326,13 @@
     <ul>
       <li>You can deny or revoke any permission. Only the feature that needs it stops working.</li>
       <li>You can delete everything PhoneLab stores by uninstalling it or clearing its storage in Android's settings.</li>
-      <li>The developer holds no personal data about you, so there is nothing to request, correct or delete on the developer's side. For tip purchases and billing logs held by Google, use your <a href="https://myaccount.google.com/">Google Account</a> controls and Google Play's order history.</li>
-      <li>If you want an app that cannot reach the internet at all, install the standard build from <a href="https://github.com/DrummingBird1/PhoneLab/releases/latest">GitHub Releases</a> or F-Droid.</li>
+      <li>The developer holds no personal data about you, so there is nothing to request, correct or delete on the developer's side.</li>
     </ul>
   </section>
 
   <section>
     <h2>Children's privacy</h2>
-    <p>PhoneLab is rated for Everyone. It does not knowingly collect information from anyone, including children, because it collects no information from anyone of any age. In the Google Play build, tips go through Google Play's purchase flow, which applies any parental controls or purchase approvals set on the Google account.</p>
+    <p>PhoneLab is rated for Everyone. It does not knowingly collect information from anyone, including children, because it collects no information from anyone of any age.</p>
   </section>
 
   <section>
