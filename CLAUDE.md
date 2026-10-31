@@ -25,7 +25,8 @@ PhoneLab/
 ├── Distribution/        # things tied to shipping
 │   ├── Keys/PhoneLab-Key   # signing key (git-ignored) — see "Signing key"
 │   ├── fdroid/          # F-Droid build recipe (copy into an fdroiddata MR)
-│   ├── play/README.md   # Google Play: first upload, service account, CI secrets, tip-jar products
+│   ├── play/README.md   # Google Play: first upload, service account, CI secrets, what Play shows about you
+│   ├── play/console-answers.md  # copy-paste answers for Play Console declarations (FGS, health apps)
 │   ├── stores/README.md # IzzyOnDroid, F-Droid, APKPure, Uptodown, … + store status table
 │   └── derive_screenshots.py  # fastlane screenshots → Play (9:16, no alpha) + docs/ WebP
 └── Archive/             # frozen old versions & superseded artifacts (immutable, not edited)
@@ -47,7 +48,7 @@ From `App/`. **Use JDK 21** — set `JAVA_HOME` to the Microsoft OpenJDK 21 inst
 .\gradlew publishPlayReleaseBundle   # Gradle Play Publisher → Play internal track (needs credentials)
 ```
 
-**Two product flavors** (dimension `distribution`, `BuildConfig.PLAY_BUILD`): `play` (Google Play) differs only by the About tab's Rate button and the Gradle Play Publisher config; `foss` (GitHub, F-Droid and other stores) is the same app. Everything lives in `src/main/`, and both builds have **no proprietary libraries and no `INTERNET` permission** — their merged manifests request identical permissions. There are no in-app purchases: the Play Billing tip jar was removed in v1.3.1, so no payments profile is needed and Play doesn't show the developer's address. Anything Play-only goes in `src/play/` with a stub in `src/foss/`.
+**Two product flavors** (dimension `distribution`, `BuildConfig.PLAY_BUILD`): `play` (Google Play) differs only by the About tab's Rate button and the Gradle Play Publisher config; `foss` (GitHub, F-Droid and other stores) is the same app. Everything lives in `src/main/`, and both builds have **no proprietary libraries and no `INTERNET` permission** — their merged manifests request identical permissions. There are no in-app purchases: the Play Billing tip jar was removed in v1.3.2 (v1.3.1, published on Play, still had it), so no payments profile is needed and Play doesn't show the developer's address. Anything Play-only goes in `src/play/` with a stub in `src/foss/`.
 
 Toolchain: **Gradle 8.14.5** (wrapper), **AGP 8.13.2**, `compileSdk 36` / `targetSdk 36` / `minSdk 26`, JDK 21 (`sourceCompatibility VERSION_21`, core-library desugaring on). AGP 9 / GPP 4 are deliberately not used yet (both are breaking upgrades).
 
@@ -119,7 +120,7 @@ Vite + TypeScript, no runtime dependencies, PWA. `pnpm run build | test | lint`.
 
 ## Versioning
 
-`app/build.gradle` is the source of truth: `versionCode 5`, `versionName "1.3.1"` (current; not released yet, meant as the first Google Play build). Releases so far, all as GitHub Releases with an APK: v1.0.0 → v1.1.0 (code 2) → v1.2.0 (code 3) → v1.3.0 (code 4; first GPL / `foss`-flavor release, published as a pre-release until QA'd). Nothing is on Google Play yet. Developer changelogs live in `Assets/dev-docs/`; each release also needs `fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt` (≤ 500 chars, all four locales) because F-Droid / IzzyOnDroid read them.
+`app/build.gradle` is the source of truth: `versionCode 6`, `versionName "1.3.2"` (current). GitHub Releases with an APK: v1.0.0 → v1.1.0 (code 2) → v1.2.0 (code 3) → v1.3.0 (code 4; first GPL / `foss`-flavor release, published as a pre-release until QA'd). Google Play: 1.0 (code 1) in internal and closed testing since 2026-02; **v1.3.1 (code 5) in production since 2026-10-30** — that build still had the Play Billing tip jar and `INTERNET`; v1.3.2 (code 6) is the first without them. Play never accepts a `versionCode` twice. Developer changelogs live in `Assets/dev-docs/`; each release also needs `fastlane/metadata/android/<locale>/changelogs/<versionCode>.txt` (≤ 500 chars, all four locales) because F-Droid / IzzyOnDroid read them.
 
 **Cutting a release:** bump `versionCode` + `versionName`, add the changelogs, then `.\gradlew assembleFossRelease bundlePlayRelease`; tag `v<x.y.z>` and create a GitHub release with the foss APK attached as `PhoneLab-v<x.y.z>.apk` (that name is what IzzyOnDroid / Obtainium pick up). Google Play: `.\gradlew publishPlayReleaseBundle` (or the manual *Android Release* workflow). If the screenshots change, run `uv run Distribution/derive_screenshots.py`. See `Distribution/stores/README.md` (status table — keep it current) and `Distribution/play/README.md`.
 

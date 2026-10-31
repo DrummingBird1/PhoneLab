@@ -1,0 +1,5 @@
+• No internet permission in any build: the Google Play version's tip jar is gone
+• Heart rate works on Android 16
+• CSV recordings keep logging GPS while you use other apps, and no longer restart by themselves
+• Clearer storage sizes, shorter card titles and "Waiting…" for sensors that haven't reported yet
+• Lower CPU use on the Sensors tab, and fixes for implausible battery and CPU readings

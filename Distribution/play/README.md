@@ -33,8 +33,8 @@ browser.
    Signing with a Google-generated app signing key (the default), upload the AAB, then
    upload `mapping.txt` from the release's app bundle details page. Add yourself to the
    testers list and roll out.
-   Play keeps that release's `versionCode` (5 for v1.3.1), so every later upload (CI or
-   local) needs a higher one.
+   Play keeps every uploaded `versionCode` (1 and 5 are taken; v1.3.2 is 6), so every later
+   upload (CI or local) needs a higher one.
 
 ## 2. Check the upload key
 
@@ -122,8 +122,8 @@ doesn't count toward this.
 
 ## 6. No in-app purchases, and what Play shows about you
 
-PhoneLab has no in-app purchases and no ads (the Play Billing tip jar was removed in v1.3.1),
-so:
+PhoneLab has no in-app purchases and no ads (the Play Billing tip jar was removed in v1.3.2;
+v1.3.1, the first production release, still had it), so:
 
 - **No payments profile** needs to be linked to the developer account. Play shows the full
   address from the payments profile on the listing of any developer who sells something;
