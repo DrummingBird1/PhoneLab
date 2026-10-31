@@ -38,8 +38,8 @@ Last updated 2026-10-17. Update this table whenever a submission moves.
 |---|---|---|
 | GitHub Releases | you (tag + release) | ✅ v1.3.2 is the Latest release (2026-10-31, `PhoneLab-v1.3.2.apk`); v1.3.0 stays a pre-release |
 | Obtainium | nothing to submit | ✅ users add `https://github.com/DrummingBird1/PhoneLab` |
-| Google Play | you (Play Console) | ✅ production: v1.3.2 (code 6) since 2026-10-31, no tip jar and no `INTERNET` (v1.3.1, code 5, was live 2026-10-30 with the tip jar). Listing text + foreground-service declaration sent for review 2026-10-31 ([guide](../play/README.md), [answers](../play/console-answers.md)) |
-| IzzyOnDroid | you (GitLab account) | ⏸ wait until a v1.3.x GitHub release is no longer a pre-release, then request inclusion |
+| Google Play | you (Play Console) | ✅ production: v1.3.2 (code 6) since 2026-10-31, no tip jar and no `INTERNET` (v1.3.1, code 5, was live 2026-10-30 with the tip jar). en-US listing text published 2026-10-31 (submission #7), no declarations pending; he / es-ES / es-419 / ar listing translations added and saved 2026-10-31, waiting to be sent for review ([guide](../play/README.md), [answers](../play/console-answers.md)) |
+| IzzyOnDroid | you (Codeberg account) | ⛔ on hold: its [AI policy](https://izzyondroid.org/docs/general/AppInclusionPolicy/#ai-policy) rejects apps whose code was written with generative AI, and the request form asks how much was used (see below) |
 | F-Droid | you (GitLab account) | ⬜ recipe ready in [`../fdroid/`](../fdroid/); merge request to fdroiddata not opened |
 | APKPure | you (developer account) | ⬜ |
 | Uptodown | you (developer account) | ⬜ |
@@ -51,14 +51,26 @@ Last updated 2026-10-17. Update this table whenever a submission moves.
 ## IzzyOnDroid (fastest F-Droid-compatible route)
 
 Usually live within days; F-Droid clients (F-Droid, Droid-ify, Neo Store) can add the repo.
-It picks the APK from GitHub releases, so new versions show up automatically. Submit only
-once the first GPL `foss` release (v1.3.x) is a regular GitHub release, not a pre-release.
+It picks the APK from GitHub releases, so new versions show up automatically.
 
-1. Open an issue at <https://gitlab.com/IzzyOnDroid/repo/-/issues> using the
-   *"App inclusion request"* template.
+**On hold (checked 2026-10-31):** the [App Inclusion Policy](https://izzyondroid.org/docs/general/AppInclusionPolicy/#ai-policy)
+says apps created fully or in part by generative AI tools will most likely be rejected
+("vibe-coded apps will be rejected"); only README/changelog text and read-only uses
+(research, debugging, look-ups) are accepted. The request form has a required
+*AI Tools Usage* section, and lack of transparency can get an app rejected later. Most of
+PhoneLab's code was written with Claude, so an honest request would most likely be
+turned down. The technical requirements are met (GPL-3.0, no trackers, signed `foss` APK of
+about 2.6 MB on GitHub releases, Fastlane metadata).
+
+If you request it anyway:
+
+1. Open an issue at <https://codeberg.org/IzzyOnDroid/repodata/issues> with the
+   *"App Inclusion Request"* template (requests moved there from GitLab).
 2. Repo: `https://github.com/DrummingBird1/PhoneLab` · package `com.sensolab.devicemonitor` ·
-   license GPL-3.0 · APK asset `PhoneLab-v*.apk` (the foss build) · metadata in `fastlane/`.
-3. Mention the signing-cert SHA-256 above.
+   license GPL-3.0 · APK asset `PhoneLab-v*.apk` (the foss build) · metadata in `fastlane/` ·
+   Google Play link `https://play.google.com/store/apps/details?id=com.sensolab.devicemonitor` ·
+   categories *Science & Education*, *System* · build: `cd App && ./gradlew assembleFossRelease`.
+3. Fill in the *AI Tools Usage* section truthfully, and mention the signing-cert SHA-256 above.
 4. After it's live, add the IzzyOnDroid badge to the README.
 
 ## F-Droid (main repository)
