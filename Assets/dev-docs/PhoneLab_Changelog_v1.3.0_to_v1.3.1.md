@@ -2,8 +2,9 @@
 
 `versionCode 4` → `versionCode 5`
 
-v1.3.1 is the first build meant for Google Play: it fixes what the v1.3.0 emulator QA and the
-Android 16 / Play policy review turned up. Not yet checked on a real device.
+v1.3.1 is the first build on Google Play (production since 2026-10-30): it fixes what the
+v1.3.0 emulator QA and the Android 16 / Play policy review turned up. The published build
+still had the Play Billing tip jar; v1.3.2 removes it. Not yet checked on a real device.
 
 ## Fixed
 
@@ -13,10 +14,6 @@ Android 16 / Play policy review turned up. Not yet checked on a real device.
 - **Storage sizes** — "420 MB" below 1 GB and one decimal below 10 GB instead of "0 GB free"; "free" in the RAM and Storage cards is translated.
 - **Implausible readings hidden** — remaining charge / estimated capacity when they imply a battery under 300 mAh or over 50 000 mAh, and a CPU "max" clock below the current one.
 - **Power vs. Level wording** — both cards use the same charging-status label.
-
-## Removed
-
-- **Tip jar (Google Play build)** — the Play Billing tip jar, its About button and strings, and the `playImplementation` Billing dependency are gone. Selling anything on Play needs a payments profile, whose address Google shows on the listing, and usually EU trader status. Without Billing, the `play` build has no `INTERNET` permission and no Google telemetry: its merged manifest requests exactly the same permissions as `foss`, and the Data safety answer is "no data collected or shared". It was never published, so no user loses anything.
 
 ## Changed
 

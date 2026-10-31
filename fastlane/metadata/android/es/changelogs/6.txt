@@ -1,0 +1,5 @@
+• Sin permiso de internet en ninguna versión: se quitaron las propinas de la versión de Google Play
+• El ritmo cardíaco funciona en Android 16
+• Las grabaciones CSV siguen registrando el GPS en otras apps y ya no se reinician solas
+• Tamaños de almacenamiento más claros, títulos más cortos y «Esperando…» en sensores sin datos
+• Menos uso de CPU en Sensores y correcciones de lecturas irreales de batería y CPU

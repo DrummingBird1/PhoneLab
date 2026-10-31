@@ -2,7 +2,7 @@
 
 Answers for **Play Console → App content → Data safety**, for the **`play` flavor** only (the `foss` build never goes to Google Play). They match the published privacy policy (https://drummingbird1.github.io/phonelab-privacy/, effective October 30, 2026). If one changes, update the other.
 
-Prepared 2026-10-30 against `versionCode 5` / `versionName 1.3.1`, after the tip jar was removed: the `play` build has no Play Billing, no in-app purchases and no proprietary libraries. Its merged release manifest requests exactly the same permissions as `foss`, with **no `INTERNET` permission**.
+Applies from `versionCode 6` / `versionName 1.3.2`, the first Play build without the tip jar: the `play` build has no Play Billing, no in-app purchases and no proprietary libraries. (v1.3.1, code 5, still shipped Play Billing, whose diagnostics would have had to be declared; see this file's git history.) Its merged release manifest requests exactly the same permissions as `foss`, with **no `INTERNET` permission**.
 
 ---
 
