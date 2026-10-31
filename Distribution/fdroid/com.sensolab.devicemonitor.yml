@@ -12,15 +12,14 @@ RepoType: git
 Repo: https://github.com/DrummingBird1/PhoneLab.git
 
 Builds:
-  - versionName: 1.3.0
-    versionCode: 4
-    commit: v1.3.0
+  - versionName: 1.3.2
+    versionCode: 6
+    commit: v1.3.2
     subdir: App/app
     gradle:
       - foss
-    prebuild: sed -i -e '/billingclient/d' build.gradle
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.3.0
-CurrentVersionCode: 4
+CurrentVersion: 1.3.2
+CurrentVersionCode: 6
