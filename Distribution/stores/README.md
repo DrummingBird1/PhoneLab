@@ -38,7 +38,7 @@ Last updated 2026-10-17. Update this table whenever a submission moves.
 |---|---|---|
 | GitHub Releases | you (tag + release) | ✅ v1.3.0 published as a **pre-release** (QA pending); v1.2.0 is still "latest" |
 | Obtainium | nothing to submit | ✅ users add `https://github.com/DrummingBird1/PhoneLab` |
-| Google Play | you (Play Console) | ✅ production since 2026-10-30 (v1.3.1, code 5, still with the tip jar). Next: v1.3.2 (code 6) after the foreground-service and health-apps declarations ([guide](../play/README.md), [answers](../play/console-answers.md)) |
+| Google Play | you (Play Console) | ✅ production: v1.3.2 (code 6) since 2026-10-31, no tip jar and no `INTERNET` (v1.3.1, code 5, was live 2026-10-30 with the tip jar). Listing text + foreground-service declaration sent for review 2026-10-31 ([guide](../play/README.md), [answers](../play/console-answers.md)) |
 | IzzyOnDroid | you (GitLab account) | ⏸ wait until a v1.3.x GitHub release is no longer a pre-release, then request inclusion |
 | F-Droid | you (GitLab account) | ⬜ recipe ready in [`../fdroid/`](../fdroid/); merge request to fdroiddata not opened |
 | APKPure | you (developer account) | ⬜ |
