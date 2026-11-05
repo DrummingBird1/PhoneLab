@@ -12,6 +12,8 @@
 
 **Read this in:** English · [עברית](README.he.md) · [Español](README.es.md) · [العربية](README.ar.md)
 
+**Roadmap:** see [ROADMAP.md](ROADMAP.md)
+
 [**⬇ Download the latest APK**](https://github.com/DrummingBird1/PhoneLab/releases/latest) · [Website](https://drummingbird1.github.io/PhoneLab/) · [Privacy Policy](https://drummingbird1.github.io/phonelab-privacy/)
 
 </div>
