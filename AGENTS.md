@@ -1,6 +1,6 @@
 # AGENTS.md
 
-This file gives Codex the orientation it needs to work in this repository. It mirrors CLAUDE.md — keep the two in sync.
+Single source of truth for any AI agent working in this repository (Claude, Codex, Copilot, Cursor, Gemini, ChatGPT, Grok, OpenCode). `CLAUDE.md` only imports this file. The owner works in Hebrew: reply in Hebrew unless asked otherwise.
 
 <!-- BEGIN core-rules v1 (generated from the shared core-rules.md; do not edit by hand) -->
 ## Core rules (apply to every agent)
