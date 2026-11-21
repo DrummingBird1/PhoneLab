@@ -87,7 +87,7 @@ cd App
 
 A signed release build needs a signing key: copy `App/key.properties.template` to `App/key.properties` and fill in your own keystore details. Without `key.properties`, release builds still compile — just unsigned.
 
-See [CLAUDE.md](CLAUDE.md) for the full architecture walkthrough (fragments, helper classes, permission model, non-obvious quirks) — it's the same orientation doc used for AI-assisted development on this repo, and doubles as living technical documentation.
+See [AGENTS.md](AGENTS.md) for the full architecture walkthrough (fragments, helper classes, permission model, non-obvious quirks) — it's the same orientation doc used for AI-assisted development on this repo, and doubles as living technical documentation.
 
 ## Tech stack
 

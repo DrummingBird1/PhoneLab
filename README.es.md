@@ -84,7 +84,7 @@ cd App
 
 Una compilación release firmada necesita una clave de firma: copia `App/key.properties.template` a `App/key.properties` y completa los datos de tu propio keystore. Sin `key.properties`, las compilaciones release igual se generan — solo que sin firmar.
 
-Consulta [CLAUDE.md](CLAUDE.md) para un recorrido completo de la arquitectura (fragments, clases auxiliares, modelo de permisos, detalles no evidentes) — es el mismo documento de orientación usado para el desarrollo asistido por IA en este repositorio, y también funciona como documentación técnica viva.
+Consulta [AGENTS.md](AGENTS.md) para un recorrido completo de la arquitectura (fragments, clases auxiliares, modelo de permisos, detalles no evidentes) — es el mismo documento de orientación usado para el desarrollo asistido por IA en este repositorio, y también funciona como documentación técnica viva.
 
 ## Stack tecnológico
 
