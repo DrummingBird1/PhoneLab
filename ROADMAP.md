@@ -8,8 +8,9 @@ This is a plain overview of where PhoneLab stands. It lists what has shipped, wh
 
 - **v1.0.0 to v1.2.0**: the original sensor dashboard, system and thermal info, CPU benchmark, light and dark themes, unit conversion, spec export and CSV recording. See [`Assets/dev-docs`](Assets/dev-docs) for the changelogs.
 - **v1.3.0** (published as a pre-release): the first GPL-3.0 release, with a `foss` build that has no `INTERNET` permission.
+- **v1.3.2**: the in-app tip jar and Google Play Billing were removed, so neither build has the `INTERNET` permission or in-app purchases; the privacy policy and store listing (English, Hebrew, Spanish, Arabic) were updated to match. This is now the latest GitHub release.
 - **Material 3 redesign**: Material 3 theme with optional dynamic color, a shared card component, a three-level type scale, real gauges (radial and bar) in visual mode, vector icons instead of emoji, and scrollable tabs that fit narrow screens.
-- **New tabs and features**: Hardware (battery health, charging power, estimated capacity, cycles, 24 hour history), Tools (bubble level, compass calibration, metal detector, vibration analyzer), Device check (11 guided hardware tests with a shareable report), custom sensor alerts, and an optional tip jar in the Google Play build only.
+- **New tabs and features**: Hardware (battery health, charging power, estimated capacity, cycles, 24 hour history), Tools (bubble level, compass calibration, metal detector, vibration analyzer), Device check (11 guided hardware tests with a shareable report), and custom sensor alerts.
 - **Platform work**: target SDK 36, edge-to-edge layout, themed icon, per-app language, release builds with R8, Gradle Play Publisher setup, and CI with lint.
 - **Languages**: English, Hebrew, Spanish and Arabic in the app and in the web dashboard.
 - **SensoLab Web**: a browser dashboard (PWA) with the same four languages and right-to-left layout.
@@ -17,10 +18,13 @@ This is a plain overview of where PhoneLab stands. It lists what has shipped, wh
 ## In progress
 
 - Real-device testing of everything above: all tabs in light, dark and Material You themes, edge-to-edge on Android 15 and later, each Device check test, background alerts, right-to-left layouts, and release builds with R8.
-- Preparing the app for more distribution channels, including Google Play, F-Droid and IzzyOnDroid. Store status is tracked in [`Distribution/stores/README.md`](Distribution/stores/README.md).
+- Google Play: the first Play app (`com.sensolab.devicemonitor`) was published as a private, organization-restricted app, so it has no public store page and cannot be made public. The Play build moves to a new public app with its own application id, `com.sensolab.phonelab`; the `foss` build keeps the old id.
+- Other distribution channels (F-Droid, IzzyOnDroid and more). Store status is tracked in [`Distribution/stores/README.md`](Distribution/stores/README.md).
 
 ## Planned
 
+- Publish the new public Google Play app and update the privacy policy copy for its package path.
+- Submit the F-Droid recipe.
 - Promote v1.3.0 from pre-release to a regular release once testing is done.
 - Fix whatever real-device testing turns up.
 - Keep translations and the privacy policy in step with each release.
