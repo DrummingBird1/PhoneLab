@@ -1,7 +1,5 @@
 # PhoneLab roadmap
 
-> עברית: מפת דרכים בקצרה: מה יצא, מה בעבודה, מה מתוכנן ורעיונות. אין התחייבות לתאריכים.
-
 This is a plain overview of where PhoneLab stands. It lists what has shipped, what is in progress, what is planned and what is only an idea. It makes no promises about dates, and items can change or be dropped.
 
 ## Shipped
