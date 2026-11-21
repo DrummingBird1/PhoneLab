@@ -6,6 +6,14 @@ the **internal** testing track, always as a **DRAFT** that you roll out or promo
 Console. Store-listing answers that GPP can't upload are in
 [`Assets/PhoneLab_PlayStore_Description.md`](../../Assets/PhoneLab_PlayStore_Description.md).
 
+> **Application id.** The `play` flavor's id is `com.sensolab.phonelab`. The first Play app,
+> `com.sensolab.devicemonitor`, was published as a private app restricted to one organization
+> (Advanced settings → Google Play for organizations), so it has no public store page (404), and
+> Google does not allow converting it to public for the same package name. Create the new app
+> in Play Console as a public, free app and **do not add any organization** under Advanced
+> settings → Google Play for organizations. The `foss` flavor keeps `com.sensolab.devicemonitor`.
+> The new app starts with its own `versionCode` history.
+
 | What | Where |
 |---|---|
 | Listing text (en-US, iw-IL, es-ES, es-419, ar) | `App/app/src/play/play/listings/<locale>/` |

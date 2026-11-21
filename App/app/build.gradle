@@ -31,15 +31,19 @@ android {
         buildConfigField "String", "PRIVACY_POLICY_URL", '"https://drummingbird1.github.io/phonelab-privacy/"'
     }
 
-    // Two distribution builds of the same app id:
+    // Two distribution builds of the same app:
     //  • play — Google Play: the About tab's Rate button and the Gradle Play Publisher
-    //    config. No in-app purchases, so no Play Billing.
-    //  • foss — GitHub Releases, F-Droid, IzzyOnDroid and other stores.
+    //    config. No in-app purchases, so no Play Billing. It has its own application id
+    //    because com.sensolab.devicemonitor was published on Play as a private
+    //    (organization-restricted) app, which cannot be made public for the same package name.
+    //  • foss — GitHub Releases, F-Droid, IzzyOnDroid and other stores
+    //    (com.sensolab.devicemonitor).
     //  Neither build has proprietary libraries or the INTERNET permission.
     flavorDimensions "distribution"
     productFlavors {
         play {
             dimension "distribution"
+            applicationId "com.sensolab.phonelab"
             buildConfigField "boolean", "PLAY_BUILD", "true"
         }
         foss {
@@ -84,7 +88,7 @@ android {
         debug {
             debuggable true
             // A8: separate package id so debug and release builds coexist on a device.
-            // Final ids: com.sensolab.devicemonitor (release), com.sensolab.devicemonitor.debug
+            // Final ids: foss com.sensolab.devicemonitor[.debug], play com.sensolab.phonelab[.debug]
             applicationIdSuffix '.debug'
             versionNameSuffix  '-debug'
         }

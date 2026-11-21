@@ -17,7 +17,7 @@ Single source of truth for any AI agent working in this repository (Claude, Code
 
 ## Project
 
-**PhoneLab** — a single-Activity Android app that surfaces every hardware sensor, system info, thermal zone, battery health, a CPU benchmark, sensor tools and a guided device check, all in real time. App id `com.sensolab.devicemonitor`; distributed on GitHub Releases (APK) and headed for Google Play, F-Droid / IzzyOnDroid and other stores. License: **GPL-3.0-only** (`LICENSE`). A companion browser dashboard ("SensoLab Web") lives in `Web/`.
+**PhoneLab** — a single-Activity Android app that surfaces every hardware sensor, system info, thermal zone, battery health, a CPU benchmark, sensor tools and a guided device check, all in real time. App id `com.sensolab.devicemonitor` (`foss` flavor) and `com.sensolab.phonelab` (`play` flavor, see "Two product flavors"); distributed on GitHub Releases (APK) and headed for Google Play, F-Droid / IzzyOnDroid and other stores. License: **GPL-3.0-only** (`LICENSE`). A companion browser dashboard ("SensoLab Web") lives in `Web/`.
 
 Language: **Java** (not Kotlin). UI: classic Android Views + **Material 3** Material Components (no Jetpack Compose).
 
@@ -61,7 +61,7 @@ From `App/`. **Use JDK 21** — set `JAVA_HOME` to the Microsoft OpenJDK 21 inst
 .\gradlew publishPlayReleaseBundle   # Gradle Play Publisher → Play internal track (needs credentials)
 ```
 
-**Two product flavors** (dimension `distribution`, `BuildConfig.PLAY_BUILD`): `play` (Google Play) differs only by the About tab's Rate button and the Gradle Play Publisher config; `foss` (GitHub, F-Droid and other stores) is the same app. Everything lives in `src/main/`, and both builds have **no proprietary libraries and no `INTERNET` permission** — their merged manifests request identical permissions. There are no in-app purchases: the Play Billing tip jar was removed in v1.3.2 (v1.3.1, published on Play, still had it), so no payments profile is needed and Play doesn't show the developer's address. Anything Play-only goes in `src/play/` with a stub in `src/foss/`.
+**Two product flavors** (dimension `distribution`, `BuildConfig.PLAY_BUILD`): `play` (Google Play) differs only by the About tab's Rate button and the Gradle Play Publisher config; `foss` (GitHub, F-Droid and other stores) is the same app. The two flavors have **different application ids**: `foss` is `com.sensolab.devicemonitor`; `play` is `com.sensolab.phonelab`, because `com.sensolab.devicemonitor` was published in Play Console as a private (organization-restricted) app, has no public store page, and Google does not allow converting it to public. Never add organizations under Advanced settings > Google Play for organizations on the new Play app. Java package and `namespace` stay `com.sensolab.devicemonitor`; code must use `getPackageName()` / `${applicationId}`, never a hardcoded id. Everything lives in `src/main/`, and both builds have **no proprietary libraries and no `INTERNET` permission** — their merged manifests request identical permissions. There are no in-app purchases: the Play Billing tip jar was removed in v1.3.2 (v1.3.1, published on Play, still had it), so no payments profile is needed and Play doesn't show the developer's address. Anything Play-only goes in `src/play/` with a stub in `src/foss/`.
 
 Toolchain: **Gradle 8.14.5** (wrapper), **AGP 8.13.2**, `compileSdk 36` / `targetSdk 36` / `minSdk 26`, JDK 21 (`sourceCompatibility VERSION_21`, core-library desugaring on). AGP 9 / GPP 4 are deliberately not used yet (both are breaking upgrades).
 

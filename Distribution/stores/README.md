@@ -38,7 +38,7 @@ Last updated 2026-10-17. Update this table whenever a submission moves.
 |---|---|---|
 | GitHub Releases | you (tag + release) | ✅ v1.3.2 is the Latest release (2026-10-31, `PhoneLab-v1.3.2.apk`); v1.3.0 stays a pre-release |
 | Obtainium | nothing to submit | ✅ users add `https://github.com/DrummingBird1/PhoneLab` |
-| Google Play | you (Play Console) | ✅ production: v1.3.2 (code 6) since 2026-10-31, no tip jar and no `INTERNET` (v1.3.1, code 5, was live 2026-10-30 with the tip jar). store listing in en-US, he, es-ES, es-419 and ar published 2026-10-31 (submissions #7 and #8), no declarations pending ([guide](../play/README.md), [answers](../play/console-answers.md)) |
+| Google Play | you (Play Console) | ⚠️ not publicly available (checked 2026-11-21): `com.sensolab.devicemonitor` is in production (v1.3.2, code 6) but restricted to one organization in Play Console (a private app, no public page, 404), and Google does not allow converting it to public. Move in progress to a new public app, `com.sensolab.phonelab` (the `play` flavor id; app not yet created in Play Console). Old listing notes: store listing in en-US, he, es-ES, es-419 and ar was published 2026-10-31. store listing in en-US, he, es-ES, es-419 and ar published 2026-10-31 (submissions #7 and #8), no declarations pending ([guide](../play/README.md), [answers](../play/console-answers.md)) |
 | IzzyOnDroid | you (Codeberg account) | ⛔ on hold: its [AI policy](https://izzyondroid.org/docs/general/AppInclusionPolicy/#ai-policy) rejects apps whose code was written with generative AI, and the request form asks how much was used (see below) |
 | F-Droid | you (GitLab account) | ⬜ recipe ready in [`../fdroid/`](../fdroid/); merge request to fdroiddata not opened |
 | APKPure | you (developer account) | ⬜ |
@@ -68,7 +68,7 @@ If you request it anyway:
    *"App Inclusion Request"* template (requests moved there from GitLab).
 2. Repo: `https://github.com/DrummingBird1/PhoneLab` · package `com.sensolab.devicemonitor` ·
    license GPL-3.0 · APK asset `PhoneLab-v*.apk` (the foss build) · metadata in `fastlane/` ·
-   Google Play link `https://play.google.com/store/apps/details?id=com.sensolab.devicemonitor` ·
+   Google Play link `https://play.google.com/store/apps/details?id=com.sensolab.phonelab` (once the new public Play app is live; the old id has no public page) ·
    categories *Science & Education*, *System* · build: `cd App && ./gradlew assembleFossRelease`.
 3. Fill in the *AI Tools Usage* section truthfully, and mention the signing-cert SHA-256 above.
 4. After it's live, add the IzzyOnDroid badge to the README.
