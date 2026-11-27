@@ -99,7 +99,7 @@ PhoneLab/
 ├── Assets/         textos de la ficha de la tienda, iconos, capturas, changelogs
 ├── fastlane/       textos, icono y capturas para las tiendas (F-Droid / IzzyOnDroid)
 ├── Distribution/   receta de F-Droid y guía de tiendas (compilaciones y claves ignoradas por git)
-└── Archive/        instantáneas congeladas de versiones anteriores
+└── archive/        instantáneas congeladas de versiones anteriores
 ```
 
 ## Licencia

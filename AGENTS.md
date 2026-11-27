@@ -42,10 +42,10 @@ PhoneLab/
 │   ├── play/console-answers.md  # copy-paste answers for Play Console declarations (FGS, health apps)
 │   ├── stores/README.md # IzzyOnDroid, F-Droid, APKPure, Uptodown, … + store status table
 │   └── derive_screenshots.py  # fastlane screenshots → Play (9:16, no alpha) + docs/ WebP
-└── Archive/             # frozen old versions & superseded artifacts (immutable, not edited)
+└── archive/             # frozen old versions & superseded artifacts (immutable, not edited)
 ```
 
-`Archive/SensoLab V1.0.0/` is kept as an immutable snapshot under its original name.
+`archive/SensoLab V1.0.0/` is kept as an immutable snapshot under its original name.
 
 ## Build & run (Android)
 
