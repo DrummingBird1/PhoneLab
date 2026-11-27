@@ -102,7 +102,7 @@ PhoneLab/
 ├── Assets/         store listing copy, icons, screenshots, changelogs
 ├── fastlane/       store listing text, icon and screenshots (F-Droid / IzzyOnDroid)
 ├── Distribution/   F-Droid recipe and store guide (builds and keys are git-ignored)
-└── Archive/        frozen snapshots of older versions
+└── archive/        frozen snapshots of older versions
 ```
 
 ## License

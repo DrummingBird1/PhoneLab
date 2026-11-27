@@ -21,9 +21,11 @@ local.properties
 captures/
 output.json
 release/
-# Release binaries (Archive/ and Distribution/) — keep large bundles out of git
+# Release binaries (archive/ and Distribution/) — keep large bundles out of git
 *.aab
 *.apk
+# Older versions of build outputs move to archive/. Files already tracked there stay tracked.
+/archive/
 
 # Generated files
 **/bin/
