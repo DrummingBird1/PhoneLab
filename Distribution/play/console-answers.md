@@ -13,7 +13,7 @@ stay true. Field names follow the English Play Console; the Hebrew UI shows the 
 | Types used | **Data sync** and **Location** |
 | Task / use case (data sync) | User-initiated recording of the phone's sensor readings to a local CSV file |
 | Task / use case (location) | Adds GPS position rows to that same user-started recording while the user is in other apps |
-| Video | One video covers both types: `E:\AI\media\phonelab\play-fgs\PhoneLab_FGS_dataSync_location.mp4` (37 s). Upload it, e.g. unlisted on YouTube, and paste the link for each type |
+| Video | One video covers both types: a local 37-second recording, `PhoneLab_FGS_dataSync_location.mp4`, kept outside the repository. Upload it, e.g. unlisted on YouTube, and paste the link for each type |
 
 **Description (data sync)**
 
